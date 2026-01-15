@@ -1,0 +1,155 @@
+.section {
+    background: #EBF4FF;
+    padding: 4rem 2rem;
+    margin: 2rem 8rem;
+    border-radius: 24px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    max-width: 488px;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3B82F6;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
+
+.badge svg {
+    width: 20px;
+    height: 20px;
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--primary-night-blue);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: var(--slogan-gray);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+/* Card */
+.card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 30px rgba(14, 31, 59, 0.1);
+    transform: translateY(-4px);
+}
+
+.cardContent {
+    padding: 0 1.5rem;
+}
+
+.iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    background: #F3F4F6;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.iconWrapper svg {
+    width: 20px;
+    height: 20px;
+    color: #3B82F6;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-night-blue);
+    margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+    color: var(--slogan-gray);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.cardImage {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.cardStat {
+    padding: 0 1.5rem;
+    font-size: 0.8125rem;
+    color: var(--slogan-gray);
+}
+
+.statHighlight {
+    font-weight: 600;
+    color: var(--primary-night-blue);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .section {
+        margin: 2rem 4rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        margin: 1rem;
+        padding: 3rem 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .card {
+        flex-direction: column;
+    }
+
+    .header {
+        max-width: 100%;
+    }
+}

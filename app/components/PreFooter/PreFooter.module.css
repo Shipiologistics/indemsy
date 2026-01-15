@@ -1,0 +1,363 @@
+.section {
+    padding: 4rem 2rem;
+    background: var(--white);
+    margin: 2rem 8rem;
+    border-radius: 24px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Main Grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* Newsletter Card */
+.newsletterCard {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    position: relative;
+    min-height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem 4rem 2.5rem;
+}
+
+.videoBackground {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.newsletterOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(40, 67, 114, 0) 37%, #294473 82%);
+    z-index: 1;
+}
+
+.newsletterContent {
+    position: relative;
+    z-index: 2;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletterBadge {
+    color: var(--white);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+}
+
+.newsletterTitle {
+    color: var(--white);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.newsletterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.inputGroup {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.emailInput {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.signUpBtn {
+    padding: 0.875rem 1.5rem;
+    background: #3B82F6;
+    color: var(--white);
+    border: none;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.signUpBtn:hover {
+    background: #2563EB;
+}
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.checkbox input {
+    display: none;
+}
+
+.checkboxCustom {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    background: var(--white);
+}
+
+.checkbox input:checked+.checkboxCustom {
+    background: #3B82F6;
+    border-color: #3B82F6;
+}
+
+.checkboxLabel {
+    color: var(--white);
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.checkboxLabel a {
+    color: #93C5FD;
+    text-decoration: underline;
+}
+
+/* Rights Guide Card */
+.rightsCard {
+    grid-column: 2;
+    grid-row: 1;
+    background: #EBF4FF;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.rightsContent {
+    flex: 1;
+}
+
+.rightsBadge {
+    color: #3B82F6;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+}
+
+.rightsTitle {
+    color: var(--primary-night-blue);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.rightsLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #3B82F6;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.rightsLink:hover {
+    text-decoration: underline;
+}
+
+/* Guide Book */
+.guideBook {
+    flex-shrink: 0;
+}
+
+.guideBookInner {
+    position: relative;
+    width: 180px;
+    height: 250px;
+    background: linear-gradient(to left, transparent, #ebf5ff 26%, #ebf5ff 40%, #d6eaff 58%, #d6eaff 83%, transparent);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    box-shadow: -80px 60px 30px 0px rgba(7, 48, 109, 0.01),
+        -50px 40px 25px 0px rgba(7, 48, 109, 0.05),
+        -30px 22px 22px 0px rgba(7, 48, 109, 0.16),
+        -13px 10px 16px 0px rgba(7, 48, 109, 0.28),
+        -3px 2px 9px 0px rgba(7, 48, 109, 0.32);
+}
+
+.guideBookTitle {
+    color: var(--primary-night-blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+}
+
+.guideBookTitle span {
+    display: block;
+    color: #3B82F6;
+    font-family: monospace;
+    margin-top: 0.25rem;
+}
+
+.guideBookImage {
+    position: absolute;
+    right: 15%;
+    bottom: 5%;
+    height: 70%;
+    width: auto;
+}
+
+/* APRA Card */
+.apraCard {
+    grid-column: 2;
+    grid-row: 2;
+    background: #DBEAFE;
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.apraLogo {
+    width: 115px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.apraText {
+    color: var(--slogan-gray);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* Press Section */
+.pressSection {
+    text-align: center;
+}
+
+.pressTitle {
+    color: var(--slogan-gray);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+    font-family: monospace;
+}
+
+.pressTitle span {
+    color: #3B82F6;
+}
+
+.pressLogos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.pressLogos img {
+    height: 28px;
+    width: auto;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .section {
+        margin: 2rem 4rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletterCard {
+        grid-column: 1;
+        grid-row: 1;
+        min-height: 400px;
+    }
+
+    .rightsCard {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .apraCard {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletterCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .newsletterTitle {
+        font-size: 1.25rem;
+    }
+
+    .rightsCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rightsTitle {
+        font-size: 1.5rem;
+    }
+
+    .guideBookInner {
+        width: 120px;
+        height: 160px;
+    }
+
+    .apraCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pressLogos {
+        gap: 2rem;
+    }
+
+    .pressLogos img {
+        height: 24px;
+    }
+}

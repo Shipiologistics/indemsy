@@ -1,0 +1,243 @@
+.section {
+    padding: 3rem 2rem;
+    background: var(--white);
+    margin: 2rem 8rem;
+    border-radius: 24px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3B82F6;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.badgeIcon {
+    font-size: 1rem;
+}
+
+.title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--primary-night-blue);
+    font-weight: 700;
+    flex: 1;
+}
+
+.trustpilotLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--slogan-gray);
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.trustpilotLink:hover {
+    color: var(--primary-night-blue);
+}
+
+.trustpilotLogo {
+    color: #00B67A;
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+/* Stats Card */
+.statsCard {
+    background: linear-gradient(135deg, #0E1F3B 0%, #1E3A5F 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 320px;
+}
+
+.statsText {
+    color: var(--white);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.statsHighlight {
+    color: #60A5FA;
+    font-weight: 700;
+}
+
+.ratingWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.laurelLeft,
+.laurelRight {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.ratingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ratingNumber {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+}
+
+.ratingStars {
+    color: #FFD700;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
+
+.trustpilotBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    color: var(--white);
+    font-size: 0.8125rem;
+}
+
+.trustpilotIcon {
+    color: #00B67A;
+}
+
+/* Review Cards */
+.reviewCard {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.reviewCard:hover {
+    box-shadow: 0 8px 30px rgba(14, 31, 59, 0.1);
+    transform: translateY(-4px);
+}
+
+.reviewHeader {
+    margin-bottom: 1rem;
+}
+
+.starsRow {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #00B67A;
+    color: var(--white);
+    font-size: 0.875rem;
+}
+
+.star:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.star:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.reviewText {
+    color: var(--primary-night-blue);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.reviewFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.reviewerName {
+    font-weight: 600;
+    color: var(--primary-night-blue);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+
+.reviewDate {
+    color: var(--slogan-gray);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1200px) {
+    .section {
+        margin: 2rem 4rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .statsCard {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statsCard {
+        grid-column: span 1;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,108 @@
+.section {
+    padding: 3rem 2rem;
+    background: var(--white);
+    margin: 2rem 8rem;
+    border-radius: 24px;
+    /* border: 1px solid var(--border-color); optional */
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--slogan-gray);
+    margin-bottom: 2rem;
+}
+
+.highlight {
+    color: #3B82F6;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    transition: opacity 0.3s ease;
+}
+
+.badge:hover {
+    opacity: 0.7;
+}
+
+.usaToday {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-family: 'Georgia', serif;
+}
+
+.wsj {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
+.washingtonPost {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+.forbes {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.bloomberg {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+@media (max-width: 1200px) {
+    .section {
+        margin: 2rem 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        margin: 1rem;
+    }
+
+    .badges {
+        gap: 2rem;
+    }
+
+    .usaToday,
+    .wsj,
+    .washingtonPost,
+    .forbes,
+    .bloomberg {
+        font-size: 1rem;
+    }
+
+    .wsj {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,334 @@
+.section {
+    margin: 2rem 8rem;
+    border-radius: 24px;
+    /* Blue gradient background like AirHelp */
+    background: linear-gradient(135deg, #1e5cb3 0%, #0d3a7a 50%, #0a2d5c 100%);
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 4rem;
+    max-width: 100%;
+}
+
+/* Left Side - Text */
+.textContent {
+    flex: 0 0 280px;
+    max-width: 280px;
+    color: white;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.4px;
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
+
+.badge svg {
+    width: 20px;
+    height: 20px;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+/* Right Side - White Slider Card */
+.sliderCard {
+    flex: 1;
+    max-width: 768px;
+    background: white;
+    border-radius: 24px;
+    padding: 4rem 7rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.amount {
+    display: block;
+    font-size: 60px;
+    font-weight: 700;
+    color: #1a202c;
+    font-family: monospace;
+    line-height: 0.6;
+    margin-bottom: 1.25rem;
+}
+
+.distanceLabel {
+    display: block;
+    font-size: 0.875rem;
+    color: #718096;
+    margin-bottom: 6rem;
+    padding: 0 2rem;
+}
+
+/* Slider Wrapper */
+.sliderWrapper {
+    position: relative;
+    width: 100%;
+    isolation: isolate;
+}
+
+/* Track Area */
+.trackArea {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    z-index: 10;
+}
+
+/* Track Background (Gray) */
+.trackBackground {
+    position: absolute;
+    inset: 0;
+    background: #E2E8F0;
+    border-radius: 999px;
+}
+
+/* Track Fill (Gradient) */
+.trackFill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #63b3ed 0%, #3182ce 100%);
+    border-radius: 999px;
+    transition: width 0.3s ease-out;
+}
+
+/* Visual Thumb */
+.thumbVisual {
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    background: #3182ce;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(49, 130, 206, 0.4);
+    transition: left 0.3s ease-out;
+}
+
+/* Range Input - Full width, invisible but interactive */
+.rangeInput {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 50;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Make the thumb larger for easier clicking */
+.rangeInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.rangeInput::-moz-range-thumb {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+/* Vertical Line Indicator */
+.verticalLine {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(0deg, #FBFDFF 0%, #0066F1 50%, #FBFDFF 100%);
+    pointer-events: none;
+    z-index: 5;
+    transition: left 0.3s ease-out;
+}
+
+/* Airplane */
+.airplane {
+    position: absolute;
+    bottom: 1.5rem;
+    width: 96px;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    transition: left 0.3s ease-out;
+}
+
+/* Blur Gradient Effect */
+.blurGradientWrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 150px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blurGradientMask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: white;
+    border-left: 1px solid #CBD5E0;
+    z-index: 1;
+    transition: left 0.3s ease-out;
+}
+
+.blurGradient {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    right: 1rem;
+    height: 64px;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, #63b3ed 0%, #3182ce 100%);
+    border-radius: 9999px;
+    opacity: 0.2;
+    filter: blur(24px);
+}
+
+/* Tick Marks */
+.tickMarks {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0.75rem;
+    isolation: isolate;
+}
+
+.tick {
+    width: 1.5px;
+    height: 6px;
+    background: #3182ce;
+    transition: all 0.5s ease-out;
+}
+
+.tick:first-child,
+.tick:last-child {
+    width: 1px;
+}
+
+.tallTick {
+    height: 12px;
+}
+
+/* Labels */
+.labels {
+    position: relative;
+    margin-top: 1.5rem;
+    height: 20px;
+    width: 100%;
+    padding: 0 4px;
+}
+
+.label {
+    position: absolute;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3182ce;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .section {
+        margin: 2rem 4rem;
+    }
+
+    .sliderCard {
+        padding: 3rem 4rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+
+    .textContent {
+        flex: 0 0 auto;
+        max-width: 600px;
+        margin-bottom: 1.5rem;
+    }
+
+    .sliderCard {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        margin: 1rem;
+        border-radius: 16px;
+    }
+
+    .container {
+        padding: 2rem 1.5rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .sliderCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .amount {
+        font-size: 3rem;
+    }
+
+    .distanceLabel {
+        margin-bottom: 4rem;
+    }
+
+    .airplane {
+        width: 64px;
+    }
+}
