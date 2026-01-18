@@ -8,15 +8,10 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem 1rem;
+    padding: 0.625rem 1rem;
     background: transparent;
     border-radius: 12px;
     transition: all 0.3s ease;
-}
-
-.inputContainer:focus-within {
-    /* background: var(--white); */
-    /* box-shadow: 0 0 0 2px var(--primary-orange); */
 }
 
 .icon {
@@ -28,19 +23,37 @@
     flex: 1;
     border: none;
     background: transparent;
-    font-size: 1rem;
-    padding: 0;
+    font-size: 1.25rem;
+    /* Large font for big cursor */
+    line-height: 1.5;
+    /* Taller line = taller cursor */
+    padding: 0.25rem 0;
     outline: none;
     color: var(--primary-night-blue);
     min-width: 0;
+    caret-color: var(--primary-orange);
+    font-weight: 500;
 }
 
 .input::placeholder {
-    color: var(--slogan-gray);
+    color: #94a3b8;
+    font-weight: 400;
+    font-size: 0.875rem;
+    /* Much smaller placeholder */
 }
 
 .input:focus {
     box-shadow: none;
+}
+
+/* Highlight container on focus */
+.inputContainer:focus-within {
+    background: rgba(255, 138, 0, 0.1);
+}
+
+/* Dim placeholder when focused */
+.input:focus::placeholder {
+    opacity: 0.5;
 }
 
 .loader {

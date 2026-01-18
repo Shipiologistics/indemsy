@@ -1,37 +1,21 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import styles from './FAQ.module.css';
-
-const faqs = [
-    {
-        question: 'Why should I claim with FlyCompensate?',
-        answer: "Airlines can make claiming compensation tricky — delaying or rejecting claims and turning it into a frustrating, time-consuming process. That's where we come in. We handle the paperwork, negotiations, and all the hassle, so you don't have to. Our experts know air passenger rights laws inside and out, maximizing your chances of winning. And we only charge a service fee if we successfully secure your compensation.",
-    },
-    {
-        question: 'What do I need to claim compensation?',
-        answer: "Having the right documents makes your claim stronger. Essential documents include: your boarding pass (including any passes for alternative flights), your booking confirmation email or receipt (as proof of your reservation). Useful extras include: the reason your flight was disrupted, receipts for extra expenses, the final arrival time of your flight, any emails or notifications from the airline, and a photo of your ID (some airlines ask for it).",
-    },
-    {
-        question: 'Can I claim compensation for the people I traveled with?',
-        answer: "Yes! You can claim for friends, family, children, and colleagues. Each person you traveled with could also be eligible for up to $650 compensation — just include them in your claim.",
-    },
-    {
-        question: 'Is there a time limit to make my claim?',
-        answer: "Time limits vary by country, but in most cases, you can claim up to three years after the disruption. We recommend submitting your claim as soon as possible to avoid missing your window of opportunity.",
-    },
-    {
-        question: 'How long does it take to get my compensation?',
-        answer: "The timeline varies depending on the airline and complexity of the case. Simple cases can be resolved in 2-4 weeks, while more complex cases may take several months. We'll keep you updated throughout the entire process.",
-    },
-    {
-        question: 'What if the airline rejects my claim?',
-        answer: "Don't worry! If the airline rejects your claim, we can pursue legal action on your behalf at no extra cost to you. Our legal team has extensive experience in air passenger rights and has successfully challenged thousands of airline rejections.",
-    },
-];
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const t = useTranslations('faq');
+
+    const faqs = [
+        { question: t('q1'), answer: t('a1') },
+        { question: t('q2'), answer: t('a2') },
+        { question: t('q3'), answer: t('a3') },
+        { question: t('q4'), answer: t('a4') },
+        { question: t('q5'), answer: t('a5') },
+        { question: t('q6'), answer: t('a6') },
+    ];
 
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -41,9 +25,9 @@ export default function FAQ() {
         <section className={styles.section} id="faq">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Frequently Asked Questions</h2>
+                    <h2 className={styles.title}>{t('title')}</h2>
                     <p className={styles.subtitle}>
-                        Everything you need to know about claiming flight compensation
+                        {t('subtitle')}
                     </p>
                 </div>
 
@@ -71,9 +55,9 @@ export default function FAQ() {
                 </div>
 
                 <div className={styles.cta}>
-                    <p className={styles.ctaText}>Have more questions?</p>
+                    <p className={styles.ctaText}>{t('moreQuestions')}</p>
                     <a href="#" className={styles.ctaLink}>
-                        Visit our help center →
+                        {t('visitHelp')} →
                     </a>
                 </div>
             </div>

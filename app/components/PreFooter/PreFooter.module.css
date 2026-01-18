@@ -94,6 +94,7 @@
     border: none;
     font-size: 1rem;
     outline: none;
+    min-width: 0;
 }
 
 .signUpBtn {
@@ -105,6 +106,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
+    white-space: nowrap;
 }
 
 .signUpBtn:hover {
@@ -130,6 +132,7 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 4px;
     background: var(--white);
+    flex-shrink: 0;
 }
 
 .checkbox input:checked+.checkboxCustom {
@@ -304,6 +307,10 @@
 }
 
 @media (max-width: 1024px) {
+    .section {
+        margin: 2rem 2rem;
+    }
+
     .grid {
         grid-template-columns: 1fr;
     }
@@ -312,6 +319,7 @@
         grid-column: 1;
         grid-row: 1;
         min-height: 400px;
+        padding: 3rem 2rem 2rem;
     }
 
     .rightsCard {
@@ -322,25 +330,104 @@
     .apraCard {
         grid-column: 1;
         grid-row: 3;
+        padding: 2rem;
     }
 }
 
 @media (max-width: 768px) {
-    .newsletterCard {
+    .section {
+        margin: 1.5rem;
         padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .grid {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .newsletterCard {
+        padding: 1.5rem;
+        min-height: 350px;
     }
 
     .newsletterTitle {
         font-size: 1.25rem;
     }
 
+    .inputGroup {
+        flex-direction: column;
+    }
+
+    .emailInput {
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+    }
+
+    .signUpBtn {
+        border-radius: 8px;
+        padding: 1rem;
+    }
+
     .rightsCard {
         flex-direction: column;
         text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
 
     .rightsTitle {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .guideBookInner {
+        width: 140px;
+        height: 190px;
+        padding: 0.75rem 1rem;
+    }
+
+    .guideBookTitle {
+        font-size: 0.625rem;
+    }
+
+    .apraCard {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .apraLogo {
+        width: 80px;
+    }
+
+    .apraText {
+        font-size: 0.8125rem;
+    }
+
+    .pressLogos {
+        gap: 1.5rem;
+    }
+
+    .pressLogos img {
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        margin: 1rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .newsletterCard {
+        min-height: 320px;
+        padding: 1rem;
+    }
+
+    .newsletterTitle {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
     }
 
     .guideBookInner {
@@ -348,16 +435,11 @@
         height: 160px;
     }
 
-    .apraCard {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .pressLogos {
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .pressLogos img {
-        height: 24px;
+        height: 18px;
     }
 }

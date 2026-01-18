@@ -2,19 +2,22 @@
 
 import { Suspense } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import ClaimForm from '../components/ClaimForm/ClaimForm';
 import styles from './page.module.css';
 
 function LoadingSpinner() {
+    const t = useTranslations('claimPage');
     return (
         <div className={styles.loading}>
             <div className={styles.spinner}></div>
-            <p>Loading claim form...</p>
+            <p>{t('loading')}</p>
         </div>
     );
 }
 
 export default function ClaimPage() {
+    const t = useTranslations('claimPage');
     return (
         <div className={styles.page}>
             {/* Sidebar */}
@@ -28,26 +31,26 @@ export default function ClaimPage() {
                     <nav className={styles.progressNav}>
                         <div className={`${styles.progressItem} ${styles.active}`}>
                             <div className={styles.progressDot}></div>
-                            <span>Eligibility Check</span>
+                            <span>{t('sidebar.eligibility')}</span>
                         </div>
                         <div className={styles.progressItem}>
                             <div className={styles.progressDot}></div>
-                            <span>Additional Information</span>
+                            <span>{t('sidebar.additionalInfo')}</span>
                         </div>
                         <div className={styles.progressItem}>
                             <div className={styles.progressDot}></div>
-                            <span>Documents</span>
+                            <span>{t('sidebar.documents')}</span>
                         </div>
                         <div className={styles.progressItem}>
                             <div className={styles.progressDot}></div>
-                            <span>Finish</span>
+                            <span>{t('sidebar.finish')}</span>
                         </div>
                     </nav>
                 </div>
 
                 <div className={styles.sidebarFooter}>
                     <div className={styles.featuredIn}>
-                        <p>FlyCompensate has been featured in</p>
+                        <p>{t('sidebar.featuredIn')}</p>
                         <div className={styles.featuredLogos}>
                             <span className={styles.washingtonPost}>The Washington Post</span>
                             <div className={styles.logoRow}>
@@ -67,7 +70,7 @@ export default function ClaimPage() {
                 <header className={styles.header}>
                     <div className={styles.headerBadge}>
                         <span className={styles.checkIcon}>✓</span>
-                        We enforce your rights as a consumer
+                        {t('header.rights')}
                     </div>
                 </header>
 
@@ -79,13 +82,13 @@ export default function ClaimPage() {
 
                 <footer className={styles.footer}>
                     <div className={styles.footerLinks}>
-                        <Link href="#">Help</Link>
-                        <Link href="#">Terms and Conditions</Link>
-                        <Link href="#">Privacy Policy</Link>
+                        <Link href="#">{t('footer.help')}</Link>
+                        <Link href="#">{t('footer.terms')}</Link>
+                        <Link href="#">{t('footer.privacy')}</Link>
                     </div>
                     <div className={styles.footerTrust}>
-                        <span className={styles.trustpilot}>Excellent ★★★★★ 229,860 reviews on ★ Trustpilot</span>
-                        <span>© 2026 FlyCompensate</span>
+                        <span className={styles.trustpilot}>{t('footer.trustpilot')}</span>
+                        <span>{t('footer.copyright')}</span>
                     </div>
                 </footer>
             </main>

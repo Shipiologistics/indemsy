@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import styles from './CompensationSlider.module.css';
 
 export default function CompensationSlider() {
     const [sliderValue, setSliderValue] = useState(3); // 0-3 for 4 positions
+    const t = useTranslations('compensation');
 
     // Get position percentage based on step (non-linear mapping)
     const getPositionFromValue = (val: number) => {
@@ -17,10 +19,10 @@ export default function CompensationSlider() {
     const position = getPositionFromValue(sliderValue);
 
     const currentData = useMemo(() => {
-        if (sliderValue === 0) return { amount: 250, label: '1,500 km or less' };
-        if (sliderValue === 1) return { amount: 400, label: '1,500 km to 3,500 km' };
-        return { amount: 600, label: '3,500 km or more' };
-    }, [sliderValue]);
+        if (sliderValue === 0) return { amount: 250, label: t('distance250') };
+        if (sliderValue === 1) return { amount: 400, label: t('distance400') };
+        return { amount: 600, label: t('distance600') };
+    }, [sliderValue, t]);
 
     const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSliderValue(Number(e.target.value));
@@ -35,11 +37,11 @@ export default function CompensationSlider() {
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                             <path fillRule="evenodd" d="M19.625 3.01a1 1 0 0 0-.396.022L3.99 7.001h7.938l5.957-1.55c.253.371.658.61 1.107.65l.236.9h2.067l-.848-3.252a1 1 0 0 0-.822-.738M3 9a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1zm1.912 2h14.176a1.5 1.5 0 0 0 .912.913v6.176a1.5 1.5 0 0 0-.912.912H4.912A1.5 1.5 0 0 0 4 18.089v-6.176a1.5 1.5 0 0 0 .912-.912M12 12a3 3 0 1 0 0 6 3 3 0 0 0 0-6m-5 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2m10 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2" clipRule="evenodd" />
                         </svg>
-                        Flight Compensation
+                        {t('title')}
                     </p>
-                    <h2 className={styles.title}>How much can you&nbsp;get?</h2>
+                    <h2 className={styles.title}>{t('subtitle')}</h2>
                     <p className={styles.description}>
-                        The amount of compensation you're entitled to by law depends on the distance of your flight. Check how much you could get now.
+                        {t('description')}
                     </p>
                 </div>
 
@@ -115,9 +117,9 @@ export default function CompensationSlider() {
 
                         {/* Labels */}
                         <div className={styles.labels}>
-                            <span className={styles.label} style={{ left: '25%', transform: 'translateX(-50%)' }}>1,500 KM</span>
-                            <span className={styles.label} style={{ left: '70%', transform: 'translateX(-50%)' }}>3,500 KM</span>
-                            <span className={styles.label} style={{ right: '0' }}>MORE</span>
+                            <span className={styles.label} style={{ left: '25%', transform: 'translateX(-50%)' }}>{t('range1500')}</span>
+                            <span className={styles.label} style={{ left: '70%', transform: 'translateX(-50%)' }}>{t('range3500')}</span>
+                            <span className={styles.label} style={{ right: '0' }}>{t('rangeMore')}</span>
                         </div>
                     </div>
                 </div>

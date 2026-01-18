@@ -118,9 +118,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent;
     margin-top: 0.25rem;
-    /* Ensure gradient text works */
-    text-fill-color: transparent;
 }
 
 /* Subtitle */
@@ -140,7 +139,7 @@
     border: 1px solid rgba(255, 255, 255, 0.17);
     background-color: rgba(7, 48, 109, 0.32);
     backdrop-filter: blur(12px);
-    max-width: 800px;
+    max-width: 920px;
     margin: 0 auto;
 }
 

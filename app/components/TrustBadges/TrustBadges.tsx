@@ -1,11 +1,16 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import styles from './TrustBadges.module.css';
 
 export default function TrustBadges() {
+    const t = useTranslations('featured');
+
     return (
         <section className={styles.section}>
             <div className={styles.container}>
                 <p className={styles.title}>
-                    FLYCOMPENSATE HAS BEEN <span className={styles.highlight}>FEATURED IN:</span>
+                    {t('title')}
                 </p>
                 <div className={styles.badges}>
                     <div className={styles.badge}>

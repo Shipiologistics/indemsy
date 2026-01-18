@@ -1,0 +1,111 @@
+.wrapper {
+    position: relative;
+    z-index: 100;
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.trigger:hover {
+    background: #e5e7eb;
+    border-color: #d1d5db;
+}
+
+.flag {
+    font-size: 1.125rem;
+}
+
+.code {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.chevron {
+    transition: transform 0.2s ease;
+    color: #6b7280;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    min-width: 160px;
+    z-index: 1001;
+    animation: slideDown 0.2s ease;
+    border: 1px solid #e5e7eb;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s ease;
+    color: #374151;
+}
+
+.option:hover {
+    background: #f3f4f6;
+}
+
+.optionActive {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.optionActive:hover {
+    background: #dbeafe;
+}
+
+.name {
+    flex: 1;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .trigger {
+        padding: 8px 10px;
+    }
+
+    .code {
+        display: none;
+    }
+}

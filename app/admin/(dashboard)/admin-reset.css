@@ -1,0 +1,48 @@
+/* Reset global typography for Admin Dashboard */
+.adminParams h1 {
+    font-size: 1.875rem !important;
+    /* 3xl */
+    line-height: 2.25rem !important;
+    margin-bottom: 0.5rem !important;
+    font-family: inherit;
+}
+
+.adminParams h2 {
+    font-size: 1.5rem !important;
+    /* 2xl */
+    line-height: 2rem !important;
+    margin-bottom: 0.5rem !important;
+    font-family: inherit;
+}
+
+.adminParams h3 {
+    font-size: 1.25rem !important;
+    /* xl */
+    line-height: 1.75rem !important;
+    margin-bottom: 0.25rem !important;
+    font-family: inherit;
+}
+
+.adminParams p {
+    font-size: 0.875rem !important;
+    /* sm */
+    line-height: 1.25rem !important;
+    font-family: inherit;
+    margin-bottom: 0 !important;
+}
+
+/* Ensure inputs in admin don't use the massive padding from landing page */
+.adminParams input,
+.adminParams select {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.5rem !important;
+    height: auto !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.adminParams input:focus,
+.adminParams select:focus {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5) !important;
+    border-color: #3b82f6 !important;
+}

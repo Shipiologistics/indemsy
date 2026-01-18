@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
 :root {
   /* Primary Colors */
@@ -6,12 +6,12 @@
   --secondary-blue: #132B4F;
   --white: #FFFFFF;
   --slogan-gray: #9FB3CC;
-  
+
   /* Orange Palette */
   --primary-orange: #FF8A00;
   --light-orange: #FFB347;
   --dark-orange: #E67600;
-  
+
   /* Additional Colors */
   --light-bg: #F5F8FC;
   --card-shadow: rgba(14, 31, 59, 0.1);
@@ -43,7 +43,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
 }
@@ -132,6 +137,7 @@ p {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -139,8 +145,13 @@ p {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
@@ -148,6 +159,7 @@ p {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -155,13 +167,27 @@ p {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-fade-up {
@@ -202,7 +228,8 @@ p {
 }
 
 /* Input Styles */
-input, select {
+input,
+select {
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
@@ -214,7 +241,8 @@ input, select {
   transition: all 0.3s ease;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: var(--primary-orange);
   box-shadow: 0 0 0 4px rgba(255, 138, 0, 0.1);
@@ -236,12 +264,29 @@ a:hover {
 }
 
 /* Utility Classes */
-.text-center { text-align: center; }
-.text-muted { color: var(--slogan-gray); }
-.text-orange { color: var(--primary-orange); }
-.text-white { color: var(--white); }
-.bg-dark { background-color: var(--primary-night-blue); }
-.bg-light { background-color: var(--light-bg); }
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--slogan-gray);
+}
+
+.text-orange {
+  color: var(--primary-orange);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.bg-dark {
+  background-color: var(--primary-night-blue);
+}
+
+.bg-light {
+  background-color: var(--light-bg);
+}
 
 /* Grid */
 .grid {
@@ -262,17 +307,27 @@ a:hover {
 }
 
 @media (max-width: 1024px) {
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
-  
+
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
   .section {
     padding: 4rem 0;
   }
-  
+
   .btn {
     width: 100%;
   }

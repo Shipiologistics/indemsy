@@ -1,49 +1,54 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import styles from './Footer.module.css';
 
-const footerLinks = {
-    rights: {
-        title: 'Know Your Rights',
-        links: [
-            { label: 'Delay Compensation', href: '#' },
-            { label: 'Cancellation Compensation', href: '#' },
-            { label: 'Missed Connection', href: '#' },
-            { label: 'Denied Boarding', href: '#' },
-            { label: 'EC 261/2004', href: '#' },
-        ],
-    },
-    company: {
-        title: 'Our Company',
-        links: [
-            { label: 'About Us', href: '#' },
-            { label: 'Blog', href: '#' },
-            { label: 'Careers', href: '#' },
-            { label: 'Press', href: '#' },
-            { label: 'Partners', href: '#' },
-        ],
-    },
-    products: {
-        title: 'Our Products',
-        links: [
-            { label: 'Check Compensation', href: '/claim' },
-            { label: 'Indemsy+', href: '#' },
-            { label: 'Mobile App', href: '#' },
-            { label: 'For Business', href: '#' },
-        ],
-    },
-    legal: {
-        title: 'Legal',
-        links: [
-            { label: 'Terms of Service', href: '/terms-of-service' },
-            { label: 'Privacy Policy', href: '/privacy-policy' },
-            { label: 'Cookie Policy', href: '/cookie-policy' },
-            { label: 'Imprint', href: '/imprint' },
-            { label: 'Contact Us', href: '#' },
-        ],
-    },
-};
-
 export default function Footer() {
+    const t = useTranslations('footer');
+
+    const footerLinks = {
+        rights: {
+            title: t('knowRights'),
+            links: [
+                { label: t('delayCompensation'), href: '#' },
+                { label: t('cancellationCompensation'), href: '#' },
+                { label: t('missedConnection'), href: '#' },
+                { label: t('deniedBoarding'), href: '#' },
+                { label: t('ec261'), href: '#' },
+            ],
+        },
+        company: {
+            title: t('company'),
+            links: [
+                { label: t('aboutUs'), href: '#' },
+                { label: t('blog'), href: '#' },
+                { label: t('careers'), href: '#' },
+                { label: t('press'), href: '#' },
+                { label: t('partners'), href: '#' },
+            ],
+        },
+        products: {
+            title: t('products'),
+            links: [
+                { label: t('checkCompensation'), href: '/claim' },
+                { label: t('plus'), href: '#' },
+                { label: t('mobileApp'), href: '#' },
+                { label: t('forBusiness'), href: '#' },
+            ],
+        },
+        legal: {
+            title: t('legal'),
+            links: [
+                { label: t('termsOfService'), href: '/terms-of-service' },
+                { label: t('privacyPolicy'), href: '/privacy-policy' },
+                { label: t('cookiePolicy'), href: '/cookie-policy' },
+                { label: t('imprint'), href: '/imprint' },
+                { label: t('contactUs'), href: '#' },
+            ],
+        },
+    };
+
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
@@ -54,7 +59,7 @@ export default function Footer() {
                             <span className={styles.logoText}>Indemsy</span>
                         </Link>
                         <p className={styles.tagline}>
-                            The world's #1 flight compensation experts. We fight for your rights so you get paid.
+                            {t('tagline')}
                         </p>
                         <div className={styles.social}>
                             <a href="#" className={styles.socialLink} aria-label="Facebook">
@@ -100,13 +105,13 @@ export default function Footer() {
 
                 <div className={styles.bottom}>
                     <p className={styles.copyright}>
-                        © {new Date().getFullYear()} Indemsy. All rights reserved.
+                        © {new Date().getFullYear()} Indemsy. {t('allRights')}
                     </p>
                     <div className={styles.bottomLinks}>
-                        <Link href="/privacy-policy">Privacy</Link>
-                        <Link href="/terms-of-service">Terms</Link>
-                        <Link href="/cookie-policy">Cookies</Link>
-                        <Link href="/imprint">Imprint</Link>
+                        <Link href="/privacy-policy">{t('privacyPolicy')}</Link>
+                        <Link href="/terms-of-service">{t('termsOfService')}</Link>
+                        <Link href="/cookie-policy">{t('cookiePolicy')}</Link>
+                        <Link href="/imprint">{t('imprint')}</Link>
                     </div>
                 </div>
             </div>

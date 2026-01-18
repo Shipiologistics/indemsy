@@ -1,16 +1,19 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import styles from './PreFooter.module.css';
 
 export default function PreFooter() {
     const [email, setEmail] = useState('');
     const [agreed, setAgreed] = useState(false);
+    const tNewsletter = useTranslations('newsletter');
+    const tRights = useTranslations('rights');
+    const tFeatured = useTranslations('featured');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (email && agreed) {
-            // Handle newsletter signup
             console.log('Newsletter signup:', email);
             setEmail('');
             setAgreed(false);
@@ -36,22 +39,22 @@ export default function PreFooter() {
                         />
                         <div className={styles.newsletterOverlay}></div>
                         <div className={styles.newsletterContent}>
-                            <p className={styles.newsletterBadge}>Sign up for our newsletter</p>
+                            <p className={styles.newsletterBadge}>{tNewsletter('title')}</p>
                             <h3 className={styles.newsletterTitle}>
-                                Get tips and advice straight to your inbox
+                                {tNewsletter('subtitle')}
                             </h3>
                             <form className={styles.newsletterForm} onSubmit={handleSubmit}>
                                 <div className={styles.inputGroup}>
                                     <input
                                         type="email"
-                                        placeholder="Your email address"
+                                        placeholder={tNewsletter('placeholder')}
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         className={styles.emailInput}
                                         required
                                     />
                                     <button type="submit" className={styles.signUpBtn}>
-                                        Sign Up
+                                        {tNewsletter('button')}
                                     </button>
                                 </div>
                                 <label className={styles.checkbox}>
@@ -62,8 +65,7 @@ export default function PreFooter() {
                                     />
                                     <span className={styles.checkboxCustom}></span>
                                     <span className={styles.checkboxLabel}>
-                                        I would like to receive emails from FlyCompensate, and I agree to the{' '}
-                                        <a href="/privacy">Privacy Statement</a>.
+                                        {tNewsletter('consent')}
                                     </span>
                                 </label>
                             </form>
@@ -73,10 +75,10 @@ export default function PreFooter() {
                     {/* Rights Guide Card */}
                     <div className={styles.rightsCard}>
                         <div className={styles.rightsContent}>
-                            <p className={styles.rightsBadge}>Know your rights</p>
-                            <h3 className={styles.rightsTitle}>Check out our easy guide</h3>
+                            <p className={styles.rightsBadge}>{tRights('title')}</p>
+                            <h3 className={styles.rightsTitle}>{tRights('subtitle')}</h3>
                             <a href="#" className={styles.rightsLink}>
-                                Read more
+                                {tRights('readMore')}
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                     <path fillRule="evenodd" d="M13.132 11.632 9.31 7.81a1.061 1.061 0 0 1 1.5-1.5l4.615 4.614a1 1 0 0 1 0 1.413l-4.615 4.615a1.061 1.061 0 0 1-1.5-1.5z" clipRule="evenodd" />
                                 </svg>
@@ -85,12 +87,12 @@ export default function PreFooter() {
                         <div className={styles.guideBook}>
                             <div className={styles.guideBookInner}>
                                 <p className={styles.guideBookTitle}>
-                                    Your guide to air passenger rights
-                                    <span>2025 EDITION</span>
+                                    {tRights('guideTitle')}
+                                    <span>{tRights('edition')}</span>
                                 </p>
                                 <img
                                     src="https://img.airhelp.com/i/revamp/aprg-window.png?tr=f-auto"
-                                    alt="Passenger Rights Guide"
+                                    alt={tRights('guideLabel')}
                                     className={styles.guideBookImage}
                                 />
                             </div>
@@ -105,8 +107,7 @@ export default function PreFooter() {
                             className={styles.apraLogo}
                         />
                         <p className={styles.apraText}>
-                            FlyCompensate is a part of the Association of Passenger Rights Advocates (APRA)
-                            whose mission is to promote and protect passengers' rights.
+                            {tRights('apraText')}
                         </p>
                     </div>
                 </div>
@@ -114,7 +115,7 @@ export default function PreFooter() {
                 {/* Press Logos */}
                 <div className={styles.pressSection}>
                     <p className={styles.pressTitle}>
-                        FLYCOMPENSATE HAS BEEN <span>FEATURED IN:</span>
+                        {tFeatured('title')}
                     </p>
                     <div className={styles.pressLogos}>
                         <img

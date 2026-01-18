@@ -19,6 +19,10 @@
     gap: 1rem;
 }
 
+.headerLeft {
+    flex: 1;
+}
+
 .badge {
     display: inline-flex;
     align-items: center;
@@ -29,7 +33,6 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
-    width: 100%;
 }
 
 .badgeIcon {
@@ -40,7 +43,6 @@
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: var(--primary-night-blue);
     font-weight: 700;
-    flex: 1;
 }
 
 .trustpilotLink {
@@ -62,15 +64,22 @@
     font-weight: 600;
 }
 
-.grid {
+/* Desktop Grid */
+.desktopGrid {
     display: grid;
     grid-template-columns: 1fr repeat(3, 1fr);
     gap: 1.5rem;
     align-items: stretch;
 }
 
+/* Mobile Slider - Hidden on desktop */
+.mobileSliderWrapper {
+    display: none;
+}
+
 /* Stats Card */
-.statsCard {
+.statsCard,
+.mobileStatsCard {
     background: linear-gradient(135deg, #0E1F3B 0%, #1E3A5F 100%);
     border-radius: 20px;
     padding: 2rem;
@@ -150,6 +159,7 @@
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
+    height: 100%;
 }
 
 .reviewCard:hover {
@@ -212,6 +222,55 @@
     text-transform: uppercase;
 }
 
+/* Mobile Slider Styles */
+.mobileSlider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0;
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+}
+
+.mobileSlider::-webkit-scrollbar {
+    display: none;
+}
+
+.mobileSlide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 0 0.5rem;
+}
+
+.sliderDots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d1d5db;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.activeDot {
+    background: var(--primary-orange);
+    width: 24px;
+    border-radius: 5px;
+}
+
+/* Responsive Styles */
 @media (max-width: 1200px) {
     .section {
         margin: 2rem 4rem;
@@ -219,25 +278,77 @@
 }
 
 @media (max-width: 1024px) {
-    .grid {
+    .desktopGrid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .statsCard {
         grid-column: span 2;
     }
+
+    .section {
+        margin: 2rem 2rem;
+    }
 }
 
-@media (max-width: 640px) {
-    .grid {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .section {
+        margin: 1.5rem;
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
     }
 
-    .statsCard {
-        grid-column: span 1;
+    /* Hide desktop grid on mobile */
+    .desktopGrid {
+        display: none;
+    }
+
+    /* Show mobile slider */
+    .mobileSliderWrapper {
+        display: block;
+    }
+
+    .mobileStatsCard {
+        margin-bottom: 1.5rem;
+        min-height: auto;
+        padding: 1.5rem;
+    }
+
+    .ratingNumber {
+        font-size: 2.5rem;
+    }
+
+    .statsText {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .header {
         flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .trustpilotLink {
+        font-size: 0.875rem;
+    }
+
+    .reviewCard {
+        min-height: 200px;
+    }
+
+    .reviewCard:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        margin: 1rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
     }
 }
