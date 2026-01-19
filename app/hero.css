@@ -1,0 +1,368 @@
+.pastel-hero {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    overflow: hidden;
+}
+
+/* Beautiful pastel gradient background - matching AirHelp */
+.pastel-hero-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    margin: 1rem;
+    background-image:
+        /* Yellow radial glow */
+        url("data:image/svg+xml;utf8,<svg viewBox='0 0 1216 516' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-0.4256 -19.892 39.318 -0.15148 715.62 516)'><stop stop-color='rgba(255,255,1)' offset='0'/><stop stop-color='rgba(255,255,255,0.57212)' offset='0.73426'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
+        /* Blue diagonal gradient */
+        linear-gradient(29.56deg, rgba(151, 194, 255, 0) 56.771%, rgb(151, 194, 255) 100%),
+        /* Top-left white glow */
+        url("data:image/svg+xml;utf8,<svg viewBox='0 0 1216 516' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(76.669 21.93 -35.434 22.306 0 0)'><stop stop-color='rgba(255,255,255,1)' offset='0'/><stop stop-color='rgba(255,255,255,0.57212)' offset='0.62331'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
+        /* Conic gradient swirl */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1216 516' preserveAspectRatio='none'><g transform='matrix(1.0336 -9.1074 22.12 0.45203 58.368 516)'><foreignObject x='-569.61' y='-569.61' width='1139.2' height='1139.2'><div xmlns='http://www.w3.org/1999/xhtml' style='background-image: conic-gradient(from 90deg, rgba(152, 194, 255, 1) 0%25, rgba(182, 212, 251, 0.8) 3.0348%25, rgba(211, 229, 247, 0.6) 6.0697%25, rgba(196, 220, 249, 0.3) 15.094%25, rgba(181, 211, 251, 0) 24.118%25, rgba(167, 203, 253, 0.5) 62.059%25, rgba(152, 194, 255, 1) 100%25); opacity:0.8999999761581421; height: 100%25; width: 100%25;'></div></foreignObject></g></svg>"),
+        /* Middle blue gradient */
+        url("data:image/svg+xml;utf8,<svg viewBox='0 0 1216 516' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='0.4000000059604645'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(22.618 4.5009e-7 -0.0000010607 9.5976 254.75 258)'><stop stop-color='rgba(211,229,247,1)' offset='0'/><stop stop-color='rgba(211,229,247,1)' offset='0.99'/><stop stop-color='rgba(211,229,247,0)' offset='1'/></radialGradient></defs></svg>"),
+        /* Bottom-left blue glow */
+        url("data:image/svg+xml;utf8,<svg viewBox='0 0 1216 516' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='0.8999999761581421'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-36.906 16.873 -14.036 -5.5282 170.24 334.63)'><stop stop-color='rgba(211,228,247,1)' offset='0'/><stop stop-color='rgba(211,228,247,0.7)' offset='0.33137'/><stop stop-color='rgba(211,228,247,0.5)' offset='0.78846'/><stop stop-color='rgba(211,228,247,0)' offset='1'/></radialGradient></defs></svg>"),
+        /* Base white */
+        linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.pastel-hero-overlay {
+    position: absolute;
+    inset: 0;
+    bottom: 0;
+    border-radius: 0 0 24px 24px;
+    margin: 1rem;
+    margin-top: auto;
+    height: 255px;
+    background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(239, 245, 254) 41.129%);
+    pointer-events: none;
+}
+
+.pastel-hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Trustpilot Badge */
+.pastel-hero-trustpilot {
+    margin-bottom: 0.5rem;
+}
+
+.pastel-hero-trustpilot-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #0f172a;
+}
+
+.pastel-hero-trustpilot-star {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.pastel-hero-trustpilot-text {
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.pastel-hero-trustpilot-excellent {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #0d3073;
+    margin-left: 0.5rem;
+}
+
+.pastel-hero-trustpilot-stars {
+    display: flex;
+    gap: 2px;
+    margin-left: 0.25rem;
+}
+
+.pastel-hero-star {
+    width: 18px;
+    height: 18px;
+    background-color: #00B67A;
+    position: relative;
+}
+
+.pastel-hero-star::before {
+    content: '★';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+}
+
+.pastel-hero-star-half {
+    background: linear-gradient(90deg, #00B67A 50%, #DCDCE6 50%);
+}
+
+.pastel-hero-trustpilot-reviews {
+    font-size: 0.875rem;
+    color: #475569;
+    margin-left: 0.5rem;
+}
+
+/* Title */
+.pastel-hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    max-width: 592px;
+    letter-spacing: -0.02em;
+}
+
+/* Form Card */
+.pastel-hero-form-card {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 24px;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.pastel-hero-form-card-glass {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(7, 48, 109, 0.06);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 24px;
+}
+
+.pastel-hero-form-card-content {
+    position: relative;
+    z-index: 10;
+}
+
+.pastel-hero-form-subtitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+}
+
+.pastel-hero-form-wrapper {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #E7EBF0;
+    padding: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.pastel-hero-form-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pastel-hero-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pastel-hero-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pastel-hero-input-icon {
+    position: absolute;
+    left: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+.pastel-hero-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    font-size: 1rem;
+    color: #0f172a;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.pastel-hero-input::placeholder {
+    color: #94a3b8;
+}
+
+.pastel-hero-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.pastel-hero-cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    background: #0A6EF8;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.pastel-hero-cta-button:hover {
+    background: #0855c4;
+    transform: translateY(-1px);
+}
+
+/* Checkmarks Section */
+.pastel-hero-checkmarks-section {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.pastel-hero-checkmarks-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4C5F79;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    font-family: monospace;
+}
+
+.pastel-hero-checkmarks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pastel-hero-checkmark-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+}
+
+.pastel-hero-checkmark-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #0A6EF8;
+    flex-shrink: 0;
+}
+
+.pastel-hero-checkmark-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .pastel-hero {
+        min-height: 520px;
+        padding: 4rem 2rem;
+    }
+
+    .pastel-hero-title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .pastel-hero-form-inner {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .pastel-hero-input-group {
+        flex-direction: row;
+        flex: 1;
+    }
+
+    .pastel-hero-input-wrapper {
+        flex: 1;
+    }
+
+    .pastel-hero-cta-button {
+        width: auto;
+        padding: 0.875rem 2rem;
+    }
+
+    .pastel-hero-checkmarks {
+        gap: 1.5rem;
+    }
+
+    .pastel-hero-checkmarks-section {
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .pastel-hero-bg {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .pastel-hero-overlay {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .pastel-hero-title {
+        font-size: 1.75rem;
+    }
+
+    .pastel-hero-trustpilot-link {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .pastel-hero-trustpilot-stars {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.25rem;
+        margin-left: 0;
+    }
+
+    .pastel-hero-trustpilot-reviews {
+        order: 4;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.25rem;
+        margin-left: 0;
+    }
+
+    .pastel-hero-checkmarks {
+        flex-direction: column;
+        align-items: center;
+    }
+}

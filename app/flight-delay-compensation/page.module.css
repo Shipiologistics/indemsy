@@ -1,0 +1,836 @@
+.main {
+    padding-top: 96px;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* Small Hero (form) */
+.smallHero {
+    position: relative;
+    padding: 2rem 1rem 3rem;
+    overflow: hidden;
+}
+
+.smallHeroBg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(100% 120% at 50% 0%, #e9f3ff 0%, #f5f9ff 50%, #ffffff 100%);
+    z-index: 0;
+}
+
+.smallHeroCard {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #f3f9ff 0%, #ffffff 85%);
+    border: 1px solid #dfeafe;
+    border-radius: 32px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 30px 60px rgba(13, 48, 115, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+.trustpilotRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid #dfeafe;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.trustpilotLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.trustpilotExcellent {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #00b67a;
+}
+
+.trustpilotStars {
+    width: 110px;
+    height: 22px;
+}
+
+.trustpilotCountRow {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    font-size: 0.86rem;
+    color: #475569;
+}
+
+.trustpilotCount {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.trustpilotReviews {
+    font-weight: 500;
+    color: #475569;
+}
+
+.smallHeroTitle {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.smallHeroSubtitle {
+    font-size: 1rem;
+    color: #475569;
+    margin: 0;
+}
+
+.heroFormShell {
+    width: 100%;
+    background: linear-gradient(145deg, #eef5ff 0%, #f7fbff 100%);
+    border: 1px solid #cfe0ff;
+    border-radius: 999px;
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.formFields {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.formInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #d0deef;
+    border-radius: 12px;
+    padding: 0.75rem 0.9rem 0.75rem 2.75rem;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.formInput input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: #0f172a;
+    background: transparent;
+}
+
+.formInput input::placeholder {
+    color: #94a3b8;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 0.9rem;
+    color: #64748b;
+}
+
+.formCTA {
+    min-width: 190px;
+    background: #1d4ed8;
+    color: white;
+    border: none;
+    padding: 0.95rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+.formCTA:hover {
+    background: #1e3fa8;
+    transform: translateY(-1px);
+}
+
+.heroChipsRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.heroChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #eef2ff;
+    color: #0f172a;
+    border: 1px solid #dce8ff;
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+.liquidPanel {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.highlightGrid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.highlightCard {
+    background: #f7f9ff;
+    border: 1px solid #e0e7ff;
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.inlineMediaCard {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    background: rgba(15, 23, 42, 0.9);
+    color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.inlineMediaArt {
+    min-height: 180px;
+    border-radius: 16px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), transparent 60%),
+        url('https://img.airhelp.com/landing-pages/Headers/apr-img-airport-happy-486x240-2@2x.png') center/cover;
+    box-shadow: inset 0 0 40px rgba(15, 23, 42, 0.6);
+}
+
+.ghostButton {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    color: inherit;
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sectionHeaderRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: #6366f1;
+    margin-bottom: 0.35rem;
+}
+
+.tag {
+    background: #eef2ff;
+    color: #1d4ed8;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.checklistCard {
+    margin-top: 1rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.checklistCard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checklistCard li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.glassTableWrapper {
+    margin-top: 1rem;
+    border-radius: 20px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05);
+}
+
+.tipGrid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.dualCardLayout {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.listCard {
+    background: #f8faff;
+    border: 1px solid #dde7ff;
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+}
+
+.listCard ol {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.docCallout {
+    margin-top: 1rem;
+    background: white;
+    border-radius: 14px;
+    padding: 1rem;
+    border: 1px dashed #a5b4fc;
+}
+
+.careGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.careCard {
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.25rem;
+    background: white;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.regulationHighlightGrid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #0d3073 0%, #1e40af 100%);
+    padding: 3rem 1.5rem 2rem;
+}
+
+.heroContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.heroContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Trustpilot Badge */
+.trustpilotBadge {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    align-self: flex-start;
+}
+
+.trustpilotRating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.trustpilotExcellent {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+}
+
+.trustpilotStars {
+    width: 110px;
+    height: 22px;
+}
+
+.trustpilotInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.trustpilotCount {
+    font-weight: 600;
+    color: white;
+}
+
+.trustpilotText {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.trustpilotLogo {
+    width: 20px;
+    height: 20px;
+}
+
+.trustpilotBrand {
+    font-weight: 600;
+    color: white;
+}
+
+.heroTitle {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    max-width: 520px;
+}
+
+.heroCTAButton {
+    align-self: flex-start;
+    background: #ff6b73;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.heroCTAButton:hover {
+    background: #ff5a63;
+    transform: translateY(-2px);
+}
+
+.heroImageWrapper {
+    flex-shrink: 0;
+}
+
+.heroImage {
+    width: 100%;
+    max-width: 486px;
+    height: auto;
+    border-radius: 16px;
+}
+
+/* Hero Checkmarks */
+.heroCheckmarks {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.heroCheckmarksIntro {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.heroCheckmarksList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.heroCheckmarkItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.heroCheckIcon {
+    flex-shrink: 0;
+    color: #4ade80;
+}
+
+.heroCheckmarkItem p {
+    font-size: 0.95rem;
+    color: white;
+    margin: 0;
+}
+
+.heroCheckmarkItem strong {
+    font-weight: 700;
+}
+
+.heroMobileCTA {
+    display: none;
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+}
+
+.heroMobileCTA .heroCTAButton {
+    width: 100%;
+}
+
+/* Page Grid - Sidebar + Content */
+.pageGrid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.sidebar {
+    position: sticky;
+    top: 110px;
+}
+
+.sidebarInner {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+.sidebarTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d3073;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.sideNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-left: 1px solid #cbd5e1;
+    padding-left: 1rem;
+}
+
+.navLink {
+    display: block;
+    position: relative;
+    color: #0d3073;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0;
+    transition: color 0.15s ease;
+}
+
+.navLink:hover {
+    color: #2563eb;
+}
+
+.navLinkActive {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.navLinkActive::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    background: #2563eb;
+    border-radius: 50%;
+    margin-left: -3px;
+}
+
+/* Main Content */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.introText {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.7;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0d3073;
+    line-height: 1.3;
+}
+
+.sectionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sectionContent p,
+.section p,
+.section li,
+.section ol {
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.section ul,
+.section ol {
+    padding-left: 1.25rem;
+    margin: 0.25rem 0 0.5rem;
+}
+
+.section li strong {
+    color: #0f172a;
+}
+
+.note {
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+/* Compensation Grid */
+.compensationGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.compensationItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.compensationIcon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #f0f9ff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.compensationText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #475569;
+}
+
+.compensationText strong {
+    color: #0f172a;
+}
+
+/* Tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.table th,
+.table td {
+    padding: 0.9rem 1rem;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    color: #1f2937;
+    font-size: 0.97rem;
+}
+
+.table th {
+    background: #f1f5f9;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .heroContainer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .smallHeroCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .heroFormShell {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .formFields {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .heroContent {
+        align-items: center;
+    }
+
+    .trustpilotBadge {
+        align-self: center;
+    }
+
+    .heroTitle {
+        max-width: 100%;
+    }
+
+    .heroCTAButton {
+        align-self: center;
+    }
+
+    .heroCheckmarksList {
+        justify-content: center;
+    }
+
+    .pageGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        order: -1;
+    }
+
+    .sideNav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-left: none;
+        padding-left: 0;
+        gap: 0.5rem;
+    }
+
+    .navLink {
+        background: #f1f5f9;
+        padding: 0.5rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+    }
+
+    .navLinkActive::before {
+        display: none;
+    }
+
+    .navLinkActive {
+        background: #2563eb;
+        color: white;
+    }
+
+    .compensationGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    .heroTitle {
+        font-size: 1.5rem;
+    }
+
+    .heroCTAButton {
+        display: none;
+    }
+
+    .heroMobileCTA {
+        display: block;
+    }
+
+    .heroCheckmarks {
+        padding: 1rem;
+    }
+
+    .heroCheckmarksList {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .heroImage {
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 1.5rem 1rem 6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sideNav ul {
+        flex-direction: column;
+    }
+}

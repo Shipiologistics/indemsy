@@ -1,0 +1,911 @@
+/* Main Layout */
+.main {
+    padding-top: 96px;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #0d3073 0%, #1e40af 100%);
+    padding: 3rem 1.5rem 2rem;
+}
+
+.heroContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.heroContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Trustpilot Badge */
+.trustpilotBadge {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    align-self: flex-start;
+}
+
+.trustpilotRating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.trustpilotExcellent {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+}
+
+.trustpilotStars {
+    width: 110px;
+    height: 22px;
+}
+
+.trustpilotInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.trustpilotCount {
+    font-weight: 600;
+    color: white;
+}
+
+.trustpilotText {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.trustpilotLogo {
+    width: 20px;
+    height: 20px;
+}
+
+.trustpilotBrand {
+    font-weight: 600;
+    color: white;
+}
+
+.heroTitle {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    max-width: 500px;
+}
+
+.heroCTAButton {
+    align-self: flex-start;
+    background: #ff6b73;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.heroCTAButton:hover {
+    background: #ff5a63;
+    transform: translateY(-2px);
+}
+
+.heroImageWrapper {
+    flex-shrink: 0;
+}
+
+.heroImage {
+    width: 100%;
+    max-width: 486px;
+    height: auto;
+    border-radius: 16px;
+}
+
+/* Hero Checkmarks */
+.heroCheckmarks {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.heroCheckmarksIntro {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.heroCheckmarksList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.heroCheckmarkItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.heroCheckIcon {
+    flex-shrink: 0;
+    color: #4ade80;
+}
+
+.heroCheckmarkItem p {
+    font-size: 0.95rem;
+    color: white;
+    margin: 0;
+}
+
+.heroCheckmarkItem strong {
+    font-weight: 700;
+}
+
+/* Mobile CTA - hidden on desktop */
+.heroMobileCTA {
+    display: none;
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+}
+
+.heroMobileCTA .heroCTAButton {
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* Page Grid - Sidebar + Content */
+.pageGrid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* Sidebar */
+.sidebar {
+    position: sticky;
+    top: 110px;
+}
+
+.sidebarInner {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+.sidebarTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d3073;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.sideNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-left: 1px solid #cbd5e1;
+    padding-left: 1rem;
+}
+
+.navLink {
+    display: block;
+    position: relative;
+    color: #0d3073;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0;
+    transition: color 0.15s ease;
+}
+
+.navLink:hover {
+    color: #2563eb;
+}
+
+.navLinkActive {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.navLinkActive::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    background: #2563eb;
+    border-radius: 50%;
+    margin-left: -3px;
+}
+
+/* Main Content */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.introText {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.7;
+}
+
+/* Info Banner */
+.infoBanner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+.infoBannerIcon {
+    flex-shrink: 0;
+    color: #0ea5e9;
+}
+
+.infoBanner p {
+    flex: 1;
+    font-size: 0.95rem;
+    color: #0c4a6e;
+    margin: 0;
+}
+
+.infoBannerBtn {
+    flex-shrink: 0;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.infoBannerBtn:hover {
+    background: #1d4ed8;
+}
+
+/* Country Cards - 2-column grid like AirHelp */
+.countryCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.countryCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.countryCard:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.countryCard:last-child {
+    grid-column: 1 / -1;
+}
+
+.countryCardContent {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.countryFlag {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.countryLabel {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.countryCardArrow {
+    color: #94a3b8;
+    transition: color 0.15s ease;
+    flex-shrink: 0;
+}
+
+.countryCard:hover .countryCardArrow {
+    color: #2563eb;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 1rem 0;
+}
+
+/* Section Styling */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0d3073;
+    line-height: 1.3;
+}
+
+.subsectionTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-top: 0.5rem;
+}
+
+.sectionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sectionContent p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0;
+}
+
+.sectionContent h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-top: 0.5rem;
+}
+
+.sectionContent strong {
+    color: #0f172a;
+}
+
+/* CTA Banner */
+.ctaBanner {
+    background: linear-gradient(135deg, #0d3073, #1e40af);
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+}
+
+.ctaBannerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.ctaBannerTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+}
+
+.ctaButton {
+    flex-shrink: 0;
+    background: #ff6b73;
+    color: white;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.ctaButton:hover {
+    background: #ff5a63;
+    transform: translateY(-1px);
+}
+
+.ctaBannerChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.ctaChip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.checkIcon {
+    color: #4ade80;
+}
+
+/* Key Takeaways Box */
+.keyTakeawaysBox {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+.keyTakeawaysHeader {
+    margin-bottom: 1.25rem;
+}
+
+.keyTakeawaysLabel {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.keyTakeawaysTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.keyTakeawaysList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.keyTakeawayItem {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.keyTakeawayIcon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #f0f9ff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.keyTakeawayItem p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+}
+
+/* Guide Promo */
+.guidePromo {
+    display: flex;
+    align-items: stretch;
+    background: #0d3073;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 180px;
+}
+
+.guidePromoContent {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.guidePromoContent h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.guidePromoBtn {
+    align-self: flex-start;
+    background: white;
+    color: #0d3073;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.guidePromoBtn:hover {
+    background: #f1f5f9;
+}
+
+.guidePromoVisual {
+    width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.guidePromoShape {
+    position: absolute;
+    right: -50px;
+    top: -20px;
+    width: 250px;
+    height: 250px;
+    background: #ff6b73;
+    border-radius: 50%;
+    opacity: 0.9;
+}
+
+/* Compensation Grid */
+.compensationGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.compensationItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.compensationIcon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #f0f9ff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.compensationText {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #475569;
+}
+
+.compensationText strong {
+    color: #0f172a;
+}
+
+/* Accordion */
+.accordionList {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordionItem {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.accordionTrigger {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.accordionTrigger:hover {
+    color: #2563eb;
+}
+
+.accordionChevron {
+    flex-shrink: 0;
+    color: #2563eb;
+    transition: transform 0.2s ease;
+}
+
+.accordionChevronOpen {
+    transform: rotate(180deg);
+}
+
+.accordionPanel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordionPanelOpen {
+    max-height: 500px;
+}
+
+.accordionContent {
+    padding-bottom: 1.25rem;
+}
+
+.accordionContent p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #475569;
+    margin: 0;
+}
+
+/* World Map */
+.worldMapContainer {
+    margin: 1rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.worldMap {
+    width: 100%;
+    height: auto;
+}
+
+/* FAQ Section */
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faqItem {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.faqItem:last-child {
+    border-bottom: none;
+}
+
+.faqQuestionTitle {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 0.5rem 0;
+}
+
+.faqAnswerText {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #475569;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .heroContainer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .heroContent {
+        align-items: center;
+    }
+
+    .trustpilotBadge {
+        align-self: center;
+    }
+
+    .heroTitle {
+        max-width: 100%;
+    }
+
+    .heroCTAButton {
+        align-self: center;
+    }
+
+    .heroCheckmarksList {
+        justify-content: center;
+    }
+
+    .pageGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        order: -1;
+    }
+
+    .sideNav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-left: none;
+        padding-left: 0;
+        gap: 0.5rem;
+    }
+
+    .navLink {
+        background: #f1f5f9;
+        padding: 0.5rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+    }
+
+    .navLinkActive::before {
+        display: none;
+    }
+
+    .navLinkActive {
+        background: #2563eb;
+        color: white;
+    }
+
+    .ctaBannerContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .compensationGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    .heroTitle {
+        font-size: 1.5rem;
+    }
+
+    .heroCTAButton {
+        display: none;
+    }
+
+    .heroMobileCTA {
+        display: block;
+    }
+
+    .heroCheckmarks {
+        padding: 1rem;
+    }
+
+    .heroCheckmarksList {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .heroImage {
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 1.5rem 1rem 6rem;
+    }
+
+    .countryCards {
+        grid-template-columns: 1fr;
+    }
+
+    .countryCard:last-child {
+        grid-column: auto;
+    }
+
+    .sectionTitle {
+        font-size: 1.3rem;
+    }
+
+    .infoBanner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .guidePromo {
+        flex-direction: column;
+    }
+
+    .guidePromoContent {
+        text-align: center;
+        align-items: center;
+    }
+
+    .guidePromoVisual {
+        width: 100%;
+        height: 100px;
+    }
+
+    .guidePromoShape {
+        right: 50%;
+        transform: translateX(50%);
+        top: -100px;
+    }
+
+    .ctaBannerChips {
+        gap: 1rem;
+    }
+
+    .keyTakeawayItem {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sideNav ul {
+        flex-direction: column;
+    }
+
+    .countryCard {
+        padding: 0.875rem 1rem;
+    }
+
+    .ctaBanner {
+        padding: 1.5rem;
+    }
+
+    .ctaBannerTitle {
+        font-size: 1.1rem;
+    }
+
+    .ctaButton {
+        width: 100%;
+    }
+}

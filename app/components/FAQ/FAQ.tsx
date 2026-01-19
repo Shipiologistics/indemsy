@@ -1,11 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './FAQ.module.css';
+import FaqAccordion from '../FaqAccordion/FaqAccordion';
 
 export default function FAQ() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
     const t = useTranslations('faq');
 
     const faqs = [
@@ -17,10 +16,6 @@ export default function FAQ() {
         { question: t('q6'), answer: t('a6') },
     ];
 
-    const toggleFAQ = (index: number) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
-
     return (
         <section className={styles.section} id="faq">
             <div className={styles.container}>
@@ -31,28 +26,7 @@ export default function FAQ() {
                     </p>
                 </div>
 
-                <div className={styles.faqList}>
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.faqItem} ${openIndex === index ? styles.open : ''}`}
-                        >
-                            <button
-                                className={styles.faqQuestion}
-                                onClick={() => toggleFAQ(index)}
-                                aria-expanded={openIndex === index}
-                            >
-                                <span>{faq.question}</span>
-                                <span className={styles.faqIcon}>
-                                    {openIndex === index ? '−' : '+'}
-                                </span>
-                            </button>
-                            <div className={styles.faqAnswer}>
-                                <p>{faq.answer}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <FaqAccordion items={faqs} />
 
                 <div className={styles.cta}>
                     <p className={styles.ctaText}>{t('moreQuestions')}</p>

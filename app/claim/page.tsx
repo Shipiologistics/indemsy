@@ -87,7 +87,7 @@ export default function ClaimPage() {
                         <Link href="#">{t('footer.privacy')}</Link>
                     </div>
                     <div className={styles.footerTrust}>
-                        <span className={styles.trustpilot}>{t('footer.trustpilot')}</span>
+
                         <span>{t('footer.copyright')}</span>
                     </div>
                 </footer>

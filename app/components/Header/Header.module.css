@@ -4,14 +4,16 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 0.75rem 0;
+    padding: 1.1rem 0 1.6rem;
     transition: all 0.3s ease;
     background: var(--white);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid transparent;
 }
 
 .scrolled {
-    box-shadow: 0 4px 30px rgba(14, 31, 59, 0.1);
+    box-shadow: 0 4px 30px rgba(14, 31, 59, 0.05);
+    /* Lighter shadow */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .container {
@@ -19,18 +21,31 @@
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
+}
+
+.leftSection {
+    display: flex;
+    align-items: flex-end;
+    gap: 3.75rem;
+    /* Spacing between logo and nav */
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     font-weight: 800;
     text-decoration: none;
     color: var(--primary-night-blue);
+    flex-shrink: 0;
+    padding-top: 1.1rem;
+    align-self: flex-end;
+    margin-bottom: -0.15rem;
+    margin-left: 0.25rem;
+    transform: translate(4px, 6px);
 }
 
 .logoIcon {
@@ -47,63 +62,48 @@
 
 .nav {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 2rem;
+    padding-top: 0.65rem;
 }
 
 .navLink {
-    font-size: 0.9375rem;
+    font-size: 0.9rem;
+    /* Smaller footprint and lower visual weight */
     font-weight: 500;
     text-decoration: none;
     color: var(--primary-night-blue);
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
     position: relative;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .navLink:hover {
     color: #3B82F6;
 }
 
-.navLink::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #3B82F6;
-    transition: width 0.3s ease;
-}
-
-.navLink:hover::after {
-    width: 100%;
-}
-
 .actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-.ctaButton {
-    display: inline-flex;
+.userButton {
+    background: none;
+    border: none;
+    padding: 8px;
+    /* Touch target */
+    cursor: pointer;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    background: var(--gradient-orange);
-    color: var(--white);
-    border-radius: 10px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 138, 0, 0.3);
+    border-radius: 50%;
+    transition: background 0.2s ease;
 }
 
-.ctaButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 138, 0, 0.4);
-    color: var(--white);
+.userButton:hover {
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .mobileMenuBtn {
@@ -155,6 +155,81 @@
     bottom: 0;
 }
 
+/* Dropdown Styles */
+.dropdownContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdownButton {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    /* Tighter gap */
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--primary-night-blue);
+}
+
+.arrow {
+    font-size: 0.6rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    color: #6b7280;
+    /* Muted arrow color */
+}
+
+.dropdownContainer:hover .arrow,
+.dropdownContainer.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 280px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    /* Rounded corners like AirHelp */
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 1001;
+    border: 1px solid #e5e7eb;
+}
+
+.dropdownContainer:hover .dropdownMenu,
+.dropdownContainer.active .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdownItem {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--primary-night-blue);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    /* Regular weight */
+    transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+    background: #f9fafb;
+    color: #2563eb;
+    /* Blue highlight */
+}
+
 @media (max-width: 1024px) {
     .nav {
         position: fixed;
@@ -164,11 +239,14 @@
         bottom: 0;
         background: var(--primary-night-blue);
         flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
+        justify-content: flex-start;
+        padding-top: 6rem;
+        gap: 1.5rem;
+        /* Tighter spacing on mobile */
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
+        overflow-y: auto;
     }
 
     .navOpen {
@@ -176,9 +254,13 @@
         visibility: visible;
     }
 
-    .navLink {
-        font-size: 1.5rem;
+    .navLink,
+    .dropdownButton {
+        font-size: 1.1rem !important;
         color: var(--white) !important;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
     }
 
     .mobileMenuBtn {
@@ -186,12 +268,70 @@
         z-index: 1001;
     }
 
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        background: var(--primary-night-blue);
+        /* Default dark bars */
+    }
+
+    /* When menu is open, hamburger should be white if it's on top of blue background? 
+       Actually user button and lang selector are in actions div which is on top.
+       The nav covers the screen. The hamburger needs to be visible. */
+
+    .navOpen~.actions .mobileMenuBtn .hamburger,
+    .navOpen~.actions .mobileMenuBtn .hamburger::before,
+    .navOpen~.actions .mobileMenuBtn .hamburger::after {
+        background: var(--white);
+        /* White bars on dark bg */
+    }
+
+    /* Wait, the hamburger is inside .actions, .nav is sibling. We need to style hamburger based on state */
+
     .actions {
         display: flex;
         gap: 0.75rem;
+        z-index: 1002;
+        /* Above nav overlay */
     }
 
-    .ctaButton {
+    .dropdownContainer {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .dropdownMenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.05);
         display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        margin-top: 0.5rem;
+        padding: 0;
+        border: none;
+    }
+
+    .dropdownContainer.active .dropdownMenu {
+        display: block;
+    }
+
+    .dropdownItem {
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .dropdownItem:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .arrow {
+        color: rgba(255, 255, 255, 0.7);
     }
 }

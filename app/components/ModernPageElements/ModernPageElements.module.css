@@ -1,0 +1,821 @@
+/* ============ GRADIENT HERO ============ */
+.gradientHero {
+    position: relative;
+    padding: 4rem 1.5rem 5rem;
+    overflow: hidden;
+}
+
+.heroBlue {
+    background: linear-gradient(135deg, #0d3073 0%, #1e40af 50%, #3b82f6 100%);
+}
+
+.heroPurple {
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
+}
+
+.heroOrange {
+    background: linear-gradient(135deg, #9a3412 0%, #ea580c 50%, #fb923c 100%);
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+    pointer-events: none;
+}
+
+.heroContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.heroContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.heroTitle {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.heroSubtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.heroChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.heroChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.heroChip:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.chipIcon {
+    font-size: 1.1rem;
+}
+
+.heroCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #ff6b73 0%, #ff8a70 100%);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(255, 107, 115, 0.4);
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
+
+.heroCta:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 107, 115, 0.5);
+}
+
+.heroImageWrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.heroImageGlow {
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.heroImage {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============ GLASS CARDS ============ */
+.glassCard {
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.glassLight {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+
+.glassLight:hover {
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+    transform: translateY(-4px);
+}
+
+.glassDark {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.glassGradient {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+}
+
+/* ============ FEATURE GRID ============ */
+.featureGrid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.cols2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cols3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cols4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.featureCard {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.featureCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.featureCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.1);
+    border-color: #3b82f6;
+}
+
+.featureCard:hover::before {
+    transform: scaleX(1);
+}
+
+.featureIcon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.featureTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.5rem;
+}
+
+.featureDesc {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============ STATS BAR ============ */
+.statsBar {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem;
+    border-radius: 16px;
+    flex-wrap: wrap;
+}
+
+.statsGradient {
+    background: linear-gradient(135deg, #0d3073 0%, #1e40af 100%);
+}
+
+.statsLight {
+    background: white;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 120px;
+}
+
+.statIcon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.statValue {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+}
+
+.statsLight .statValue {
+    color: #0d3073;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.statsLight .statLabel {
+    color: #64748b;
+}
+
+/* ============ MODERN TABLE ============ */
+.tableWrapper {
+    overflow-x: auto;
+    border-radius: 16px;
+}
+
+.tableGlassmorphic {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+
+.tableStriped {
+    background: white;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+.modernTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modernTable th {
+    background: linear-gradient(135deg, #0d3073, #1e40af);
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 1rem 1.25rem;
+    text-align: left;
+}
+
+.modernTable th:first-child {
+    border-radius: 12px 0 0 0;
+}
+
+.modernTable th:last-child {
+    border-radius: 0 12px 0 0;
+}
+
+.colIcon {
+    margin-right: 0.5rem;
+}
+
+.modernTable td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+.tableStriped .modernTable tbody tr:nth-child(odd) {
+    background: #f8fafc;
+}
+
+.modernTable tbody tr {
+    transition: background 0.2s ease;
+}
+
+.modernTable tbody tr:hover {
+    background: #eff6ff;
+}
+
+/* ============ COUNTRY CARDS ============ */
+.countryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.countryCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.countryCard:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+    transform: translateY(-3px);
+}
+
+.countryFlagWrapper {
+    width: 56px;
+    height: 42px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.countryFlag {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.countryInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.countryName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.countryDesc {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.countryArrow {
+    color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+.countryCard:hover .countryArrow {
+    color: #3b82f6;
+    transform: translateX(4px);
+}
+
+/* ============ GRADIENT DIVIDER ============ */
+.gradientDivider {
+    height: 80px;
+    position: relative;
+    margin: 0;
+}
+
+.dividerWave {
+    color: #f8fafc;
+}
+
+.dividerWave svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============ CTA BANNER ============ */
+.ctaBanner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.5rem;
+    border-radius: 20px;
+    flex-wrap: wrap;
+}
+
+.ctaGradient {
+    background: linear-gradient(135deg, #0d3073 0%, #1e40af 50%, #3b82f6 100%);
+    color: white;
+}
+
+.ctaGlass {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+
+.ctaSolid {
+    background: #0f172a;
+    color: white;
+}
+
+.ctaContent {
+    flex: 1;
+    min-width: 280px;
+}
+
+.ctaTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+}
+
+.ctaGlass .ctaTitle {
+    color: #0f172a;
+}
+
+.ctaSubtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0 0 1rem;
+}
+
+.ctaGlass .ctaSubtitle {
+    color: #64748b;
+}
+
+.ctaChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.ctaChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.ctaChip svg {
+    color: #4ade80;
+}
+
+.ctaGlass .ctaChip svg {
+    color: #22c55e;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #ff6b73 0%, #ff8a70 100%);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(255, 107, 115, 0.4);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(255, 107, 115, 0.5);
+}
+
+/* ============ ICON LIST ============ */
+.iconList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.iconListItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.iconListItem:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
+}
+
+.iconListItem.highlighted {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-color: #3b82f6;
+}
+
+.iconListIcon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.listNumber .iconListIcon {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.iconListText {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+/* ============ INFO CALLOUT ============ */
+.infoCallout {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    align-items: flex-start;
+}
+
+.calloutInfo {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border: 1px solid #93c5fd;
+}
+
+.calloutSuccess {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border: 1px solid #86efac;
+}
+
+.calloutWarning {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1px solid #fcd34d;
+}
+
+.calloutTip {
+    background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+    border: 1px solid #c4b5fd;
+}
+
+.calloutIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.calloutContent {
+    flex: 1;
+}
+
+.calloutTitle {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+}
+
+.calloutText {
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============ COMPENSATION CARDS ============ */
+.compensationSection {
+    padding: 1.5rem 0;
+}
+
+.compensationTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 1.25rem;
+}
+
+.compensationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.compensationCard {
+    background: linear-gradient(135deg, #0d3073, #1e40af);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.compensationCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(13, 48, 115, 0.3);
+}
+
+.compensationAmount {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.compensationDistance {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* ============ IMAGE WITH OVERLAY ============ */
+.imageOverlayWrapper {
+    margin: 0;
+}
+
+.imageContainer {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.overlayImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.imageContainer:hover .overlayImage {
+    transform: scale(1.03);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(13, 48, 115, 0.9) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+}
+
+.imageOverlay span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+}
+
+.imageCaption {
+    font-size: 0.9rem;
+    color: #64748b;
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+    .heroContainer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .heroContent {
+        align-items: center;
+    }
+
+    .heroSubtitle {
+        max-width: 100%;
+    }
+
+    .heroCta {
+        align-self: center;
+    }
+
+    .heroChips {
+        justify-content: center;
+    }
+
+    .cols3,
+    .cols4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ctaBanner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ctaContent {
+        text-align: center;
+    }
+
+    .ctaChips {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .gradientHero {
+        padding: 3rem 1rem 4rem;
+    }
+
+    .cols2,
+    .cols3,
+    .cols4 {
+        grid-template-columns: 1fr;
+    }
+
+    .statsBar {
+        gap: 2rem;
+    }
+
+    .statItem {
+        min-width: 100px;
+    }
+
+    .statValue {
+        font-size: 1.5rem;
+    }
+
+    .ctaBanner {
+        padding: 2rem;
+    }
+}

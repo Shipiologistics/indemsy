@@ -8,10 +8,10 @@
     align-items: center;
     gap: 6px;
     padding: 8px 12px;
-    background: #f3f4f6;
-    border: 1px solid #e5e7eb;
+    background: transparent;
+    border: none;
     border-radius: 8px;
-    color: #374151;
+    color: var(--primary-night-blue);
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 0.875rem;
@@ -19,8 +19,8 @@
 }
 
 .trigger:hover {
-    background: #e5e7eb;
-    border-color: #d1d5db;
+    background: rgba(0, 0, 0, 0.05);
+    /* Minimal hover effect */
 }
 
 .flag {

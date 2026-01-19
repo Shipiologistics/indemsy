@@ -1,0 +1,62 @@
+﻿{
+  "heroTitle": "Denied boarding compensation rights: how to claim",
+  "nav": {
+    "overview": "Overview",
+    "eu": "EU flights",
+    "us": "US flights",
+    "international": "International flights",
+    "faq": "FAQ"
+  },
+  "summary": {
+    "p1": "If the airline doesnΓÇÖt let you board your flight, even when you havenΓÇÖt done anything wrong, knowing your air passenger rights will help you know what to do next.",
+    "note": "If your flight is overbooked or youΓÇÖre denied boarding, donΓÇÖt give up your reservation. You could be owed $250ΓÇô$600 for your troubles."
+  },
+  "eu": {
+    "title": "Denied Boarding on EU flights: What to do?",
+    "li1": "Do not volunteer to give up your seat in exchange for vouchers or perks.",
+    "li2": "Hold onto your boarding pass and any other travel documents.",
+    "li3": "Ask why youΓÇÖre being denied boarding.",
+    "li4": "Request an alternate flight to your destination (or request a refund + return flight if needed).",
+    "li5": "Request compensation for your boarding denial (paid immediately if eligible).",
+    "li6": "Ask the airline to cover your meals and refreshments.",
+    "li7": "Get the airline to provide you with a hotel room if youΓÇÖre grounded overnight.",
+    "li8": "Keep your receipts if your boarding denial ends up costing you extra money.",
+    "li9": "See if your boarding denial is eligible for compensation.",
+    "note": "The most common reason is being ΓÇ£bumpedΓÇ¥ due to an overbooked flight, but there are other reasons too. This information is important if you decide to file a claim."
+  },
+  "us": {
+    "title": "Denied Boarding on US flights: What to do?",
+    "p": "If travelers on US domestic flights are bumped due to an overbooked flight, they may be entitled to compensation.",
+    "li1": "Do not volunteer to give up your seat in exchange for vouchers or perks.",
+    "li2": "Hold onto your boarding pass and any other travel documents.",
+    "li3": "Ask why youΓÇÖre being denied boarding.",
+    "li4": "Request an alternate flight to your destination.",
+    "li5": "Request compensation for your boarding denial.",
+    "li6": "See if your boarding denial is eligible for compensation."
+  },
+  "international": {
+    "title": "Denied Boarding on International flights: What to do?",
+    "p": "Passengers on international flights can claim reimbursement for expenses due to boarding denials if they follow a few simple steps.",
+    "li1": "Do not volunteer to give up your seat in exchange for vouchers or perks.",
+    "li2": "Hold onto your boarding pass and any other travel documents.",
+    "li3": "Ask why youΓÇÖre being denied boarding.",
+    "li4": "Request an alternate flight to your destination.",
+    "li5": "Keep your receipts if your boarding denial ends up costing you extra money.",
+    "note": "Keeping a paper trail (receipts, confirmations, photos of airport boards) can help you recover expenses caused by the disruption."
+  },
+  "faq": {
+    "title": "Common questions",
+    "q1": "Do I have to accept a voucher if I am denied boarding?",
+    "a1": "No. Under EC 261, you are entitled to cash compensation. Accepting a voucher often means waiving your right to cash.",
+    "q2": "What if I volunteer to give up my seat?",
+    "a2": "If you volunteer, you accept the airline's offer (vouchers, cash, perks) and give up your right to further EC 261 compensation.",
+    "q3": "How much compensation can I get in the EU?",
+    "a3": "Up to Γé¼600, depending on the distance of your flight.",
+    "q4": "How much compensation can I get in the US?",
+    "a4": "Up to $1,550 (400% of your one-way fare), provided your re-routed flight arrives significantly later than scheduled.",
+    "q5": "What documents should I collect?",
+    "a5": "Keep your boarding pass, booking confirmation, receipts for any extra expenses, and ask for a written statement from the airline.",
+    "q6": "Can I claim if the airline was bought out?",
+    "a6": "Yes, if the buying airline took over the operations and liabilities. If the airline went bankrupt and liquidated, claiming is more difficult."
+  }
+}

@@ -58,10 +58,7 @@ export default function Testimonials() {
                         </span>
                         <h2 className={styles.title}>{t('title')}</h2>
                     </div>
-                    <a href="#" className={styles.trustpilotLink}>
-                        {t('seeAll')}
-                        <span className={styles.trustpilotLogo}>★ Trustpilot</span>
-                    </a>
+                    {t('seeAll')}
                 </div>
 
                 {/* Desktop Grid */}
@@ -81,7 +78,7 @@ export default function Testimonials() {
                         </div>
                         <div className={styles.trustpilotBadge}>
                             <span className={styles.trustpilotIcon}>★</span>
-                            Trustpilot 4.5/5 {t('basedOn')}
+                            4.5/5 {t('basedOn')}
                         </div>
                     </div>
 
@@ -121,7 +118,7 @@ export default function Testimonials() {
                         </div>
                         <div className={styles.trustpilotBadge}>
                             <span className={styles.trustpilotIcon}>★</span>
-                            Trustpilot 4.5/5 {t('basedOn')}
+                            4.5/5 {t('basedOn')}
                         </div>
                     </div>
 

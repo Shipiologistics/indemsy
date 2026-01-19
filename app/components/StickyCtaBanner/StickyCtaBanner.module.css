@@ -1,0 +1,115 @@
+.stickyBanner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #0d3073 0%, #1e40af 100%);
+    z-index: 1000;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bannerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.bannerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bannerText {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.bannerChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.checkIcon {
+    color: #4ade80;
+    flex-shrink: 0;
+}
+
+.ctaButton {
+    flex-shrink: 0;
+    background: white;
+    color: #0d3073;
+    border: 2px solid white;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+}
+
+.ctaButton:hover {
+    background: transparent;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stickyBanner {
+        padding: 0.875rem 1rem;
+    }
+
+    .bannerContainer {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .bannerContent {
+        align-items: center;
+        text-align: center;
+    }
+
+    .bannerText {
+        font-size: 0.95rem;
+    }
+
+    .bannerChips {
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .chip {
+        font-size: 0.8rem;
+    }
+
+    .ctaButton {
+        width: 100%;
+        padding: 0.7rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bannerChips {
+        gap: 0.5rem;
+    }
+
+    .chip span {
+        font-size: 0.75rem;
+    }
+}

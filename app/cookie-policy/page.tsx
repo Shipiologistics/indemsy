@@ -78,7 +78,7 @@ export default function CookiePolicy() {
                         <ul>
                             <li>Google (Analytics, Ads)</li>
                             <li>Facebook</li>
-                            <li>Trustpilot</li>
+
                             <li>Payment processors</li>
                         </ul>
                     </section>

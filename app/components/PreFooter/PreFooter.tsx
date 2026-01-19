@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useTranslations } from 'next-intl';
 import styles from './PreFooter.module.css';
 
@@ -28,14 +29,11 @@ export default function PreFooter() {
                 <div className={styles.grid}>
                     {/* Newsletter Card */}
                     <div className={styles.newsletterCard}>
-                        <video
-                            src="https://img.airhelp.com/i/revamp/subscribe-video-plane.mp4"
+                        <DotLottieReact
+                            src="https://lottie.host/2ca4aab1-94f0-4112-af0e-879fece3e1ff/ayVfprWKUW.lottie"
                             loop
-                            muted
-                            playsInline
-                            autoPlay
+                            autoplay
                             className={styles.videoBackground}
-                            poster="https://img.airhelp.com/i/revamp/newsletter-plane-bg.webp"
                         />
                         <div className={styles.newsletterOverlay}></div>
                         <div className={styles.newsletterContent}>

@@ -72,20 +72,7 @@ export default function Hero() {
 
             <div className={styles.container}>
                 <div className={styles.content}>
-                    {/* Trustpilot Badge */}
-                    <div className={styles.trustBadge}>
-                        <span className={styles.trustStar}>★</span>
-                        <span className={styles.trustLabel}>{t('trustpilot')}</span>
-                        <span className={styles.trustExcellent}>{t('excellent')}</span>
-                        <div className={styles.trustStars}>
-                            <span className={styles.starBox}>★</span>
-                            <span className={styles.starBox}>★</span>
-                            <span className={styles.starBox}>★</span>
-                            <span className={styles.starBox}>★</span>
-                            <span className={styles.starBoxHalf}>★</span>
-                        </div>
-                        <span className={styles.trustCount}>{t('reviews')}</span>
-                    </div>
+                    {/* Trustpilot Badge Removed */}
 
                     {/* Title */}
                     <h1 className={styles.title}>
