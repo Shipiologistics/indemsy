@@ -3,6 +3,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getLocale, getTranslations } from 'next-intl/server';
 import "./globals.css";
 import "./hero.css";
+import LayoutWrapper from './components/LayoutWrapper/LayoutWrapper';
+import ChatBot from './components/ChatBot/ChatBot';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -48,9 +50,15 @@ export default async function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
+          <ChatBot />
         </NextIntlClientProvider>
       </body>
     </html>
   );
 }
+
+
+

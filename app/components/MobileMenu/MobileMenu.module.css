@@ -1,0 +1,109 @@
+.trigger {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(14, 31, 59, 0.15);
+    border-radius: 999px;
+    padding: 0.55rem 0.65rem;
+    gap: 4px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.triggerActive,
+.trigger:hover {
+    background: rgba(14, 31, 59, 0.08);
+    border-color: rgba(14, 31, 59, 0.3);
+}
+
+.bar {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--primary-night-blue);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 12, 24, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1200;
+}
+
+.sidebar {
+    width: min(85vw, 340px);
+    height: 100%;
+    background: #06122b;
+    color: white;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.35);
+}
+
+.sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+.sidebarNav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.navItem {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.sectionSecondary {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1.25rem;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.secondaryItem {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+    .trigger {
+        display: flex;
+    }
+}

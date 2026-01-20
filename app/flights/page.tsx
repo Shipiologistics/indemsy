@@ -3,8 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+
 
 interface Flight {
     flightNumber: string;
@@ -292,8 +291,7 @@ function FlightsContent() {
 export default function FlightsPage() {
     return (
         <div className={styles.page}>
-            <Header />
-            <main className={styles.main}>
+            <div className={styles.main}>
                 <Suspense fallback={
                     <div className={styles.loading}>
                         <div className={styles.loadingSpinner}></div>
@@ -302,8 +300,7 @@ export default function FlightsPage() {
                 }>
                     <FlightsContent />
                 </Suspense>
-            </main>
-            <Footer />
+            </div>
         </div>
     );
 }

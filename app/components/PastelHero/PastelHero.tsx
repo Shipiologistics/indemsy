@@ -55,7 +55,7 @@ const iconMap = {
     ),
 };
 
-export default function PastelHero({ title, showTrustpilot = true, checkmarks }: PastelHeroProps) {
+export default function PastelHero({ title, showTrustpilot = false, checkmarks }: PastelHeroProps) {
     const t = useTranslations('hero');
     const [departureAirport, setDepartureAirport] = useState<Airport | null>(null);
     const [arrivalAirport, setArrivalAirport] = useState<Airport | null>(null);

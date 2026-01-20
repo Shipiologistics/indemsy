@@ -91,11 +91,9 @@ interface FormData {
     ticketPurchaseSource: string;
     referralSource: string;
 
-    // Step 15: Prime Subscription
-    primeSubscription: 'none' | 'prime' | 'primePlus';
 }
 
-const TOTAL_STEPS = 16;
+const TOTAL_STEPS = 15;
 
 const initialFormData: FormData = {
     isDirect: null,
@@ -130,7 +128,6 @@ const initialFormData: FormData = {
     preferredLanguage: '',
     ticketPurchaseSource: '',
     referralSource: '',
-    primeSubscription: 'none',
 };
 
 interface ClaimFormProps {
@@ -298,7 +295,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
             case 12: return !!formData.idDocument;
             case 13: return formData.contactedAirline !== null;
             case 14: return true; // Optional
-            case 15: return true; // Can skip premium
             default: return true;
         }
     };
@@ -1251,73 +1247,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 15: Prime Subscription
+            // Step 15: Success
             case 15:
-                return (
-                    <div className={styles.stepContent}>
-                        <div className={styles.stepIcon}>✨</div>
-                        <h2 className={styles.stepTitle}>{t('step15Title')}</h2>
-                        <p className={styles.stepSubtitle}>{t('step15Subtitle')}</p>
-
-                        <p className={styles.primeIntro}>
-                            {t('primeIntro')}
-                        </p>
-
-                        <div className={styles.primeCards}>
-                            <div
-                                className={`${styles.primeCard} ${formData.primeSubscription === 'prime' ? styles.selected : ''} ${styles.recommended}`}
-                                onClick={() => updateFormData('primeSubscription', 'prime')}
-                            >
-                                <span className={styles.recommendedBadge}>{t('recommended')}</span>
-                                <div className={styles.primeIcon}>✨</div>
-                                <h3>{t('primePlan')}</h3>
-                                <div className={styles.primePrice}>
-                                    <span className={styles.oldPrice}>€9.99</span>
-                                    <span className={styles.newPrice}>€3.25</span>
-                                    <span className={styles.period}>/month</span>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`${styles.primeCard} ${formData.primeSubscription === 'primePlus' ? styles.selected : ''}`}
-                                onClick={() => updateFormData('primeSubscription', 'primePlus')}
-                            >
-                                <div className={styles.primeIcon}>💎</div>
-                                <h3>{t('primePlusPlan')}</h3>
-                                <div className={styles.primePrice}>
-                                    <span className={styles.newPrice}>€29.99</span>
-                                    <span className={styles.period}>/month</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.primeFeatures}>
-                            <p><strong>{t('primeFeaturesTitle')}</strong></p>
-                            <ul>
-                                <li>✓ {t('primeFeature1')}</li>
-                                <li>✓ {t('primeFeature2')}</li>
-                                <li>✓ {t('primeFeature3')}</li>
-                                <li>✓ {t('primeFeature4')}</li>
-                                <li>✓ {t('primeFeature5')}</li>
-                                <li>✓ {t('primeFeature6')}</li>
-                            </ul>
-                        </div>
-
-                        <button
-                            type="button"
-                            className={styles.skipPrimeBtn}
-                            onClick={() => {
-                                updateFormData('primeSubscription', 'none');
-                                nextStep();
-                            }}
-                        >
-                            {t('skipPrime')}
-                        </button>
-                    </div>
-                );
-
-            // Step 16: Success
-            case 16:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.successIcon}>🎉</div>
@@ -1330,6 +1261,18 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                 <p><strong>{t('flight')}:</strong> {formData.selectedFlight?.flightNumber || formData.manualFlightNumber}</p>
                                 <p><strong>{t('route')}:</strong> {formData.departureAirport?.iata} → {formData.arrivalAirport?.iata}</p>
                                 <p><strong>{t('expectedCompensation')}:</strong> Up to €400</p>
+                            </div>
+                        </div>
+
+                        <div className={styles.emailReminder}>
+                            <div className={styles.emailReminderIcon}>📧</div>
+                            <div className={styles.emailReminderContent}>
+                                <h4>{t('emailReminderTitle')}</h4>
+                                <p>{t('emailReminderText')}</p>
+                                <p className={styles.emailHighlight}><strong>{formData.email}</strong></p>
+                                <a href="/dashboard" className={styles.trackClaimBtn}>
+                                    {t('trackButton')} →
+                                </a>
                             </div>
                         </div>
 
@@ -1390,7 +1333,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         </button>
                     )}
 
-                    {currentStep < 15 ? (
+                    {currentStep < 14 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}
@@ -1399,7 +1342,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         >
                             {t('continue')} →
                         </button>
-                    ) : currentStep === 15 && formData.primeSubscription !== 'none' ? (
+                    ) : currentStep === 14 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}

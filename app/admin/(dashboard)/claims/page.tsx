@@ -88,10 +88,14 @@ export default async function ClaimsPage() {
                         {allClaims.map((claim, idx) => (
                             <tr
                                 key={claim.id}
+                                onClick={() => window.location.href = `/admin/claims/${claim.id}`}
                                 style={{
                                     borderBottom: idx < allClaims.length - 1 ? '1px solid #f8fafc' : 'none',
                                     cursor: 'pointer',
+                                    transition: 'background 0.2s ease',
                                 }}
+                                onMouseEnter={(e) => e.currentTarget.style.background = '#f8fafc'}
+                                onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                             >
                                 <td style={{ padding: '16px 20px' }}>
                                     <span style={{

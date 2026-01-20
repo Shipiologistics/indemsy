@@ -317,10 +317,10 @@
     gap: 2rem;
     flex-wrap: wrap;
     padding: 1rem 2rem;
-    background: rgba(135, 206, 250, 0.15);
+    background: rgba(30, 144, 206, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(135, 206, 250, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     margin-top: 0.5rem;
@@ -449,15 +449,15 @@
     }
 
     .features {
-        gap: 0.25rem;
-        background: rgba(0, 0, 0, 0.5);
+        gap: 0.45rem;
+        background: rgba(55, 144, 157, 0.5);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border: none;
         padding: 0.5rem 0.75rem;
         margin-top: 0.5rem;
         border-radius: 0.5rem;
-        margin-bottom: 0;
+        margin-bottom: 3.5rem;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;

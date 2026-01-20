@@ -58,7 +58,6 @@ export async function submitClaim(formData: any) {
             preferredLanguage: formData.preferredLanguage || null,
             ticketPurchaseSource: formData.ticketPurchaseSource || null,
             referralSource: formData.referralSource || null,
-            primeSubscription: formData.primeSubscription || 'none',
         }).returning({ id: claims.id });
 
         console.log('Claim submitted successfully, ID:', result[0].id);

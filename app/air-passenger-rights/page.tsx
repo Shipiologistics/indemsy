@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import PastelHero from '../components/PastelHero/PastelHero';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -259,233 +258,229 @@ export default function Page() {
     }, []);
 
     return (
-        <>
-            <Header />
-            <main className={styles.main}>
-                {/* Hero Section */}
-                <PastelHero
-                    title={t('heroTitle')}
-                    checkmarks={[
-                        { icon: 'money', text: t('heroCheckmarks.amount') },
-                        { icon: 'shield', text: t('heroCheckmarks.care') },
-                        { icon: 'legal', text: t('heroCheckmarks.options') }
-                    ]}
-                />
+        <div className={styles.main}>
+            {/* Hero Section */}
+            <PastelHero
+                title={t('heroTitle')}
+                checkmarks={[
+                    { icon: 'money', text: t('heroCheckmarks.amount') },
+                    { icon: 'shield', text: t('heroCheckmarks.care') },
+                    { icon: 'legal', text: t('heroCheckmarks.options') }
+                ]}
+            />
 
 
-                <div className={styles.container}>
-                    <div className={styles.pageGrid}>
-                        {/* Sticky Sidebar Navigation */}
-                        <aside className={styles.sidebar}>
-                            <div className={styles.sidebarInner}>
-                                <h5 className={styles.sidebarTitle}>{t('sidebarTitle')}</h5>
-                                <nav className={styles.sideNav}>
-                                    <ul>
-                                        {navItems.map((item) => (
-                                            <li key={item.id}>
-                                                <a
-                                                    href={`#${item.id}`}
-                                                    className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
-                                                    onClick={() => setActiveSection(item.id)}
-                                                >
-                                                    {item.label}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </nav>
+            <div className={styles.container}>
+                <div className={styles.pageGrid}>
+                    {/* Sticky Sidebar Navigation */}
+                    <aside className={styles.sidebar}>
+                        <div className={styles.sidebarInner}>
+                            <h5 className={styles.sidebarTitle}>{t('sidebarTitle')}</h5>
+                            <nav className={styles.sideNav}>
+                                <ul>
+                                    {navItems.map((item) => (
+                                        <li key={item.id}>
+                                            <a
+                                                href={`#${item.id}`}
+                                                className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
+                                                onClick={() => setActiveSection(item.id)}
+                                            >
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
+                        </div>
+                    </aside>
+
+                    {/* Main Content */}
+                    <div className={styles.content}>
+                        {/* Intro text */}
+                        <p className={styles.introText}>
+                            {t('introText')}
+                        </p>
+
+                        {/* Info Banner */}
+                        <div className={styles.infoBanner}>
+                            <div className={styles.infoBannerIcon}>
+                                <svg viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12 17C11.448 17 11 16.552 11 16V12C11 11.448 11.448 11 12 11C12.552 11 13 11.448 13 12V16C13 16.552 12.552 17 12 17ZM12.5 9H11.5C11.224 9 11 8.776 11 8.5V7.5C11 7.224 11.224 7 11.5 7H12.5C12.776 7 13 7.224 13 7.5V8.5C13 8.776 12.776 9 12.5 9Z" />
+                                </svg>
                             </div>
-                        </aside>
+                            <p>{t('infoBannerText')}</p>
+                            <button className={styles.infoBannerBtn}>{t('infoBannerCTA')}</button>
+                        </div>
 
-                        {/* Main Content */}
-                        <div className={styles.content}>
-                            {/* Intro text */}
-                            <p className={styles.introText}>
-                                {t('introText')}
-                            </p>
-
-                            {/* Info Banner */}
-                            <div className={styles.infoBanner}>
-                                <div className={styles.infoBannerIcon}>
-                                    <svg viewBox="0 0 24 24" width="24" height="24">
-                                        <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12 17C11.448 17 11 16.552 11 16V12C11 11.448 11.448 11 12 11C12.552 11 13 11.448 13 12V16C13 16.552 12.552 17 12 17ZM12.5 9H11.5C11.224 9 11 8.776 11 8.5V7.5C11 7.224 11.224 7 11.5 7H12.5C12.776 7 13 7.224 13 7.5V8.5C13 8.776 12.776 9 12.5 9Z" />
+                        {/* Country/Region Cards */}
+                        <div className={styles.countryCards}>
+                            {countryCards.map((card, index) => (
+                                <Link href={card.href} key={index} className={styles.countryCard}>
+                                    <div className={styles.countryCardContent}>
+                                        <img
+                                            src={card.flag}
+                                            alt=""
+                                            width={32}
+                                            height={32}
+                                            className={styles.countryFlag}
+                                            loading="lazy"
+                                        />
+                                        <span className={styles.countryLabel}>{card.label}</span>
+                                    </div>
+                                    <svg viewBox="0 0 24 24" width="20" height="20" className={styles.countryCardArrow}>
+                                        <path fill="currentColor" d="M13.1315 11.6315L9.3105 7.8105C8.8965 7.3965 8.8965 6.7245 9.3105 6.3105C9.7245 5.8965 10.3965 5.8965 10.8105 6.3105L15.4245 10.9245C15.8155 11.3155 15.8155 11.9485 15.4245 12.3385L10.8105 16.9525C10.3965 17.3665 9.7245 17.3665 9.3105 16.9525C8.8965 16.5385 8.8965 15.8665 9.3105 15.4525L13.1315 11.6315Z" />
                                     </svg>
-                                </div>
-                                <p>{t('infoBannerText')}</p>
-                                <button className={styles.infoBannerBtn}>{t('infoBannerCTA')}</button>
+                                </Link>
+                            ))}
+                        </div>
+
+                        {/* Section: What are air passenger rights? */}
+                        <div className={styles.divider} />
+                        <section id="what-are-air-passenger-rights" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('sectionWhatAre.title')}</h2>
+                            <div className={styles.sectionContent}>
+                                <p>{t('sectionWhatAre.p1')}</p>
+                                <p>{t('sectionWhatAre.p2')}</p>
+                                <p><strong>{t('sectionWhatAre.p3')}</strong></p>
+                            </div>
+                        </section>
+
+                        {/* CTA Banner */}
+                        <CTABanner title={t('ctaBanners.banner1')} buttonText={t('heroCTA')} />
+
+                        {/* 79% stat */}
+                        <div className={styles.sectionContent}>
+                            <p>{t('stat79')}</p>
+                        </div>
+
+                        {/* Key Takeaways Box */}
+                        <div className={styles.keyTakeawaysBox}>
+                            <div className={styles.keyTakeawaysHeader}>
+                                <span className={styles.keyTakeawaysLabel}>{t('takeaways.label')}</span>
+                                <h4 className={styles.keyTakeawaysTitle}>{t('takeaways.title')}</h4>
+                            </div>
+                            <div className={styles.keyTakeawaysList}>
+                                {keyTakeaways.map((item, index) => (
+                                    <div key={index} className={styles.keyTakeawayItem}>
+                                        <div className={styles.keyTakeawayIcon}>{item.icon}</div>
+                                        <p>{item.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Download Guide Promo */}
+                        <div className={styles.guidePromo}>
+                            <div className={styles.guidePromoContent}>
+                                <h3>{t('guidePromo.title')}</h3>
+                                <button className={styles.guidePromoBtn}>{t('guidePromo.btn')}</button>
+                            </div>
+                            <div className={styles.guidePromoVisual}>
+                                <div className={styles.guidePromoShape}></div>
+                            </div>
+                        </div>
+
+                        {/* Section: Compensation */}
+                        <div className={styles.divider} />
+                        <section id="air-passenger-regulations-about-compensation" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('sectionCompensation.title')}</h2>
+                            <div className={styles.sectionContent}>
+                                <p>{t('sectionCompensation.p1')}</p>
                             </div>
 
-                            {/* Country/Region Cards */}
-                            <div className={styles.countryCards}>
-                                {countryCards.map((card, index) => (
-                                    <Link href={card.href} key={index} className={styles.countryCard}>
-                                        <div className={styles.countryCardContent}>
-                                            <img
-                                                src={card.flag}
-                                                alt=""
-                                                width={32}
-                                                height={32}
-                                                className={styles.countryFlag}
-                                                loading="lazy"
-                                            />
-                                            <span className={styles.countryLabel}>{card.label}</span>
+                            {/* Compensation Amounts */}
+                            <h4 className={styles.subsectionTitle} id="compensation-amounts">{t('sectionCompensation.subtitle')}</h4>
+                            <div className={styles.compensationGrid}>
+                                {compensationAmounts.map((item, index) => (
+                                    <div key={index} className={styles.compensationItem}>
+                                        <div className={styles.compensationIcon}>{item.icon}</div>
+                                        <div className={styles.compensationText}>
+                                            <strong>{item.amount}</strong> {item.regulation}
                                         </div>
-                                        <svg viewBox="0 0 24 24" width="20" height="20" className={styles.countryCardArrow}>
-                                            <path fill="currentColor" d="M13.1315 11.6315L9.3105 7.8105C8.8965 7.3965 8.8965 6.7245 9.3105 6.3105C9.7245 5.8965 10.3965 5.8965 10.8105 6.3105L15.4245 10.9245C15.8155 11.3155 15.8155 11.9485 15.4245 12.3385L10.8105 16.9525C10.3965 17.3665 9.7245 17.3665 9.3105 16.9525C8.8965 16.5385 8.8965 15.8665 9.3105 15.4525L13.1315 11.6315Z" />
-                                        </svg>
-                                    </Link>
+                                    </div>
                                 ))}
                             </div>
 
-                            {/* Section: What are air passenger rights? */}
-                            <div className={styles.divider} />
-                            <section id="what-are-air-passenger-rights" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('sectionWhatAre.title')}</h2>
-                                <div className={styles.sectionContent}>
-                                    <p>{t('sectionWhatAre.p1')}</p>
-                                    <p>{t('sectionWhatAre.p2')}</p>
-                                    <p><strong>{t('sectionWhatAre.p3')}</strong></p>
-                                </div>
-                            </section>
-
-                            {/* CTA Banner */}
-                            <CTABanner title={t('ctaBanners.banner1')} buttonText={t('heroCTA')} />
-
-                            {/* 79% stat */}
                             <div className={styles.sectionContent}>
-                                <p>{t('stat79')}</p>
+                                <p>{t('sectionCompensation.p2')}</p>
+                                <p>{t('sectionCompensation.p3')}</p>
+                                <p>{t('sectionCompensation.p4')}</p>
                             </div>
 
-                            {/* Key Takeaways Box */}
-                            <div className={styles.keyTakeawaysBox}>
-                                <div className={styles.keyTakeawaysHeader}>
-                                    <span className={styles.keyTakeawaysLabel}>{t('takeaways.label')}</span>
-                                    <h4 className={styles.keyTakeawaysTitle}>{t('takeaways.title')}</h4>
-                                </div>
-                                <div className={styles.keyTakeawaysList}>
-                                    {keyTakeaways.map((item, index) => (
-                                        <div key={index} className={styles.keyTakeawayItem}>
-                                            <div className={styles.keyTakeawayIcon}>{item.icon}</div>
-                                            <p>{item.text}</p>
-                                        </div>
-                                    ))}
-                                </div>
+                            <Accordion items={compensationAccordions} />
+                        </section>
+
+                        <CTABanner title={t('ctaBanners.banner2')} buttonText={t('heroCTA')} />
+
+                        {/* Section: Other passenger rights */}
+                        <div className={styles.divider} />
+                        <section id="other-passenger-rights" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('nav.other')}</h2>
+                            <div className={styles.sectionContent}>
+                                <p>{t('accordions.foodContent')}</p>
+                            </div>
+                            <Accordion items={otherRightsAccordions} />
+                        </section>
+
+                        {/* Section: Which countries */}
+                        <div className={styles.divider} />
+                        <section id="which-countries-have-passenger-rights" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('sectionCountries.title')}</h2>
+                            <div className={styles.sectionContent}>
+                                <p>{t('sectionCountries.p1')}</p>
                             </div>
 
-                            {/* Download Guide Promo */}
-                            <div className={styles.guidePromo}>
-                                <div className={styles.guidePromoContent}>
-                                    <h3>{t('guidePromo.title')}</h3>
-                                    <button className={styles.guidePromoBtn}>{t('guidePromo.btn')}</button>
-                                </div>
-                                <div className={styles.guidePromoVisual}>
-                                    <div className={styles.guidePromoShape}></div>
-                                </div>
+                            {/* World Map Lottie Animation */}
+                            <DotLottieReact
+                                src="https://lottie.host/2ca4aab1-94f0-4112-af0e-879fece3e1ff/ayVfprWKUW.lottie"
+                                loop
+                                autoplay
+                                className={styles.worldMapLottie}
+                            />
+
+                            <div className={styles.sectionContent}>
+                                <h3>{t('sectionCountries.h3')}</h3>
+                                <p>{t('sectionCountries.p2')}</p>
+                                <p>{t('sectionCountries.p3')}</p>
+                            </div>
+                        </section>
+
+                        {/* Section: Indemsy's Role */}
+                        <div className={styles.divider} />
+                        <section id="indemsy-role" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('sectionRole.title')}</h2>
+                            <div className={styles.sectionContent}>
+                                <p><strong>{t('sectionRole.p1')}</strong></p>
+                                <p>{t('sectionRole.p2')}</p>
+                                <p>{t('sectionRole.p3')}</p>
                             </div>
 
-                            {/* Section: Compensation */}
-                            <div className={styles.divider} />
-                            <section id="air-passenger-regulations-about-compensation" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('sectionCompensation.title')}</h2>
-                                <div className={styles.sectionContent}>
-                                    <p>{t('sectionCompensation.p1')}</p>
-                                </div>
+                            <div className={styles.sectionContent}>
+                                <h3>{t('sectionRole.h3Easier')}</h3>
+                                <p>{t('sectionRole.p4')}</p>
+                                <p>{t('sectionRole.p5')}</p>
+                            </div>
 
-                                {/* Compensation Amounts */}
-                                <h4 className={styles.subsectionTitle} id="compensation-amounts">{t('sectionCompensation.subtitle')}</h4>
-                                <div className={styles.compensationGrid}>
-                                    {compensationAmounts.map((item, index) => (
-                                        <div key={index} className={styles.compensationItem}>
-                                            <div className={styles.compensationIcon}>{item.icon}</div>
-                                            <div className={styles.compensationText}>
-                                                <strong>{item.amount}</strong> {item.regulation}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
+                            <div className={styles.sectionContent}>
+                                <h3>{t('sectionRole.h3Legal')}</h3>
+                                <p>{t('sectionRole.p6')}</p>
+                                <p>{t('sectionRole.p7')}</p>
+                            </div>
 
-                                <div className={styles.sectionContent}>
-                                    <p>{t('sectionCompensation.p2')}</p>
-                                    <p>{t('sectionCompensation.p3')}</p>
-                                    <p>{t('sectionCompensation.p4')}</p>
-                                </div>
+                            <Accordion items={legalAccordions} />
+                        </section>
 
-                                <Accordion items={compensationAccordions} />
-                            </section>
+                        {/* Section: FAQ */}
+                        <div className={styles.divider} />
+                        <section id="common-questions" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('faq.title')}</h2>
+                            <FAQSection data={faqData} />
+                        </section>
 
-                            <CTABanner title={t('ctaBanners.banner2')} buttonText={t('heroCTA')} />
-
-                            {/* Section: Other passenger rights */}
-                            <div className={styles.divider} />
-                            <section id="other-passenger-rights" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('nav.other')}</h2>
-                                <div className={styles.sectionContent}>
-                                    <p>{t('accordions.foodContent')}</p>
-                                </div>
-                                <Accordion items={otherRightsAccordions} />
-                            </section>
-
-                            {/* Section: Which countries */}
-                            <div className={styles.divider} />
-                            <section id="which-countries-have-passenger-rights" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('sectionCountries.title')}</h2>
-                                <div className={styles.sectionContent}>
-                                    <p>{t('sectionCountries.p1')}</p>
-                                </div>
-
-                                {/* World Map Lottie Animation */}
-                                <DotLottieReact
-                                    src="https://lottie.host/2ca4aab1-94f0-4112-af0e-879fece3e1ff/ayVfprWKUW.lottie"
-                                    loop
-                                    autoplay
-                                    className={styles.worldMapLottie}
-                                />
-
-                                <div className={styles.sectionContent}>
-                                    <h3>{t('sectionCountries.h3')}</h3>
-                                    <p>{t('sectionCountries.p2')}</p>
-                                    <p>{t('sectionCountries.p3')}</p>
-                                </div>
-                            </section>
-
-                            {/* Section: Indemsy's Role */}
-                            <div className={styles.divider} />
-                            <section id="indemsy-role" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('sectionRole.title')}</h2>
-                                <div className={styles.sectionContent}>
-                                    <p><strong>{t('sectionRole.p1')}</strong></p>
-                                    <p>{t('sectionRole.p2')}</p>
-                                    <p>{t('sectionRole.p3')}</p>
-                                </div>
-
-                                <div className={styles.sectionContent}>
-                                    <h3>{t('sectionRole.h3Easier')}</h3>
-                                    <p>{t('sectionRole.p4')}</p>
-                                    <p>{t('sectionRole.p5')}</p>
-                                </div>
-
-                                <div className={styles.sectionContent}>
-                                    <h3>{t('sectionRole.h3Legal')}</h3>
-                                    <p>{t('sectionRole.p6')}</p>
-                                    <p>{t('sectionRole.p7')}</p>
-                                </div>
-
-                                <Accordion items={legalAccordions} />
-                            </section>
-
-                            {/* Section: FAQ */}
-                            <div className={styles.divider} />
-                            <section id="common-questions" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('faq.title')}</h2>
-                                <FAQSection data={faqData} />
-                            </section>
-
-                            <CTABanner title={t('ctaBanners.banner3')} buttonText={t('heroCTA')} />
-                        </div>
+                        <CTABanner title={t('ctaBanners.banner3')} buttonText={t('heroCTA')} />
                     </div>
                 </div>
-            </main>
-            <Footer />
-        </>
+            </div>
+        </div>
     );
 }

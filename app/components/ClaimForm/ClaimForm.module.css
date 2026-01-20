@@ -933,134 +933,76 @@
     font-weight: 500;
 }
 
-/* Prime Cards */
-.primeIntro {
-    text-align: center;
-    color: var(--primary-night-blue);
-    margin-bottom: 2rem;
-}
-
-.primeCards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.primeCard {
-    position: relative;
-    background: var(--white);
-    border: 2px solid var(--border-color);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.primeCard:hover {
-    border-color: #2563eb;
-}
-
-.primeCard.selected {
-    border-color: #2563eb;
-    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.2);
-}
-
-.primeCard.recommended {
-    border-color: #2563eb;
-}
-
-.recommendedBadge {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #2563eb;
-    color: var(--white);
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-}
-
-.primeIcon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.primeCard h3 {
-    font-size: 1.25rem;
-    color: var(--primary-night-blue);
-    margin-bottom: 0.5rem;
-}
-
-.primePrice {
+/* Email Reminder */
+.emailReminder {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.oldPrice {
-    font-size: 0.875rem;
-    color: var(--slogan-gray);
-    text-decoration: line-through;
-}
-
-.newPrice {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #2563eb;
-}
-
-.period {
-    font-size: 0.875rem;
-    color: var(--slogan-gray);
-}
-
-.primeFeatures {
-    background: var(--white);
-    border-radius: 16px;
+    gap: 1.5rem;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    align-items: flex-start;
 }
 
-.primeFeatures p {
+.emailReminderIcon {
+    font-size: 2.5rem;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
+}
+
+.emailReminderContent {
+    flex: 1;
+}
+
+.emailReminderContent h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-night-blue);
+    margin-bottom: 0.5rem;
+}
+
+.emailReminderContent p {
     font-size: 1rem;
-    color: var(--primary-night-blue);
-    margin-bottom: 1rem;
-}
-
-.primeFeatures ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.primeFeatures li {
-    font-size: 0.9375rem;
     color: var(--slogan-gray);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border-color);
+    margin: 0 0 0.5rem;
 }
 
-.primeFeatures li:last-child {
-    border-bottom: none;
+.emailHighlight {
+    font-size: 1.125rem !important;
+    color: #2563eb !important;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    margin: 0.5rem 0 1rem !important;
 }
 
-.skipPrimeBtn {
-    width: 100%;
-    padding: 1rem;
-    background: none;
-    border: none;
-    color: var(--slogan-gray);
+.trackClaimBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
     font-size: 0.9375rem;
-    cursor: pointer;
-    text-decoration: underline;
 }
 
-.skipPrimeBtn:hover {
-    color: var(--primary-night-blue);
+.trackClaimBtn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 /* Success Page */
@@ -1221,9 +1163,7 @@
         grid-template-columns: 1fr;
     }
 
-    .primeCards {
-        grid-template-columns: 1fr;
-    }
+
 
     .navigation {
         flex-direction: column;
@@ -1303,9 +1243,7 @@
 .embedded .uploadBox,
 .embedded .idNote,
 .embedded .securityNote,
-.embedded .descriptionHints,
-.embedded .primeCard,
-.embedded .primeFeatures {
+.embedded .descriptionHints {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);

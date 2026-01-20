@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './page.module.css';
 import PastelHero from '../components/PastelHero/PastelHero';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+
 import FaqAccordion from '../components/FaqAccordion/FaqAccordion';
 
 const navItems = [
@@ -82,178 +81,174 @@ export default function Page() {
     }, []);
 
     return (
-        <>
-            <Header />
-            <main className={styles.main}>
-                <PastelHero
-                    title={t('heroTitle')}
-                    checkmarks={[
-                        { icon: 'calendar', text: heroT('chips.years') },
-                        { icon: 'globe', text: heroT('chips.global') },
-                        { icon: 'legal', text: heroT('chips.negotiations') }
-                    ]}
-                />
+        <div className={styles.main}>
+            <PastelHero
+                title={t('heroTitle')}
+                checkmarks={[
+                    { icon: 'calendar', text: heroT('chips.years') },
+                    { icon: 'globe', text: heroT('chips.global') },
+                    { icon: 'legal', text: heroT('chips.negotiations') }
+                ]}
+            />
 
-                <div className={styles.container}>
-                    <div className={styles.pageGrid}>
-                        <aside className={styles.sidebar}>
-                            <div className={styles.sidebarInner}>
-                                <h5 className={styles.sidebarTitle}>{t('heroTitle')}</h5>
-                                <nav className={styles.sideNav} aria-label="In-page navigation">
-                                    <ul>
-                                        {navItems.map((item) => (
-                                            <li key={item.id}>
-                                                <a
-                                                    href={`#${item.id}`}
-                                                    className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
-                                                    onClick={() => setActiveSection(item.id)}
-                                                >
-                                                    {item.label}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </nav>
-                            </div>
-                        </aside>
-
-                        <div className={styles.content}>
-                            <section id="summary" className={styles.section}>
-                                <p className={styles.introText}>
-                                    {t('summary.intro')}
-                                </p>
-                                <p className={styles.note}>
-                                    {t('summary.note')}
-                                </p>
-                            </section>
-
-                            <section id="rights" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('rights.title')}</h2>
-                                <p>
-                                    {t('rights.p1')}
-                                </p>
-                                <p>
-                                    {t('rights.p2')}
-                                </p>
-                                <p>
-                                    {t('rights.p3')}
-                                </p>
-                            </section>
-
-                            <section id="assistance" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('assistance.title')}</h2>
-                                <p>
-                                    {t('assistance.p1')}
-                                </p>
-                                <p>
-                                    {t('assistance.p2')}
-                                </p>
-                                <p className={styles.note}>{t('assistance.note1')}</p>
-                                <p>
-                                    {t('assistance.p3')}
-                                </p>
-                                <p className={styles.note}>{t('assistance.note2')}</p>
-                                <p>
-                                    {t('assistance.p4')}
-                                </p>
-                                <p className={styles.note}>{t('assistance.note3')}</p>
-                            </section>
-
-                            <section id="regulations" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('regulations.title')}</h2>
-                                <p>
-                                    {t('regulations.intro')}
-                                </p>
-
-                                <h3>{t('regulations.us.title')}</h3>
-                                <p className={styles.note}>{t('regulations.us.note')}</p>
+            <div className={styles.container}>
+                <div className={styles.pageGrid}>
+                    <aside className={styles.sidebar}>
+                        <div className={styles.sidebarInner}>
+                            <h5 className={styles.sidebarTitle}>{t('heroTitle')}</h5>
+                            <nav className={styles.sideNav} aria-label="In-page navigation">
                                 <ul>
-                                    <li>{t('regulations.us.li1')}</li>
-                                    <li>{t('regulations.us.li2')}</li>
+                                    {navItems.map((item) => (
+                                        <li key={item.id}>
+                                            <a
+                                                href={`#${item.id}`}
+                                                className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
+                                                onClick={() => setActiveSection(item.id)}
+                                            >
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                    ))}
                                 </ul>
-                                <p>
-                                    {t('regulations.us.p')}
-                                </p>
-
-                                <h3>{t('regulations.uk.title')}</h3>
-                                <p className={styles.note}>{t('regulations.uk.note')}</p>
-                                <ul>
-                                    <li>{t('regulations.uk.li1')}</li>
-                                    <li>{t('regulations.uk.li2')}</li>
-                                </ul>
-                                <p>
-                                    {t('regulations.uk.p')}
-                                </p>
-
-                                <h3>{t('regulations.eu.title')}</h3>
-                                <p className={styles.note}>{t('regulations.eu.note')}</p>
-                                <ul>
-                                    <li>{t('regulations.eu.li1')}</li>
-                                    <li>{t('regulations.eu.li2')}</li>
-                                </ul>
-                                <p>
-                                    {t('regulations.eu.p')}
-                                </p>
-
-                                <h3>{t('regulations.canada.title')}</h3>
-                                <p className={styles.note}>{t('regulations.canada.note')}</p>
-                                <ul>
-                                    <li>{t('regulations.canada.li1')}</li>
-                                    <li>{t('regulations.canada.li2')}</li>
-                                </ul>
-                                <p>
-                                    {t('regulations.canada.p')}
-                                </p>
-
-                                <h3>{t('regulations.brazil.title')}</h3>
-                                <p className={styles.note}>{t('regulations.brazil.note')}</p>
-                                <ul>
-                                    <li>{t('regulations.brazil.li1')}</li>
-                                    <li>{t('regulations.brazil.li2')}</li>
-                                </ul>
-                                <p>
-                                    {t('regulations.brazil.p')}
-                                </p>
-                            </section>
-
-                            <section id="whats-airhelp" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('whatsIndemsy.title')}</h2>
-                                <p>
-                                    {t('whatsIndemsy.p')}
-                                </p>
-                                <p className={styles.note}>{t('whatsIndemsy.note')}</p>
-                            </section>
-
-                            <section id="faq" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('faq.title')}</h2>
-                                <FaqAccordion items={faqItems} />
-                            </section>
-
-                            <section id="resources" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>{t('resources.title')}</h2>
-
-                                <h3>{t('resources.canada.title')}</h3>
-                                <ul>
-                                    <li>{t('resources.canada.li1')}</li>
-                                    <li>{t('resources.canada.li2')}</li>
-                                </ul>
-
-                                <h3>{t('resources.uk.title')}</h3>
-                                <ul>
-                                    <li>{t('resources.uk.li1')}</li>
-                                    <li>{t('resources.uk.li2')}</li>
-                                </ul>
-
-                                <h3>{t('resources.usa.title')}</h3>
-                                <ul>
-                                    <li>{t('resources.usa.li1')}</li>
-                                </ul>
-                            </section>
+                            </nav>
                         </div>
+                    </aside>
+
+                    <div className={styles.content}>
+                        <section id="summary" className={styles.section}>
+                            <p className={styles.introText}>
+                                {t('summary.intro')}
+                            </p>
+                            <p className={styles.note}>
+                                {t('summary.note')}
+                            </p>
+                        </section>
+
+                        <section id="rights" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('rights.title')}</h2>
+                            <p>
+                                {t('rights.p1')}
+                            </p>
+                            <p>
+                                {t('rights.p2')}
+                            </p>
+                            <p>
+                                {t('rights.p3')}
+                            </p>
+                        </section>
+
+                        <section id="assistance" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('assistance.title')}</h2>
+                            <p>
+                                {t('assistance.p1')}
+                            </p>
+                            <p>
+                                {t('assistance.p2')}
+                            </p>
+                            <p className={styles.note}>{t('assistance.note1')}</p>
+                            <p>
+                                {t('assistance.p3')}
+                            </p>
+                            <p className={styles.note}>{t('assistance.note2')}</p>
+                            <p>
+                                {t('assistance.p4')}
+                            </p>
+                            <p className={styles.note}>{t('assistance.note3')}</p>
+                        </section>
+
+                        <section id="regulations" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('regulations.title')}</h2>
+                            <p>
+                                {t('regulations.intro')}
+                            </p>
+
+                            <h3>{t('regulations.us.title')}</h3>
+                            <p className={styles.note}>{t('regulations.us.note')}</p>
+                            <ul>
+                                <li>{t('regulations.us.li1')}</li>
+                                <li>{t('regulations.us.li2')}</li>
+                            </ul>
+                            <p>
+                                {t('regulations.us.p')}
+                            </p>
+
+                            <h3>{t('regulations.uk.title')}</h3>
+                            <p className={styles.note}>{t('regulations.uk.note')}</p>
+                            <ul>
+                                <li>{t('regulations.uk.li1')}</li>
+                                <li>{t('regulations.uk.li2')}</li>
+                            </ul>
+                            <p>
+                                {t('regulations.uk.p')}
+                            </p>
+
+                            <h3>{t('regulations.eu.title')}</h3>
+                            <p className={styles.note}>{t('regulations.eu.note')}</p>
+                            <ul>
+                                <li>{t('regulations.eu.li1')}</li>
+                                <li>{t('regulations.eu.li2')}</li>
+                            </ul>
+                            <p>
+                                {t('regulations.eu.p')}
+                            </p>
+
+                            <h3>{t('regulations.canada.title')}</h3>
+                            <p className={styles.note}>{t('regulations.canada.note')}</p>
+                            <ul>
+                                <li>{t('regulations.canada.li1')}</li>
+                                <li>{t('regulations.canada.li2')}</li>
+                            </ul>
+                            <p>
+                                {t('regulations.canada.p')}
+                            </p>
+
+                            <h3>{t('regulations.brazil.title')}</h3>
+                            <p className={styles.note}>{t('regulations.brazil.note')}</p>
+                            <ul>
+                                <li>{t('regulations.brazil.li1')}</li>
+                                <li>{t('regulations.brazil.li2')}</li>
+                            </ul>
+                            <p>
+                                {t('regulations.brazil.p')}
+                            </p>
+                        </section>
+
+                        <section id="whats-airhelp" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('whatsIndemsy.title')}</h2>
+                            <p>
+                                {t('whatsIndemsy.p')}
+                            </p>
+                            <p className={styles.note}>{t('whatsIndemsy.note')}</p>
+                        </section>
+
+                        <section id="faq" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('faq.title')}</h2>
+                            <FaqAccordion items={faqItems} />
+                        </section>
+
+                        <section id="resources" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{t('resources.title')}</h2>
+
+                            <h3>{t('resources.canada.title')}</h3>
+                            <ul>
+                                <li>{t('resources.canada.li1')}</li>
+                                <li>{t('resources.canada.li2')}</li>
+                            </ul>
+
+                            <h3>{t('resources.uk.title')}</h3>
+                            <ul>
+                                <li>{t('resources.uk.li1')}</li>
+                                <li>{t('resources.uk.li2')}</li>
+                            </ul>
+
+                            <h3>{t('resources.usa.title')}</h3>
+                            <ul>
+                                <li>{t('resources.usa.li1')}</li>
+                            </ul>
+                        </section>
                     </div>
                 </div>
-            </main>
-            <Footer />
-        </>
+            </div>
+        </div>
     );
 }

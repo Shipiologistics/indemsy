@@ -107,6 +107,13 @@
     animation: slideDown 0.2s ease;
 }
 
+/* Ensure dropdown escapes parent clipping */
+.formCardContent {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+}
+
 @keyframes slideDown {
     from {
         opacity: 0;

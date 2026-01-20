@@ -19,22 +19,24 @@
     border-bottom: 1px solid var(--border-color);
 }
 
-
 .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 clamp(0.85rem, 2vw, 3rem);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: flex-start;
+    gap: clamp(0.5rem, 1.5vw, 2.5rem);
 }
 
 .leftSection {
     display: flex;
     align-items: center;
-    gap: 0;
-    /* Spacing between logo and nav */
+    gap: 0.85rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
 }
 
 .logo {
@@ -46,6 +48,7 @@
     text-decoration: none;
     color: var(--primary-night-blue);
     flex-shrink: 0;
+    margin: 0 0.75rem 0 1.5rem;
 }
 
 .logoIcon {
@@ -70,100 +73,39 @@
 .nav {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: clamp(0.35rem, 0.75vw, 1rem);
+    flex: 1 1 100%;
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+.navPanel {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 1vw, 1.5rem);
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    row-gap: 0.65rem;
+    justify-content: flex-start;
 }
 
 .navLink {
-    font-size: 1rem;
-    /* Smaller footprint and lower visual weight */
+    font-size: 1.05rem;
     font-weight: 500;
     text-decoration: none;
     color: var(--primary-night-blue);
     transition: color 0.2s ease;
     position: relative;
-    margin-top: 18px;
+    margin-top: 10px;
     cursor: pointer;
     white-space: nowrap;
+    padding: 0.25rem 0.35rem;
 }
 
 .navLink:hover {
     color: #3B82F6;
 }
 
-.actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-right: 1rem;
-}
-
-.userButton {
-    background: none;
-    border: none;
-    padding: 8px;
-    /* Touch target */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: background 0.2s ease;
-}
-
-.userButton:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.mobileMenuBtn {
-    display: none;
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-.hamburger {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--primary-night-blue);
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: var(--primary-night-blue);
-    transition: all 0.3s ease;
-}
-
-.hamburger::before {
-    top: -8px;
-}
-
-.hamburger::after {
-    bottom: -8px;
-}
-
-.hamburgerOpen {
-    background: transparent;
-}
-
-.hamburgerOpen::before {
-    transform: rotate(45deg);
-    top: 0;
-}
-
-.hamburgerOpen::after {
-    transform: rotate(-45deg);
-    bottom: 0;
-}
-
-/* Dropdown Styles */
 .dropdownContainer {
     position: relative;
     display: flex;
@@ -244,7 +186,7 @@
     }
 
     .logo {
-        margin-left: -1rem;
+        margin-left: -1.75rem;
     }
 
     .nav {
@@ -253,62 +195,71 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: var(--primary-night-blue);
+        background: radial-gradient(circle at 20% 20%, #0b1d40 0%, #07142b 45%, #050c1f 100%);
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 6rem;
-        gap: 1.5rem;
-        /* Tighter spacing on mobile */
+        justify-content: center;
+        padding: 3rem 1.5rem;
+        gap: 2rem;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         overflow-y: auto;
+        z-index: 999;
+    }
+
+    .navPanel {
+        position: relative;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+        width: min(90%, 420px);
+        margin: auto;
+        padding: 2.75rem 1.75rem;
+        border-radius: 32px;
+        background: linear-gradient(160deg, rgba(28, 78, 166, 0.95), rgba(9, 20, 47, 0.9));
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 35px 80px rgba(2, 9, 24, 0.65);
+        backdrop-filter: blur(24px);
+        overflow: hidden;
+    }
+
+    .navPanel::after {
+        content: '';
+        position: absolute;
+        inset: 6px;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.18), transparent 55%);
+        pointer-events: none;
     }
 
     .navOpen {
         opacity: 1;
         visibility: visible;
+        transform: translateY(0);
     }
 
     .navLink,
     .dropdownButton {
-        font-size: 1.1rem !important;
-        color: var(--white) !important;
+        font-size: 1.5rem !important;
+        font-weight: 600;
+        color: #e6f0ff !important;
         width: 100%;
         text-align: center;
         justify-content: center;
+        padding: 0.85rem 1rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        text-shadow: 0 8px 20px rgba(2, 8, 20, 0.35);
+        transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
     }
 
-    .mobileMenuBtn {
-        display: block;
-        z-index: 1001;
-    }
-
-    .hamburger,
-    .hamburger::before,
-    .hamburger::after {
-        background: var(--primary-night-blue);
-        /* Default dark bars */
-    }
-
-    /* When menu is open, hamburger should be white if it's on top of blue background? 
-       Actually user button and lang selector are in actions div which is on top.
-       The nav covers the screen. The hamburger needs to be visible. */
-
-    .navOpen~.actions .mobileMenuBtn .hamburger,
-    .navOpen~.actions .mobileMenuBtn .hamburger::before,
-    .navOpen~.actions .mobileMenuBtn .hamburger::after {
-        background: var(--white);
-        /* White bars on dark bg */
-    }
-
-    /* Wait, the hamburger is inside .actions, .nav is sibling. We need to style hamburger based on state */
-
-    .actions {
-        display: flex;
-        gap: 0.75rem;
-        z-index: 1002;
-        /* Above nav overlay */
+    .navLink:hover,
+    .dropdownButton:hover {
+        background: rgba(255, 255, 255, 0.14);
+        color: #ffffff !important;
+        transform: translateY(-2px);
     }
 
     .dropdownContainer {
@@ -321,14 +272,15 @@
         position: static;
         width: 100%;
         box-shadow: none;
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.08);
         display: none;
         opacity: 1;
         visibility: visible;
         transform: none;
         margin-top: 0.5rem;
-        padding: 0;
-        border: none;
+        padding: 0.5rem;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .dropdownContainer.active .dropdownMenu {
@@ -336,19 +288,21 @@
     }
 
     .dropdownItem {
-        color: rgba(255, 255, 255, 0.8);
+        color: #dceffd;
         text-align: center;
-        padding: 0.75rem;
-        font-size: 1.1rem;
+        padding: 0.85rem;
+        font-size: 1.05rem;
+        border-radius: 18px;
+        transition: background 0.3s ease, color 0.3s ease;
     }
 
     .dropdownItem:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
+        background: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
     }
 
     .arrow {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(230, 240, 255, 0.85);
     }
 
     .logoImage {

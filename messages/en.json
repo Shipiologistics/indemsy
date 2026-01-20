@@ -21,7 +21,8 @@
         "airlineStrikeCompensation": "Airline strike compensation",
         "passengersWithDisabilities": "Passengers with disabilities",
         "airlines": "Airlines",
-        "airports": "Airports"
+        "airports": "Airports",
+        "trackClaim": "Track Claim"
     },
     "hero": {
         "trustpilot": "Trustpilot",
@@ -301,14 +302,9 @@
         "flight": "Flight",
         "route": "Route",
         "expectedCompensation": "Expected Compensation",
-        "primeIntro": "With Indemfly Prime, enjoy lounge access, 24/7 travel assistance, and much more.",
-        "primeFeaturesTitle": "The subscription includes:",
-        "primeFeature1": "Free lounge access at airports worldwide",
-        "primeFeature2": "Guaranteed lowest prices on flights and hotels",
-        "primeFeature3": "A dedicated travel expert is available 24/7 for your bookings",
-        "primeFeature4": "Instant assistance via WhatsApp or LiveChat",
-        "primeFeature5": "Prime members save approximately €488/year on their bookings",
-        "primeFeature6": "Receive an extra €100 if your flight is disrupted",
+        "emailReminderTitle": "Track Your Application",
+        "emailReminderText": "You can check the status of your claim anytime using your email:",
+        "trackButton": "Track My Claim",
         "skipPrime": "No thanks, I'm not interested.",
         "whatNext": "What happens next?",
         "nextStep1": "Our team will review your claim within 24-48 hours",

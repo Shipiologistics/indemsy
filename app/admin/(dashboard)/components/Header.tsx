@@ -9,6 +9,7 @@ export default function Header() {
         if (pathname === '/admin') return 'Dashboard';
         if (pathname.includes('/claims')) return 'Claims';
         if (pathname.includes('/users')) return 'Users';
+        if (pathname.includes('/chats')) return 'Chats';
         return 'Admin';
     };
 

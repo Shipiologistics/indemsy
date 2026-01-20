@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './page.module.css';
 import PastelHero from '../components/PastelHero/PastelHero';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+
 import FaqAccordion from '../components/FaqAccordion/FaqAccordion';
 import {
     GlassCard,
@@ -81,169 +80,165 @@ export default function Page() {
     }, []);
 
     return (
-        <>
-            <Header />
-            <main className={styles.main}>
-                <PastelHero
-                    title={t('heroTitle')}
-                    checkmarks={[
-                        { icon: 'calendar', text: tHero('chips.years') },
-                        { icon: 'globe', text: tHero('chips.global') },
-                        { icon: 'legal', text: tHero('chips.negotiations') }
-                    ]}
-                />
+        <div className={styles.main}>
+            <PastelHero
+                title={t('heroTitle')}
+                checkmarks={[
+                    { icon: 'calendar', text: tHero('chips.years') },
+                    { icon: 'globe', text: tHero('chips.global') },
+                    { icon: 'legal', text: tHero('chips.negotiations') }
+                ]}
+            />
 
-                <div className={styles.container}>
-                    <div className={styles.pageGrid}>
-                        <aside className={styles.sidebar}>
-                            <GlassCard variant="light">
-                                <h5 className={styles.sidebarTitle}>{t('heroTitle')}</h5>
-                                <nav className={styles.sideNav} aria-label="In-page navigation">
-                                    <ul>
-                                        {navItems.map((item) => (
-                                            <li key={item.id}>
-                                                <a
-                                                    href={`#${item.id}`}
-                                                    className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
-                                                    onClick={(e) => {
-                                                        e.preventDefault();
-                                                        setActiveSection(item.id);
-                                                        document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
-                                                    }}
-                                                >
-                                                    {item.label}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </nav>
-                            </GlassCard>
-                        </aside>
+            <div className={styles.container}>
+                <div className={styles.pageGrid}>
+                    <aside className={styles.sidebar}>
+                        <GlassCard variant="light">
+                            <h5 className={styles.sidebarTitle}>{t('heroTitle')}</h5>
+                            <nav className={styles.sideNav} aria-label="In-page navigation">
+                                <ul>
+                                    {navItems.map((item) => (
+                                        <li key={item.id}>
+                                            <a
+                                                href={`#${item.id}`}
+                                                className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    setActiveSection(item.id);
+                                                    document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+                                                }}
+                                            >
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
+                        </GlassCard>
+                    </aside>
 
-                        <div className={styles.content}>
-                            <div className={styles.baggageHero}>
-                                <img
-                                    src="/Airline passengers blast ‘rude’ airport baggage___.jpg"
-                                    alt="Airline passengers blast ‘rude’ airport baggage"
-                                />
-                            </div>
-                            <section id="summary" className={styles.section}>
-                                <GlassCard variant="gradient">
-                                    <p className={styles.introText}>{t('summary.p1')}</p>
-                                    <p className={styles.introText}>{t('summary.p2')}</p>
-                                </GlassCard>
-                            </section>
-
-                            <section id="delayed-us" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>🇺🇸</span>
-                                    {t('delayedUs.title')}
-                                </h2>
-                                <p className={styles.sectionIntro}>{t('delayedUs.p')}</p>
-                                <IconList items={getListItems('delayedUs', 7)} variant="number" />
-                                <InfoCallout variant="info" text={t('delayedUs.footer')} />
-                            </section>
-
-                            <section id="delayed-us-comp" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>💰</span>
-                                    {t('delayedUsComp.title')}
-                                </h2>
-                                <GlassCard variant="light">
-                                    <p>{t('delayedUsComp.p1')}</p>
-                                    <p>{t('delayedUsComp.p2')}</p>
-                                </GlassCard>
-                            </section>
-
-                            <section id="delayed-eu" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>🇪🇺</span>
-                                    {t('delayedEu.title')}
-                                </h2>
-                                <p className={styles.sectionIntro}>{t('delayedEu.p')}</p>
-                                <IconList items={getListItems('delayedEu', 6)} variant="number" />
-                            </section>
-
-                            <section id="delayed-eu-comp" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>💶</span>
-                                    {t('delayedEuComp.title')}
-                                </h2>
-                                <GlassCard variant="light">
-                                    <p>{t('delayedEuComp.p1')}</p>
-                                    <p>{t('delayedEuComp.p2')}</p>
-                                </GlassCard>
-                            </section>
-
-                            <section id="lost-us" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>🕵️</span>
-                                    {t('lostUs.title')}
-                                </h2>
-                                <p className={styles.sectionIntro}>{t('lostUs.p')}</p>
-                                <IconList items={getListItems('lostUs', 4)} variant="number" />
-                                <InfoCallout variant="warning" text={t('lostUs.footer')} />
-                            </section>
-
-                            <section id="lost-eu" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>🌍</span>
-                                    {t('lostEu.title')}
-                                </h2>
-                                <p className={styles.sectionIntro}>{t('lostEu.p')}</p>
-                                <IconList items={getListItems('lostEu', 4)} variant="number" />
-                            </section>
-
-                            <section id="insurance" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>🛡️</span>
-                                    {t('insurance.title')}
-                                </h2>
-                                <GlassCard variant="gradient">
-                                    <p>{t('insurance.p1')}</p>
-                                    <p>{t('insurance.p2')}</p>
-                                    <InfoCallout variant="success" text={t('insurance.p3')} />
-                                </GlassCard>
-                            </section>
-
-                            <CtaBanner
-                                title="Claim compensation for your bag problems"
-                                buttonText={tHeroMain('checkCompensation')}
-                                buttonHref="#check"
-                                chips={[tHero('chips.years'), tHero('chips.global')]}
-                                variant="glass"
+                    <div className={styles.content}>
+                        <div className={styles.baggageHero}>
+                            <img
+                                src="/Airline passengers blast ‘rude’ airport baggage___.jpg"
+                                alt="Airline passengers blast ‘rude’ airport baggage"
                             />
-
-                            <section id="damage-us" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>💔</span>
-                                    {t('damageUs.title')}
-                                </h2>
-                                <p className={styles.sectionIntro}>{t('damageUs.p')}</p>
-                                <IconList items={getListItems('damageUs', 5)} variant="check" />
-                            </section>
-
-                            <section id="damage-eu" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>🧳</span>
-                                    {t('damageEu.title')}
-                                </h2>
-                                <p className={styles.sectionIntro}>{t('damageEu.p')}</p>
-                                <IconList items={getListItems('damageEu', 5)} variant="check" />
-                            </section>
-
-                            <section id="faq" className={styles.section}>
-                                <h2 className={styles.sectionTitle}>
-                                    <span className={styles.sectionIcon}>❓</span>
-                                    {t('faq.title')}
-                                </h2>
-                                <FaqAccordion items={faqItems} />
-                            </section>
                         </div>
+                        <section id="summary" className={styles.section}>
+                            <GlassCard variant="gradient">
+                                <p className={styles.introText}>{t('summary.p1')}</p>
+                                <p className={styles.introText}>{t('summary.p2')}</p>
+                            </GlassCard>
+                        </section>
+
+                        <section id="delayed-us" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>🇺🇸</span>
+                                {t('delayedUs.title')}
+                            </h2>
+                            <p className={styles.sectionIntro}>{t('delayedUs.p')}</p>
+                            <IconList items={getListItems('delayedUs', 7)} variant="number" />
+                            <InfoCallout variant="info" text={t('delayedUs.footer')} />
+                        </section>
+
+                        <section id="delayed-us-comp" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>💰</span>
+                                {t('delayedUsComp.title')}
+                            </h2>
+                            <GlassCard variant="light">
+                                <p>{t('delayedUsComp.p1')}</p>
+                                <p>{t('delayedUsComp.p2')}</p>
+                            </GlassCard>
+                        </section>
+
+                        <section id="delayed-eu" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>🇪🇺</span>
+                                {t('delayedEu.title')}
+                            </h2>
+                            <p className={styles.sectionIntro}>{t('delayedEu.p')}</p>
+                            <IconList items={getListItems('delayedEu', 6)} variant="number" />
+                        </section>
+
+                        <section id="delayed-eu-comp" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>💶</span>
+                                {t('delayedEuComp.title')}
+                            </h2>
+                            <GlassCard variant="light">
+                                <p>{t('delayedEuComp.p1')}</p>
+                                <p>{t('delayedEuComp.p2')}</p>
+                            </GlassCard>
+                        </section>
+
+                        <section id="lost-us" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>🕵️</span>
+                                {t('lostUs.title')}
+                            </h2>
+                            <p className={styles.sectionIntro}>{t('lostUs.p')}</p>
+                            <IconList items={getListItems('lostUs', 4)} variant="number" />
+                            <InfoCallout variant="warning" text={t('lostUs.footer')} />
+                        </section>
+
+                        <section id="lost-eu" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>🌍</span>
+                                {t('lostEu.title')}
+                            </h2>
+                            <p className={styles.sectionIntro}>{t('lostEu.p')}</p>
+                            <IconList items={getListItems('lostEu', 4)} variant="number" />
+                        </section>
+
+                        <section id="insurance" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>🛡️</span>
+                                {t('insurance.title')}
+                            </h2>
+                            <GlassCard variant="gradient">
+                                <p>{t('insurance.p1')}</p>
+                                <p>{t('insurance.p2')}</p>
+                                <InfoCallout variant="success" text={t('insurance.p3')} />
+                            </GlassCard>
+                        </section>
+
+                        <CtaBanner
+                            title="Claim compensation for your bag problems"
+                            buttonText={tHeroMain('checkCompensation')}
+                            buttonHref="#check"
+                            chips={[tHero('chips.years'), tHero('chips.global')]}
+                            variant="glass"
+                        />
+
+                        <section id="damage-us" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>💔</span>
+                                {t('damageUs.title')}
+                            </h2>
+                            <p className={styles.sectionIntro}>{t('damageUs.p')}</p>
+                            <IconList items={getListItems('damageUs', 5)} variant="check" />
+                        </section>
+
+                        <section id="damage-eu" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>🧳</span>
+                                {t('damageEu.title')}
+                            </h2>
+                            <p className={styles.sectionIntro}>{t('damageEu.p')}</p>
+                            <IconList items={getListItems('damageEu', 5)} variant="check" />
+                        </section>
+
+                        <section id="faq" className={styles.section}>
+                            <h2 className={styles.sectionTitle}>
+                                <span className={styles.sectionIcon}>❓</span>
+                                {t('faq.title')}
+                            </h2>
+                            <FaqAccordion items={faqItems} />
+                        </section>
                     </div>
                 </div>
-            </main>
-            <Footer />
-        </>
+            </div>
+        </div>
     );
 }

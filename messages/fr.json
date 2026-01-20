@@ -21,7 +21,8 @@
         "airlineStrikeCompensation": "Indemnisation grève aérienne",
         "passengersWithDisabilities": "Passagers handicapés",
         "airlines": "Compagnies aériennes",
-        "airports": "Aéroports"
+        "airports": "Aéroports",
+        "trackClaim": "Suivre ma réclamation"
     },
     "hero": {
         "trustpilot": "Trustpilot",
@@ -301,14 +302,9 @@
         "flight": "Vol",
         "route": "Trajet",
         "expectedCompensation": "Indemnisation prévue",
-        "primeIntro": "Avec Indemfly Prime, profitez de l'accès aux salons, d'une assistance voyage 24/7 et bien plus encore.",
-        "primeFeaturesTitle": "L'abonnement comprend :",
-        "primeFeature1": "Accès gratuit aux salons dans les aéroports du monde entier",
-        "primeFeature2": "Les prix les plus bas garantis sur les vols et les hôtels",
-        "primeFeature3": "Un expert voyage dédié disponible 24/7 pour vos réservations",
-        "primeFeature4": "Assistance instantanée via WhatsApp ou LiveChat",
-        "primeFeature5": "Les membres Prime économisent environ 488€/an sur leurs réservations",
-        "primeFeature6": "Recevez 100€ supplémentaires si votre vol est perturbé",
+        "emailReminderTitle": "Suivre votre demande",
+        "emailReminderText": "Vous pouvez vérifier le statut de votre demande à tout moment avec votre email :",
+        "trackButton": "Suivre ma demande",
         "skipPrime": "Non merci, je ne suis pas intéressé(e).",
         "whatNext": "Et ensuite ?",
         "nextStep1": "Notre équipe examinera votre réclamation sous 24 à 48 heures",

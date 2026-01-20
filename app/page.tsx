@@ -1,4 +1,3 @@
-import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import TrustBadges from './components/TrustBadges/TrustBadges';
 import CompensationSlider from './components/CompensationSlider/CompensationSlider';
@@ -7,14 +6,12 @@ import HowItWorks from './components/HowItWorks/HowItWorks';
 import Testimonials from './components/Testimonials/Testimonials';
 import FAQ from './components/FAQ/FAQ';
 import PreFooter from './components/PreFooter/PreFooter';
-import Footer from './components/Footer/Footer';
 import StickyCTA from './components/StickyCTA/StickyCTA';
 import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Header />
+    <div className={styles.main}>
       <Hero />
       <TrustBadges />
       <CompensationSlider />
@@ -23,8 +20,8 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <PreFooter />
-      <Footer />
       <StickyCTA />
-    </main>
+    </div>
   );
 }
+

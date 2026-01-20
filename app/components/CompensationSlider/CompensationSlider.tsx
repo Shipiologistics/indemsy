@@ -19,9 +19,9 @@ export default function CompensationSlider() {
     const position = getPositionFromValue(sliderValue);
 
     const currentData = useMemo(() => {
-        if (sliderValue === 0) return { amount: 250, label: t('distance250') };
-        if (sliderValue === 1) return { amount: 400, label: t('distance400') };
-        return { amount: 600, label: t('distance600') };
+        if (sliderValue === 0) return { amount: 250, label: t('distance250'), currency: '€' };
+        if (sliderValue === 1) return { amount: 400, label: t('distance400'), currency: '€' };
+        return { amount: 650, label: t('distance600'), currency: '£' };
     }, [sliderValue, t]);
 
     const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {

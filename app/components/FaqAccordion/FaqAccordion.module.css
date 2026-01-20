@@ -48,6 +48,10 @@
     transition: grid-template-rows 0.3s ease-out;
 }
 
+.open .answerWrapper {
+    grid-template-rows: 1fr;
+}
+
 .answer {
     overflow: hidden;
     color: #475569;
