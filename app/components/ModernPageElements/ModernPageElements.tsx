@@ -262,6 +262,17 @@ export function CtaBanner({
     chips = [],
     variant = 'gradient'
 }: CtaBannerProps) {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (buttonHref.startsWith('#')) {
+            e.preventDefault();
+            const targetId = buttonHref.substring(1);
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
+
     return (
         <div className={`${styles.ctaBanner} ${styles[`cta${variant.charAt(0).toUpperCase() + variant.slice(1)}`]}`}>
             <div className={styles.ctaContent}>
@@ -280,7 +291,7 @@ export function CtaBanner({
                     </div>
                 )}
             </div>
-            <a href={buttonHref} className={styles.ctaButton}>
+            <a href={buttonHref} className={styles.ctaButton} onClick={handleClick}>
                 {buttonText}
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                     <path d="M13.293 7.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L15.586 13H6a1 1 0 1 1 0-2h9.586l-2.293-2.293a1 1 0 0 1 0-1.414z" />

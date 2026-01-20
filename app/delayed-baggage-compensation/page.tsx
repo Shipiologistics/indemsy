@@ -209,7 +209,7 @@ export default function Page() {
                             <CtaBanner
                                 title="Claim compensation for your bag problems"
                                 buttonText={tHeroMain('checkCompensation')}
-                                buttonHref="/claim"
+                                buttonHref="#check"
                                 chips={[tHero('chips.years'), tHero('chips.global')]}
                                 variant="glass"
                             />

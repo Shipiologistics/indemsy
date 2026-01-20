@@ -361,9 +361,9 @@
         margin: 0;
         margin-top: 0;
         border-radius: 0;
-        height: 93vh;
-        min-height: 93vh;
-        max-height: 93vh;
+        height: 85vh;
+        min-height: 85vh;
+        max-height: 85vh;
         position: relative;
     }
 
@@ -420,10 +420,10 @@
 
     .featuresBottom {
         position: absolute;
-        bottom: 0;
+        bottom: 2.5rem;
         left: 0;
         right: 0;
-        padding: 0.75rem;
+        padding: 0 0.75rem;
         z-index: 10;
     }
 

@@ -335,6 +335,11 @@
         border-radius: 0;
     }
 
+    .hero {
+        min-height: 325px;
+        padding: 2rem 1rem;
+    }
+
     .title {
         font-size: 1.75rem;
     }

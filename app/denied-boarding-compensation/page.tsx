@@ -7,10 +7,20 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import FaqAccordion from '../components/FaqAccordion/FaqAccordion';
 import PastelHero from '../components/PastelHero/PastelHero';
+import { CtaBanner } from '../components/ModernPageElements/ModernPageElements';
 
 export default function Page() {
     const t = useTranslations('deniedBoarding');
+    const tHero = useTranslations('commonHero');
+    const tHeroMain = useTranslations('hero');
     const [activeSection, setActiveSection] = useState('summary');
+
+    const scrollToHero = () => {
+        const element = document.getElementById('check');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const navItems = [
         { id: 'summary', label: t('nav.overview') },
@@ -216,6 +226,15 @@ export default function Page() {
                                 </ol>
                                 <p className={styles.note}>{t('international.note')}</p>
                             </section>
+
+                            <CtaBanner
+                                title="Denied boarding? Check what you're owed"
+                                subtitle="Takes just 2 minutes"
+                                buttonText={tHeroMain('checkCompensation')}
+                                buttonHref="#check"
+                                chips={[tHero('chips.years'), tHero('chips.global'), tHero('chips.negotiations')]}
+                                variant="gradient"
+                            />
 
                             <section id="faq" className={styles.section}>
                                 <h2 className={styles.sectionTitle}>{t('faq.title')}</h2>

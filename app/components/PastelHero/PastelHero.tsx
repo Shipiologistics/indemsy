@@ -1,9 +1,17 @@
-'use client';
-
-import React from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import AirportSearch from '../AirportSearch/AirportSearch';
 import styles from './PastelHero.module.css';
+
+interface Airport {
+    iata: string;
+    icao: string;
+    name: string;
+    municipalityName: string;
+    countryCode: string;
+    label: string;
+}
 
 interface PastelHeroProps {
     title: string;
@@ -49,6 +57,9 @@ const iconMap = {
 
 export default function PastelHero({ title, showTrustpilot = true, checkmarks }: PastelHeroProps) {
     const t = useTranslations('hero');
+    const [departureAirport, setDepartureAirport] = useState<Airport | null>(null);
+    const [arrivalAirport, setArrivalAirport] = useState<Airport | null>(null);
+    const router = useRouter();
 
     const defaultCheckmarks = [
         { icon: 'calendar' as const, text: t('checkmark1') },
@@ -58,8 +69,23 @@ export default function PastelHero({ title, showTrustpilot = true, checkmarks }:
 
     const displayCheckmarks = checkmarks || defaultCheckmarks;
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!departureAirport) return;
+
+        const params = new URLSearchParams({
+            from: departureAirport.iata || departureAirport.icao,
+        });
+
+        if (arrivalAirport) {
+            params.append('to', arrivalAirport.iata || arrivalAirport.icao);
+        }
+
+        router.push(`/claim?${params.toString()}`);
+    };
+
     return (
-        <section className={styles.hero}>
+        <section className={styles.hero} id="check">
             {/* Pastel gradient background */}
             <div className={styles.gradientBackground} />
             <div className={styles.gradientOverlay} />
@@ -101,35 +127,45 @@ export default function PastelHero({ title, showTrustpilot = true, checkmarks }:
                             {t('formSubtitle')}
                         </p>
 
-                        <div className={styles.formWrapper}>
+                        <form className={styles.formWrapper} onSubmit={handleSubmit}>
                             <div className={styles.formInner}>
                                 <div className={styles.inputGroup}>
                                     <div className={styles.inputWrapper}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={styles.inputIcon}>
-                                            <path fill="currentColor" fillRule="evenodd" d="M7.384 4q-.135.004-.268.043a1.035 1.035 0 0 0-.597 1.504l3.353 5.85-5.094 1.344-1.484-1.248a.788.788 0 0 0-1.186 1.002l1.29 2.199a2 2 0 0 0 2.234.924l14.724-3.88.006-.001a1.5 1.5 0 1 0-.646-2.926v-.002l-5.23 1.377-6.368-5.91A1.03 1.03 0 0 0 7.384 4m-4.18 14.76a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2z" clipRule="evenodd" />
-                                        </svg>
-                                        <input
-                                            type="text"
-                                            placeholder={t('departurePlaceholder')}
-                                            className={styles.input}
+                                        <AirportSearch
+                                            id="departure-airport-pastel"
+                                            placeholder={t('departureAirport')}
+                                            icon={
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ transform: 'rotate(-45deg)', color: '#9CA3AF' }}>
+                                                    <path d="M2.5 19h19v2h-19zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-6.9-6.43-2.13.59 4.54 4.75-4.76 1.08-2.59-2.24-1.58.36 2.52 3.81c.23.36.62.59 1.05.62l13.68 1.43c.8.08 1.54-.49 1.76-1.28z" />
+                                                </svg>
+                                            }
+                                            value={departureAirport}
+                                            onChange={setDepartureAirport}
                                         />
                                     </div>
                                     <div className={styles.inputWrapper}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={styles.inputIcon}>
-                                            <path fill="currentColor" fillRule="evenodd" d="M11.1 3c-.594.006-1.1.492-1.1 1.117v6.63L5.084 9.45 4.396 7.6A.721.721 0 0 0 3 7.852v2.61a2 2 0 0 0 1.488 1.935l14.66 3.886v-.004q.174.043.352.043a1.5 1.5 0 0 0 .283-2.972l-4.994-1.336-2.611-8.235A1.12 1.12 0 0 0 11.1 3M4 19.322a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2z" clipRule="evenodd" />
-                                        </svg>
-                                        <input
-                                            type="text"
-                                            placeholder={t('destinationPlaceholder')}
-                                            className={styles.input}
+                                        <AirportSearch
+                                            id="arrival-airport-pastel"
+                                            placeholder={t('arrivalAirport')}
+                                            icon={
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ transform: 'rotate(45deg)', color: '#9CA3AF' }}>
+                                                    <path d="M2.5 19h19v2h-19zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-6.9-6.43-2.13.59 4.54 4.75-4.76 1.08-2.59-2.24-1.58.36 2.52 3.81c.23.36.62.59 1.05.62l13.68 1.43c.8.08 1.54-.49 1.76-1.28z" />
+                                                </svg>
+                                            }
+                                            value={arrivalAirport}
+                                            onChange={setArrivalAirport}
                                         />
                                     </div>
                                 </div>
-                                <Link href="/claim" className={styles.ctaButton}>
+                                <button
+                                    type="submit"
+                                    className={styles.ctaButton}
+                                    disabled={!departureAirport}
+                                >
                                     {t('cta')}
-                                </Link>
+                                </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 

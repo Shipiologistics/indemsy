@@ -194,7 +194,7 @@ export default function Page() {
                                     </div>
                                     <div className={styles.summaryImage}>
                                         <Image
-                                            src="https://img.airhelp.com/landing-pages/flight-cancellation-airport.jpg"
+                                            src="/spirit-cancellation-refund.jpg"
                                             alt="Flight cancellation at airport"
                                             width={400}
                                             height={280}
@@ -215,7 +215,7 @@ export default function Page() {
                                 title="Flight cancelled? Check what you're owed"
                                 subtitle="Takes just 2 minutes"
                                 buttonText={tHeroMain('checkCompensation')}
-                                buttonHref="/claim"
+                                buttonHref="#pastel-hero"
                                 chips={[tSticky('allAirlines'), tSticky('allCountries'), tSticky('noWinNoFee')]}
                                 variant="gradient"
                             />
@@ -453,7 +453,7 @@ export default function Page() {
                             <CtaBanner
                                 title="Ready to claim your compensation?"
                                 buttonText={tHeroMain('checkCompensation')}
-                                buttonHref="/claim"
+                                buttonHref="#pastel-hero"
                                 chips={[tSticky('noWinNoFee')]}
                                 variant="glass"
                             />
