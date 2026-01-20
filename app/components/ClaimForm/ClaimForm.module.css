@@ -22,7 +22,7 @@
 }
 
 .logoIcon {
-    color: var(--primary-orange);
+    color: #2563eb;
 }
 
 .cancelBtn {
@@ -45,7 +45,7 @@
 
 .progressFill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-orange), var(--light-orange));
+    background: linear-gradient(90deg, #2563eb, #3B82F6);
     transition: width 0.4s ease;
     border-radius: 0 2px 2px 0;
 }
@@ -119,13 +119,13 @@
 }
 
 .optionCard:hover {
-    border-color: var(--primary-orange);
-    box-shadow: 0 4px 20px rgba(255, 138, 0, 0.1);
+    border-color: #2563eb;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
 }
 
 .optionCard.selected {
-    border-color: var(--primary-orange);
-    background: rgba(255, 138, 0, 0.05);
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .optionIcon {
@@ -162,8 +162,8 @@
 }
 
 .optionCard.selected .optionCheck {
-    background: var(--primary-orange);
-    border-color: var(--primary-orange);
+    background: #2563eb;
+    border-color: #2563eb;
     color: var(--white);
 }
 
@@ -216,15 +216,15 @@
     background: var(--light-bg);
     border: 2px dashed var(--border-color);
     border-radius: 12px;
-    color: var(--primary-orange);
+    color: #2563eb;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .addConnectionBtn:hover {
-    background: rgba(255, 138, 0, 0.1);
-    border-color: var(--primary-orange);
+    background: rgba(37, 99, 235, 0.1);
+    border-color: #2563eb;
 }
 
 /* Form Groups */
@@ -262,8 +262,8 @@
 .select:focus,
 .textarea:focus {
     outline: none;
-    border-color: var(--primary-orange);
-    box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.1);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .textarea {
@@ -307,12 +307,12 @@
 }
 
 .problemCard:hover {
-    border-color: var(--primary-orange);
+    border-color: #2563eb;
 }
 
 .problemCard.selected {
-    border-color: var(--primary-orange);
-    background: linear-gradient(135deg, rgba(255, 138, 0, 0.05) 0%, rgba(255, 179, 71, 0.05) 100%);
+    border-color: #2563eb;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
 }
 
 .problemIcon {
@@ -359,12 +359,12 @@
 }
 
 .delayOption:hover {
-    border-color: var(--primary-orange);
+    border-color: #2563eb;
 }
 
 .delayOption.selected {
-    border-color: var(--primary-orange);
-    background: var(--primary-orange);
+    border-color: #2563eb;
+    background: #2563eb;
     color: var(--white);
 }
 
@@ -431,7 +431,7 @@
     width: 40px;
     height: 40px;
     border: 3px solid var(--border-color);
-    border-top-color: var(--primary-orange);
+    border-top-color: #2563eb;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto 1rem;
@@ -465,18 +465,18 @@
 }
 
 .flightOption:hover {
-    border-color: var(--primary-orange);
+    border-color: #2563eb;
 }
 
 .flightOption.selected {
-    border-color: var(--primary-orange);
-    background: rgba(255, 138, 0, 0.05);
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .flightTime {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--primary-orange);
+    color: #2563eb;
 }
 
 .flightNumber {
@@ -533,8 +533,8 @@
 
 .manualEntryBtn:hover,
 .backToSearchBtn:hover {
-    border-color: var(--primary-orange);
-    color: var(--primary-orange);
+    border-color: #2563eb;
+    color: #2563eb;
 }
 
 .manualEntryForm {
@@ -570,7 +570,7 @@
 .assistantAvatar {
     width: 40px;
     height: 40px;
-    background: var(--primary-orange);
+    background: #2563eb;
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -614,8 +614,8 @@
 }
 
 .checkbox input:checked+.checkmark {
-    background: var(--primary-orange);
-    border-color: var(--primary-orange);
+    background: #2563eb;
+    border-color: #2563eb;
 }
 
 .checkbox input:checked+.checkmark::after {
@@ -630,7 +630,7 @@
 }
 
 .checkbox a {
-    color: var(--primary-orange);
+    color: #2563eb;
     text-decoration: underline;
 }
 
@@ -688,7 +688,7 @@
     background: var(--light-bg);
     border: 2px dashed var(--border-color);
     border-radius: 12px;
-    color: var(--primary-orange);
+    color: #2563eb;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
@@ -699,7 +699,7 @@
     display: flex;
     gap: 0.75rem;
     padding: 1rem;
-    background: linear-gradient(135deg, rgba(255, 138, 0, 0.1), rgba(255, 179, 71, 0.1));
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.1));
     border-radius: 12px;
     margin-bottom: 1.5rem;
 }
@@ -725,7 +725,7 @@
 
 .helpDetails summary {
     font-size: 0.9375rem;
-    color: var(--primary-orange);
+    color: #2563eb;
     cursor: pointer;
     font-weight: 500;
 }
@@ -761,7 +761,7 @@
 }
 
 .amount {
-    color: var(--primary-orange);
+    color: #2563eb;
     font-weight: 700;
 }
 
@@ -816,7 +816,7 @@
 }
 
 .signatureLegal a {
-    color: var(--primary-orange);
+    color: #2563eb;
 }
 
 /* Upload Section */
@@ -835,8 +835,8 @@
 }
 
 .uploadBox:hover {
-    border-color: var(--primary-orange);
-    background: rgba(255, 138, 0, 0.05);
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .uploadBox input {
@@ -867,7 +867,7 @@
 }
 
 .changeFile {
-    color: var(--primary-orange);
+    color: #2563eb;
 }
 
 .idNote {
@@ -929,7 +929,7 @@
 
 .tipNote {
     margin-top: 1rem !important;
-    color: var(--primary-orange) !important;
+    color: #2563eb !important;
     font-weight: 500;
 }
 
@@ -959,16 +959,16 @@
 }
 
 .primeCard:hover {
-    border-color: var(--primary-orange);
+    border-color: #2563eb;
 }
 
 .primeCard.selected {
-    border-color: var(--primary-orange);
-    box-shadow: 0 8px 30px rgba(255, 138, 0, 0.2);
+    border-color: #2563eb;
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.2);
 }
 
 .primeCard.recommended {
-    border-color: var(--primary-orange);
+    border-color: #2563eb;
 }
 
 .recommendedBadge {
@@ -976,7 +976,7 @@
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--primary-orange);
+    background: #2563eb;
     color: var(--white);
     font-size: 0.75rem;
     font-weight: 600;
@@ -1010,7 +1010,7 @@
 .newPrice {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--primary-orange);
+    color: #2563eb;
 }
 
 .period {
@@ -1115,7 +1115,7 @@
     display: block;
     width: 100%;
     padding: 1rem;
-    background: var(--primary-orange);
+    background: #2563eb;
     color: var(--white);
     text-align: center;
     text-decoration: none;
@@ -1126,7 +1126,7 @@
 }
 
 .homeBtn:hover {
-    background: var(--dark-orange);
+    background: #1d4ed8;
     color: var(--white);
 }
 
@@ -1164,7 +1164,7 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 2rem;
-    background: var(--primary-orange);
+    background: #2563eb;
     border: none;
     border-radius: 12px;
     color: var(--white);
@@ -1176,8 +1176,8 @@
 }
 
 .continueBtn:hover:not(:disabled) {
-    background: var(--dark-orange);
-    box-shadow: 0 4px 15px rgba(255, 138, 0, 0.35);
+    background: #1d4ed8;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
 }
 
 .continueBtn:disabled {
@@ -1316,7 +1316,7 @@
 .embedded .problemCard:hover,
 .embedded .flightOption:hover,
 .embedded .delayOption:hover {
-    border-color: var(--primary-orange);
+    border-color: #2563eb;
     background: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
@@ -1364,7 +1364,7 @@
 .embedded .input:focus,
 .embedded .select:focus,
 .embedded .textarea:focus {
-    box-shadow: 0 0 0 3px var(--primary-orange);
+    box-shadow: 0 0 0 3px #2563eb;
 }
 
 .embedded .formContainer {
@@ -1444,7 +1444,7 @@
 .embedded .problemCard:hover,
 .embedded .flightOption:hover,
 .embedded .delayOption:hover {
-    border-color: var(--primary-orange);
+    border-color: #2563eb;
     background: #fff;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -1493,7 +1493,7 @@
 .embedded .input:focus,
 .embedded .select:focus,
 .embedded .textarea:focus {
-    box-shadow: 0 0 0 3px var(--primary-orange);
+    box-shadow: 0 0 0 3px #2563eb;
 }
 
 .embedded .formContainer {
@@ -1513,5 +1513,5 @@
 
 .embedded .warningBox strong,
 .embedded .noFlightsFound strong {
-    color: var(--primary-orange);
+    color: #2563eb;
 }

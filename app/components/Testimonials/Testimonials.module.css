@@ -45,24 +45,7 @@
     font-weight: 700;
 }
 
-.trustpilotLink {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--slogan-gray);
-    font-size: 0.9375rem;
-    text-decoration: none;
-    transition: color 0.2s;
-}
 
-.trustpilotLink:hover {
-    color: var(--primary-night-blue);
-}
-
-.trustpilotLogo {
-    color: #00B67A;
-    font-weight: 600;
-}
 
 /* Desktop Grid */
 .desktopGrid {
@@ -135,20 +118,7 @@
     letter-spacing: 2px;
 }
 
-.trustpilotBadge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.75rem 1.25rem;
-    border-radius: 50px;
-    color: var(--white);
-    font-size: 0.8125rem;
-}
 
-.trustpilotIcon {
-    color: #00B67A;
-}
 
 /* Review Cards */
 .reviewCard {

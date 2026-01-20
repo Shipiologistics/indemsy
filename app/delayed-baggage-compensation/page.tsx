@@ -121,6 +121,12 @@ export default function Page() {
                         </aside>
 
                         <div className={styles.content}>
+                            <div className={styles.baggageHero}>
+                                <img
+                                    src="/Airline passengers blast ‘rude’ airport baggage___.jpg"
+                                    alt="Airline passengers blast ‘rude’ airport baggage"
+                                />
+                            </div>
                             <section id="summary" className={styles.section}>
                                 <GlassCard variant="gradient">
                                     <p className={styles.introText}>{t('summary.p1')}</p>

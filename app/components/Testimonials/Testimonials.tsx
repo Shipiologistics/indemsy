@@ -58,7 +58,6 @@ export default function Testimonials() {
                         </span>
                         <h2 className={styles.title}>{t('title')}</h2>
                     </div>
-                    {t('seeAll')}
                 </div>
 
                 {/* Desktop Grid */}
@@ -76,10 +75,7 @@ export default function Testimonials() {
                             </div>
                             <div className={styles.laurelRight}>🏆</div>
                         </div>
-                        <div className={styles.trustpilotBadge}>
-                            <span className={styles.trustpilotIcon}>★</span>
-                            4.5/5 {t('basedOn')}
-                        </div>
+
                     </div>
 
                     {/* Review Cards */}
@@ -116,10 +112,7 @@ export default function Testimonials() {
                             </div>
                             <div className={styles.laurelRight}>🏆</div>
                         </div>
-                        <div className={styles.trustpilotBadge}>
-                            <span className={styles.trustpilotIcon}>★</span>
-                            4.5/5 {t('basedOn')}
-                        </div>
+
                     </div>
 
                     {/* Horizontal Slider */}

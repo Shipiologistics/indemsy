@@ -696,10 +696,11 @@
 }
 
 /* World Map */
-.worldMapContainer {
-    margin: 1rem 0;
-    border-radius: 12px;
-    overflow: hidden;
+.worldMapLottie {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    display: block;
 }
 
 .worldMap {

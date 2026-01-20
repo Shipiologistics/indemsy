@@ -25,8 +25,11 @@ export default function Header() {
       <div className={styles.container}>
         <div className={styles.leftSection}>
           <Link href="/" className={styles.logo}>
-            <span className={styles.logoIcon}>✈</span>
-            <span className={styles.logoText}>Indemsy</span>
+            <img
+              src="/ChatGPT_Image_Jan_20__2026__02_21_19_PM-removebg-preview.png"
+              alt="Indemsy Logo"
+              className={styles.logoImage}
+            />
           </Link>
 
           <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`}>

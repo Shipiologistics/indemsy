@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import PastelHero from '../components/PastelHero/PastelHero';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
@@ -432,16 +433,13 @@ export default function Page() {
                                     <p>{t('sectionCountries.p1')}</p>
                                 </div>
 
-                                {/* World Map */}
-                                <div className={styles.worldMapContainer}>
-                                    <Image
-                                        src="https://img.airhelp.com/landing-pages/air-passenger-rights-world-map-2.png"
-                                        alt="Map of the world showing where major air passenger rights apply"
-                                        width={800}
-                                        height={400}
-                                        className={styles.worldMap}
-                                    />
-                                </div>
+                                {/* World Map Lottie Animation */}
+                                <DotLottieReact
+                                    src="https://lottie.host/2ca4aab1-94f0-4112-af0e-879fece3e1ff/ayVfprWKUW.lottie"
+                                    loop
+                                    autoplay
+                                    className={styles.worldMapLottie}
+                                />
 
                                 <div className={styles.sectionContent}>
                                     <h3>{t('sectionCountries.h3')}</h3>

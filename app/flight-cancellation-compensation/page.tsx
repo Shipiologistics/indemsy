@@ -253,6 +253,16 @@ export default function Page() {
                                 </div>
                             </section>
 
+                            <div className={styles.contentImage}>
+                                <Image
+                                    src="/AIRLINES_ Know Your Rights_ Airline Refunds and Delay Compensation Course.jpg"
+                                    alt="Airline Refunds and Delay Compensation Rights Infographic"
+                                    width={1200}
+                                    height={600}
+                                    style={{ width: '100%', height: 'auto' }}
+                                />
+                            </div>
+
                             {/* Entitlements Section */}
                             <section id="entitlements" className={styles.section}>
                                 <h2 className={styles.sectionTitle}>
@@ -459,7 +469,7 @@ export default function Page() {
                         </div>
                     </div>
                 </div>
-            </main>
+            </main >
             <Footer />
         </>
     );

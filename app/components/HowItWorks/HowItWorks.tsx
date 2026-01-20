@@ -10,6 +10,7 @@ export default function HowItWorks() {
     const stepsContainerRef = useRef<HTMLDivElement>(null);
     const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [progress, setProgress] = useState(0);
+    const [lineHeight, setLineHeight] = useState(0);
     const [activeSteps, setActiveSteps] = useState<boolean[]>([false, false, false]);
 
     const steps = [
@@ -70,6 +71,8 @@ export default function HowItWorks() {
             const lastStepRect = lastStep.getBoundingClientRect();
             const totalHeight = lastStepRect.top - firstStepRect.top;
 
+            setLineHeight(totalHeight);
+
             let fillHeight = 0;
 
             if (newActiveSteps[2]) {
@@ -118,10 +121,10 @@ export default function HowItWorks() {
                     {/* Right Column - Steps */}
                     <div className={styles.rightColumn}>
                         <div className={styles.stepsWrapper} ref={stepsContainerRef}>
-                            <div className={styles.progressLineBackground}></div>
+                            <div className={styles.progressLineBackground} style={{ height: lineHeight }}></div>
                             <div
                                 className={styles.progressLineFill}
-                                style={{ transform: `scaleY(${progress})` }}
+                                style={{ height: lineHeight, transform: `scaleY(${progress})` }}
                             ></div>
 
                             <div className={styles.steps}>

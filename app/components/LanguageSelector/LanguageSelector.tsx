@@ -54,7 +54,6 @@ export default function LanguageSelector() {
                 aria-label="Select language"
             >
                 <span className={styles.flag}>{currentLanguage.flag}</span>
-                <span className={styles.code}>{currentLanguage.code.toUpperCase()}</span>
                 <svg
                     className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
                     width="12"
