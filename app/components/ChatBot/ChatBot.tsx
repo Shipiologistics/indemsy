@@ -24,6 +24,28 @@ export default function ChatBot() {
         }
     }, [messages]);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add('chatbot-open');
+        } else {
+            document.body.classList.remove('chatbot-open');
+        }
+
+        if (isOpen && window.innerWidth <= 768) {
+            // Force a scroll that triggers the widget to slide up/away
+            // This provides the "space" by mimicking the natural scroll behavior
+            window.scrollTo({
+                top: 180, // Scroll down enough to move hero content up and provide room
+                behavior: 'smooth'
+            });
+        } else if (!isOpen && window.innerWidth <= 768) {
+            // Optional: scroll back to top when closing
+            if (window.scrollY > 150) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    }, [isOpen]);
+
     // Save session when chat ends or user closes
     const saveSession = async (msgs: Message[]) => {
         if (msgs.length === 0) return;

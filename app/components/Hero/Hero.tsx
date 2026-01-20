@@ -37,6 +37,11 @@ export default function Hero() {
         if (!isMobile) return;
 
         const handleScroll = () => {
+            if (document.body.classList.contains('chatbot-open')) {
+                setIsWidgetVisible(false); // Force hide to provide space
+                return;
+            }
+
             const currentScrollY = window.scrollY;
             const heroElement = document.getElementById('check');
             const heroBottom = heroElement ? heroElement.offsetTop + heroElement.offsetHeight : 0;
@@ -101,7 +106,7 @@ export default function Hero() {
             <div className={styles.container}>
                 <div className={styles.content}>
                     {/* Mobile Widget - Slides from header */}
-                    <div className={`${styles.mobileWidget} ${isWidgetVisible ? styles.widgetVisible : styles.widgetHidden}`}>
+                    <div id="compensation-widget" className={`${styles.mobileWidget} ${isWidgetVisible ? styles.widgetVisible : styles.widgetHidden}`}>
                         <div className={styles.glassContainer}>
                             <form className={styles.form} onSubmit={handleSubmit} style={{ marginBottom: 0 }}>
                                 <div className={styles.formCard}>
