@@ -9,7 +9,7 @@ interface LayoutWrapperProps {
 }
 
 // Routes that should NOT have the website header/footer
-const DASHBOARD_ROUTES = ['/admin', '/dashboard'];
+const DASHBOARD_ROUTES = ['/admin', '/dashboard', '/claim'];
 
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
     const pathname = usePathname();

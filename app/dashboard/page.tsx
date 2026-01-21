@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 interface Claim {
     id: number;
@@ -25,16 +26,8 @@ interface Comment {
     createdAt: string;
 }
 
-const statusConfig: { [key: string]: { bg: string; color: string; label: string } } = {
-    submitted: { bg: '#fffbeb', color: '#d97706', label: 'Submitted' },
-    processing: { bg: '#eff6ff', color: '#3b82f6', label: 'Processing' },
-    approved: { bg: '#ecfdf5', color: '#059669', label: 'Approved' },
-    rejected: { bg: '#fef2f2', color: '#dc2626', label: 'Rejected' },
-    pending_documents: { bg: '#fef3c7', color: '#b45309', label: 'Pending Documents' },
-    closed: { bg: '#f1f5f9', color: '#64748b', label: 'Closed' },
-};
-
 export default function UserDashboard() {
+    const t = useTranslations('dashboard');
     const [email, setEmail] = useState('');
     const [claims, setClaims] = useState<Claim[]>([]);
     const [loading, setLoading] = useState(false);
@@ -44,10 +37,19 @@ export default function UserDashboard() {
     const [commentsLoading, setCommentsLoading] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const statusConfig: { [key: string]: { bg: string; color: string; label: string } } = {
+        submitted: { bg: '#fffbeb', color: '#d97706', label: t('status.submitted') },
+        processing: { bg: '#eff6ff', color: '#3b82f6', label: t('status.processing') },
+        approved: { bg: '#ecfdf5', color: '#059669', label: t('status.approved') },
+        rejected: { bg: '#fef2f2', color: '#dc2626', label: t('status.rejected') },
+        pending_documents: { bg: '#fef3c7', color: '#b45309', label: t('status.pending_documents') },
+        closed: { bg: '#f1f5f9', color: '#64748b', label: t('status.closed') },
+    };
+
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!email.trim()) {
-            setError('Please enter your email');
+            setError(t('login.errorEmpy'));
             return;
         }
 
@@ -181,12 +183,12 @@ export default function UserDashboard() {
                             color: 'white',
                             margin: '0 0 8px 0',
                             letterSpacing: '-0.5px',
-                        }}>Track Your Claim</h1>
+                        }}>{t('login.title')}</h1>
                         <p style={{
                             fontSize: '15px',
                             color: '#94a3b8',
                             margin: 0,
-                        }}>Enter your email to view your application status</p>
+                        }}>{t('login.subtitle')}</p>
                     </div>
 
                     <form onSubmit={handleLogin}>
@@ -197,12 +199,12 @@ export default function UserDashboard() {
                                 color: '#94a3b8',
                                 display: 'block',
                                 marginBottom: '8px',
-                            }}>Email Address</label>
+                            }}>{t('login.emailLabel')}</label>
                             <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="your@email.com"
+                                placeholder={t('login.emailPlaceholder')}
                                 style={{
                                     width: '100%',
                                     padding: '14px 18px',
@@ -250,7 +252,7 @@ export default function UserDashboard() {
                                 boxShadow: '0 4px 16px rgba(59,130,246,0.4)',
                             }}
                         >
-                            {loading ? 'Loading...' : 'View My Claims'}
+                            {loading ? t('login.loading') : t('login.submitButton')}
                         </button>
                     </form>
 
@@ -263,7 +265,7 @@ export default function UserDashboard() {
                             fontSize: '14px',
                             textDecoration: 'none',
                         }}>
-                            Submit a new claim →
+                            {t('login.submitNew')}
                         </Link>
                     </div>
                 </div>
@@ -303,8 +305,8 @@ export default function UserDashboard() {
                         <span style={{ fontSize: '18px', fontWeight: '700', color: 'white' }}>I</span>
                     </div>
                     <div>
-                        <h1 style={{ fontSize: '18px', fontWeight: '700', color: '#0f172a', margin: 0 }}>Indemsy</h1>
-                        <p style={{ fontSize: '12px', color: '#64748b', margin: 0 }}>My Claims Dashboard</p>
+                        <h1 style={{ fontSize: '18px', fontWeight: '700', color: '#0f172a', margin: 0 }}>{t('header.title')}</h1>
+                        <p style={{ fontSize: '12px', color: '#64748b', margin: 0 }}>{t('header.subtitle')}</p>
                     </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -321,7 +323,7 @@ export default function UserDashboard() {
                             cursor: 'pointer',
                         }}
                     >
-                        Logout
+                        {t('header.logout')}
                     </button>
                 </div>
             </header>
@@ -341,7 +343,7 @@ export default function UserDashboard() {
                         boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
                         border: '1px solid #e2e8f0',
                     }}>
-                        <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>Total Claims</p>
+                        <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>{t('stats.total')}</p>
                         <p style={{ fontSize: '32px', fontWeight: '700', color: '#0f172a', margin: 0 }}>{claims.length}</p>
                     </div>
                     <div style={{
@@ -351,7 +353,7 @@ export default function UserDashboard() {
                         boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
                         border: '1px solid #e2e8f0',
                     }}>
-                        <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>In Progress</p>
+                        <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>{t('stats.inProgress')}</p>
                         <p style={{ fontSize: '32px', fontWeight: '700', color: '#3b82f6', margin: 0 }}>
                             {claims.filter(c => c.status === 'processing' || c.status === 'submitted').length}
                         </p>
@@ -363,7 +365,7 @@ export default function UserDashboard() {
                         boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
                         border: '1px solid #e2e8f0',
                     }}>
-                        <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>Approved</p>
+                        <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>{t('stats.approved')}</p>
                         <p style={{ fontSize: '32px', fontWeight: '700', color: '#059669', margin: 0 }}>
                             {claims.filter(c => c.status === 'approved').length}
                         </p>
@@ -383,9 +385,9 @@ export default function UserDashboard() {
                             padding: '20px 24px',
                             borderBottom: '1px solid #e2e8f0',
                         }}>
-                            <h2 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a', margin: 0 }}>Your Claims</h2>
+                            <h2 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a', margin: 0 }}>{t('list.title')}</h2>
                             <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0 0 0' }}>
-                                Click on a claim to view details and comments
+                                {t('list.subtitle')}
                             </p>
                         </div>
 
@@ -393,10 +395,10 @@ export default function UserDashboard() {
                             <div style={{ padding: '60px 24px', textAlign: 'center' }}>
                                 <div style={{ fontSize: '48px', marginBottom: '16px', opacity: 0.5 }}>📄</div>
                                 <p style={{ fontSize: '16px', fontWeight: '500', color: '#0f172a', margin: '0 0 8px 0' }}>
-                                    No claims found
+                                    {t('list.emptyTitle')}
                                 </p>
                                 <p style={{ fontSize: '14px', color: '#64748b', margin: '0 0 20px 0' }}>
-                                    You haven't submitted any claims yet
+                                    {t('list.emptyDesc')}
                                 </p>
                                 <Link
                                     href="/claim"
@@ -411,7 +413,7 @@ export default function UserDashboard() {
                                         textDecoration: 'none',
                                     }}
                                 >
-                                    Submit Your First Claim
+                                    {t('list.emptyButton')}
                                 </Link>
                             </div>
                         ) : (
@@ -504,7 +506,7 @@ export default function UserDashboard() {
                             }}>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a', margin: 0 }}>
-                                        Claim #{selectedClaim.id}
+                                        {t('detail.subtitle')} #{selectedClaim.id}
                                     </h3>
                                     <button
                                         onClick={() => setSelectedClaim(null)}
@@ -523,7 +525,7 @@ export default function UserDashboard() {
 
                             {/* Status */}
                             <div style={{ padding: '20px 24px', borderBottom: '1px solid #f1f5f9' }}>
-                                <p style={{ fontSize: '12px', color: '#64748b', margin: '0 0 8px 0' }}>Current Status</p>
+                                <p style={{ fontSize: '12px', color: '#64748b', margin: '0 0 8px 0' }}>{t('detail.currentStatus')}</p>
                                 <div style={{
                                     display: 'inline-block',
                                     padding: '8px 16px',
@@ -539,7 +541,7 @@ export default function UserDashboard() {
 
                             {/* Flight Details */}
                             <div style={{ padding: '20px 24px', borderBottom: '1px solid #f1f5f9' }}>
-                                <p style={{ fontSize: '12px', color: '#64748b', margin: '0 0 12px 0' }}>Flight Details</p>
+                                <p style={{ fontSize: '12px', color: '#64748b', margin: '0 0 12px 0' }}>{t('detail.flightDetails')}</p>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                     <div style={{
                                         padding: '8px 12px',
@@ -564,22 +566,22 @@ export default function UserDashboard() {
                                     </div>
                                 </div>
                                 <p style={{ fontSize: '13px', color: '#64748b', margin: '12px 0 0 0' }}>
-                                    Flight: {(selectedClaim.selectedFlight as any)?.flightNumber || selectedClaim.manualFlightNumber || 'N/A'}
+                                    {t('detail.flight')} {(selectedClaim.selectedFlight as any)?.flightNumber || selectedClaim.manualFlightNumber || 'N/A'}
                                 </p>
                                 <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0 0 0' }}>
-                                    Date: {selectedClaim.travelDate ? new Date(selectedClaim.travelDate).toLocaleDateString() : 'N/A'}
+                                    {t('detail.date')} {selectedClaim.travelDate ? new Date(selectedClaim.travelDate).toLocaleDateString() : 'N/A'}
                                 </p>
                             </div>
 
                             {/* Comments Section */}
                             <div style={{ padding: '20px 24px' }}>
                                 <p style={{ fontSize: '12px', color: '#64748b', margin: '0 0 16px 0' }}>
-                                    💬 Comments from Admin
+                                    {t('detail.commentsTitle')}
                                 </p>
 
                                 {commentsLoading ? (
                                     <div style={{ textAlign: 'center', padding: '20px', color: '#94a3b8' }}>
-                                        Loading comments...
+                                        {t('detail.loadingComments')}
                                     </div>
                                 ) : comments.length === 0 ? (
                                     <div style={{
@@ -590,7 +592,7 @@ export default function UserDashboard() {
                                     }}>
                                         <span style={{ fontSize: '24px', marginBottom: '8px', display: 'block' }}>💭</span>
                                         <p style={{ fontSize: '14px', color: '#64748b', margin: 0 }}>
-                                            No comments yet
+                                            {t('detail.noComments')}
                                         </p>
                                     </div>
                                 ) : (

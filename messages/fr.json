@@ -1827,5 +1827,52 @@
             "q4": "Quelle indemnisation puis-je obtenir pour les problèmes de bagages ?",
             "a4": "Sous la Convention de Montréal, jusqu'à ~1 900 € pour perte, dommage ou retard. Remplissez un rapport PIR."
         }
+    },
+    "dashboard": {
+        "login": {
+            "title": "Suivre votre réclamation",
+            "subtitle": "Entrez votre email pour voir le statut de votre demande",
+            "emailLabel": "Adresse email",
+            "emailPlaceholder": "votre@email.com",
+            "submitButton": "Voir mes réclamations",
+            "loading": "Chargement...",
+            "submitNew": "Soumettre une nouvelle réclamation →",
+            "errorEmpy": "Veuillez entrer votre email"
+        },
+        "header": {
+            "title": "Indemsy",
+            "subtitle": "Tableau de bord de mes réclamations",
+            "logout": "Déconnexion"
+        },
+        "stats": {
+            "total": "Total des réclamations",
+            "inProgress": "En cours",
+            "approved": "Approuvé"
+        },
+        "list": {
+            "title": "Vos réclamations",
+            "subtitle": "Cliquez sur une réclamation pour voir les détails et commentaires",
+            "emptyTitle": "Aucune réclamation trouvée",
+            "emptyDesc": "Vous n'avez pas encore soumis de réclamation",
+            "emptyButton": "Soumettre votre première réclamation"
+        },
+        "detail": {
+            "subtitle": "Réclamation",
+            "currentStatus": "Statut actuel",
+            "flightDetails": "Détails du vol",
+            "flight": "Vol :",
+            "date": "Date :",
+            "commentsTitle": "💬 Commentaires de l'administrateur",
+            "loadingComments": "Chargement des commentaires...",
+            "noComments": "Aucun commentaire pour le moment"
+        },
+        "status": {
+            "submitted": "Soumis",
+            "processing": "En traitement",
+            "approved": "Approuvé",
+            "rejected": "Rejeté",
+            "pending_documents": "Documents en attente",
+            "closed": "Fermé"
+        }
     }
 }

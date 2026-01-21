@@ -195,6 +195,17 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         label: from
                     }
                 }));
+
+                // Fetch full airport details
+                fetch(`/api/airports/search?q=${from}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.items && data.items.length > 0) {
+                            const match = data.items.find((a: Airport) => a.iata === from || a.icao === from) || data.items[0];
+                            setFormData(prev => ({ ...prev, departureAirport: match }));
+                        }
+                    })
+                    .catch(e => console.error('Error fetching departure airport:', e));
             }
 
             if (to) {
@@ -209,6 +220,17 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         label: to
                     }
                 }));
+
+                // Fetch full airport details
+                fetch(`/api/airports/search?q=${to}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.items && data.items.length > 0) {
+                            const match = data.items.find((a: Airport) => a.iata === to || a.icao === to) || data.items[0];
+                            setFormData(prev => ({ ...prev, arrivalAirport: match }));
+                        }
+                    })
+                    .catch(e => console.error('Error fetching arrival airport:', e));
             }
         }
     }, [searchParams]);
@@ -281,7 +303,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
 
     const canProceed = (): boolean => {
         switch (currentStep) {
-            case 1: return formData.isDirect !== null;
+            case 1: return formData.isDirect !== null && !!formData.departureAirport && !!formData.arrivalAirport;
             case 2: return !!(formData.departureAirport && formData.arrivalAirport && formData.travelDate);
             case 3: return !!(formData.selectedFlight || (showManualEntry && formData.manualFlightNumber));
             case 4: return !!formData.problemType;
@@ -375,12 +397,38 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
 
     const renderStep = () => {
         switch (currentStep) {
-            // Step 1: Direct Flight Question
+            // Step 1: Flight Details (Route + Direct Question)
             case 1:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>✈️</div>
-                        <h2 className={styles.stepTitle}>{t('step1Title')}</h2>
+                        <h2 className={styles.stepTitle}>Where did you fly?</h2>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.label}>{t('departureAirport')}</label>
+                            <AirportSearch
+                                id="departure"
+                                placeholder="Departure airport"
+                                icon="🛫"
+                                value={formData.departureAirport}
+                                onChange={(a) => updateFormData('departureAirport', a)}
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.label}>{t('arrivalAirport')}</label>
+                            <AirportSearch
+                                id="arrival"
+                                placeholder="Arrival airport"
+                                icon="🛬"
+                                value={formData.arrivalAirport}
+                                onChange={(a) => updateFormData('arrivalAirport', a)}
+                            />
+                        </div>
+
+                        <div className={styles.separator}></div>
+
+                        <h2 className={styles.stepTitle} style={{ marginTop: '2rem' }}>{t('step1Title')}</h2>
                         <p className={styles.stepSubtitle}>{t('step1Subtitle')}</p>
 
                         <div className={styles.optionCards}>
@@ -451,35 +499,13 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 2: Travel Details
+            // Step 2: Date
             case 2:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📅</div>
                         <h2 className={styles.stepTitle}>{t('whenTravel')}</h2>
                         <p className={styles.stepSubtitle}>{t('step2Subtitle')}</p>
-
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>{t('departureAirport')}</label>
-                            <AirportSearch
-                                id="departure"
-                                placeholder="Departure airport"
-                                icon="🛫"
-                                value={formData.departureAirport}
-                                onChange={(a) => updateFormData('departureAirport', a)}
-                            />
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>{t('arrivalAirport')}</label>
-                            <AirportSearch
-                                id="arrival"
-                                placeholder="Arrival airport"
-                                icon="🛬"
-                                value={formData.arrivalAirport}
-                                onChange={(a) => updateFormData('arrivalAirport', a)}
-                            />
-                        </div>
 
                         <div className={styles.formGroup}>
                             <label className={styles.label}>{t('travelDate')}</label>

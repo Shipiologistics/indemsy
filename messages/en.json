@@ -1954,5 +1954,52 @@
             "q4": "What compensation can I get for baggage problems?",
             "a4": "Under the Montreal Convention, you can claim up to ~€1,900 for lost, damaged, or delayed baggage. File a PIR immediately."
         }
+    },
+    "dashboard": {
+        "login": {
+            "title": "Track Your Claim",
+            "subtitle": "Enter your email to view your application status",
+            "emailLabel": "Email Address",
+            "emailPlaceholder": "your@email.com",
+            "submitButton": "View My Claims",
+            "loading": "Loading...",
+            "submitNew": "Submit a new claim →",
+            "errorEmpy": "Please enter your email"
+        },
+        "header": {
+            "title": "Indemsy",
+            "subtitle": "My Claims Dashboard",
+            "logout": "Logout"
+        },
+        "stats": {
+            "total": "Total Claims",
+            "inProgress": "In Progress",
+            "approved": "Approved"
+        },
+        "list": {
+            "title": "Your Claims",
+            "subtitle": "Click on a claim to view details and comments",
+            "emptyTitle": "No claims found",
+            "emptyDesc": "You haven't submitted any claims yet",
+            "emptyButton": "Submit Your First Claim"
+        },
+        "detail": {
+            "subtitle": "Claim",
+            "currentStatus": "Current Status",
+            "flightDetails": "Flight Details",
+            "flight": "Flight:",
+            "date": "Date:",
+            "commentsTitle": "💬 Comments from Admin",
+            "loadingComments": "Loading comments...",
+            "noComments": "No comments yet"
+        },
+        "status": {
+            "submitted": "Submitted",
+            "processing": "Processing",
+            "approved": "Approved",
+            "rejected": "Rejected",
+            "pending_documents": "Pending Documents",
+            "closed": "Closed"
+        }
     }
 }

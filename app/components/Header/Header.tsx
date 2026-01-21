@@ -34,7 +34,7 @@ export default function Header() {
 
           <nav className={styles.nav}>
             <div className={styles.navPanel}>
-              <Link href="/check-compensation" className={styles.navLink}>{t('getCompensation')}</Link>
+              <Link href="/claim" className={styles.navLink}>{t('getCompensation')}</Link>
               <Link href="/plus" className={styles.navLink}>{t('indemsyPlus')}</Link>
 
               <div

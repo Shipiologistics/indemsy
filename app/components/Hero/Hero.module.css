@@ -4,7 +4,7 @@
     margin-top: 6.75rem;
     min-height: 600px;
     border-radius: 24px;
-    overflow: hidden;
+    z-index: 10;
 }
 
 /* Background Image Wrapper */
@@ -173,6 +173,7 @@
     padding: 0.5rem;
     max-width: 920px;
     margin: 0 auto;
+    z-index: 20;
 }
 
 @media (max-width: 768px) {
