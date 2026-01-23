@@ -7,7 +7,7 @@
         "faq": "FAQ",
         "checkCompensation": "Vérifier l'indemnisation",
         "getCompensation": "Obtenir une indemnisation",
-        "indemsyPlus": "Indemsy+",
+        "flycompensePlus": "FlyCompense+",
         "mobileApp": "Obtenir l'appli gratuite",
         "aboutUs": "À propos de nous",
         "knowYourRights": "Connaissez vos droits",
@@ -49,7 +49,7 @@
         "checkmark3": "Nous gérons les négociations"
     },
     "featured": {
-        "title": "INDEMSY DANS LES MÉDIAS :"
+        "title": "FLYCOMPENSE DANS LES MÉDIAS :"
     },
     "compensation": {
         "title": "Indemnisation de vol",
@@ -85,7 +85,7 @@
     "howItWorks": {
         "title": "Comment ça marche",
         "subtitle": "Vos 3 étapes vers l'indemnisation",
-        "description": "Obtenir une indemnisation de vol n'a jamais été aussi facile. Indemsy s'occupe du travail difficile et vous êtes payé sans tracas.",
+        "description": "Obtenir une indemnisation de vol n'a jamais été aussi facile. FlyCompense s'occupe du travail difficile et vous êtes payé sans tracas.",
         "step1Title": "Réclamez en 2 minutes",
         "step1Desc": "Nous nous assurons que tout est rapide et facile, et que vos données sont en sécurité.",
         "step2Title": "Nous gérons tout",
@@ -107,7 +107,7 @@
         "subtitle": "Tout ce que vous devez savoir sur les réclamations d'indemnisation de vol",
         "moreQuestions": "Vous avez d'autres questions ?",
         "visitHelp": "Visitez notre centre d'aide",
-        "q1": "Pourquoi devrais-je réclamer avec Indemsy ?",
+        "q1": "Pourquoi devrais-je réclamer avec FlyCompense ?",
         "a1": "Les compagnies aériennes peuvent rendre les réclamations d'indemnisation compliquées — retardant ou rejetant les demandes et transformant cela en un processus frustrant et chronophage. C'est là que nous intervenons. Nous gérons la paperasse, les négociations et tous les tracas, pour que vous n'ayez pas à le faire. Nos experts connaissent parfaitement les lois sur les droits des passagers aériens, maximisant vos chances de gagner. Et nous ne facturons des frais de service que si nous obtenons avec succès votre indemnisation.",
         "q2": "De quoi ai-je besoin pour réclamer une indemnisation ?",
         "a2": "Vous aurez besoin des détails de votre vol (numéro de vol, date, aéroports de départ et d'arrivée), de la confirmation de réservation ou du billet électronique, et d'une pièce d'identité valide. Si vous avez votre carte d'embarquement, c'est encore mieux !",
@@ -125,7 +125,7 @@
         "subtitle": "Recevez des conseils et astuces directement dans votre boîte mail",
         "placeholder": "Votre adresse email",
         "button": "S'inscrire",
-        "consent": "Je souhaite recevoir des emails d'Indemsy et j'accepte la Déclaration de confidentialité."
+        "consent": "Je souhaite recevoir des emails de FlyCompense et j'accepte la Déclaration de confidentialité."
     },
     "rights": {
         "title": "Connaissez vos droits",
@@ -134,7 +134,7 @@
         "guideTitle": "Votre guide des droits des passagers aériens",
         "edition": "ÉDITION 2025",
         "guideLabel": "Guide des droits des passagers",
-        "apraText": "Indemsy fait partie de l'Association des Défenseurs des Droits des Passagers (APRA) dont la mission est de promouvoir et protéger les droits des passagers."
+        "apraText": "FlyCompense fait partie de l'Association des Défenseurs des Droits des Passagers (APRA) dont la mission est de promouvoir et protéger les droits des passagers."
     },
     "footer": {
         "tagline": "Les experts n°1 mondiaux de l'indemnisation de vol. Nous nous battons pour vos droits afin que vous soyez payé.",
@@ -152,7 +152,7 @@
         "partners": "Partenaires",
         "products": "Nos produits",
         "checkCompensation": "Vérifier l'indemnisation",
-        "plus": "Indemsy+",
+        "plus": "FlyCompense+",
         "mobileApp": "Application mobile",
         "forBusiness": "Pour les entreprises",
         "legal": "Légal",
@@ -333,7 +333,7 @@
             "additionalInfo": "Informations complémentaires",
             "documents": "Documents",
             "finish": "Terminé",
-            "featuredIn": "FlyCompensate a été mentionné dans"
+            "featuredIn": "FlyCompense a été mentionné dans"
         },
         "header": {
             "rights": "Nous faisons valoir vos droits de consommateur"
@@ -343,7 +343,7 @@
             "terms": "Conditions générales",
             "privacy": "Politique de confidentialité",
             "trustpilot": "Excellent ★★★★★ 229 860 avis sur ★ Trustpilot",
-            "copyright": "© 2026 FlyCompensate"
+            "copyright": "© 2026 FlyCompense"
         }
     },
     "common": {
@@ -359,12 +359,12 @@
         "required": "Obligatoire"
     },
     "metadata": {
-        "title": "Indemsy - Experts n°1 en indemnisation de vol | Obtenez jusqu'à 650€",
-        "description": "Vol retardé ou annulé ? Obtenez jusqu'à 650€ d'indemnisation ! Indemsy gère votre réclamation pour que vous soyez payé. Vérification gratuite, pas de gain pas de frais.",
+        "title": "FlyCompense - Experts n°1 en indemnisation de vol | Obtenez jusqu'à 650€",
+        "description": "Vol retardé ou annulé ? Obtenez jusqu'à 650€ d'indemnisation ! FlyCompense gère votre réclamation pour que vous soyez payé. Vérification gratuite, pas de gain pas de frais.",
         "keywords": "indemnisation vol, vol retardé, vol annulé, indemnisation compagnie aérienne, correspondance manquée, EU261, réclamation retard vol, réclamation compagnie aérienne, Luxembourg",
-        "ogTitle": "Indemsy - Experts n°1 en indemnisation de vol",
+        "ogTitle": "FlyCompense - Experts n°1 en indemnisation de vol",
         "ogDescription": "Vol retardé ou annulé ? Obtenez jusqu'à 650€ d'indemnisation ! Vérification gratuite, pas de gain pas de frais.",
-        "twitterTitle": "Indemsy - Experts n°1 en indemnisation de vol",
+        "twitterTitle": "FlyCompense - Experts n°1 en indemnisation de vol",
         "twitterDescription": "Vol retardé ou annulé ? Obtenez jusqu'à 650€ d'indemnisation !"
     },
     "commonHero": {
@@ -505,7 +505,7 @@
             "li6": "Ne signez rien et n'acceptez pas d'offres qui pourraient vous faire renoncer à vos droits.",
             "li7": "Demandez une chambre d'hôtel si nécessaire.",
             "li8": "Gardez les reçus si l'annulation vous coûte de l'argent supplémentaire.",
-            "subtitleIndemsy": "Comment Indemsy peut vous aider à réclamer",
+            "subtitleFlyCompense": "Comment FlyCompense peut vous aider à réclamer",
             "inLi1": "Nous vérifions l'éligibilité rapidement.",
             "inLi2": "Nous gérons les négociations avec la compagnie aérienne.",
             "inLi3": "Pas de succès, pas de frais.",
@@ -524,7 +524,7 @@
             "q5": "Quel montant d'indemnisation puis-je réclamer pour un vol annulé ?",
             "a5": "Jusqu'à 600 €, selon la distance du vol et le délai de préavis donné.",
             "q6": "Comment réclamer une indemnisation pour un vol annulé ?",
-            "a6": "Vous pouvez contacter la compagnie directement, engager un avocat ou utiliser un service spécialisé comme Indemsy.",
+            "a6": "Vous pouvez contacter la compagnie directement, engager un avocat ou utiliser un service spécialisé comme FlyCompense.",
             "q7": "Mon vol a été annulé et la compagnie m'a proposé un nouveau billet. Puis-je refuser le billet ?",
             "a7": "Oui. Vous pouvez refuser le réacheminement et choisir un remboursement complet à la place si vous décidez de ne pas voyager.",
             "q8": "Que faire si la compagnie annule mon vol et ne me répond pas, ou ne me propose qu'un avoir ?",
@@ -648,7 +648,7 @@
             "li7": "Informez les personnes à votre destination.",
             "li8": "Gardez vos reçus si votre correspondance manquée finit par vous coûter de l'argent supplémentaire.",
             "li9": "Vérifiez si votre correspondance manquée est éligible à une indemnisation.",
-            "subtitleIndemsy": "Comment Indemsy peut vous aider à réclamer",
+            "subtitleFlyCompense": "Comment FlyCompense peut vous aider à réclamer",
             "inP": "Nous simplifions le processus de réclamation. Partagez les détails de votre vol et ce qui s'est passé, et notre équipe pourra s'occuper du dossier et des négociations.",
             "inLi1": "Pas de succès, pas de frais.",
             "inLi2": "Nous gérons les refus des compagnies aériennes et la bureaucratie.",
@@ -877,7 +877,7 @@
             "collLi4": "Prenez des photos des tableaux d'affichage confirmant la perturbation.",
             "h3Bought": "Puis-je réclamer si la compagnie a été rachetée ?",
             "boughtP1": "Si la compagnie opère toujours sous son nom, vous pouvez réclamer. Si elle n'existe plus, ce sera plus difficile.",
-            "h3Helper": "Comment Indemsy peut vous aider",
+            "h3Helper": "Comment FlyCompense peut vous aider",
             "helpP1": "Nous pouvons soumettre une réclamation CE 261 en votre nom, constituer votre dossier et négocier avec la compagnie.",
             "helpNote": "Pas de gain, pas de frais."
         },
@@ -1130,10 +1130,10 @@
             "q5": "Et les frais de l'agence de voyage ?",
             "a5": "La compagnie rembourse le billet, l'agence ses frais.",
             "q6": "Et si la compagnie refuse ?",
-            "a6": "Déposez une plainte ou faites appel à Indemsy."
+            "a6": "Déposez une plainte ou faites appel à FlyCompense."
         },
         "why": {
-            "title": "Pourquoi Indemsy ?",
+            "title": "Pourquoi FlyCompense ?",
             "p1": "Nous gérons tout le processus de réclamation pour vous.",
             "p2": "Pas de succès, pas de frais."
         },
@@ -1156,7 +1156,7 @@
             "compensation": "Votre droit à l'indemnisation",
             "other": "Autres droits des passagers",
             "countries": "Quels pays ont des droits de passagers ?",
-            "role": "Le rôle d'Indemsy",
+            "role": "Le rôle de FlyCompense",
             "faq": "FAQ"
         },
         "countryCards": {
@@ -1238,13 +1238,13 @@
             "p3": "Certaines réglementations ont une portée plus large ou s'avèrent plus avantageuses que d'autres. Cependant, il est préférable de se rappeler que les circonstances des vols perturbés peuvent varier considérablement, et il est utile de savoir sur quelles forces vous pouvez compter pour votre voyage."
         },
         "sectionRole": {
-            "title": "Le rôle d'Indemsy dans le soutien des droits des passagers aériens",
-            "p1": "La mission d'Indemsy est d'aider les passagers aériens.",
+            "title": "Le rôle de FlyCompense dans le soutien des droits des passagers aériens",
+            "p1": "La mission de FlyCompense est d'aider les passagers aériens.",
             "p2": "Nous nous engageons à servir la communauté des voyageurs et les passagers aériens en général en fournissant des informations cruciales et à jour concernant leurs droits.",
             "p3": "Que vous soyez un voyageur novice ou expert, nous pouvons vous aider à simplifier les lois qui sont de votre côté.",
             "h3Easier": "Nous avons facilité l'obtention d'une indemnisation",
             "p4": "Nous aidons les passagers à obtenir l'indemnisation à laquelle ils ont droit pour les retards de vol, les annulations de vols, les refus d'embarquement, les problèmes de bagages et les correspondances manquantes.",
-            "p5": "L'utilisation d'Indemsy est toujours sans risque, car nous ne facturons nos frais que lorsque nous vous obtenons de l'argent.",
+            "p5": "L'utilisation de FlyCompense est toujours sans risque, car nous ne facturons nos frais que lorsque nous vous obtenons de l'argent.",
             "h3Legal": "Réalisations juridiques",
             "p6": "Notre équipe juridique a contesté avec succès les compagnies aériennes et représenté les intérêts des passagers.",
             "p7": "Grâce aux dossiers gagnés, la loi est plus claire. Voici quelques-unes des nombreuses façons dont les droits des passagers ont été défendus :"
@@ -1286,7 +1286,7 @@
             "q10": "Comment protéger mes futurs vols contre les retards et annulations ?",
             "a10": "Vous pouvez souscrire une assurance voyage. Conservez également toutes vos confirmations de réservation, cartes d'embarquement et reçus. Connaissez vos droits avant de partir.",
             "q11": "Qui peut m'aider si la compagnie refuse de payer ?",
-            "a11": "Si une compagnie refuse le paiement, l'étape suivante est le recours juridique. Si vous passez par Indemsy, nous gérons toutes les procédures pour vous, selon le principe 'pas de gain, pas de frais'."
+            "a11": "Si une compagnie refuse le paiement, l'étape suivante est le recours juridique. Si vous passez par FlyCompense, nous gérons toutes les procédures pour vous, selon le principe 'pas de gain, pas de frais'."
         }
     },
     "flightDelay": {
@@ -1358,7 +1358,7 @@
             "eyebrow": "Étape par étape",
             "title": "Comment obtenir une indemnisation pour vol retardé",
             "doTitle": "Que faire en cas de retard",
-            "indemsyTitle": "Réclamer avec Indemsy",
+            "flycompenseTitle": "Réclamer avec FlyCompense",
             "doStep1": "Capturez des preuves : carte d'embarquement, notifications de retard, photos des tableaux de départ.",
             "doStep2": "Demandez au personnel la raison officielle et insistez pour obtenir une confirmation écrite.",
             "doStep3": "Gardez les reçus pour les repas, le transport et les hôtels que vous avez dû organiser.",
@@ -1418,9 +1418,9 @@
             "q5": "Combien me doit-on ?",
             "a5": "C'est la distance qui détermine le montant : 250 €, 400 € ou 600 € pour le CE 261 ; les autres régions calquent ces montants ou accordent des pourcentages du prix du billet. Consultez le tableau des paiements ci-dessus pour le détail exact.",
             "q6": "Comment déposer une réclamation ?",
-            "a6": "Conservez vos preuves de voyage, notez le retard, puis soumettez le tout via Indemsy. Nous gérons les négociations avec la compagnie et l'escalade juridique sur la base du \"pas de succès, pas de frais\".",
+            "a6": "Conservez vos preuves de voyage, notez le retard, puis soumettez le tout via FlyCompense. Nous gérons les négociations avec la compagnie et l'escalade juridique sur la base du \"pas de succès, pas de frais\".",
             "q7": "Cela vaut-il la peine ?",
-            "a7": "Oui — la plupart des compagnies rejettent les réclamations individuelles. Indemsy automatise les vérifications d'éligibilité, gère les documents et ne prend une commission que lorsque nous récupérons de l'argent pour vous.",
+            "a7": "Oui — la plupart des compagnies rejettent les réclamations individuelles. FlyCompense automatise les vérifications d'éligibilité, gère les documents et ne prend une commission que lorsque nous récupérons de l'argent pour vous.",
             "q8": "Puis-je me faire rembourser des frais supplémentaires ?",
             "a8": "Sous le CE 261 et la Convention de Montréal, vous pouvez réclamer les dépenses raisonnables liées à la perturbation (repas, hôtels, transport au sol). Gardez les reçus.",
             "q9": "Qu'est-ce qui compte comme une circonstance extraordinaire ?",
@@ -1443,7 +1443,7 @@
             "rights": "Quels sont mes droits ?",
             "assistance": "Comment demander une assistance",
             "regulations": "Réglementations mondiales",
-            "whatsIndemsy": "Qu'est-ce qu'Indemsy ?",
+            "whatsFlyCompense": "Qu'est-ce que FlyCompense ?",
             "faq": "Questions fréquentes",
             "resources": "Ressources"
         },
@@ -1506,8 +1506,8 @@
                 "p": "Le Brésil accorde le droit à une assistance spéciale et traite les passagers nécessitant une assistance comme des passagers prioritaires (par exemple, embarquement prioritaire et soutien prioritaire en cas de perturbations)."
             }
         },
-        "whatsIndemsy": {
-            "title": "Qu'est-ce qu'Indemsy ?",
+        "whatsFlyCompense": {
+            "title": "Qu'est-ce que FlyCompense ?",
             "p": "Nous aidons les passagers à obtenir une indemnisation pour les vols perturbés. Si votre vol a été retardé ou annulé, vous pourriez être éligible à une indemnisation allant jusqu'à 600 €.",
             "note": "Votre vol a été retardé ou annulé ? Vérifiez l'indemnisation."
         },
@@ -1571,7 +1571,7 @@
             "li1": "Sous le CE 261, vous pouvez avoir droit à jusqu'à 600 € pour les retards, annulations et surbookings.",
             "li2": "Si vous manquez une correspondance suite à un retard/annulation et arrivez avec plus de 3 heures de retard, vous pourriez avoir droit à une indemnisation.",
             "li3": "Pour les problèmes de bagages, une indemnisation peut être disponible sous la Convention de Montréal.",
-            "li4": "En cas de perturbation ou problème de bagage, vous devez généralement déposer une réclamation avec la compagnie. Indemsy peut vous aider à recevoir ce qui vous est dû."
+            "li4": "En cas de perturbation ou problème de bagage, vous devez généralement déposer une réclamation avec la compagnie. FlyCompense peut vous aider à recevoir ce qui vous est dû."
         },
         "ec261": {
             "title": "Vos droits de passager sous le CE 261",
@@ -1708,7 +1708,7 @@
         },
         "summary": {
             "intro1": "Vous rencontrez des problèmes aéroportuaires comme des retards, des annulations ou des bagages perdus ? Sous le règlement européen CE 261/2004, vous pourriez avoir droit à une indemnisation pour les retards, annulations ou surbookings.",
-            "intro2": "Explorez vos droits et découvrez comment Indemsy peut vous aider à réclamer ce qui vous est dû."
+            "intro2": "Explorez vos droits et découvrez comment FlyCompense peut vous aider à réclamer ce qui vous est dû."
         },
         "atAGlance": {
             "title": "CE 261 : Vos droits expliqués",
@@ -1792,7 +1792,7 @@
             "note": "Vous pouvez réclamer jusqu'à environ 1 900 € selon la valeur du contenu de votre sac.",
             "li1": "Si le contenu vaut moins de 1 900 €, le remboursement est à hauteur de votre perte.",
             "li2": "Si le contenu vaut plus de 1 900 €, 1 900 € est le maximum.",
-            "note2": "Indemsy prend actuellement en charge les réclamations de bagages Convention de Montréal pour les clients éligibles uniquement."
+            "note2": "FlyCompense prend actuellement en charge les réclamations de bagages Convention de Montréal pour les clients éligibles uniquement."
         },
         "airportScore": {
             "title": "Note AirHelp : les meilleurs aéroports du monde",
@@ -1840,7 +1840,7 @@
             "errorEmpy": "Veuillez entrer votre email"
         },
         "header": {
-            "title": "Indemsy",
+            "title": "FlyCompense",
             "subtitle": "Tableau de bord de mes réclamations",
             "logout": "Déconnexion"
         },
@@ -1873,6 +1873,136 @@
             "rejected": "Rejeté",
             "pending_documents": "Documents en attente",
             "closed": "Fermé"
+        }
+    },
+    "plusPage": {
+        "hero": {
+            "title": "Protection nationale et internationale pour vos futurs vols.",
+            "badge": "PROTECTION",
+            "features": {
+                "allAirlines": "Toutes les compagnies aériennes",
+                "insurance": "Paiement rapide de l'assurance pour les perturbations dans le monde entier",
+                "compensation": "Indemnisation aérienne pour les perturbations internationales éligibles",
+                "lounge": "Accès gratuit aux salons dans le monde entier"
+            },
+            "tripCard": {
+                "label": "Votre voyage",
+                "trip": "Voyage en Italie",
+                "date": "20 juin - 24 juin",
+                "protected": "Protégé par FlyCompense+"
+            },
+            "flightCard": {
+                "depart": "Départ",
+                "arrive": "Arrivée",
+                "delayed": "Vol retardé (>3h)"
+            },
+            "notification": {
+                "payout": "Voici votre paiement de 200 $",
+                "message": "Votre vol EA886 a été retardé"
+            }
+        },
+        "features": {
+            "cash": {
+                "label": "ARGENT",
+                "title": "Paiements d'assurance rapides"
+            },
+            "compensation": {
+                "label": "INDEMNISATION",
+                "title": "Indemnisation aérienne internationale"
+            },
+            "care": {
+                "label": "SOIN",
+                "title": "Mises à jour et assistance en temps réel"
+            },
+            "plus": {
+                "label": "PLUS",
+                "title": "Réductions de voyage et plus"
+            }
+        },
+        "pricing": {
+            "title": "Abonnement Premium",
+            "subtitle": "59,99 € / an (sans engagement – renouvellement annuel)",
+            "whyChoose": {
+                "title": "Pourquoi choisir l’abonnement Flycompense ?",
+                "description": "L’abonnement Flycompense Premium vous permet de maximiser vos chances d’obtenir une indemnisation aérienne, sans avancer de frais supplémentaires à chaque dossier et avec un accompagnement prioritaire."
+            },
+            "includes": {
+                "title": "Ce que comprend l’abonnement",
+                "unlimited": {
+                    "title": "Dossiers illimités",
+                    "items": {
+                        "item1": "Dépôt de dossiers illimités pendant 12 mois",
+                        "item2": "Retards, annulations, surbooking, correspondances manquées",
+                        "item3": "Vols passés et futurs pris en charge"
+                    }
+                },
+                "priority": {
+                    "title": "Traitement prioritaire",
+                    "items": {
+                        "item1": "Analyse prioritaire de vos dossiers",
+                        "item2": "Délais de réponse raccourcis",
+                        "item3": "Suivi accéléré auprès des compagnies aériennes"
+                    }
+                },
+                "support": {
+                    "title": "Accompagnement complet",
+                    "items": {
+                        "item1": "Vérification de votre éligibilité selon la réglementation européenne",
+                        "item2": "Constitution et envoi du dossier à la compagnie aérienne",
+                        "item3": "Relances automatiques et suivi administratif",
+                        "item4": "Assistance jusqu’à la réponse finale"
+                    }
+                },
+                "dashboard": {
+                    "title": "Espace client dédié",
+                    "items": {
+                        "item1": "Tableau de bord personnel",
+                        "item2": "Suivi en temps réel de l’avancement de vos dossiers",
+                        "item3": "Historique complet de vos demandes",
+                        "item4": "Notifications par email à chaque étape clé"
+                    }
+                },
+                "customerService": {
+                    "title": "Support client prioritaire",
+                    "items": {
+                        "item1": "Support dédié par email",
+                        "item2": "Assistance renforcée en cas de dossier complexe"
+                    }
+                },
+                "transparency": {
+                    "title": "Transparence totale",
+                    "items": {
+                        "item1": "59,99 € / an",
+                        "item2": "Aucun frais caché",
+                        "item3": "Aucun abonnement imposé par dossier",
+                        "item4": "Vous restez libre d’arrêter à tout moment à la fin de la période annuelle"
+                    }
+                }
+            },
+            "notIncluded": {
+                "title": "Ce que l’abonnement n’inclut pas",
+                "items": {
+                    "item1": "Les indemnisations sont versées directement au client par la compagnie aérienne",
+                    "item2": "Les délais de traitement dépendent des compagnies et des procédures légales",
+                    "item3": "L’abonnement ne garantit pas l’acceptation du dossier (décision finale de la compagnie)"
+                }
+            },
+            "compliance": {
+                "title": "Conformité & sécurité",
+                "items": {
+                    "item1": "Données personnelles protégées (RGPD)",
+                    "item2": "Documents traités de manière sécurisée",
+                    "item3": "Mandat limité à la gestion de votre demande d’indemnisation"
+                }
+            },
+            "cta": "Souscrire à l’abonnement Premium – 59,99 € / an"
+        },
+        "banner": {
+            "text": "Abonnement Premium FlyCompense",
+            "fastPayouts": "Dossiers illimités",
+            "noFees": "Traitement prioritaire",
+            "lounge": "Accompagnement complet",
+            "button": "59,99 € / an"
         }
     }
 }

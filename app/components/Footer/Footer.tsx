@@ -46,20 +46,22 @@ export default function Footer() {
             title: 'Our Products',
             links: [
                 { label: 'Check your compensation', href: '/claim' },
-                { label: 'Indemsy+ flight protection', href: '#' },
+                { label: 'FlyCompense+ flight protection', href: '#' },
                 { label: 'Get our free app', href: '#' },
                 { label: 'Book your trip', href: '#' },
                 { label: 'Refer a friend', href: '#' },
-                { label: 'Indemsy Score', href: '#' },
+                { label: 'FlyCompense Score', href: '#' },
                 { label: 'Reviews', href: '#' },
             ],
         },
         support: {
             title: 'Support',
             links: [
-                { label: 'Help', href: '#' },
+                { label: 'Help Center', href: '/contact-us' },
                 { label: 'Our fees', href: '#' },
-                { label: 'Contact us', href: '#' },
+                { label: 'contact@flycompense.com', href: 'mailto:contact@flycompense.com' },
+                { label: 'support@flycompense.com', href: 'mailto:support@flycompense.com' },
+                { label: '+352 27 86 44 87', href: 'tel:0035227864487' },
             ],
         },
     };
@@ -98,7 +100,7 @@ export default function Footer() {
                     <div className={styles.brand}>
                         <Link href="/" className={styles.logo}>
                             <span className={styles.logoIcon}>✈</span>
-                            <span className={styles.logoText}>Indemsy</span>
+                            <span className={styles.logoText}>FlyCompense</span>
                         </Link>
                         <p className={styles.tagline}>
                             {t('tagline')}
@@ -131,7 +133,7 @@ export default function Footer() {
 
                 <div className={styles.bottom}>
                     <p className={styles.copyright}>
-                        © {new Date().getFullYear()} Indemsy. {t('allRights')}
+                        © {new Date().getFullYear()} FlyCompense. {t('allRights')}
                     </p>
                     <div className={styles.bottomLinks}>
                         <Link href="/privacy-policy">{t('privacyPolicy')}</Link>

@@ -35,48 +35,27 @@
 
 .badge {
     transition: opacity 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    /* fallback color */
+    font-weight: 600;
 }
 
 .badge:hover {
     opacity: 0.7;
 }
 
-.usaToday {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    font-family: 'Georgia', serif;
+.logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    /* Optional: grayscale filter if desired, user didn't specify */
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
 }
 
-.wsj {
-    font-size: 1.75rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    font-family: 'Times New Roman', serif;
-    font-style: italic;
-}
-
-.washingtonPost {
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    font-family: 'Georgia', serif;
-    font-style: italic;
-}
-
-.forbes {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    font-family: 'Georgia', serif;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.bloomberg {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1a1a1a;
+.logo:hover {
+    filter: grayscale(0%);
 }
 
 @media (max-width: 1200px) {
@@ -94,15 +73,7 @@
         gap: 2rem;
     }
 
-    .usaToday,
-    .wsj,
-    .washingtonPost,
-    .forbes,
-    .bloomberg {
-        font-size: 1rem;
-    }
-
-    .wsj {
-        font-size: 1.25rem;
+    .logo {
+        height: 30px;
     }
 }

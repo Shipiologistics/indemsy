@@ -11,7 +11,7 @@ export default function MobileMenu() {
 
   const primaryLinks = [
     { href: '/check-compensation', label: t('getCompensation') },
-    { href: '/plus', label: t('indemsyPlus') },
+    { href: '/plus', label: t('flycompensePlus') },
     { href: '/about-us', label: t('aboutUs') },
   ];
 

@@ -1,8 +1,8 @@
 import styles from '../privacy-policy/page.module.css';
 
 export const metadata = {
-    title: 'Terms of Service | Indemsy',
-    description: 'Read the terms and conditions for using Indemsy flight compensation services.',
+    title: 'Terms of Service | FlyCompense',
+    description: 'Read the terms and conditions for using FlyCompense flight compensation services.',
 };
 
 export default function TermsOfService() {
@@ -15,11 +15,11 @@ export default function TermsOfService() {
                 <section className={styles.section}>
                     <h2>1. Introduction</h2>
                     <p>
-                        These Terms of Service ("Terms") govern your use of the Indemsy website and services.
+                        These Terms of Service ("Terms") govern your use of the FlyCompense website and services.
                         By using our services, you agree to be bound by these Terms. Please read them carefully.
                     </p>
                     <p>
-                        Indemsy provides flight compensation claim services, helping passengers claim compensation
+                        FlyCompense provides flight compensation claim services, helping passengers claim compensation
                         for flight disruptions under EU Regulation 261/2004 and other applicable passenger rights regulations.
                     </p>
                 </section>
@@ -27,7 +27,7 @@ export default function TermsOfService() {
                 <section className={styles.section}>
                     <h2>2. Definitions</h2>
                     <ul>
-                        <li><strong>"Indemsy," "we," "us," "our"</strong> refers to Indemsy and its affiliates</li>
+                        <li><strong>"FlyCompense," "we," "us," "our"</strong> refers to FlyCompense and its affiliates</li>
                         <li><strong>"Customer," "you," "your"</strong> refers to the person using our services</li>
                         <li><strong>"Services"</strong> refers to our flight compensation claim services</li>
                         <li><strong>"Claim"</strong> refers to a compensation claim for a flight disruption</li>
@@ -37,7 +37,7 @@ export default function TermsOfService() {
 
                 <section className={styles.section}>
                     <h2>3. Our Services</h2>
-                    <p>Indemsy provides the following services:</p>
+                    <p>FlyCompense provides the following services:</p>
                     <ul>
                         <li>Assessment of flight compensation eligibility</li>
                         <li>Preparation and submission of compensation claims to airlines</li>
@@ -69,7 +69,7 @@ export default function TermsOfService() {
                 <section className={styles.section}>
                     <h2>5. Assignment of Claim</h2>
                     <p>
-                        By submitting a claim through Indemsy, you authorize us to act on your behalf and assign
+                        By submitting a claim through FlyCompense, you authorize us to act on your behalf and assign
                         the compensation claim to us. This assignment allows us to:
                     </p>
                     <ul>
@@ -132,7 +132,7 @@ export default function TermsOfService() {
                 <section className={styles.section}>
                     <h2>10. Limitation of Liability</h2>
                     <p>
-                        Indemsy's liability is limited to the amount of our service fee. We are not responsible for:
+                        FlyCompense's liability is limited to the amount of our service fee. We are not responsible for:
                     </p>
                     <ul>
                         <li>Unsuccessful claims or rejected claims by airlines</li>
@@ -145,8 +145,8 @@ export default function TermsOfService() {
                 <section className={styles.section}>
                     <h2>11. Intellectual Property</h2>
                     <p>
-                        All content on the Indemsy website, including text, graphics, logos, and software, is the
-                        property of Indemsy and protected by intellectual property laws. You may not reproduce,
+                        All content on the FlyCompense website, including text, graphics, logos, and software, is the
+                        property of FlyCompense and protected by intellectual property laws. You may not reproduce,
                         distribute, or create derivative works without our permission.
                     </p>
                 </section>
@@ -171,8 +171,8 @@ export default function TermsOfService() {
                     <h2>14. Contact</h2>
                     <p>For questions about these Terms, please contact us:</p>
                     <ul>
-                        <li>Email: legal@indemsy.com</li>
-                        <li>Website: www.indemsy.com</li>
+                        <li>Email: contact@flycompense.com</li>
+                        <li>Website: www.flycompense.com</li>
                     </ul>
                 </section>
             </div>

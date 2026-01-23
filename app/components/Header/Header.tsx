@@ -27,7 +27,7 @@ export default function Header() {
           <Link href="/" className={styles.logo}>
             <img
               src="/ChatGPT_Image_Jan_20__2026__02_21_19_PM-removebg-preview.png"
-              alt="Indemsy Logo"
+              alt="FlyCompense Logo"
               className={styles.logoImage}
             />
           </Link>
@@ -35,7 +35,7 @@ export default function Header() {
           <nav className={styles.nav}>
             <div className={styles.navPanel}>
               <Link href="/claim" className={styles.navLink}>{t('getCompensation')}</Link>
-              <Link href="/plus" className={styles.navLink}>{t('indemsyPlus')}</Link>
+              <Link href="/plus" className={styles.navLink}>{t('flycompensePlus')}</Link>
 
               <div
                 className={`${styles.dropdownContainer} ${isDropdownOpen ? styles.active : ''}`}

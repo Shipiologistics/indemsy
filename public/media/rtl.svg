@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <rect x="50" y="10" width="30" height="40" fill="#E2001A"/>
+  <rect x="85" y="10" width="30" height="40" fill="#FABE00"/>
+  <rect x="120" y="10" width="30" height="40" fill="#002F6C"/>
+  <text x="65" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="white">R</text>
+  <text x="100" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="black">T</text>
+  <text x="135" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="white">L</text>
+</svg>

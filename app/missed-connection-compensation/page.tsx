@@ -282,7 +282,7 @@ export default function Page() {
                                 <li>{t('howToClaim.li9')}</li>
                             </ol>
 
-                            <h3>{t('howToClaim.subtitleIndemsy')}</h3>
+                            <h3>{t('howToClaim.subtitleFlyCompense')}</h3>
                             <p>{t('howToClaim.inP')}</p>
                             <ul>
                                 <li>{t('howToClaim.inLi1')}</li>

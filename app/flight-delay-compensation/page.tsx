@@ -293,7 +293,7 @@ export default function Page() {
                                     </ol>
                                 </div>
                                 <div className={styles.listCard}>
-                                    <h3>{t('howTo.indemsyTitle')}</h3>
+                                    <h3>{t('howTo.flycompenseTitle')}</h3>
                                     <ol>
                                         {claimSteps.map((step) => (
                                             <li key={step}>{step}</li>

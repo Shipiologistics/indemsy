@@ -71,7 +71,7 @@ export default function AdminLogin() {
                         margin: '0 0 8px 0',
                         letterSpacing: '-0.5px',
                     }}>
-                        Indemsy Admin
+                        FlyCompense Admin
                     </h1>
                     <p style={{
                         fontSize: '14px',
@@ -130,7 +130,7 @@ export default function AdminLogin() {
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="admin@indemsy.lu"
+                                placeholder="admin@flycompense.lu"
                                 required
                                 style={{
                                     width: '100%',

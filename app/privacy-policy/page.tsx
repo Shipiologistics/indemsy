@@ -1,8 +1,8 @@
 import styles from './page.module.css';
 
 export const metadata = {
-    title: 'Privacy Policy | Indemsy',
-    description: 'Learn how Indemsy collects, uses, and protects your personal data.',
+    title: 'Privacy Policy | FlyCompense',
+    description: 'Learn how FlyCompense collects, uses, and protects your personal data.',
 };
 
 export default function PrivacyPolicy() {
@@ -15,12 +15,12 @@ export default function PrivacyPolicy() {
                 <section className={styles.section}>
                     <h2>1. Introduction</h2>
                     <p>
-                        Welcome to Indemsy ("we," "our," or "us"). We are committed to protecting your personal data
+                        Welcome to FlyCompense ("we," "our," or "us"). We are committed to protecting your personal data
                         and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and
                         safeguard your information when you use our website and services.
                     </p>
                     <p>
-                        Indemsy is a flight compensation claim service that helps passengers claim compensation for
+                        FlyCompense is a flight compensation claim service that helps passengers claim compensation for
                         delayed, cancelled, or overbooked flights under EU Regulation 261/2004 and other applicable laws.
                     </p>
                 </section>
@@ -28,11 +28,11 @@ export default function PrivacyPolicy() {
                 <section className={styles.section}>
                     <h2>2. Data Controller</h2>
                     <p>
-                        Indemsy is the data controller responsible for your personal data. If you have any questions
+                        FlyCompense is the data controller responsible for your personal data. If you have any questions
                         about this Privacy Policy or our data practices, please contact us at:
                     </p>
                     <ul>
-                        <li>Email: privacy@indemsy.com</li>
+                        <li>Email: contact@flycompense.com</li>
                         <li>Address: [Company Address]</li>
                     </ul>
                 </section>
@@ -116,7 +116,7 @@ export default function PrivacyPolicy() {
                         <li><strong>Objection:</strong> Object to certain types of processing</li>
                         <li><strong>Withdraw Consent:</strong> Withdraw previously given consent</li>
                     </ul>
-                    <p>To exercise these rights, please contact us at privacy@indemsy.com.</p>
+                    <p>To exercise these rights, please contact us at privacy@flycompense.com.</p>
                 </section>
 
                 <section className={styles.section}>
@@ -157,8 +157,8 @@ export default function PrivacyPolicy() {
                     <h2>13. Contact Us</h2>
                     <p>If you have questions about this Privacy Policy, please contact us:</p>
                     <ul>
-                        <li>Email: privacy@indemsy.com</li>
-                        <li>Website: www.indemsy.com</li>
+                        <li>Email: contact@flycompense.com</li>
+                        <li>Website: www.flycompense.com</li>
                     </ul>
                 </section>
             </div>

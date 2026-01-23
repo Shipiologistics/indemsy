@@ -1,8 +1,8 @@
 import styles from '../privacy-policy/page.module.css';
 
 export const metadata = {
-    title: 'Imprint - Legal Notice | Indemsy',
-    description: 'Legal information and company details for Indemsy.',
+    title: 'Imprint - Legal Notice | FlyCompense',
+    description: 'Legal information and company details for FlyCompense.',
 };
 
 export default function Imprint() {
@@ -15,7 +15,7 @@ export default function Imprint() {
                 <section className={styles.section}>
                     <h2>Company Details</h2>
                     <p>
-                        <strong>Indemsy</strong><br />
+                        <strong>FlyCompense</strong><br />
                         Flight Compensation Services<br />
                         [Company Registration Number]<br />
                     </p>
@@ -30,9 +30,9 @@ export default function Imprint() {
                 <section className={styles.section}>
                     <h2>Contact Information</h2>
                     <ul>
-                        <li><strong>Email:</strong> contact@indemsy.com</li>
-                        <li><strong>Phone:</strong> [Phone Number]</li>
-                        <li><strong>Website:</strong> www.indemsy.com</li>
+                        <li><strong>Email:</strong> contact@flycompense.com</li>
+                        <li><strong>Phone:</strong> 0035227864487</li>
+                        <li><strong>Website:</strong> www.flycompense.com</li>
                     </ul>
                 </section>
 
@@ -55,7 +55,7 @@ export default function Imprint() {
                 <section className={styles.section}>
                     <h2>Regulatory Information</h2>
                     <p>
-                        Indemsy operates as a flight compensation claim service in accordance with EU Regulation
+                        FlyCompense operates as a flight compensation claim service in accordance with EU Regulation
                         261/2004 and applicable national laws. We are committed to helping air passengers exercise
                         their rights to compensation for flight disruptions.
                     </p>
@@ -95,7 +95,7 @@ export default function Imprint() {
                 <section className={styles.section}>
                     <h2>Disclaimer</h2>
                     <p>
-                        While we strive to keep the information on this website accurate and up-to-date, Indemsy
+                        While we strive to keep the information on this website accurate and up-to-date, FlyCompense
                         makes no warranties or representations regarding the completeness, accuracy, or reliability
                         of any information provided. The content is for general information purposes only and does
                         not constitute legal advice.
@@ -108,7 +108,7 @@ export default function Imprint() {
                 <section className={styles.section}>
                     <h2>Copyright Notice</h2>
                     <p>
-                        © {new Date().getFullYear()} Indemsy. All rights reserved. The content, design, and layout
+                        © {new Date().getFullYear()} FlyCompense. All rights reserved. The content, design, and layout
                         of this website are protected by copyright and other intellectual property laws. Unauthorized
                         reproduction or distribution is prohibited.
                     </p>

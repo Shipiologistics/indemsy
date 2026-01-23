@@ -25,7 +25,7 @@ export default function ClaimPage() {
                 <div className={styles.sidebarContent}>
                     <Link href="/" className={styles.logo}>
                         <span className={styles.logoIcon}>✈</span>
-                        <span className={styles.logoText}>FlyCompensate</span>
+                        <span className={styles.logoText}>FLYCOMPENSE</span>
                     </Link>
 
                     <nav className={styles.progressNav}>

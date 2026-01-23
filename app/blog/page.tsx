@@ -7,8 +7,8 @@ import styles from './page.module.css';
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
-    title: 'Blog - Indemsy | Flight Compensation Insights & Travel Tips',
-    description: 'Stay informed with the latest news on flight compensation, passenger rights, travel tips, and industry insights from the experts at Indemsy.',
+    title: 'Blog - FlyCompense | Flight Compensation Insights & Travel Tips',
+    description: 'Stay informed with the latest news on flight compensation, passenger rights, travel tips, and industry insights from the experts at FlyCompense.',
 };
 
 export default async function BlogPage() {
@@ -29,7 +29,7 @@ export default async function BlogPage() {
             {/* Hero Section */}
             <section className={styles.hero}>
                 <div className={styles.heroContent}>
-                    <span className={styles.heroLabel}>✨ Indemsy Blog</span>
+                    <span className={styles.heroLabel}>✨ FlyCompense Blog</span>
                     <h1 className={styles.heroTitle}>Insights & Travel Tips</h1>
                     <p className={styles.heroSubtitle}>
                         Stay informed about your passenger rights, compensation claims, and expert travel advice from our team.
@@ -115,7 +115,7 @@ export default async function BlogPage() {
                                                 )}
                                             </div>
                                             <div>
-                                                <p className={styles.authorName}>{featuredPost.author || 'Indemsy Team'}</p>
+                                                <p className={styles.authorName}>{featuredPost.author || 'FlyCompense Team'}</p>
                                                 <p className={styles.authorRole}>Content Writer</p>
                                             </div>
                                         </div>

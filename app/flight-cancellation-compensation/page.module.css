@@ -550,27 +550,27 @@
     margin: 0 0 1rem;
 }
 
-/* Indemsy Section */
-.indemsySection {
+/* FlyCompense Section */
+.flycompenseSection {
     background: linear-gradient(135deg, #0d3073 0%, #1e40af 100%);
     border-radius: 20px;
     padding: 2rem;
     color: white;
 }
 
-.indemsySection h3 {
+.flycompenseSection h3 {
     font-size: 1.25rem;
     font-weight: 700;
     margin: 0 0 1.5rem;
 }
 
-.indemsyFeatures {
+.flycompenseFeatures {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-.indemsyFeature {
+.flycompenseFeature {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -578,11 +578,11 @@
     text-align: center;
 }
 
-.indemsyFeature span {
+.flycompenseFeature span {
     font-size: 2rem;
 }
 
-.indemsyFeature p {
+.flycompenseFeature p {
     font-size: 0.95rem;
     line-height: 1.5;
     opacity: 0.95;
@@ -650,7 +650,7 @@
         grid-template-columns: 1fr;
     }
 
-    .indemsyFeatures {
+    .flycompenseFeatures {
         grid-template-columns: 1fr;
     }
 }

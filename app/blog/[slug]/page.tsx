@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: PageProps) {
     const post = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug)).limit(1);
 
     if (post.length === 0) {
-        return { title: 'Blog Post Not Found - Indemsy' };
+        return { title: 'Blog Post Not Found - FlyCompense' };
     }
 
     return {
-        title: `${post[0].title} - Indemsy Blog`,
-        description: post[0].excerpt || 'Read this article on the Indemsy blog.',
+        title: `${post[0].title} - FlyCompense Blog`,
+        description: post[0].excerpt || 'Read this article on the FlyCompense blog.',
     };
 }
 
@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                             )}
                         </div>
                         <div>
-                            <p className={styles.authorName}>{post.author || 'Indemsy Team'}</p>
+                            <p className={styles.authorName}>{post.author || 'FlyCompense Team'}</p>
                             <p className={styles.authorRole}>Content Writer</p>
                         </div>
                     </div>

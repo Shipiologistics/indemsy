@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t('ogDescription'),
       type: "website",
       locale: locale,
-      siteName: "Indemsy",
+      siteName: "FlyCompense",
     },
     twitter: {
       card: "summary_large_image",

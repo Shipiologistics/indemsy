@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 
         // Verify hardcoded credentials
         // Note: In a real app, this should be in an env var or DB, but user asked for these checks specifically
-        if (email === 'admin@indemsy.lu' && password === 'joel@123') {
+        if (email === 'admin@flycompense.lu' && password === 'joel@123') {
             const cookieStore = await cookies();
 
             // Set simple auth cookie

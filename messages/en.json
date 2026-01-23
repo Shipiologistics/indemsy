@@ -7,7 +7,7 @@
         "faq": "FAQ",
         "checkCompensation": "Check Compensation",
         "getCompensation": "Get compensation",
-        "indemsyPlus": "Indemsy+",
+        "flycompensePlus": "FlyCompense+",
         "mobileApp": "Get free app",
         "aboutUs": "About us",
         "knowYourRights": "Know your rights",
@@ -49,7 +49,7 @@
         "checkmark3": "We handle negotiations"
     },
     "featured": {
-        "title": "INDEMSY HAS BEEN FEATURED IN:"
+        "title": "FLYCOMPENSE HAS BEEN FEATURED IN:"
     },
     "compensation": {
         "title": "Flight Compensation",
@@ -85,7 +85,7 @@
     "howItWorks": {
         "title": "How it works",
         "subtitle": "Your 3 steps to compensation",
-        "description": "Getting flight compensation has never been easier. Indemsy takes care of the hard work and you get paid without the hassle.",
+        "description": "Getting flight compensation has never been easier. FlyCompense takes care of the hard work and you get paid without the hassle.",
         "step1Title": "Claim in 2 minutes",
         "step1Desc": "We make sure everything's quick and easy, and that your data's safe.",
         "step2Title": "We handle everything",
@@ -107,7 +107,7 @@
         "subtitle": "Everything you need to know about claiming flight compensation",
         "moreQuestions": "Have more questions?",
         "visitHelp": "Visit our help center",
-        "q1": "Why should I claim with Indemsy?",
+        "q1": "Why should I claim with FlyCompense?",
         "a1": "Airlines can make claiming compensation tricky — delaying or rejecting claims and turning it into a frustrating, time-consuming process. That's where we come in. We handle the paperwork, negotiations, and all the hassle, so you don't have to. Our experts know air passenger rights laws inside and out, maximizing your chances of winning. And we only charge a service fee if we successfully secure your compensation.",
         "q2": "What do I need to claim compensation?",
         "a2": "You'll need your flight details (flight number, date, departure and arrival airports), booking confirmation or e-ticket, and a valid ID. If you have your boarding pass, that's even better!",
@@ -125,7 +125,7 @@
         "subtitle": "Get tips and advice straight to your inbox",
         "placeholder": "Your email address",
         "button": "Sign Up",
-        "consent": "I would like to receive emails from Indemsy, and I agree to the Privacy Statement."
+        "consent": "I would like to receive emails from FlyCompense, and I agree to the Privacy Statement."
     },
     "rights": {
         "title": "Know your rights",
@@ -134,7 +134,7 @@
         "guideTitle": "Your guide to air passenger rights",
         "edition": "2025 EDITION",
         "guideLabel": "Passenger Rights Guide",
-        "apraText": "Indemsy is a part of the Association of Passenger Rights Advocates (APRA) whose mission is to promote and protect passengers' rights."
+        "apraText": "FlyCompense is a part of the Association of Passenger Rights Advocates (APRA) whose mission is to promote and protect passengers' rights."
     },
     "footer": {
         "tagline": "The world's #1 flight compensation experts. We fight for your rights so you get paid.",
@@ -152,7 +152,7 @@
         "partners": "Partners",
         "products": "Our Products",
         "checkCompensation": "Check Compensation",
-        "plus": "Indemsy+",
+        "plus": "FlyCompense+",
         "mobileApp": "Mobile App",
         "forBusiness": "For Business",
         "legal": "Legal",
@@ -333,7 +333,7 @@
             "additionalInfo": "Additional Information",
             "documents": "Documents",
             "finish": "Finish",
-            "featuredIn": "FlyCompensate has been featured in"
+            "featuredIn": "FlyCompense has been featured in"
         },
         "header": {
             "rights": "We enforce your rights as a consumer"
@@ -343,7 +343,7 @@
             "terms": "Terms and Conditions",
             "privacy": "Privacy Policy",
             "trustpilot": "Excellent ★★★★★ 229,860 reviews on ★ Trustpilot",
-            "copyright": "© 2026 FlyCompensate"
+            "copyright": "© 2026 FlyCompense"
         }
     },
     "common": {
@@ -359,12 +359,12 @@
         "required": "Required"
     },
     "metadata": {
-        "title": "Indemsy - #1 Flight Compensation Experts | Get Up To €650",
-        "description": "Delayed or canceled flight? Get up to €650 in compensation! Indemsy handles your claim so you get paid. Free check, no win no fee guarantee.",
+        "title": "FlyCompense - #1 Flight Compensation Experts | Get Up To €650",
+        "description": "Delayed or canceled flight? Get up to €650 in compensation! FlyCompense handles your claim so you get paid. Free check, no win no fee guarantee.",
         "keywords": "flight compensation, delayed flight, canceled flight, airline compensation, missed connection, EU261, flight delay claim, airline claim, Luxembourg",
-        "ogTitle": "Indemsy - #1 Flight Compensation Experts",
+        "ogTitle": "FlyCompense - #1 Flight Compensation Experts",
         "ogDescription": "Delayed or canceled flight? Get up to €650 in compensation! Free check, no win no fee guarantee.",
-        "twitterTitle": "Indemsy - #1 Flight Compensation Experts",
+        "twitterTitle": "FlyCompense - #1 Flight Compensation Experts",
         "twitterDescription": "Delayed or canceled flight? Get up to €650 in compensation!"
     },
     "commonHero": {
@@ -505,7 +505,7 @@
             "li6": "Don't sign anything or accept offers that may waive your rights.",
             "li7": "Ask for a hotel room if needed.",
             "li8": "Keep receipts if the cancellation costs you extra money.",
-            "subtitleIndemsy": "How Indemsy can help you claim",
+            "subtitleFlyCompense": "How FlyCompense can help you claim",
             "inLi1": "We check eligibility fast.",
             "inLi2": "We handle negotiations with the airline.",
             "inLi3": "No win, no fee.",
@@ -524,7 +524,7 @@
             "q5": "How much compensation can I claim for a canceled flight?",
             "a5": "Up to €600, depending on the flight distance and the notice period given.",
             "q6": "How to claim compensation for canceled flight?",
-            "a6": "You can contact the airline directly, hire a lawyer, or use a specialized service like Indemsy.",
+            "a6": "You can contact the airline directly, hire a lawyer, or use a specialized service like FlyCompense.",
             "q7": "My flight was canceled and the airline offered me a new ticket. Can I refuse the ticket?",
             "a7": "Yes. You can refuse the re-routing and choose a full refund instead if you decide not to travel.",
             "q8": "What do I do if the airline cancels my flight and does not reply to me, or only offers me a voucher?",
@@ -648,7 +648,7 @@
             "li7": "Let people at your destination know.",
             "li8": "Keep your receipts if your missed connection ends up costing you extra money.",
             "li9": "See if your missed connection is eligible for compensation.",
-            "subtitleIndemsy": "How Indemsy can help you claim",
+            "subtitleFlyCompense": "How FlyCompense can help you claim",
             "inP": "We make the claim process simple. Share your flight details and what happened, and our team can handle the case and negotiations.",
             "inLi1": "No win, no fee.",
             "inLi2": "We handle airline pushback and bureaucracy.",
@@ -883,7 +883,7 @@
             "collLi4": "Take photos of departure boards and any airline communications confirming the disruption.",
             "h3Bought": "Can I claim if an airline has been bought out?",
             "boughtP1": "If the airline still operates and keeps its original trade name and IATA code, you can claim as normal. If the airline no longer exists, you may not be able to get compensation.",
-            "h3Helper": "How Indemsy can help you claim",
+            "h3Helper": "How FlyCompense can help you claim",
             "helpP1": "We can submit a claim under EC 261 on your behalf, build your case, and handle back and forth with the airline.",
             "helpNote": "No win, no fee."
         },
@@ -1046,7 +1046,7 @@
             "amount": "Compensation amounts",
             "rights": "Your rights",
             "faq": "FAQ",
-            "why": "Why Indemsy?"
+            "why": "Why FlyCompense?"
         },
         "summary": {
             "p1": "When an EU or a non-EU airline’s staff or crew goes on strike, it often results in heavy flight disruptions. If you experienced delays due to airline strikes and were traveling to or from the EU, you may be entitled to up to €600.",
@@ -1123,7 +1123,7 @@
             "a3": "If eligible, you can claim up to €600 per passenger under EC 261."
         },
         "why": {
-            "title": "Why Indemsy?",
+            "title": "Why FlyCompense?",
             "li1": "Works with lawyers in 30+ countries.",
             "li2": "Uses modern technology to pursue each claim.",
             "li3": "Takes the stress out of the claim process.",
@@ -1142,7 +1142,7 @@
             "delay": "Delay refund",
             "changes": "Changes & refunds",
             "faq": "FAQ",
-            "why": "Why Indemsy?"
+            "why": "Why FlyCompense?"
         },
         "summary": {
             "title": "Flight Cancellation Refund - Your Rights",
@@ -1257,11 +1257,11 @@
             "q5": "Can I get a refund for a flight ticket that I bought with my air miles?",
             "a5": "Yes, your miles/points should be credited back to your account. Any taxes or fees paid in cash should be refunded in cash.",
             "q6": "What can I do if I haven't got the refund that the airline or travel agency promised me?",
-            "a6": "If they delay payment, you can file a complaint with the national enforcement body or seek legal help. Indemsy can also check if you are owed compensation on top of the refund."
+            "a6": "If they delay payment, you can file a complaint with the national enforcement body or seek legal help. FlyCompense can also check if you are owed compensation on top of the refund."
         },
         "why": {
-            "title": "Why Indemsy?",
-            "p1": "Indemsy is the world’s most successful flight compensation company, with lawyers in more than 30 countries. We pursue each claim using state-of-the-art technology, allowing us to process each claim efficiently.",
+            "title": "Why FlyCompense?",
+            "p1": "FlyCompense is the world’s most successful flight compensation company, with lawyers in more than 30 countries. We pursue each claim using state-of-the-art technology, allowing us to process each claim efficiently.",
             "p2": "We take the stress out of the claim process and handle all the heavy lifting for you. Plus we operate on a no win, no fee basis, which means that submitting a claim with us is always risk-free."
         },
         "bottomCta": {
@@ -1283,7 +1283,7 @@
             "compensation": "Your right to compensation",
             "other": "Other passenger rights",
             "countries": "Which countries have passenger rights?",
-            "role": "Indemsy's role",
+            "role": "FlyCompense's role",
             "faq": "FAQ"
         },
         "countryCards": {
@@ -1365,13 +1365,13 @@
             "p3": "Certain regulations have a wider reach or prove more advantageous than others. However, it's best to remember that disrupted flight circumstances can differ significantly, and it's helpful to know which strengths you can rely on for your journey."
         },
         "sectionRole": {
-            "title": "Indemsy's role in supporting air passenger rights",
-            "p1": "Indemsy's mission is to help air passengers.",
+            "title": "FlyCompense's role in supporting air passenger rights",
+            "p1": "FlyCompense's mission is to help air passengers.",
             "p2": "We are committed to serving the travel community and air passengers at large by providing crucial, up-to-date information regarding travelers' rights.",
             "p3": "Regardless of whether you're a novice flyer or an expert traveler we can help simplify the laws that are on your side.",
             "h3Easier": "We've made it easier to get compensation",
             "p4": "We help passengers obtain the compensation they are entitled to for flight delays, flight cancellations, denied boarding, baggage problems, and missed connections.",
-            "p5": "It's always risk free to use Indemsy, as we'll only ever charge our fee when we win you money.",
+            "p5": "It's always risk free to use FlyCompense, as we'll only ever charge our fee when we win you money.",
             "h3Legal": "Legal achievements",
             "p6": "Our legal team has successfully challenged airlines and represented passengers' interests.",
             "p7": "Thanks to cases that have been won, the law is more clear. Here's some of the many ways passengers' rights have been defended:"
@@ -1413,7 +1413,7 @@
             "q10": "How can I protect my future flights against delays and cancellations?",
             "a10": "You can protect any future flights by purchasing travel insurance. Additionally, keep all booking confirmations, boarding passes, and receipts. Know your rights before you fly.",
             "q11": "Who can help me if the airline doesn't pay my compensation?",
-            "a11": "If an airline refuses to pay your compensation, the next step is to take them to court. Thankfully, if you claim with Indemsy, we handle all the legal procedures for you. We operate on a no win, no fee policy."
+            "a11": "If an airline refuses to pay your compensation, the next step is to take them to court. Thankfully, if you claim with FlyCompense, we handle all the legal procedures for you. We operate on a no win, no fee policy."
         }
     },
     "flightDelay": {
@@ -1485,7 +1485,7 @@
             "eyebrow": "Step-by-step",
             "title": "How to get flight delay compensation",
             "doTitle": "What to do when delayed",
-            "indemsyTitle": "Claim with Indemsy",
+            "flycompenseTitle": "Claim with FlyCompense",
             "doStep1": "Capture proof: boarding pass, delay notifications, photos of departure boards.",
             "doStep2": "Ask staff for the official reason and insist on written confirmation.",
             "doStep3": "Keep receipts for meals, transport, and hotels you had to arrange.",
@@ -1545,9 +1545,9 @@
             "q5": "How much am I owed?",
             "a5": "Distance determines it: €250, €400, or €600 for EC 261; other regions mirror those amounts or award percentages of the fare. See the payout table above for the exact breakdown.",
             "q6": "How do I file a claim?",
-            "a6": "Keep proof of travel, note the delay, then submit everything through Indemsy. We handle airline negotiations and legal escalation on a no win, no fee basis.",
+            "a6": "Keep proof of travel, note the delay, then submit everything through FlyCompense. We handle airline negotiations and legal escalation on a no win, no fee basis.",
             "q7": "Is it worth the effort?",
-            "a7": "Yes—most airlines deny self-filed claims. Indemsy automates eligibility checks, manages paperwork, and only takes a fee when we recover money for you.",
+            "a7": "Yes—most airlines deny self-filed claims. FlyCompense automates eligibility checks, manages paperwork, and only takes a fee when we recover money for you.",
             "q8": "Can I get extra costs reimbursed?",
             "a8": "Under EC 261 and Montreal Convention you can claim reasonable out-of-pocket expenses tied to the disruption (meals, hotels, ground transport). Keep the receipts.",
             "q9": "What counts as an extraordinary circumstance?",
@@ -1570,7 +1570,7 @@
             "rights": "What are my rights?",
             "assistance": "How to request special assistance",
             "regulations": "Regulations around the world",
-            "whatsIndemsy": "What's Indemsy?",
+            "whatsFlyCompense": "What's FlyCompense?",
             "faq": "Commonly asked questions",
             "resources": "Resources & further reading"
         },
@@ -1633,8 +1633,8 @@
                 "p": "Brazil grants the right to special assistance and treats passengers needing assistance as priority passengers (e.g. priority boarding and priority support when disruptions occur)."
             }
         },
-        "whatsIndemsy": {
-            "title": "What's Indemsy?",
+        "whatsFlyCompense": {
+            "title": "What's FlyCompense?",
             "p": "We help passengers get compensation for disrupted flights. If your flight was delayed or canceled, you may be eligible for up to €600 in compensation.",
             "note": "Was your flight delayed or canceled? Check compensation."
         },
@@ -1698,7 +1698,7 @@
             "li1": "Under EC 261, you may be entitled to up to €600 for delays, cancellations, and overbooking.",
             "li2": "If you miss a connecting flight due to a delay/cancellation and arrive 3+ hours late, you may be entitled to compensation under EC 261.",
             "li3": "For baggage issues, compensation may be available under the Montreal Convention.",
-            "li4": "In the event of a disruption or baggage issue, you typically must file a claim with the airline. Indemsy can help you receive what you’re entitled to."
+            "li4": "In the event of a disruption or baggage issue, you typically must file a claim with the airline. FlyCompense can help you receive what you’re entitled to."
         },
         "ec261": {
             "title": "Your passenger rights under EC 261",
@@ -1835,7 +1835,7 @@
         },
         "summary": {
             "intro1": "Experiencing airport problems like flight delays, cancellations, or lost luggage? Under EU regulation EC 261/2004, you may be entitled to compensation for delays, cancellations, or overbooking.",
-            "intro2": "Explore your rights, and learn how Indemsy can help you claim what you’re owed."
+            "intro2": "Explore your rights, and learn how FlyCompense can help you claim what you’re owed."
         },
         "atAGlance": {
             "title": "EC 261: Your rights explained",
@@ -1919,7 +1919,7 @@
             "note": "You can claim up to around €1,900 depending on the value of your bag contents.",
             "li1": "If contents are worth less than €1,900, reimbursement is up to your loss.",
             "li2": "If contents are worth more than €1,900, €1,900 is the maximum.",
-            "note2": "Indemsy currently supports Montreal Convention baggage claims for eligible customers only."
+            "note2": "FlyCompense currently supports Montreal Convention baggage claims for eligible customers only."
         },
         "airportScore": {
             "title": "AirHelp Score: the best airports worldwide",
@@ -1967,7 +1967,7 @@
             "errorEmpy": "Please enter your email"
         },
         "header": {
-            "title": "Indemsy",
+            "title": "FlyCompense",
             "subtitle": "My Claims Dashboard",
             "logout": "Logout"
         },
@@ -2000,6 +2000,136 @@
             "rejected": "Rejected",
             "pending_documents": "Pending Documents",
             "closed": "Closed"
+        }
+    },
+    "plusPage": {
+        "hero": {
+            "title": "Domestic and international protection for future flights.",
+            "badge": "PROTECTION",
+            "features": {
+                "allAirlines": "All airlines",
+                "insurance": "Fast insurance payout for disruptions worldwide",
+                "compensation": "Airline compensation for eligible international disruptions",
+                "lounge": "Free worldwide lounge pass"
+            },
+            "tripCard": {
+                "label": "Your Trip",
+                "trip": "Trip to Italy",
+                "date": "20 Jun - 24 Jun",
+                "protected": "Protected by FlyCompense+"
+            },
+            "flightCard": {
+                "depart": "Depart",
+                "arrive": "Arrive",
+                "delayed": "Flight Delayed (>3h)"
+            },
+            "notification": {
+                "payout": "Here's your $200 payout",
+                "message": "Your flight EA886 was delayed"
+            }
+        },
+        "features": {
+            "cash": {
+                "label": "CASH",
+                "title": "Fast insurance payouts"
+            },
+            "compensation": {
+                "label": "COMPENSATION",
+                "title": "International airline compensation"
+            },
+            "care": {
+                "label": "CARE",
+                "title": "Real-time updates & support"
+            },
+            "plus": {
+                "label": "PLUS",
+                "title": "Travel discounts & more"
+            }
+        },
+        "pricing": {
+            "title": "Premium Subscription",
+            "subtitle": "59.99 € / year (no commitment – annual renewal)",
+            "whyChoose": {
+                "title": "Why choose the Flycompense subscription?",
+                "description": "The Flycompense Premium subscription allows you to maximize your chances of obtaining airline compensation, without advancing additional costs for each case and with priority support."
+            },
+            "includes": {
+                "title": "What the subscription includes",
+                "unlimited": {
+                    "title": "Unlimited Claims",
+                    "items": {
+                        "item1": "Unlimited claim submissions for 12 months",
+                        "item2": "Delays, cancellations, overbooking, missed connections",
+                        "item3": "Past and future flights covered"
+                    }
+                },
+                "priority": {
+                    "title": "Priority Processing",
+                    "items": {
+                        "item1": "Priority analysis of your claims",
+                        "item2": "Shortened response times",
+                        "item3": "Accelerated follow-up with airlines"
+                    }
+                },
+                "support": {
+                    "title": "Full Support",
+                    "items": {
+                        "item1": "Verification of eligibility under European regulation",
+                        "item2": "Compilation and submission of the file to the airline",
+                        "item3": "Automatic reminders and administrative follow-up",
+                        "item4": "Assistance until the final response"
+                    }
+                },
+                "dashboard": {
+                    "title": "Dedicated Client Area",
+                    "items": {
+                        "item1": "Personal dashboard",
+                        "item2": "Real-time tracking of claim progress",
+                        "item3": "Complete history of your requests",
+                        "item4": "Email notifications at each key step"
+                    }
+                },
+                "customerService": {
+                    "title": "Priority Customer Support",
+                    "items": {
+                        "item1": "Dedicated email support",
+                        "item2": "Enhanced assistance for complex cases"
+                    }
+                },
+                "transparency": {
+                    "title": "Total Transparency",
+                    "items": {
+                        "item1": "59.99 € / year",
+                        "item2": "No hidden fees",
+                        "item3": "No mandatory subscription per claim",
+                        "item4": "You remain free to stop at any time at the end of the annual period"
+                    }
+                }
+            },
+            "notIncluded": {
+                "title": "What the subscription does not include",
+                "items": {
+                    "item1": "Compensation is paid directly to the client by the airline",
+                    "item2": "Processing times depend on airlines and legal procedures",
+                    "item3": "The subscription does not guarantee acceptance of the claim (final decision by the airline)"
+                }
+            },
+            "compliance": {
+                "title": "Compliance & Security",
+                "items": {
+                    "item1": "Personal data protected (GDPR)",
+                    "item2": "Documents handled securely",
+                    "item3": "Mandate limited to the management of your compensation claim"
+                }
+            },
+            "cta": "Subscribe to Premium – 59.99 € / year"
+        },
+        "banner": {
+            "text": "FlyCompense Premium Subscription",
+            "fastPayouts": "Unlimited Claims",
+            "noFees": "Priority Processing",
+            "lounge": "Full Support",
+            "button": "59.99 € / year"
         }
     }
 }

@@ -63,7 +63,7 @@ export default function Sidebar() {
                         <span style={{ fontSize: '18px', fontWeight: '700', color: 'white' }}>I</span>
                     </div>
                     <div>
-                        <h1 style={{ fontSize: '18px', fontWeight: '700', color: 'white', margin: 0, letterSpacing: '-0.5px' }}>Indemsy</h1>
+                        <h1 style={{ fontSize: '18px', fontWeight: '700', color: 'white', margin: 0, letterSpacing: '-0.5px' }}>FlyCompense</h1>
                         <p style={{ fontSize: '11px', color: '#64748b', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>Admin Panel</p>
                     </div>
                 </div>
@@ -201,7 +201,7 @@ export default function Sidebar() {
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                         <p style={{ fontSize: '14px', fontWeight: '600', color: 'white', margin: 0 }}>Admin User</p>
-                        <p style={{ fontSize: '12px', color: '#64748b', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>admin@indemsy.lu</p>
+                        <p style={{ fontSize: '12px', color: '#64748b', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>admin@flycompense.lu</p>
                     </div>
                     <button
                         onClick={handleLogout}

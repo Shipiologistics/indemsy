@@ -1,4 +1,4 @@
-import { pgTable, serial, text, boolean, timestamp, jsonb, date, varchar, integer, customType } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, boolean, timestamp, jsonb, date, varchar, integer, customType, doublePrecision } from 'drizzle-orm/pg-core';
 
 export const claims = pgTable('claims', {
     id: serial('id').primaryKey(),
@@ -163,7 +163,7 @@ export const blogPosts = pgTable('blog_posts', {
     featuredImage: text('featured_image'),
     category: varchar('category', { length: 100 }),
     tags: text('tags').array(),
-    author: varchar('author', { length: 100 }).default('Indemsy Team'),
+    author: varchar('author', { length: 100 }).default('FlyCompense Team'),
     authorImage: text('author_image'),
     readTime: integer('read_time'), // minutes to read
     isPublished: boolean('is_published').default(false),
@@ -239,4 +239,16 @@ export const partners = pgTable('partners', {
     displayOrder: integer('display_order').default(0),
     isActive: boolean('is_active').default(true),
     createdAt: timestamp('created_at').defaultNow(),
+});
+
+// Airports Database
+export const airports = pgTable('airports', {
+    id: serial('id').primaryKey(),
+    iata: text('iata'),
+    icao: text('icao'),
+    name: text('name'),
+    municipalityName: text('municipality_name'),
+    countryCode: text('country_code'),
+    latitude: doublePrecision('latitude'),
+    longitude: doublePrecision('longitude'),
 });

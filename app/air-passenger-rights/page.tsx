@@ -101,7 +101,7 @@ export default function Page() {
         { id: 'air-passenger-regulations-about-compensation', label: t('nav.compensation') },
         { id: 'other-passenger-rights', label: t('nav.other') },
         { id: 'which-countries-have-passenger-rights', label: t('nav.countries') },
-        { id: 'indemsy-role', label: t('nav.role') },
+        { id: 'flycompense-role', label: t('nav.role') },
         { id: 'common-questions', label: t('nav.faq') },
     ];
 
@@ -445,9 +445,9 @@ export default function Page() {
                             </div>
                         </section>
 
-                        {/* Section: Indemsy's Role */}
+                        {/* Section: FlyCompense's Role */}
                         <div className={styles.divider} />
-                        <section id="indemsy-role" className={styles.section}>
+                        <section id="flycompense-role" className={styles.section}>
                             <h2 className={styles.sectionTitle}>{t('sectionRole.title')}</h2>
                             <div className={styles.sectionContent}>
                                 <p><strong>{t('sectionRole.p1')}</strong></p>

@@ -12,7 +12,7 @@ const navItems = [
     { id: 'rights', label: 'What are my rights?' },
     { id: 'assistance', label: 'How to request special assistance' },
     { id: 'regulations', label: 'Regulations around the world' },
-    { id: 'whats-airhelp', label: "What's Indemsy?" },
+    { id: 'whats-airhelp', label: "What's FlyCompense?" },
     { id: 'faq', label: 'Commonly asked questions' },
     { id: 'resources', label: 'Resources & further reading' },
 ];
@@ -28,7 +28,7 @@ export default function Page() {
         { id: 'rights', label: t('nav.rights') },
         { id: 'assistance', label: t('nav.assistance') },
         { id: 'regulations', label: t('nav.regulations') },
-        { id: 'whats-airhelp', label: t('nav.whatsIndemsy') },
+        { id: 'whats-airhelp', label: t('nav.whatsFlyCompense') },
         { id: 'faq', label: t('nav.faq') },
         { id: 'resources', label: t('nav.resources') },
     ];
@@ -214,11 +214,11 @@ export default function Page() {
                         </section>
 
                         <section id="whats-airhelp" className={styles.section}>
-                            <h2 className={styles.sectionTitle}>{t('whatsIndemsy.title')}</h2>
+                            <h2 className={styles.sectionTitle}>{t('whatsFlyCompense.title')}</h2>
                             <p>
-                                {t('whatsIndemsy.p')}
+                                {t('whatsFlyCompense.p')}
                             </p>
-                            <p className={styles.note}>{t('whatsIndemsy.note')}</p>
+                            <p className={styles.note}>{t('whatsFlyCompense.note')}</p>
                         </section>
 
                         <section id="faq" className={styles.section}>

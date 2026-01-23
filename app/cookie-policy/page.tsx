@@ -1,8 +1,8 @@
 import styles from '../privacy-policy/page.module.css';
 
 export const metadata = {
-    title: 'Cookie Policy | Indemsy',
-    description: 'Learn about how Indemsy uses cookies and similar technologies.',
+    title: 'Cookie Policy | FlyCompense',
+    description: 'Learn about how FlyCompense uses cookies and similar technologies.',
 };
 
 export default function CookiePolicy() {
@@ -22,7 +22,7 @@ export default function CookiePolicy() {
 
                 <section className={styles.section}>
                     <h2>2. How We Use Cookies</h2>
-                    <p>Indemsy uses cookies for the following purposes:</p>
+                    <p>FlyCompense uses cookies for the following purposes:</p>
                     <ul>
                         <li><strong>Essential Cookies:</strong> Required for the website to function properly (e.g., session management, security)</li>
                         <li><strong>Functional Cookies:</strong> Remember your preferences and settings</li>
@@ -114,8 +114,8 @@ export default function CookiePolicy() {
                     <h2>8. Contact Us</h2>
                     <p>If you have questions about our use of cookies, please contact us:</p>
                     <ul>
-                        <li>Email: privacy@indemsy.com</li>
-                        <li>Website: www.indemsy.com</li>
+                        <li>Email: contact@flycompense.com</li>
+                        <li>Website: www.flycompense.com</li>
                     </ul>
                 </section>
             </div>

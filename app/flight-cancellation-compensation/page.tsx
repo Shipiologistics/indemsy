@@ -425,18 +425,18 @@ export default function Page() {
                             <h3 className={styles.subsectionTitle}>{t('howToClaim.subtitleWhat')}</h3>
                             <IconList items={claimSteps} variant="number" />
 
-                            <div className={styles.indemsySection}>
-                                <h3>{t('howToClaim.subtitleIndemsy')}</h3>
-                                <div className={styles.indemsyFeatures}>
-                                    <div className={styles.indemsyFeature}>
+                            <div className={styles.flycompenseSection}>
+                                <h3>{t('howToClaim.subtitleFlyCompense')}</h3>
+                                <div className={styles.flycompenseFeatures}>
+                                    <div className={styles.flycompenseFeature}>
                                         <span>⚡</span>
                                         <p>{t('howToClaim.inLi1')}</p>
                                     </div>
-                                    <div className={styles.indemsyFeature}>
+                                    <div className={styles.flycompenseFeature}>
                                         <span>🤝</span>
                                         <p>{t('howToClaim.inLi2')}</p>
                                     </div>
-                                    <div className={styles.indemsyFeature}>
+                                    <div className={styles.flycompenseFeature}>
                                         <span>💯</span>
                                         <p>{t('howToClaim.inLi3')}</p>
                                     </div>

@@ -95,7 +95,7 @@ export default function PastelHero({ title, showTrustpilot = false, checkmarks }
                 {showTrustpilot && (
                     <div className={styles.trustpilot}>
                         <a
-                            href="https://www.trustpilot.com/review/www.indemsy.com"
+                            href="https://www.trustpilot.com/review/www.flycompense.com"
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                             className={styles.trustpilotLink}
