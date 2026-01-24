@@ -43,7 +43,7 @@
     .widget {
         position: fixed;
         top: 31px;
-        left: 57.8%;
+        left: 50%;
         right: auto;
         margin: 0;
         gap: 0.25rem;
@@ -52,7 +52,7 @@
         border: 1px solid rgba(14, 31, 59, 0.1);
         box-shadow: 0 6px 18px rgba(6, 18, 40, 0.12);
         width: fit-content;
-        transform: translateX(-52%);
+        transform: translateX(-50%);
     }
 
     .userButton {
