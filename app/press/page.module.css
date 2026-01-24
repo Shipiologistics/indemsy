@@ -1,0 +1,106 @@
+.page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background-color: #f8fafc;
+}
+
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    padding: 80px 24px;
+    color: white;
+    text-align: center;
+}
+
+.heroTitle {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.heroSubtitle {
+    font-size: 20px;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}
+
+.grid {
+    display: grid;
+    gap: 32px;
+}
+
+.pressCard {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.source {
+    font-weight: 700;
+    color: #3b82f6;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+.date {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.excerpt {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.readMore {
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.readMore:hover {
+    text-decoration: underline;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 60px;
+    color: #64748b;
+}
+
+@media (max-width: 640px) {
+    .title {
+        font-size: 20px;
+    }
+}
