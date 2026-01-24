@@ -113,7 +113,18 @@ export default function Page() {
         { flag: 'https://flagcdn.com/w40/tr.png', label: t('countryCards.tr'), href: '/air-passenger-rights-turkey' },
         { flag: 'https://flagcdn.com/w40/br.png', label: t('countryCards.br'), href: '/flight-compensation-in-brazil' },
         { flag: 'https://flagcdn.com/w40/sa.png', label: t('countryCards.sa'), href: '/flight-compensation-in-saudi-arabia' },
-        { flag: 'https://img.airhelp.com/landing-pages/air-passenger-rights-world-globe.png', label: t('countryCards.montreal'), href: '/montreal-convention' },
+        {
+            flag: '',
+            icon: (
+                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" className={styles.countryFlag}>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+            ),
+            label: t('countryCards.montreal'),
+            href: '/montreal-convention'
+        },
     ];
 
     // Key takeaways data
@@ -317,14 +328,19 @@ export default function Page() {
                             {countryCards.map((card, index) => (
                                 <Link href={card.href} key={index} className={styles.countryCard}>
                                     <div className={styles.countryCardContent}>
-                                        <img
-                                            src={card.flag}
-                                            alt=""
-                                            width={32}
-                                            height={32}
-                                            className={styles.countryFlag}
-                                            loading="lazy"
-                                        />
+                                        {/* @ts-ignore */}
+                                        {card.icon ? (
+                                            card.icon
+                                        ) : (
+                                            <img
+                                                src={card.flag}
+                                                alt=""
+                                                width={32}
+                                                height={32}
+                                                className={styles.countryFlag}
+                                                loading="lazy"
+                                            />
+                                        )}
                                         <span className={styles.countryLabel}>{card.label}</span>
                                     </div>
                                     <svg viewBox="0 0 24 24" width="20" height="20" className={styles.countryCardArrow}>

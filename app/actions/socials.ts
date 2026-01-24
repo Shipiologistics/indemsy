@@ -33,7 +33,7 @@ export async function addSocialLink(data: { platform: string; url: string; icon?
     }
 }
 
-export async function updateSocialLink(id: number, data: { platform?: string; url?: string; icon?: string; displayOrder?: number; isActive?: boolean }) {
+export async function updateSocialLink(id: number, data: { platform?: string; url?: string; icon?: string | null; displayOrder?: number | null; isActive?: boolean }) {
     try {
         await db.update(socialLinks).set({
             ...data,
