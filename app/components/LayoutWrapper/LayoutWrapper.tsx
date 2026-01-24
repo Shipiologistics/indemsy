@@ -6,12 +6,13 @@ import Footer from '../Footer/Footer';
 
 interface LayoutWrapperProps {
     children: React.ReactNode;
+    socialLinks?: any[]; // Allow socialLinks prop
 }
 
 // Routes that should NOT have the website header/footer
 const DASHBOARD_ROUTES = ['/admin', '/dashboard', '/claim'];
 
-export default function LayoutWrapper({ children }: LayoutWrapperProps) {
+export default function LayoutWrapper({ children, socialLinks }: LayoutWrapperProps) {
     const pathname = usePathname();
 
     // Check if current route is a dashboard route

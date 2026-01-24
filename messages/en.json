@@ -2131,5 +2131,317 @@
             "lounge": "Full Support",
             "button": "59.99 € / year"
         }
+    },
+    "ec261": {
+        "heroTitle": "EC Regulation 261/2004: Key Facts",
+        "heroCheckmarks": {
+            "amount": "Up to €600 compensation",
+            "care": "Right to care",
+            "eu": "Guaranteed European protection"
+        },
+        "sidebarTitle": "On This Page",
+        "nav": {
+            "essentiel": "Essentials",
+            "whatIs": "What is EC 261?",
+            "steps": "3 Steps",
+            "when": "When am I entitled?",
+            "amount": "Amounts",
+            "countries": "Covered Countries",
+            "otherRights": "Other Rights",
+            "howTo": "How to Claim"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "EC Regulation 261/2004: What you need to know for compensation",
+                "p1": "Regulation EC 261/2004 protects your passenger rights in the European Union. It covers flight delays, cancellations, and overbooking.",
+                "p2": "You can claim up to €600 in compensation, depending on your situation.",
+                "p3": "Traveling can quickly become frustrating when things don't go as planned. Fortunately, Regulation EC 261/2004, also known as EU 261, is there to protect your rights and compensate you when your flight is cancelled, overbooked, or boarding is denied.",
+                "p4": "A flight delay of more than 3 hours may also entitle you to compensation, provided the airline is responsible."
+            },
+            "takeaways": {
+                "title": "Regulation EC 261/2004: Key Takeaways",
+                "label": "In Short",
+                "li1": "Airlines must compensate you for cancellations, delays over 3 hours, or denied boarding when they are responsible for the disruption.",
+                "li2": "Compensation ranges from €250 to €600 per person, depending on flight distance. These amounts are set by law: the airline cannot offer you less.",
+                "li3": "Regulation EC 261 applies to all flights departing from the EU, as well as flights arriving in the EU operated by an EU airline. Arrivals operated by non-EU airlines are not covered.",
+                "li4": "If you have to wait, you have a right to care from the airline: meals, drinks, hotel accommodation, and transport to/from the airport if necessary."
+            },
+            "whatIs": {
+                "title": "What is Regulation EC 261/2004?",
+                "p1": "Regulation (EC) No 261/2004 of the European Parliament and of the Council of 11 February 2004 protects air passengers and establishes compensation conditions for travel disruptions. It holds airlines financially accountable, unless the disruption was caused by extraordinary circumstances outside their control.",
+                "p2": "Regulation EC 261/2004 is one of the most comprehensive legislations in the field. This regulation plays a vital role in defending passenger rights for all travelers departing from a European airport, regardless of their nationality. In certain circumstances, passengers traveling to Europe from non-EU destinations may also be protected."
+            },
+            "steps": {
+                "title": "3 Steps to Get Compensation",
+                "step1": "Submit your claim for free in one click",
+                "step1_desc": "It's simple, fast, and secure. You fill in a few details, we handle the rest.",
+                "step2": "We handle everything",
+                "step2_desc": "No paperwork, no long wait times on the phone: our experts manage all the procedures for you!",
+                "step3": "You receive up to €600 compensation!",
+                "step3_desc": "Our fees are deducted only from the recovered amount. You have nothing to lose!"
+            },
+            "when": {
+                "title": "When am I entitled to EC 261 compensation?",
+                "intro": "You can claim compensation between €250 and €600 from the airline in three main cases:",
+                "li1_title": "Significant Delay:",
+                "li1_desc": "A flight delayed by more than 3 hours may entitle you to compensation if the delay impacts the final arrival time (and not just the departure time).",
+                "li2_title": "Flight Cancellation:",
+                "li2_desc": "If your flight is cancelled less than 14 days before departure, you may be entitled to compensation, barring extraordinary circumstances.",
+                "li3_title": "Denied Boarding (Overbooking):",
+                "li3_desc": "The airline refuses you boarding even though you had a valid ticket and presented yourself on time at the gate. This often happens when the flight is overbooked."
+            },
+            "amount": {
+                "title": "How much compensation am I entitled to?",
+                "intro": "The compensation amount depends on several factors, notably the distance traveled and the total delay at your final destination.",
+                "l1": "Flights of 1,500 km or less",
+                "l2": "Flights between 1,500 and 3,500 km",
+                "l3": "Flights of more than 3,500 km",
+                "val1": "€250",
+                "val2": "€400",
+                "val3": "€600",
+                "note": "Good to know: The amount you are entitled to does not depend on your ticket price, but on the flight distance."
+            },
+            "countries": {
+                "title": "Which countries are covered by Regulation EC 261?",
+                "p1": "European Regulation EC 261/2004 applies to the majority of flights operated in Europe.",
+                "p2": "This covers not only the European Union airspace but also Iceland, Norway, Switzerland, and 'outermost regions' such as French Guiana, Martinique, Mayotte, Guadeloupe, Réunion, Saint-Martin, Madeira, the Azores, or the Canary Islands.",
+                "tableHead1": "EU Airline",
+                "tableHead2": "Non-EU Airline",
+                "row1": "Departing from an EU airport",
+                "row2": "Arriving at an EU airport",
+                "covered": "✔️ Covered",
+                "notCovered": "❌ Not Covered",
+                "p3": "International flights are protected if you depart from an airport located in the EU, or if your destination is in the EU and you are traveling with a European airline.",
+                "p4": "And you don't need to be an EU citizen to claim compensation: Regulation EC 261 applies to all passengers, regardless of nationality!"
+            },
+            "otherRights": {
+                "title": "Other rights provided by Regulation EC 261/2004",
+                "intro": "Regulation EC 261/2004 is among the most comprehensive passenger rights laws globally. In addition to financial compensation, it strictly defines how the airline must assist you in case of problems.",
+                "care_title": "Your Right to Care",
+                "care_li1": "Vouchers for meals and drinks",
+                "care_li2": "Hotel night if necessary",
+                "care_li3": "Transport between airport and hotel if needed",
+                "care_li4": "Access to communication means",
+                "reamb_title": "Am I entitled to a refund or re-routing?",
+                "reamb_p": "Yes! If your flight is cancelled, you can get compensation for the inconvenience. But you are also entitled to re-routing on the next available flight to your destination or a full or partial refund of your original ticket. For delays exceeding 5 hours, you can choose not to travel and ask for a full refund of the unused flight.",
+                "hotel_title": "Is the hotel covered?",
+                "hotel_p": "Yes! This is part of your right to assistance. If you have to stay overnight due to delay or cancellation, the airline must provide hotel accommodation and transport between the airport and hotel."
+            },
+            "howTo": {
+                "title": "How to make a claim under Regulation EC 261?",
+                "intro": "Did you know that only 55% of passengers claim their compensation... Yet, enforcing your rights is simpler than it seems... there are two ways to get compensation:",
+                "direct_title": "Claim directly with the airline",
+                "direct_p": "Each airline has its own process... You will need to gather all documents... check regulations...",
+                "flycompense_title": "Claim with FlyCompense",
+                "flycompense_p": "We handle everything A to Z... Check eligibility quickly... No win, no fee!",
+                "comparison_manual": "Claiming Alone",
+                "comparison_fly": "Claiming with FlyCompense",
+                "comp_effort_manual": "❌ High effort: manage everything yourself",
+                "comp_effort_fly": "✔️ No effort: we handle it all",
+                "comp_success_manual": "❌ Uncertain outcome",
+                "comp_success_fly": "✔️ Proven success: we maximize your compensation",
+                "comp_legal_manual": "❌ No legal support",
+                "comp_legal_fly": "✔️ Legal experts by your side",
+                "comp_risk_manual": "❌ Free, but lower chance",
+                "comp_risk_fly": "✔️ No win, no fee",
+                "checklist_title": "Checklist for filing a claim",
+                "check1": "Keep your boarding pass and travel documents.",
+                "check2": "Gather evidence (e.g., photos of screens).",
+                "check3": "Check your eligibility with our Free Simulator.",
+                "check4": "File your claim with FlyCompense."
+            }
+        }
+    },
+    "uk261": {
+        "heroTitle": "Flights to, from, and within the UK (UK 261)",
+        "heroCheckmarks": {
+            "amount": "Up to £520 compensation",
+            "care": "Post-Brexit protection",
+            "eu": "All passengers covered"
+        },
+        "sidebarTitle": "Navigation",
+        "nav": {
+            "essentiel": "UK 261: Essentials",
+            "montant": "Amounts",
+            "eligibilite": "Eligibility",
+            "etapes": "How to Claim"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Regulation UK 261: Your rights in the UK",
+                "p1": "After Brexit, the UK adopted its own version of the European regulation, known as UK 261. Your rights remain very similar to those in the EU.",
+                "p2": "It covers delays of more than 3 hours, cancellations, and denied boarding for flights departing from the UK or arriving in the UK with a UK airline."
+            },
+            "montant": {
+                "title": "How much compensation am I entitled to?",
+                "l1": "Flights of 1,500 km or less",
+                "l2": "Flights between 1,500 and 3,500 km",
+                "l3": "Flights of more than 3,500 km",
+                "val1": "£220",
+                "val2": "£350",
+                "val3": "£520"
+            },
+            "eligibilite": {
+                "title": "Who is covered?",
+                "p1": "All passengers departing from a UK airport are covered, regardless of the operator. For flights arriving in the UK, you are covered if the airline is based in the UK or the EU."
+            },
+            "etapes": {
+                "title": "How to get your compensation?",
+                "p1": "FlyCompense helps you navigate the specifics of UK law to recover up to £520 per passenger."
+            }
+        }
+    },
+    "usRights": {
+        "heroTitle": "Flights From and Within the US",
+        "heroCheckmarks": {
+            "amount": "Up to $1,550",
+            "care": "DOT Regulations",
+            "eu": "US Passenger Protection"
+        },
+        "sidebarTitle": "US Rights",
+        "nav": {
+            "essentiel": "US Rights",
+            "surbooking": "Overbooking",
+            "retards": "Delays",
+            "tissage": "Tarmac"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Your Passenger Rights in the USA",
+                "p1": "In the United States, passenger rights are governed by the Department of Transportation (DOT). While there is no automatic compensation for delays like in Europe, rules for overbooking are very strict."
+            },
+            "surbooking": {
+                "title": "Compensation for Overbooking",
+                "p1": "If you are denied boarding against your will due to overbooking, you have a right to immediate compensation which can reach 400% of the ticket price, up to a maximum of $1,550."
+            },
+            "retards": {
+                "title": "What about delays and cancellations?",
+                "p1": "For US domestic flights, airlines are not legally required to compensate for delays, but they often must provide meals or hotel rooms according to their own commercial policy."
+            },
+            "tissage": {
+                "title": "Long Tarmac Delays",
+                "p1": "The DOT prohibits airlines from leaving passengers on the tarmac for more than 3 hours (domestic flights) or 4 hours (international flights) without allowing them to deplane."
+            }
+        }
+    },
+    "turkeyRights": {
+        "heroTitle": "Flights to, from, and within Turkey",
+        "heroCheckmarks": {
+            "amount": "Up to €600",
+            "care": "SHY-PASSENGER",
+            "eu": "Turkish Airlines incl."
+        },
+        "sidebarTitle": "Rights in Turkey",
+        "nav": {
+            "essentiel": "SHY-PASSENGER",
+            "montant": "Amounts",
+            "eligibilite": "Eligibility"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Turkish Regulation SHY-PASSENGER",
+                "p1": "Turkey has regulations very similar to EU 261, called SHY-PASSENGER. It protects travelers on all flights departing from or arriving in Turkey with a Turkish airline."
+            },
+            "montant": {
+                "title": "Compensation Amounts",
+                "l1": "Domestic Flights",
+                "l2": "International Flights",
+                "val1": "€100 (in Lira)",
+                "val2": "€250 to €600"
+            },
+            "eligibilite": {
+                "title": "Who is protected?",
+                "p1": "The regulation applies to domestic flights in Turkey and international flights if you are traveling with a Turkish airline (like Turkish Airlines or Pegasus)."
+            }
+        }
+    },
+    "brazilRights": {
+        "heroTitle": "Flights to, from, and within Brazil",
+        "heroCheckmarks": {
+            "amount": "Moral Integrity",
+            "care": "ANAC 400",
+            "eu": "Consumer Law"
+        },
+        "sidebarTitle": "Rights in Brazil",
+        "nav": {
+            "essentiel": "Rights in Brazil",
+            "moral": "Dano Moral",
+            "anac": "ANAC 400"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Your Passenger Rights in Brazil",
+                "p1": "Brazil has some of the strongest protections in the world thanks to Resolution ANAC 400 and the Consumer Defense Code. Unlike Europe, compensation is often based on moral integrity (moral damages suffered)."
+            },
+            "moral": {
+                "title": "Dano Moral (Moral Damages)",
+                "p1": "Brazilian courts frequently award compensation for the stress and inconvenience caused by cancelled or delayed flights. The amount can vary significantly depending on the impact on your life."
+            },
+            "anac": {
+                "title": "Immediate Assistance (ANAC 400)",
+                "p1": "From 1 hour of delay, airlines in Brazil must offer communication means. After 2 hours, meals, and after 4 hours, accommodation and transport."
+            }
+        }
+    },
+    "saudiRights": {
+        "heroTitle": "Flights Saudi Arabia",
+        "heroCheckmarks": {
+            "amount": "Up to 100%",
+            "care": "GACA",
+            "eu": "Middle East"
+        },
+        "sidebarTitle": "Saudi Rights",
+        "nav": {
+            "essentiel": "Rights",
+            "montant": "Compensation",
+            "assistance": "Assistance"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "GACA Regulation",
+                "p1": "The General Authority of Civil Aviation (GACA) of Saudi Arabia has established strict rules requiring airlines to compensate passengers in case of delays or cancellations."
+            },
+            "montant": {
+                "title": "Financial Compensation",
+                "p1": "In case of cancellation not notified 14 days in advance, or significant delay, compensation can range from a fixed amount to a refund corresponding to 100% of the value of the unused ticket part."
+            },
+            "assistance": {
+                "title": "Passenger Assistance",
+                "p1": "Similar to European flights, airlines in Saudi Arabia must provide refreshments, food, and accommodation if the delay exceeds a certain threshold."
+            }
+        }
+    },
+    "montrealConvention": {
+        "heroTitle": "Montreal Convention",
+        "heroCheckmarks": {
+            "amount": "Up to €1,600",
+            "care": "Baggage",
+            "eu": "Global Treaty"
+        },
+        "sidebarTitle": "Convention",
+        "nav": {
+            "essentiel": "Convention",
+            "bagages": "Baggage",
+            "frais": "Expenses",
+            "eligibilite": "Eligibility"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "What is the Montreal Convention?",
+                "p1": "The Montreal Convention is an international treaty that governs airline liability in cases of delay, death, or injury of passengers, as well as for baggage damages on international flights."
+            },
+            "bagages": {
+                "title": "Baggage Compensation",
+                "p1": "This is the golden rule for lost, delayed, or damaged baggage. You can claim compensation up to approximately 1,288 SDR (Special Drawing Rights), or about €1,600 depending on the exchange rate."
+            },
+            "frais": {
+                "title": "Reimbursement of Unexpected Expenses",
+                "p1": "If an international flight is delayed and you have to incur extra expenses (change of clothes, hygiene products, meals), the Montreal Convention obliges the airline to reimburse you for these reasonable expenses upon presentation of receipts."
+            },
+            "eligibilite": {
+                "title": "When does it apply?",
+                "p1": "It applies to all international flights between countries that have ratified the treaty (over 135 countries, including the EU, USA, Turkey, etc.)."
+            }
+        }
     }
 }

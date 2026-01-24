@@ -2004,5 +2004,317 @@
             "lounge": "Accompagnement complet",
             "button": "59,99 € / an"
         }
+    },
+    "ec261": {
+        "heroTitle": "Règlement CE 261/2004 : l’essentiel à connaître",
+        "heroCheckmarks": {
+            "amount": "Jusqu'à 600 € d'indemnisation",
+            "care": "Droit à la prise en charge",
+            "eu": "Protection européenne garantie"
+        },
+        "sidebarTitle": "Sur cette page",
+        "nav": {
+            "essentiel": "L'essentiel",
+            "whatIs": "Qu'est-ce que le CE 261 ?",
+            "steps": "3 étapes",
+            "when": "Quand ai-je droit ?",
+            "amount": "Montants",
+            "countries": "Pays couverts",
+            "otherRights": "Autres droits",
+            "howTo": "Comment réclamer"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Règlement CE 261/2004 : l’essentiel à connaître pour être indemnisé",
+                "p1": "Le règlement CE 261/2004 protège vos droits de passager dans l’Union européenne. Il couvre les retards de vol, les annulations et les cas de surbooking.",
+                "p2": "Vous pouvez réclamer jusqu’à 600 € d’indemnité, selon votre situation.",
+                "p3": "Voyager peut vite devenir frustrant quand tout ne se passe pas comme prévu. Heureusement, le règlement CE 261/2004, également connu sous les noms de EU 261 ou CE 261, est là pour protéger vos droits et vous indemniser lorsque votre vol est annulé, surbooké ou que l’embarquement vous est refusé.",
+                "p4": "Un retard de vol de plus de 3 heures peut aussi vous ouvrir droit à une indemnité, à condition que la compagnie aérienne soit responsable."
+            },
+            "takeaways": {
+                "title": "Règlement CE 261/2004 : ce qu’il faut retenir",
+                "label": "En bref",
+                "li1": "Les compagnies aériennes doivent vous indemniser en cas d’annulation, de retard de plus de 3 heures ou de refus d’embarquement, lorsqu’elles sont responsables de la perturbation.",
+                "li2": "Le montant de l’indemnisation varie entre 250 € et 600 € par personne, selon la distance du vol. Ces montants sont fixés par la loi : la compagnie ne peut pas vous proposer moins.",
+                "li3": "Le règlement CE 261 s’applique à tous les vols au départ de l’Union européenne, ainsi qu’aux vols arrivant dans l’UE opérés par une compagnie européenne. Les arrivées opérées par une compagnie non européenne ne sont pas concernées.",
+                "li4": "En cas d’attente, vous avez droit à une prise en charge par la compagnie : repas, boissons, nuit d’hôtel et transport vers/depuis l’aéroport si nécessaire."
+            },
+            "whatIs": {
+                "title": "Qu’est-ce que le règlement CE 261/2004 ?",
+                "p1": "Le Règlement (CE) n° 261/2004 du Parlement européen et du Conseil du 11 février 2004 protège les passagers aériens et établit les conditions d’indemnisation en cas de désagrément lors d’un voyage en avion. Il tient les compagnies aériennes financièrement responsables, à moins que la perturbation n’ait été causée par des circonstances indépendantes de leur volonté.",
+                "p2": "Le règlement CE 261/2004 est l’une des législations les plus complètes dans le domaine. Cette réglementation joue un rôle essentiel dans la défense des droits des passagers aériens, mais aussi de tous les voyageurs dont le vol décolle au départ d’un aéroport européen, et ce, quelle que soit leur nationalité. Dans certaines circonstances, les passagers voyageant vers l’Europe, à partir d’autres destinations hors UE peuvent également être protégés par la réglementation CE 261/2004."
+            },
+            "steps": {
+                "title": "3 étapes pour obtenir une indemnisation",
+                "step1": "Vous déposez gratuitement votre réclamation en un clic",
+                "step1_desc": "C’est simple, rapide et sécurisé. Vous remplissez quelques infos, on s’occupe du reste.",
+                "step2": "Nous nous occupons de tout",
+                "step2_desc": "Pas de paperasse, ni de longues heures d'attente au téléphone : nos experts gèrent toutes les démarches à votre place !",
+                "step3": "Vous recevez jusqu'à 600 € d'indemnisation !",
+                "step3_desc": "Nos frais sont prélevés uniquement sur la somme récupérée. Vous avez tout à gagner !"
+            },
+            "when": {
+                "title": "Quand ai-je droit à une indemnité CE 261 ?",
+                "intro": "Vous pouvez réclamer une indemnité comprise entre 250 € et 600 € auprès de la compagnie aérienne dans trois cas principaux :",
+                "li1_title": "Retard important :",
+                "li1_desc": "un vol retardé de plus de 3 heures peut donner droit à une indemnisation, si le retard impacte bien l’heure d’arrivée finale (et non seulement l’heure de départ).",
+                "li2_title": "Annulation de vol :",
+                "li2_desc": "si votre vol est annulé moins de 14 jours avant le départ, vous pouvez prétendre à une compensation, sauf circonstances extraordinaires.",
+                "li3_title": "Refus d’embarquement (surbooking) :",
+                "li3_desc": "la compagnie vous refuse l’accès à bord alors que vous aviez un billet valide et que vous vous êtes présenté à l’heure à la porte d’embarquement. Cela arrive souvent quand le vol est surbooké."
+            },
+            "amount": {
+                "title": "À quelle indemnité ai-je droit ?",
+                "intro": "Le montant de l’indemnisation dépend de plusieurs facteurs, notamment de la distance parcourue et du retard total à l’arrivée à votre destination finale.",
+                "l1": "Vols de 1 500 km ou moins",
+                "l2": "Vols entre 1 500 et 3 500 km",
+                "l3": "Vols de plus de 3 500 km",
+                "val1": "250 €",
+                "val2": "400 €",
+                "val3": "600 €",
+                "note": "Bon à savoir : le montant auquel vous avez droit ne dépend pas du prix de votre billet, mais de la distance du vol."
+            },
+            "countries": {
+                "title": "Quels pays sont couverts par le réglement CE 261 ?",
+                "p1": "Le règlement européen CE 261/2004 s’applique à la majorité des vols opérés en Europe.",
+                "p2": "Cela couvre non seulement l’espace aérien de l’Union européenne, mais aussi l’Islande, la Norvège, la Suisse et les « régions ultrapériphériques » comme la Guyane française, la Martinique, Mayotte, la Guadeloupe, La Réunion, Saint-Martin, Madère, les Açores ou encore les îles Canaries.",
+                "tableHead1": "Compagnie européenne",
+                "tableHead2": "Compagnie non européenne",
+                "row1": "Départ d’un aéroport de l'UE",
+                "row2": "Arrivée dans un aéroport de l'UE",
+                "covered": "✔️ Couvert",
+                "notCovered": "❌ Non couvert",
+                "p3": "Les vols internationaux sont protégés si vous partez d’un aéroport situé dans l’UE, ou si votre destination se trouve dans l’UE et que vous voyagez avec une compagnie aérienne européenne.",
+                "p4": "Et pas besoin d’être citoyen européen pour pouvoir réclamer une indemnité : le règlement CE 261 s’applique à tous les passagers, quelle que soit leur nationalité !"
+            },
+            "otherRights": {
+                "title": "Autres droits prévus par le règlement CE 261/2004",
+                "intro": "Le règlement CE 261/2004 compte parmi les lois sur les droits des passagers les plus complètes au monde. En plus de prévoir une indemnisation financière, il définit aussi précisément comment la compagnie aérienne doit vous assister en cas de problème.",
+                "care_title": "Votre droit à une prise en charge",
+                "care_li1": "Bons d'achat pour repas et boissons",
+                "care_li2": "Nuit d’hôtel si nécessaire",
+                "care_li3": "Transport entre l’aéroport et l’hôtel si besoin",
+                "care_li4": "Accès à des moyens de communication",
+                "reamb_title": "Ai-je droit à un remboursement ou un réacheminement ?",
+                "reamb_p": "Oui ! Si votre vol est annulé, vous pouvez obtenir une indemnisation pour compenser les désagréments subis. Mais vous avez aussi droit à un réacheminement sur le prochain vol disponible vers votre destination ou à un remboursement total ou partiel de votre billet initial. Pour les retards, dès lors que le retard dépasse 5 heures, vous pouvez choisir de ne pas voyager et demander le remboursement intégral du vol non utilisé.",
+                "hotel_title": "L’hôtel est-il pris en charge ?",
+                "hotel_p": "Oui ! Cela fait partie de votre droit à une assistance. Si vous devez passer la nuit à cause du retard ou de l’annulation, la compagnie doit vous fournir un hébergement à l’hôtel ainsi que le transport aller-retour entre l’aéroport et l’hôtel."
+            },
+            "howTo": {
+                "title": "Comment faire une réclamation en vertu du réglement CE 261 ?",
+                "intro": "Saviez-vous que seulement 55 % des passagers réclament leur indemnité... Pourtant, faire valoir vos droits est plus simple qu’il n’y paraît... il existe deux façons d’obtenir une indemnisation :",
+                "direct_title": "Réclamation directement auprès de la compagnie aérienne",
+                "direct_p": "Chaque compagnie a son propre processus... Vous devrez rassembler tous les justificatifs... vérifier la réglementation...",
+                "flycompense_title": "Réclamation avec FlyCompense",
+                "flycompense_p": "Nous gérons tout de A à Z... Vérifiez rapidement si votre vol est éligible... Pas de gain, pas de frais !",
+                "comparison_manual": "Faire une réclamation seul.e",
+                "comparison_fly": "Faire une réclamation avec FlyCompense",
+                "comp_effort_manual": "❌ Beaucoup d'efforts : vous devez tout gérer vous-même",
+                "comp_effort_fly": "✔️ Aucun effort : on s’occupe de tout pour vous",
+                "comp_success_manual": "❌ Résultat incertain",
+                "comp_success_fly": "✔️ Succès reconnu : nous savons comment maximiser votre indemnité",
+                "comp_legal_manual": "❌ Aucun soutien juridique",
+                "comp_legal_fly": "✔️ Des experts juridiques à vos côtés",
+                "comp_risk_manual": "❌ Gratuit, mais moins de chances",
+                "comp_risk_fly": "✔️ Pas de gain, pas de frais",
+                "checklist_title": "Checklist pour déposer une réclamation",
+                "check1": "Conservez votre carte d’embarquement et vos documents de voyage.",
+                "check2": "Rassemblez des preuves (par exemple : photos des écrans).",
+                "check3": "Vérifiez votre éligibilité avec notre Simulateur gratuit.",
+                "check4": "Faites votre réclamation avec FlyCompense."
+            }
+        }
+    },
+    "uk261": {
+        "heroTitle": "Vols vers, depuis et au sein du Royaume-Uni (UK 261)",
+        "heroCheckmarks": {
+            "amount": "Jusqu'à 520 £ d'indemnisation",
+            "care": "Protection post-Brexit",
+            "eu": "Tous les passagers couverts"
+        },
+        "sidebarTitle": "Navigation",
+        "nav": {
+            "essentiel": "UK 261 : l'essentiel",
+            "montant": "Indemnités",
+            "eligibilite": "Éligibilité",
+            "etapes": "Comment réclamer"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Le règlement UK 261 : Vos droits au Royaume-Uni",
+                "p1": "Après le Brexit, le Royaume-Uni a adopté sa propre version du règlement européen, connue sous le nom de UK 261. Vos droits restent très similaires à ceux de l'UE.",
+                "p2": "Il couvre les retards de plus de 3 heures, les annulations et les refus d'embarquement pour les vols au départ du Royaume-Uni ou arrivant au Royaume-Uni avec une compagnie britannique."
+            },
+            "montant": {
+                "title": "À quel montant d'indemnisation ai-je droit ?",
+                "l1": "Vols de 1 500 km ou moins",
+                "l2": "Vols entre 1 500 et 3 500 km",
+                "l3": "Vols de plus de 3 500 km",
+                "val1": "220 £",
+                "val2": "350 £",
+                "val3": "520 £"
+            },
+            "eligibilite": {
+                "title": "Qui est couvert ?",
+                "p1": "Tous les passagers décollant d'un aéroport britannique sont couverts, quel que soit l'opérateur. Pour les vols arrivant au Royaume-Uni, vous êtes couvert si la compagnie est basée au Royaume-Uni ou dans l'UE."
+            },
+            "etapes": {
+                "title": "Comment obtenir votre indemnité ?",
+                "p1": "FlyCompense vous aide à naviguer dans les spécificités du droit britannique pour récupérer jusqu'à 520 £ par passager."
+            }
+        }
+    },
+    "usRights": {
+        "heroTitle": "Vols depuis et au sein des États-Unis",
+        "heroCheckmarks": {
+            "amount": "Jusqu'à 1 550 $",
+            "care": "Réglementation DOT",
+            "eu": "Protection passagers US"
+        },
+        "sidebarTitle": "Droits US",
+        "nav": {
+            "essentiel": "Droits aux USA",
+            "surbooking": "Surbooking",
+            "retards": "Retards",
+            "tissage": "Tarmac"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Vos droits de passager aux États-Unis",
+                "p1": "Aux États-Unis, les droits des passagers sont régis par le Department of Transportation (DOT). Bien qu'il n'existe pas d'indemnisation automatique pour les retards comme en Europe, les règles pour le surbooking sont très strictes."
+            },
+            "surbooking": {
+                "title": "Indemnisation en cas de surbooking",
+                "p1": "Si vous êtes refusé à l'embarquement contre votre gré en raison d'un surbooking, vous avez droit à une indemnité immédiate qui peut atteindre 400% du prix du billet, jusqu'à un maximum de 1 550 $."
+            },
+            "retards": {
+                "title": "Quid des retards et annulations ?",
+                "p1": "Pour les vols intérieurs US, les compagnies ne sont pas légalement tenues d'indemniser pour les retards, mais elles doivent souvent fournir des repas ou des chambres d'hôtel selon leur propre politique commerciale."
+            },
+            "tissage": {
+                "title": "Longue attente sur le tarmac",
+                "p1": "Le DOT interdit aux compagnies de laisser les passagers sur le tarmac pendant plus de 3 heures (vols intérieurs) ou 4 heures (vols internationaux) sans leur proposer de débarquer."
+            }
+        }
+    },
+    "turkeyRights": {
+        "heroTitle": "Vols vers, depuis et au sein de la Turquie",
+        "heroCheckmarks": {
+            "amount": "Jusqu'à 600 €",
+            "care": "SHY-PASSENGER",
+            "eu": "Turkish Airlines incl."
+        },
+        "sidebarTitle": "Droits en Turquie",
+        "nav": {
+            "essentiel": "SHY-PASSENGER",
+            "montant": "Indemnités",
+            "eligibilite": "Éligibilité"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Le règlement turc SHY-PASSENGER",
+                "p1": "La Turquie dispose d'une réglementation très similaire à l'EU 261, appelée SHY-PASSENGER. Elle protège les voyageurs sur tous les vols au départ ou à destination de la Turquie avec une compagnie turque."
+            },
+            "montant": {
+                "title": "Montants des indemnités",
+                "l1": "Vols intérieurs",
+                "l2": "Vols internationaux",
+                "val1": "100 € (en Lira)",
+                "val2": "250 € à 600 €"
+            },
+            "eligibilite": {
+                "title": "Qui est protégé ?",
+                "p1": "Le règlement s'applique aux vols domestiques en Turquie et aux vols internationaux si vous voyagez avec une compagnie turque (comme Turkish Airlines ou Pegasus)."
+            }
+        }
+    },
+    "brazilRights": {
+        "heroTitle": "Vols vers, depuis et au sein du Brésil",
+        "heroCheckmarks": {
+            "amount": "Dommage moral",
+            "care": "ANAC 400",
+            "eu": "Droit consommateur"
+        },
+        "sidebarTitle": "Droits au Brésil",
+        "nav": {
+            "essentiel": "Droits au Brésil",
+            "moral": "Dano Moral",
+            "anac": "ANAC 400"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Vos droits de passager au Brésil",
+                "p1": "Le Brésil possède l'une des protections les plus fortes au monde grâce à la Résolution ANAC 400 et au Code de défense des consommateurs. Contrairement à l'Europe, l'indemnisation est souvent basée sur le préjudice moral subi."
+            },
+            "moral": {
+                "title": "Le Dano Moral (Dommage moral)",
+                "p1": "Les tribunaux brésiliens accordent fréquemment des compensations pour le stress et les désagréments causés par des vols annulés ou retardés. Le montant peut varier considérablement selon l'impact sur votre vie."
+            },
+            "anac": {
+                "title": "Assistance immédiate (ANAC 400)",
+                "p1": "Dès 1 heure de retard, les compagnies au Brésil doivent offrir des moyens de communication. Après 2 heures, des repas, et après 4 heures, l'hébergement et le transport."
+            }
+        }
+    },
+    "saudiRights": {
+        "heroTitle": "Vols Arabie Saoudite",
+        "heroCheckmarks": {
+            "amount": "Jusqu'à 100%",
+            "care": "GACA",
+            "eu": "Moyen-Orient"
+        },
+        "sidebarTitle": "Droits Saoudiens",
+        "nav": {
+            "essentiel": "Droits",
+            "montant": "Indemnités",
+            "assistance": "Assistance"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Règlement de la GACA",
+                "p1": "L'Autorité Générale de l'Aviation Civile (GACA) d'Arabie Saoudite a mis en place des règles strictes qui imposent aux compagnies aériennes d'indemniser les passagers en cas de retards ou d'annulations."
+            },
+            "montant": {
+                "title": "Indemnisation financière",
+                "p1": "En cas d'annulation non notifiée 14 jours à l'avance, ou de retard important, l'indemnisation peut aller d'un montant fixe à un remboursement correspondant à 100% de la valeur de la partie inutilisée du billet."
+            },
+            "assistance": {
+                "title": "Assistance aux passagers",
+                "p1": "Comme pour les vols européens, les compagnies en Arabie Saoudite doivent fournir rafraîchissements, nourriture et hébergement si le retard dépasse un certain seuil."
+            }
+        }
+    },
+    "montrealConvention": {
+        "heroTitle": "Convention de Montréal",
+        "heroCheckmarks": {
+            "amount": "Jusqu'à 1 600 €",
+            "care": "Bagages",
+            "eu": "Traité Global"
+        },
+        "sidebarTitle": "Convention",
+        "nav": {
+            "essentiel": "Convention",
+            "bagages": "Bagages",
+            "frais": "Frais",
+            "eligibilite": "Éligibilité"
+        },
+        "sections": {
+            "essentiel": {
+                "title": "Qu'est-ce que la Convention de Montréal ?",
+                "p1": "La Convention de Montréal est un traité international qui régit la responsabilité des compagnies aériennes en cas de retard, de décès ou de blessure des passagers, ainsi que pour les dommages aux bagages sur les vols internationaux."
+            },
+            "bagages": {
+                "title": "Indemnisation des bagages",
+                "p1": "C'est la règle d'or pour les bagages perdus, retardés ou endommagés. Vous pouvez prétendre à une indemnisation allant jusqu'à environ 1 288 DTS (Droits de Tirage Spéciaux), soit environ 1 600 € selon le taux de change."
+            },
+            "frais": {
+                "title": "Remboursement des dépenses imprévues",
+                "p1": "Si un vol international est retardé et que vous devez engager des frais supplémentaires (vêtements de rechange, produits d'hygiène, repas), la Convention de Montréal oblige la compagnie à vous rembourser ces frais raisonnables sur présentation de factures."
+            },
+            "eligibilite": {
+                "title": "Quand s'applique-t-elle ?",
+                "p1": "Elle s'applique à tous les vols internationaux entre les pays qui ont ratifié le traité (plus de 135 pays, dont l'UE, les USA, la Turquie, etc.)."
+            }
+        }
     }
 }

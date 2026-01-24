@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getLocale, getTranslations } from 'next-intl/server';
+import { getSocialLinks } from './actions/socials';
 import "./globals.css";
 import "./hero.css";
 import LayoutWrapper from './components/LayoutWrapper/LayoutWrapper';
 import ChatBot from './components/ChatBot/ChatBot';
+import PageTransitions from './components/PageTransitions/PageTransitions';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -40,6 +42,8 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const socialLinksRes = await getSocialLinks();
+  const socialLinks = socialLinksRes.success ? socialLinksRes.links : [];
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -50,7 +54,8 @@ export default async function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <LayoutWrapper>
+          <PageTransitions />
+          <LayoutWrapper socialLinks={socialLinks}>
             {children}
           </LayoutWrapper>
           <ChatBot />

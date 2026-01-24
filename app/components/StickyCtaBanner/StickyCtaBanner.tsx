@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import styles from './StickyCtaBanner.module.css';
 
 export default function StickyCtaBanner() {
@@ -31,7 +32,7 @@ export default function StickyCtaBanner() {
                         </div>
                     </div>
                 </div>
-                <button className={styles.ctaButton}>Check Compensation</button>
+                <Link href="/claim" className={styles.ctaButton}>Check Compensation</Link>
             </div>
         </div>
     );

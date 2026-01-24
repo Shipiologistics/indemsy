@@ -24,8 +24,11 @@ export default function ClaimPage() {
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarContent}>
                     <Link href="/" className={styles.logo}>
-                        <span className={styles.logoIcon}>✈</span>
-                        <span className={styles.logoText}>FLYCOMPENSE</span>
+                        <img
+                            src="/ChatGPT_Image_Jan_20__2026__02_21_19_PM-removebg-preview.png"
+                            alt="FlyCompense"
+                            className={styles.logoImage}
+                        />
                     </Link>
 
                     <nav className={styles.progressNav}>
@@ -52,11 +55,20 @@ export default function ClaimPage() {
                     <div className={styles.featuredIn}>
                         <p>{t('sidebar.featuredIn')}</p>
                         <div className={styles.featuredLogos}>
-                            <span className={styles.washingtonPost}>The Washington Post</span>
-                            <div className={styles.logoRow}>
-                                <span className={styles.usaToday}>🔴 USA TODAY</span>
-                                <span className={styles.wsj}>WSJ</span>
-                            </div>
+                            {[
+                                { name: "L'essentiel", url: "https://www.lessentiel.lu/fr", logo: "/media/lessentiel.svg" },
+                                { name: "Virgule", url: "https://www.virgule.lu/", logo: "/media/virgule.svg" },
+                                { name: "Le Quotidien", url: "https://lequotidien.lu/", logo: "/media/lequotidien.svg" },
+                                { name: "Paperjam", url: "https://paperjam.lu/", logo: "/media/paperjam.svg" },
+                                { name: "RTL", url: "https://www.rtl.lu/", logo: "/media/rtl.svg" }
+                            ].map((media) => (
+                                <img
+                                    key={media.name}
+                                    src={media.logo}
+                                    alt={media.name}
+                                    className={styles.mediaLogo}
+                                />
+                            ))}
                         </div>
                     </div>
 

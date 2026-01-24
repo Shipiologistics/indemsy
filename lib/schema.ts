@@ -252,3 +252,14 @@ export const airports = pgTable('airports', {
     latitude: doublePrecision('latitude'),
     longitude: doublePrecision('longitude'),
 });
+
+// Social Media Links (Admin Managed)
+export const socialLinks = pgTable('social_links', {
+    id: serial('id').primaryKey(),
+    platform: varchar('platform', { length: 50 }).notNull().unique(), // facebook, twitter, linkedin, instagram
+    url: text('url').notNull(),
+    icon: text('icon'), // Optional icon class or SVG
+    isActive: boolean('is_active').default(true),
+    displayOrder: integer('display_order').default(0),
+    updatedAt: timestamp('updated_at').defaultNow(),
+});

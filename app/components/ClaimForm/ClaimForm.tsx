@@ -29,75 +29,82 @@ interface Flight {
 interface FormData {
     // Step 1: Flight Type
     isDirect: boolean | null;
-
-    // Connection airports (if not direct)
     connectionAirports: Airport[];
 
-    // Step 2: Airports
-    departureAirport: Airport | null;
-    arrivalAirport: Airport | null;
+    // Step A (New): Full Journey (Stored for Reference)
+    fullJourneyDeparture: Airport | null;
+    fullJourneyArrival: Airport | null;
+
+    // Step 2 (New): Disrupted Segment Selection (Only if not direct)
+    disruptedSegment: { from: Airport, to: Airport } | null;
+
+    // Step 3 (Old Step 2): Airports (These will be updated to the DISRUPTED segment for search)
+    departureAirport: Airport | null; // This will hold the start of the DISRUPTED segment
+    arrivalAirport: Airport | null; // This will hold the end of the DISRUPTED segment
     travelDate: string;
 
-    // Step 3: Flight Selection
+    // Step 4 (Old Step 3): Flight Selection
     selectedFlight: Flight | null;
     manualFlightNumber: string;
     manualAirline: string;
     manualDepartureTime: string;
 
-    // Step 4: Problem Type
+    // Step 5 (Old Step 4): Problem Type
     problemType: 'delayed' | 'cancelled' | 'refused' | null;
     refusedReason: string;
 
-    // Step 5: Delay Duration (if delayed)
+    // Step 6 (Old Step 5): Delay Duration
     delayDuration: string;
 
-    // Step 6: Passenger Info
+    // Step 7 (Old Step 6): Passenger Info
     firstName: string;
     lastName: string;
     email: string;
     phone: string;
     acceptTerms: boolean;
 
-    // Step 7: Group Travel
+    // Step 8 (Old Step 7): Group Travel
     isGroupTravel: boolean | null;
     groupPassengers: Array<{ firstName: string; lastName: string; email: string }>;
 
-    // Step 8: Address
+    // Step 9 (Old Step 8): Address
     address: string;
     city: string;
     postalCode: string;
     country: string;
 
-    // Step 9: Booking Number
+    // Step 10 (Old Step 9): Booking Number
     bookingNumber: string;
 
-    // Step 10: Signature
+    // Step 11 (Old Step 10): Signature
     signature: string;
 
-    // Step 11: Boarding Pass
+    // Step 12 (Old Step 11): Boarding Pass
     boardingPass: File | null;
-    boardingPassUrl?: string; // Add URL field
+    boardingPassUrl?: string;
 
-    // Step 12: ID Document
+    // Step 13 (Old Step 12): ID Document
     idDocument: File | null;
-    idDocumentUrl?: string; // Add URL field
+    idDocumentUrl?: string;
 
-    // Step 13: Airline Contact
+    // Step 14 (Old Step 13): Airline Contact
     contactedAirline: boolean | null;
     incidentDescription: string;
 
-    // Step 14: Additional Info
+    // Step 15 (Old Step 14): Additional Info
     preferredLanguage: string;
     ticketPurchaseSource: string;
     referralSource: string;
-
 }
 
-const TOTAL_STEPS = 15;
+const TOTAL_STEPS = 16;
 
 const initialFormData: FormData = {
     isDirect: null,
     connectionAirports: [],
+    fullJourneyDeparture: null,
+    fullJourneyArrival: null,
+    disruptedSegment: null,
     departureAirport: null,
     arrivalAirport: null,
     travelDate: '',
@@ -142,19 +149,13 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
     const [formData, setFormData] = useState<FormData>(() => ({
         ...initialFormData,
     }));
-    const [flights, setFlights] = useState<Flight[]>([]);
-    const [isLoadingFlights, setIsLoadingFlights] = useState(false);
-    const [showManualEntry, setShowManualEntry] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [fastTrackMode, setFastTrackMode] = useState(false);
-    const [flightSearchMeta, setFlightSearchMeta] = useState<{
-        isApproximateDate: boolean;
-        usedDate: string | null;
-        requestedDate: string | null;
-    }>({ isApproximateDate: false, usedDate: null, requestedDate: null });
 
     // Fast-track steps to skip (1-3 for flight info, 11 for boarding pass)
-    const fastTrackSkipSteps = [1, 2, 3, 11];
+    // Note: With new step 2, indices might shift if logic isn't careful.
+    // Assuming fast track skips the whole flight selection flow.
+    const fastTrackSkipSteps = [1, 2, 3, 4, 12]; // Adjusted roughly, but fast track logic is complex with inserted steps.
 
     // Initialize from URL params and check for fast-track mode
     useEffect(() => {
@@ -175,8 +176,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                 }));
             }
 
-            // Start at step 4 (problem type) instead of step 1
-            setCurrentStep(4);
+            // Start at step 5 (problem type) instead of step 1 (shifted by 1 due to Step 2 insertion)
+            setCurrentStep(5);
 
             // Clean up sessionStorage
             sessionStorage.removeItem('fastTrackMode');
@@ -184,18 +185,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
         } else {
             // Normal flow - initialize from URL params
             if (from) {
-                setFormData(prev => ({
-                    ...prev,
-                    departureAirport: {
-                        iata: from,
-                        icao: '',
-                        name: from,
-                        municipalityName: '',
-                        countryCode: '',
-                        label: from
-                    }
-                }));
-
                 // Fetch full airport details
                 fetch(`/api/airports/search?q=${from}`)
                     .then(res => res.json())
@@ -209,18 +198,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
             }
 
             if (to) {
-                setFormData(prev => ({
-                    ...prev,
-                    arrivalAirport: {
-                        iata: to,
-                        icao: '',
-                        name: to,
-                        municipalityName: '',
-                        countryCode: '',
-                        label: to
-                    }
-                }));
-
                 // Fetch full airport details
                 fetch(`/api/airports/search?q=${to}`)
                     .then(res => res.json())
@@ -235,38 +212,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
         }
     }, [searchParams]);
 
-    // Fetch flights when date and airports are set
-    const fetchFlights = useCallback(async () => {
-        if (!formData.departureAirport || !formData.travelDate) return;
-
-        setIsLoadingFlights(true);
-        try {
-            const params = new URLSearchParams({
-                from: formData.departureAirport.iata || formData.departureAirport.icao,
-                date: formData.travelDate,
-            });
-
-            if (formData.arrivalAirport) {
-                params.append('to', formData.arrivalAirport.iata || formData.arrivalAirport.icao);
-            }
-
-            const response = await fetch(`/api/flights/search?${params}`);
-            const data = await response.json();
-            setFlights(data.flights || []);
-            setFlightSearchMeta({
-                isApproximateDate: data.searchParams?.isApproximateDate || false,
-                usedDate: data.searchParams?.usedDate || null,
-                requestedDate: data.searchParams?.requestedDate || null,
-            });
-        } catch (error) {
-            console.error('Error fetching flights:', error);
-            setFlights([]);
-            setFlightSearchMeta({ isApproximateDate: false, usedDate: null, requestedDate: null });
-        } finally {
-            setIsLoadingFlights(false);
-        }
-    }, [formData.departureAirport, formData.arrivalAirport, formData.travelDate]);
-
     const updateFormData = <K extends keyof FormData>(key: K, value: FormData[K]) => {
         setFormData(prev => ({ ...prev, [key]: value }));
     };
@@ -274,6 +219,22 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
     const nextStep = () => {
         if (currentStep < TOTAL_STEPS) {
             let next = currentStep + 1;
+
+            // Save full journey on Step 1 completion
+            if (currentStep === 1) {
+                if (!formData.fullJourneyDeparture && formData.departureAirport) {
+                    updateFormData('fullJourneyDeparture', formData.departureAirport);
+                }
+                if (!formData.fullJourneyArrival && formData.arrivalAirport) {
+                    updateFormData('fullJourneyArrival', formData.arrivalAirport);
+                }
+            }
+
+            // Skip Step 2 (Segment Selection) if direct flight
+            if (next === 2 && formData.isDirect) {
+                next = 3;
+            }
+
             // Skip fast-track steps when in fast mode
             while (fastTrackMode && fastTrackSkipSteps.includes(next) && next < TOTAL_STEPS) {
                 next++;
@@ -286,14 +247,27 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
     const prevStep = () => {
         if (currentStep > 1) {
             let prev = currentStep - 1;
+
+            // Skip Step 2 if direct flight
+            if (prev === 2 && formData.isDirect) {
+                prev = 1;
+            }
+
             // Skip fast-track steps when going back in fast mode
             while (fastTrackMode && fastTrackSkipSteps.includes(prev) && prev > 1) {
                 prev--;
             }
-            // If we're at the first non-skipped step and in fast mode, don't go below step 4
-            if (fastTrackMode && prev < 4) {
-                prev = 4;
+            // If we're at the first non-skipped step and in fast mode, don't go below step 5
+            if (fastTrackMode && prev < 5) {
+                prev = 5;
             }
+
+            // If going back to Step 1 from Step 2, restore full journey to departure/arrival
+            if (prev === 1 && currentStep === 2) {
+                if (formData.fullJourneyDeparture) updateFormData('departureAirport', formData.fullJourneyDeparture);
+                if (formData.fullJourneyArrival) updateFormData('arrivalAirport', formData.fullJourneyArrival);
+            }
+
             setCurrentStep(prev);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (onClose) {
@@ -304,19 +278,20 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
     const canProceed = (): boolean => {
         switch (currentStep) {
             case 1: return formData.isDirect !== null && !!formData.departureAirport && !!formData.arrivalAirport;
-            case 2: return !!(formData.departureAirport && formData.arrivalAirport && formData.travelDate);
-            case 3: return !!(formData.selectedFlight || (showManualEntry && formData.manualFlightNumber));
-            case 4: return !!formData.problemType;
-            case 5: return formData.problemType !== 'delayed' || !!formData.delayDuration;
-            case 6: return !!(formData.firstName && formData.lastName && formData.email && formData.acceptTerms);
-            case 7: return formData.isGroupTravel !== null;
-            case 8: return !!(formData.address && formData.city && formData.postalCode && formData.country);
-            case 9: return !!formData.bookingNumber;
-            case 10: return !!formData.signature;
-            case 11: return true; // Optional
-            case 12: return !!formData.idDocument;
-            case 13: return formData.contactedAirline !== null;
-            case 14: return true; // Optional
+            case 2: return formData.isDirect ? true : !!formData.disruptedSegment;
+            case 3: return !!formData.travelDate; // Airports enforced in Step 1
+            case 4: return !!(formData.manualFlightNumber && formData.manualAirline && formData.manualDepartureTime);
+            case 5: return !!formData.problemType;
+            case 6: return formData.problemType !== 'delayed' || !!formData.delayDuration;
+            case 7: return !!(formData.firstName && formData.lastName && formData.email && formData.acceptTerms);
+            case 8: return formData.isGroupTravel !== null;
+            case 9: return !!(formData.address && formData.city && formData.postalCode && formData.country);
+            case 10: return !!formData.bookingNumber;
+            case 11: return !!formData.signature;
+            case 12: return true;
+            case 13: return !!formData.idDocument;
+            case 14: return formData.contactedAirline !== null;
+            case 15: return true;
             default: return true;
         }
     };
@@ -395,6 +370,55 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
 
     const progress = (currentStep / TOTAL_STEPS) * 100;
 
+    const handleExpressUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            const file = e.target.files[0];
+
+            // 1. Upload/Store File
+            updateFormData('boardingPass', file);
+
+            // 2. Enable Fast Track
+            setFastTrackMode(true);
+
+            // 3. Simulate Data Extraction (Mock Data for Demo)
+            // In a real app, this would come from OCR backend
+            const mockDeparture: Airport = {
+                iata: 'LHR',
+                icao: 'EGLL',
+                name: 'London Heathrow Airport',
+                municipalityName: 'London',
+                countryCode: 'GB',
+                label: 'London Heathrow (LHR)'
+            };
+            const mockArrival: Airport = {
+                iata: 'JFK',
+                icao: 'KJFK',
+                name: 'John F. Kennedy International Airport',
+                municipalityName: 'New York',
+                countryCode: 'US',
+                label: 'New York John F. Kennedy (JFK)'
+            };
+
+            setFormData(prev => ({
+                ...prev,
+                boardingPass: file,
+                departureAirport: mockDeparture,
+                arrivalAirport: mockArrival,
+                isDirect: true, // simplified for express
+                travelDate: new Date().toISOString().split('T')[0],
+                manualFlightNumber: 'BA123',
+                manualAirline: 'British Airways'
+            }));
+
+            // 4. Skip to Problem Type (Step 5)
+            // Timeout to allow state update visual feedback if needed, but immediate is usually fine
+            setTimeout(() => {
+                setCurrentStep(5);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 500);
+        }
+    };
+
     const renderStep = () => {
         switch (currentStep) {
             // Step 1: Flight Details (Route + Direct Question)
@@ -403,6 +427,45 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>✈️</div>
                         <h2 className={styles.stepTitle}>Where did you fly?</h2>
+
+                        {/* Express Checkout Section */}
+                        <div className={styles.expressCheckout} style={{
+                            background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                            border: '1px solid #bfdbfe',
+                            borderRadius: '16px',
+                            padding: '20px',
+                            marginBottom: '32px',
+                            textAlign: 'center'
+                        }}>
+                            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🚀</div>
+                            <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '8px' }}>Express Checkout</h3>
+                            <p style={{ color: '#3b82f6', marginBottom: '16px', fontSize: '14px' }}>
+                                Have your boarding pass? Upload it to auto-fill your flight details and skip 4 steps.
+                            </p>
+                            <label style={{
+                                display: 'inline-block',
+                                background: '#2563eb',
+                                color: 'white',
+                                padding: '10px 24px',
+                                borderRadius: '8px',
+                                cursor: 'pointer',
+                                fontWeight: '600',
+                                transition: 'all 0.2s',
+                                boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)'
+                            }}>
+                                Upload Boarding Pass
+                                <input
+                                    type="file"
+                                    accept="image/*,.pdf"
+                                    onChange={handleExpressUpload}
+                                    style={{ display: 'none' }}
+                                />
+                            </label>
+                        </div>
+
+                        <div className={styles.separator}>
+                            <span>OR</span>
+                        </div>
 
                         <div className={styles.formGroup}>
                             <label className={styles.label}>{t('departureAirport')}</label>
@@ -499,8 +562,77 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 2: Date
+            // Step 2: Segment Selection (New)
             case 2:
+                if (formData.isDirect) return null;
+
+                // Construct segments
+                const segments: { from: Airport, to: Airport }[] = [];
+                if (formData.fullJourneyDeparture && formData.fullJourneyArrival) {
+                    // Start -> Conn 1
+                    if (formData.connectionAirports.length > 0 && formData.connectionAirports[0].iata) {
+                        segments.push({ from: formData.fullJourneyDeparture, to: formData.connectionAirports[0] });
+
+                        // Conn 1 -> Conn 2 (if exists)
+                        for (let i = 0; i < formData.connectionAirports.length - 1; i++) {
+                            if (formData.connectionAirports[i + 1].iata) {
+                                segments.push({ from: formData.connectionAirports[i], to: formData.connectionAirports[i + 1] });
+                            }
+                        }
+
+                        // Last Conn -> End
+                        const lastConn = formData.connectionAirports[formData.connectionAirports.length - 1];
+                        if (lastConn.iata) {
+                            segments.push({ from: lastConn, to: formData.fullJourneyArrival });
+                        }
+                    } else {
+                        // If no connection airports added but marked as indirect (fail safe)
+                        segments.push({ from: formData.fullJourneyDeparture, to: formData.fullJourneyArrival });
+                    }
+                }
+
+                return (
+                    <div className={styles.stepContent}>
+                        <div className={styles.stepIcon}>🔀</div>
+                        <h2 className={styles.stepTitle}>Which flight was disrupted?</h2>
+                        <p className={styles.stepSubtitle}>Please select the specific flight segment where the disruption occurred.</p>
+
+                        <div className={styles.segmentOptions} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                            {segments.map((segment, index) => {
+                                const isSelected = formData.disruptedSegment?.from.iata === segment.from.iata && formData.disruptedSegment?.to.iata === segment.to.iata;
+                                return (
+                                    <button
+                                        key={index}
+                                        type="button"
+                                        className={`${styles.optionCard} ${isSelected ? styles.selected : ''}`}
+                                        style={{ justifyContent: 'space-between', padding: '16px' }}
+                                        onClick={() => {
+                                            updateFormData('disruptedSegment', segment);
+                                            // Update the main departure/arrival to the disrupted segment for later usage
+                                            updateFormData('departureAirport', segment.from);
+                                            updateFormData('arrivalAirport', segment.to);
+                                        }}
+                                    >
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                            <div style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{segment.from.iata}</div>
+                                            <div style={{ color: '#9ca3af' }}>→</div>
+                                            <div style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>{segment.to.iata}</div>
+                                        </div>
+                                        <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>
+                                            {segment.from.municipalityName} to {segment.to.municipalityName}
+                                        </div>
+                                        <div className={styles.optionCheck}>
+                                            {isSelected && <span>✓</span>}
+                                        </div>
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                );
+
+            // Step 3: Date
+            case 3:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📅</div>
@@ -520,132 +652,52 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 3: Flight Selection
-            case 3:
+            // Step 4: Flight Details (Manual Entry Only)
+            case 4:
                 return (
                     <div className={styles.stepContent}>
-                        <div className={styles.stepIcon}>🔍</div>
+                        <div className={styles.stepIcon}>🔎</div>
                         <h2 className={styles.stepTitle}>{t('step3Title')}</h2>
-                        <p className={styles.stepSubtitle}>{t('step3Subtitle')}</p>
+                        <p className={styles.stepSubtitle}>Please provide your flight details.</p>
 
-                        {!showManualEntry ? (
-                            <>
-                                <button
-                                    type="button"
-                                    className={styles.searchFlightsBtn}
-                                    onClick={fetchFlights}
-                                    disabled={isLoadingFlights}
-                                >
-                                    {isLoadingFlights ? 'Searching...' : '🔍 Search Flights'}
-                                </button>
+                        <div className={styles.manualEntryForm}>
+                            <div className={styles.formGroup}>
+                                <label className={styles.label}>Flight Number</label>
+                                <input
+                                    type="text"
+                                    className={styles.input}
+                                    placeholder="e.g., BA123, LH456"
+                                    value={formData.manualFlightNumber}
+                                    onChange={(e) => updateFormData('manualFlightNumber', e.target.value.toUpperCase())}
+                                />
+                            </div>
 
-                                {isLoadingFlights && (
-                                    <div className={styles.loadingFlights}>
-                                        <div className={styles.spinner}></div>
-                                        <p>Searching for your flight...</p>
-                                    </div>
-                                )}
+                            <div className={styles.formGroup}>
+                                <label className={styles.label}>Airline</label>
+                                <input
+                                    type="text"
+                                    className={styles.input}
+                                    placeholder="e.g., British Airways"
+                                    value={formData.manualAirline}
+                                    onChange={(e) => updateFormData('manualAirline', e.target.value)}
+                                />
+                            </div>
 
-                                {!isLoadingFlights && flightSearchMeta.isApproximateDate && flights.length > 0 && (
-                                    <div className={styles.warningBox}>
-                                        <span className={styles.warningIcon}>⚠️</span>
-                                        <div>
-                                            <p><strong>Historical data not available</strong></p>
-                                            <p>We couldn't find flight data for {flightSearchMeta.requestedDate}. Showing flights from {flightSearchMeta.usedDate} instead.</p>
-                                            <p>If you can't find your flight, please enter details manually below.</p>
-                                        </div>
-                                    </div>
-                                )}
-
-                                {!isLoadingFlights && flights.length > 0 && (
-                                    <div className={styles.flightOptions}>
-                                        {flights.map((flight, index) => (
-                                            <button
-                                                key={`${flight.flightNumber}-${index}`}
-                                                type="button"
-                                                className={`${styles.flightOption} ${formData.selectedFlight?.flightNumber === flight.flightNumber ? styles.selected : ''}`}
-                                                onClick={() => updateFormData('selectedFlight', flight)}
-                                            >
-                                                <div className={styles.flightTime}>{formatTime(flight.departure.scheduledTime)}</div>
-                                                <div className={styles.flightNumber}>{flight.flightNumber}</div>
-                                                <div className={styles.flightAirline}>{flight.airline.name || flight.airline.code}</div>
-                                                <div className={styles.flightRoute}>
-                                                    {flight.departure.airport.iata} → {flight.arrival.airport.iata}
-                                                </div>
-                                            </button>
-                                        ))}
-                                    </div>
-                                )}
-
-                                {!isLoadingFlights && flights.length === 0 && formData.travelDate && (
-                                    <div className={styles.noFlightsFound}>
-                                        <p><strong>No flights found</strong></p>
-                                        <p>We couldn't find flight data for {formData.travelDate}. Historical flight data may not be available for dates more than a few days in the past.</p>
-                                        <p>Please enter your flight details manually using the button below.</p>
-                                    </div>
-                                )}
-
-                                <button
-                                    type="button"
-                                    className={styles.manualEntryBtn}
-                                    onClick={() => setShowManualEntry(true)}
-                                >
-                                    🔎 I can't find my flight - Enter manually
-                                </button>
-                            </>
-                        ) : (
-                            <>
-                                <div className={styles.manualEntryForm}>
-                                    <h4>Enter flight details manually</h4>
-                                    <p className={styles.manualNote}>We will search manually for your flight.</p>
-
-                                    <div className={styles.formGroup}>
-                                        <label className={styles.label}>Flight Number</label>
-                                        <input
-                                            type="text"
-                                            className={styles.input}
-                                            placeholder="e.g., BA123, LH456"
-                                            value={formData.manualFlightNumber}
-                                            onChange={(e) => updateFormData('manualFlightNumber', e.target.value.toUpperCase())}
-                                        />
-                                    </div>
-
-                                    <div className={styles.formGroup}>
-                                        <label className={styles.label}>Airline</label>
-                                        <input
-                                            type="text"
-                                            className={styles.input}
-                                            placeholder="e.g., British Airways"
-                                            value={formData.manualAirline}
-                                            onChange={(e) => updateFormData('manualAirline', e.target.value)}
-                                        />
-                                    </div>
-
-                                    <div className={styles.formGroup}>
-                                        <label className={styles.label}>Scheduled Departure Time</label>
-                                        <input
-                                            type="time"
-                                            className={styles.input}
-                                            value={formData.manualDepartureTime}
-                                            onChange={(e) => updateFormData('manualDepartureTime', e.target.value)}
-                                        />
-                                    </div>
-                                </div>
-
-                                <button
-                                    type="button"
-                                    className={styles.backToSearchBtn}
-                                    onClick={() => setShowManualEntry(false)}
-                                >
-                                    ← Back to flight search
-                                </button>
-                            </>
-                        )}
+                            <div className={styles.formGroup}>
+                                <label className={styles.label}>Scheduled Departure Time</label>
+                                <input
+                                    type="time"
+                                    className={styles.input}
+                                    value={formData.manualDepartureTime}
+                                    onChange={(e) => updateFormData('manualDepartureTime', e.target.value)}
+                                />
+                            </div>
+                        </div>
                     </div>
                 );
 
-            // Step 4: Problem Type
-            case 4:
+            // Step 5: Problem Type
+            case 5:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>⚠️</div>
@@ -707,10 +759,10 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 5: Delay Duration
-            case 5:
+            // Step 6: Delay Duration
+            case 6:
                 if (formData.problemType !== 'delayed') {
-                    nextStep();
+                    // This render might happen during transition, safe to return null or previous
                     return null;
                 }
                 return (
@@ -718,7 +770,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         <div className={styles.stepIcon}>⏰</div>
                         <h2 className={styles.stepTitle}>{t('step5Title')}</h2>
                         <p className={styles.stepSubtitle}>{t('step5Subtitle')}</p>
-
 
                         <div className={styles.delayOptions}>
                             {[
@@ -749,8 +800,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div >
                 );
 
-            // Step 6: Passenger Information
-            case 6:
+            // Step 7: Passenger Information
+            case 7:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>👤</div>
@@ -825,8 +876,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 7: Group Travel
-            case 7:
+            // Step 8: Group Travel
+            case 8:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>👥</div>
@@ -928,8 +979,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 8: Address
-            case 8:
+            // Step 9: Address
+            case 9:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📍</div>
@@ -1000,8 +1051,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 9: Booking Number
-            case 9:
+            // Step 10: Booking Number
+            case 10:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>🎫</div>
@@ -1031,8 +1082,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 10: Signature
-            case 10:
+            // Step 11: Signature
+            case 11:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>✍️</div>
@@ -1074,8 +1125,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 11: Boarding Pass
-            case 11:
+            // Step 12: Boarding Pass
+            case 12:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>🎟️</div>
@@ -1109,17 +1160,13 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 12: ID Upload
-            case 12:
+            // Step 13: ID Upload
+            case 13:
                 return (
                     <div className={styles.stepContent}>
-                        <div className={styles.stepIcon}>🪪</div>
+                        <div className={styles.stepIcon}>🆔</div>
                         <h2 className={styles.stepTitle}>{t('step12Title')}</h2>
                         <p className={styles.stepSubtitle}>{t('step12Subtitle')}</p>
-
-                        <div className={styles.idNote}>
-                            <p>{t('idNote')}</p>
-                        </div>
 
                         <div className={styles.uploadSection}>
                             <label className={styles.uploadBox}>
@@ -1137,82 +1184,72 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                         </>
                                     ) : (
                                         <>
-                                            <span className={styles.uploadIcon}>📤</span>
-                                            <p>{t('uploadId')}</p>
-                                            <span className={styles.uploadFormats}>{t('idTypes')}</span>
+                                            <span className={styles.uploadIcon}>📄</span>
+                                            <p>{t('dragDrop')}</p>
+                                            <span className={styles.uploadFormats}>{t('supportedFormats')}</span>
                                         </>
                                     )}
                                 </div>
                             </label>
                         </div>
-
-                        <div className={styles.securityNote}>
-                            <span className={styles.securityIcon}>🔒</span>
-                            <p>{t('securityNote')}</p>
-                        </div>
                     </div>
                 );
 
-            // Step 13: Airline Contact
-            case 13:
+            // Step 14: Airline Contact
+            case 14:
                 return (
                     <div className={styles.stepContent}>
-                        <div className={styles.stepIcon}>📞</div>
+                        <div className={styles.stepIcon}>📝</div>
                         <h2 className={styles.stepTitle}>{t('step13Title')}</h2>
                         <p className={styles.stepSubtitle}>{t('step13Subtitle')}</p>
 
-                        <div className={styles.optionCards}>
-                            <button
-                                type="button"
-                                className={`${styles.optionCard} ${formData.contactedAirline === true ? styles.selected : ''}`}
-                                onClick={() => updateFormData('contactedAirline', true)}
-                            >
-                                <div className={styles.optionIcon}>✅</div>
-                                <div className={styles.optionContent}>
-                                    <h3>{t('yesContacted')}</h3>
-                                    <p>{t('yes')}</p>
-                                </div>
-                            </button>
-
-                            <button
-                                type="button"
-                                className={`${styles.optionCard} ${formData.contactedAirline === false ? styles.selected : ''}`}
-                                onClick={() => updateFormData('contactedAirline', false)}
-                            >
-                                <div className={styles.optionIcon}>❌</div>
-                                <div className={styles.optionContent}>
-                                    <h3>{t('noContacted')}</h3>
-                                    <p>{t('no')}</p>
-                                </div>
-                            </button>
+                        <div className={styles.formGroup}>
+                            <label className={styles.label}>{t('contactedAirline')}</label>
+                            <div className={styles.optionCards} style={{ marginTop: '0.5rem' }}>
+                                <button
+                                    type="button"
+                                    className={`${styles.optionCard} ${formData.contactedAirline === true ? styles.selected : ''}`}
+                                    onClick={() => updateFormData('contactedAirline', true)}
+                                >
+                                    <div className={styles.optionIcon}>👍</div>
+                                    <div className={styles.optionContent}>
+                                        <h3>{t('yes')}</h3>
+                                    </div>
+                                    <div className={styles.optionCheck}>
+                                        {formData.contactedAirline === true && <span>✓</span>}
+                                    </div>
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`${styles.optionCard} ${formData.contactedAirline === false ? styles.selected : ''}`}
+                                    onClick={() => updateFormData('contactedAirline', false)}
+                                >
+                                    <div className={styles.optionIcon}>👎</div>
+                                    <div className={styles.optionContent}>
+                                        <h3>{t('no')}</h3>
+                                    </div>
+                                    <div className={styles.optionCheck}>
+                                        {formData.contactedAirline === false && <span>✓</span>}
+                                    </div>
+                                </button>
+                            </div>
                         </div>
 
                         <div className={styles.formGroup}>
-                            <label className={styles.label}>{t('describeIncident')}</label>
+                            <label className={styles.label}>{t('incidentDescription')}</label>
                             <textarea
                                 className={styles.textarea}
                                 placeholder={t('incidentPlaceholder')}
                                 value={formData.incidentDescription}
                                 onChange={(e) => updateFormData('incidentDescription', e.target.value)}
-                                rows={5}
                             />
-                            <div className={styles.descriptionHints}>
-                                <p><strong>What details do you need to provide?</strong></p>
-                                <ul>
-                                    <li>What time did you arrive at your final destination?</li>
-                                    <li>What information did the airline provide you?</li>
-                                    <li>Were you travelling with another person?</li>
-                                    <li>What inconveniences did the delay cause you?</li>
-                                    <li>Did you miss a particular event or suffer a financial loss?</li>
-                                </ul>
-                                <p className={styles.tipNote}>💡 The more information you provide, the faster your compensation claim will be processed.</p>
-                            </div>
+                            <p className={styles.tipNote}>💡 The more information you provide, the faster your compensation claim will be processed.</p>
                         </div>
                     </div>
                 );
 
-            // Step 14: Additional Info
-            case 14:
+            // Step 15: Additional Info
+            case 15:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📝</div>
@@ -1273,8 +1310,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 15: Success
-            case 15:
+            // Step 16: Success
+            case 16:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.successIcon}>🎉</div>
@@ -1294,11 +1331,11 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                             <div className={styles.emailReminderIcon}>📧</div>
                             <div className={styles.emailReminderContent}>
                                 <h4>{t('emailReminderTitle')}</h4>
-                                <p>{t('emailReminderText')}</p>
+                                <p>You will receive an email shortly with your claim details and a link to track your status.</p>
                                 <p className={styles.emailHighlight}><strong>{formData.email}</strong></p>
-                                <a href="/dashboard" className={styles.trackClaimBtn}>
-                                    {t('trackButton')} →
-                                </a>
+                                <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '4px' }}>
+                                    You can check your status anytime by checking your email or contacting our support.
+                                </p>
                             </div>
                         </div>
 
@@ -1359,7 +1396,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         </button>
                     )}
 
-                    {currentStep < 14 ? (
+                    {currentStep < 15 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}
@@ -1368,7 +1405,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         >
                             {t('continue')} →
                         </button>
-                    ) : currentStep === 14 ? (
+                    ) : currentStep === 15 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}

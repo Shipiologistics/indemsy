@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 import PastelHero from '../components/PastelHero/PastelHero';
@@ -101,11 +102,10 @@ export default function Page() {
 
     const [activeSection, setActiveSection] = useState('summary');
 
-    const scrollToHero = () => {
-        const element = document.getElementById('check');
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+    const router = useRouter();
+
+    const handleCheckCompensation = () => {
+        router.push('/claim');
     };
 
     useEffect(() => {
@@ -189,16 +189,6 @@ export default function Page() {
                                     </div>
                                 ))}
                             </div>
-
-                            <div className={styles.inlineMediaCard}>
-                                <div>
-                                    <p className={styles.note}>{t('tracker.eyebrow')}</p>
-                                    <h3>{t('tracker.title')}</h3>
-                                    <p>{t('tracker.body')}</p>
-                                    <button className={styles.ghostButton} onClick={scrollToHero}>{t('tracker.cta')}</button>
-                                </div>
-                                <div className={styles.inlineMediaArt}></div>
-                            </div>
                         </section>
 
                         <section id="eligibility" className={styles.section}>
@@ -281,7 +271,7 @@ export default function Page() {
                                     <p className={styles.eyebrow}>{t('howTo.eyebrow')}</p>
                                     <h2 className={styles.sectionTitle}>{t('howTo.title')}</h2>
                                 </div>
-                                <button className={styles.ghostButton} onClick={scrollToHero}>{tHeroMain('checkCompensation')}</button>
+                                <button className={styles.ghostButton} onClick={handleCheckCompensation}>{tHeroMain('checkCompensation')}</button>
                             </div>
                             <div className={styles.dualCardLayout}>
                                 <div className={styles.listCard}>
@@ -374,7 +364,7 @@ export default function Page() {
                                     <p className={styles.eyebrow}>{t('faq.eyebrow')}</p>
                                     <h2 className={styles.sectionTitle}>{t('faq.title')}</h2>
                                 </div>
-                                <button className={styles.ghostButton} onClick={scrollToHero}>{t('faq.cta')}</button>
+                                <button className={styles.ghostButton} onClick={handleCheckCompensation}>{t('faq.cta')}</button>
                             </div>
                             <FaqAccordion items={faqItems} />
                         </section>

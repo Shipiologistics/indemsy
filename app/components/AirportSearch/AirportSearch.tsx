@@ -36,6 +36,8 @@ export default function AirportSearch({
     const inputRef = useRef<HTMLInputElement>(null);
     const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
+    const isSelection = useRef(false);
+
     // Close dropdown when clicking outside
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -51,6 +53,12 @@ export default function AirportSearch({
     useEffect(() => {
         if (debounceRef.current) {
             clearTimeout(debounceRef.current);
+        }
+
+        // If this update is due to a selection, reset flag and do NOT search/open
+        if (isSelection.current) {
+            isSelection.current = false;
+            return;
         }
 
         if (query.length < 2) {
@@ -91,6 +99,7 @@ export default function AirportSearch({
     };
 
     const handleSelect = (airport: Airport) => {
+        isSelection.current = true; // Mark as selection to prevent re-search
         onChange(airport);
         setQuery(airport.label);
         setIsOpen(false);

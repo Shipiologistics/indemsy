@@ -1,0 +1,78 @@
+.loadingContainer {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+}
+
+.loaderWrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.planeIcon {
+    font-size: 3rem;
+    animation: flight 2s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+.spinner {
+    width: 60px;
+    height: 4px;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+}
+
+.spinner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, #FF8A00, #FFB347);
+    border-radius: 999px;
+    animation: progress 1.5s infinite linear;
+}
+
+.loadingText {
+    color: #0E1F3B;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+}
+
+@keyframes flight {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateY(10px) rotate(5deg);
+    }
+}
+
+@keyframes progress {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
