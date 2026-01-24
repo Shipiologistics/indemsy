@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || '19fd93fd67msh6466b78f0327077p1bed07jsnfee2a64cf949';
+const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || '0f86586434msh3b17d0970f9b570p180c2fjsn20c9a57f0a3c';
 const RAPIDAPI_HOST = 'aerodatabox.p.rapidapi.com';
 
 export async function GET(

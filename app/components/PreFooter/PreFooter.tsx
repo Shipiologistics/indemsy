@@ -116,18 +116,11 @@ export default function PreFooter() {
                         {tFeatured('title')}
                     </p>
                     <div className={styles.pressLogos}>
-                        <img
-                            src="https://img.airhelp.com/i/brand-logos/usa_today.svg"
-                            alt="USA Today"
-                        />
-                        <img
-                            src="https://img.airhelp.com/i/brand-logos/wsj.svg?tr=w-60,h-32,cm-extract"
-                            alt="WSJ"
-                        />
-                        <img
-                            src="https://img.airhelp.com/i/brand-logos/the-washington-post.svg"
-                            alt="Washington Post"
-                        />
+                        <img src="/media/lessentiel.svg" alt="L'essentiel" />
+                        <img src="/media/virgule.svg" alt="Virgule" />
+                        <img src="/media/lequotidien.svg" alt="Le Quotidien" />
+                        <img src="/media/paperjam.svg" alt="Paperjam" />
+                        <img src="/media/rtl.svg" alt="RTL" />
                     </div>
                 </div>
             </div>

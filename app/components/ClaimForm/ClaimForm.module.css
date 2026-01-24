@@ -1453,3 +1453,255 @@
 .embedded .noFlightsFound strong {
     color: #2563eb;
 }
+
+/* Flight Selection Step */
+.flightList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.flightCard {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--white);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.flightCard:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.flightInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flightMain {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.flightNumber {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-night-blue);
+    background: #EFF6FF;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    color: #2563eb;
+}
+
+.flightAirline {
+    font-size: 0.875rem;
+    color: var(--slogan-gray);
+    font-weight: 500;
+}
+
+.flightRoute {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--primary-night-blue);
+    font-weight: 500;
+}
+
+.flightRoute .arrow {
+    color: #94a3b8;
+}
+
+.flightStatus {
+    display: flex;
+    align-items: center;
+}
+
+.statusBadge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    background: #F1F5F9;
+    color: #64748B;
+}
+
+.statusBadge.scheduled {
+    background: #E0F2FE;
+    color: #0284C7;
+}
+
+.statusBadge.active {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.statusBadge.landed {
+    background: #ECFCCB;
+    color: #65A30D;
+}
+
+.statusBadge.cancelled {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.statusBadge.incident {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.statusBadge.diverted {
+    background: #EDE9FE;
+    color: #7C3AED;
+}
+
+.loadingSpinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #E2E8F0;
+    border-top-color: #3B82F6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 3rem auto;
+}
+
+.linkButton {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.linkButton:hover {
+    color: #1e40af;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .claimForm {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+
+    .stepContent {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Fix Zoom on Inputs: 16px is the magic number for iOS to stop zooming */
+    .input,
+    .select,
+    .textarea,
+    .bookingInput,
+    .passengerRow input {
+        font-size: 16px !important;
+    }
+
+    /* Fix Horizontal Scrolling & Layouts */
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .flightOption {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .flightCard {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .flightMain {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .flightStatus {
+        justify-content: flex-start;
+    }
+
+    .passengerRow {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        background: #f8fafc;
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .passengerRow button {
+        padding: 0.75rem;
+        background: #fee2e2;
+        color: #ef4444;
+        font-weight: 600;
+    }
+
+    .delayOptions {
+        grid-template-columns: 1fr;
+    }
+
+    .connectionRow {
+        flex-direction: column;
+        align-items: stretch;
+        background: #f8fafc;
+        padding: 1rem;
+        border-radius: 12px;
+        gap: 0.75rem;
+    }
+
+    .removeBtn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .connectionLabel {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Adjust padding for mobile cards */
+    .optionCard,
+    .problemCard,
+    .manualEntryForm,
+    .groupPassengersSection,
+    .connectionSection {
+        padding: 1rem;
+    }
+
+    .stepIcon {
+        font-size: 2.5rem;
+    }
+
+    .stepTitle {
+        font-size: 1.5rem;
+    }
+
+    /* Ensure no overflow */
+    .optionContent {
+        min-width: 0;
+        /* allows text truncation if needed */
+    }
+}

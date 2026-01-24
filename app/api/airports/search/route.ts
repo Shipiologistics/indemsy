@@ -22,7 +22,13 @@ export async function GET(request: NextRequest) {
                     ilike(airports.municipalityName, `%${query}%`)
                 )
             )
-            .limit(20); // Limit results for performance
+            .orderBy(sql`
+                CASE 
+                    WHEN ${airports.iata} ILIKE ${query} THEN 1 
+                    WHEN ${airports.iata} ILIKE ${query} || '%' THEN 2 
+                    ELSE 3 
+                END, ${airports.iata} ASC`)
+            .limit(50); // Increased limit and added relevance sorting
 
         // Sort results in memory to improve relevance (e.g. IATA exact match first)
         const sortedItems = items.sort((a, b) => {

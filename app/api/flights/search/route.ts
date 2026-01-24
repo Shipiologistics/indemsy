@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || '19fd93fd67msh6466b78f0327077p1bed07jsnfee2a64cf949';
+const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || '083d6ec061msh80039d1b8f0739cp1d7d93jsneb21ae5bbd7e';
 const RAPIDAPI_HOST = 'aerodatabox.p.rapidapi.com';
+
+// Allow up to 60 seconds for execution (Vercel Pro/Enterprise). Hobby is capped at 10s usually.
+export const maxDuration = 60;
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
@@ -20,31 +24,40 @@ export async function GET(request: NextRequest) {
         let originalDateRequested = dateParam;
 
         // Try to fetch flights for the requested date
-        let flights = await searchFlightsForDate(codeType, from, to, dateParam);
+        let { flights, debug: initialDebug, error } = await searchFlightsForDate(codeType, from, to, dateParam);
+        let debugHistory = [...initialDebug];
+
+        if (error === 'RATE_LIMIT_EXCEEDED') {
+            return NextResponse.json({
+                error: 'External flight data provider quota exceeded. Please try again later or enter details manually.',
+                code: 'RATE_LIMIT',
+                debug: { apiCalls: debugHistory }
+            }, { status: 429 });
+        }
 
         // If no flights found for the requested date, try fallback dates
         if (flights.length === 0 && dateParam) {
             console.log(`[Flight Search] No flights found for ${dateParam}. Trying fallback dates...`);
 
-            // Generate fallback dates: today, yesterday, 2 days ago
-            const today = new Date();
-            const fallbackDates = [];
-            for (let i = 0; i <= 2; i++) {
-                const d = new Date(today);
-                d.setDate(d.getDate() - i);
-                fallbackDates.push(d.toISOString().split('T')[0]);
-            }
+            const strategies = [
+                { offset: 1, label: 'Next Day' },
+                { offset: -7, label: 'Same week schedule (Old Data)' }
+            ];
 
-            // Remove the original date if it's in the fallback list
-            const filteredFallbacks = fallbackDates.filter(d => d !== dateParam);
+            for (const strategy of strategies) {
+                const d = new Date(dateParam);
+                d.setDate(d.getDate() + strategy.offset);
+                const fallbackDate = d.toISOString().split('T')[0];
 
-            for (const fallbackDate of filteredFallbacks) {
-                console.log(`[Flight Search] Trying fallback date: ${fallbackDate}`);
-                flights = await searchFlightsForDate(codeType, from, to, fallbackDate);
-                if (flights.length > 0) {
+                console.log(`[Flight Search] Trying fallback: ${fallbackDate} (${strategy.label})`);
+                const result = await searchFlightsForDate(codeType, from, to, fallbackDate);
+                // debugHistory.push(...result.debug); // Optional: accumulate debug info
+
+                if (result.flights.length > 0) {
+                    flights = result.flights;
                     usedDate = fallbackDate;
                     isApproximateDate = true;
-                    console.log(`[Flight Search] Found ${flights.length} flights for fallback date ${fallbackDate}`);
+                    console.log(`[Flight Search] Found ${flights.length} flights for fallback ${fallbackDate}`);
                     break;
                 }
             }
@@ -55,6 +68,13 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({
             flights,
             totalFlights: flights.length,
+            debug: {
+                message: "This is a debug response. Check the 'network' tab in browser developer tools to see the internal API response.",
+                params: { from, to, dateParam, codeType },
+                strategy: isApproximateDate ? 'fallback' : 'exact',
+                usedDate,
+                apiCalls: debugHistory
+            },
             searchParams: {
                 from: from.toUpperCase(),
                 to: to?.toUpperCase() || null,
@@ -99,10 +119,23 @@ async function searchFlightsForDate(codeType: string, from: string, to: string |
 
     // Combine results
     let allFlights: any[] = [];
+    let rateLimited = false;
+
     for (const data of responses) {
         if (data?.departures) {
             allFlights = [...allFlights, ...data.departures];
+        } else if (data?.error === 429) {
+            rateLimited = true;
         }
+    }
+
+    // If no flights found but we hit a rate limit, return that info
+    if (allFlights.length === 0 && rateLimited) {
+        return {
+            flights: [],
+            debug: responses.map(r => ({ url: r?._debugUrl, count: r?._debugCount, error: r?.error })),
+            error: 'RATE_LIMIT_EXCEEDED'
+        };
     }
 
     // Deduplicate
@@ -175,17 +208,26 @@ async function searchFlightsForDate(codeType: string, from: string, to: string |
     // Filter by destination if provided
     if (to) {
         const toUpper = to.toUpperCase();
+        console.log(`[Flight Search] Filtering ${flights.length} flights by destination: ${toUpper}`);
+
         flights = flights.filter((f: any) =>
             f.arrival.airport.iata === toUpper ||
             f.arrival.airport.icao === toUpper
         );
+
+        console.log(`[Flight Search] After filtering: ${flights.length} flights match destination ${toUpper}`);
+    } else {
+        console.log(`[Flight Search] No destination filter provided. Returning all ${flights.length} departures.`);
     }
 
-    return flights;
+    return { flights, debug: responses.map(r => ({ url: r?._debugUrl, count: r?._debugCount, error: r?.error })) };
 }
 
 async function fetchFlightData(codeType: string, code: string, fromTime: string, toTime: string) {
-    const url = `https://aerodatabox.p.rapidapi.com/flights/airports/${codeType}/${code.toUpperCase()}/${fromTime}/${toTime}?direction=Departure&withCancelled=false&withCargo=false&withPrivate=false`;
+    // Enabled private flights and removed other restrictions to broaden search
+    const url = `https://aerodatabox.p.rapidapi.com/flights/airports/${codeType}/${code.toUpperCase()}/${fromTime}/${toTime}?direction=Departure&withPrivate=true`;
+
+    console.log(`[RapidAPI Request] Fetching: ${url}`);
 
     try {
         const response = await fetch(url, {
@@ -199,12 +241,17 @@ async function fetchFlightData(codeType: string, code: string, fromTime: string,
 
         if (!response.ok) {
             console.error(`API Error (${fromTime}):`, response.status, await response.text());
-            return null;
+            return { error: response.status, url };
         }
 
-        return await response.json();
+        const data = await response.json();
+        const departureCount = data.departures ? data.departures.length : 0;
+        console.log(`[RapidAPI Response] Found ${departureCount} departures from ${code} in window ${fromTime}`);
+
+        // Return data with source URL for debugging
+        return { ...data, _debugUrl: url, _debugCount: departureCount };
     } catch (err) {
         console.error(`Fetch Error (${fromTime}):`, err);
-        return null;
+        return { error: err, url };
     }
 }
