@@ -1,124 +1,99 @@
-import styles from '../privacy-policy/page.module.css';
+
+import styles from './page.module.css';
 
 export const metadata = {
     title: 'Cookie Policy | FlyCompense',
-    description: 'Learn about how FlyCompense uses cookies and similar technologies.',
+    description: 'Learn how FlyCompense uses cookies to improve your experience.',
 };
 
 export default function CookiePolicy() {
     return (
-        <div className={styles.main}>
+        <main className={styles.main}>
+            {/* Hero Section */}
+            <section className={styles.hero}>
+                <div className={styles.heroPattern} />
+                <div className={styles.container}>
+                    <h1 className={styles.heroTitle}>Cookie Policy</h1>
+                    <p className={styles.heroSubtitle}>
+                        We use cookies to enhance your experience and ensure our website works as intended.
+                    </p>
+                </div>
+            </section>
+
             <div className={styles.container}>
-                <h1 className={styles.title}>Cookie Policy</h1>
-                <p className={styles.lastUpdated}>Last updated: January 2026</p>
+                <div className={styles.card}>
+                    <span className={styles.lastUpdated}>Last updated: January 2026</span>
 
-                <section className={styles.section}>
-                    <h2>1. What Are Cookies?</h2>
-                    <p>
-                        Cookies are small text files that are stored on your device when you visit a website.
-                        They help websites remember your preferences and understand how you interact with the site.
-                    </p>
-                </section>
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>1. What are Cookies?</h2>
+                        <p>
+                            Cookies are small text files that are stored on your computer or mobile device when you
+                            visit our website. They are widely used to make websites work or work more efficiently,
+                            as well as to provide information to the owners of the site.
+                        </p>
+                    </section>
 
-                <section className={styles.section}>
-                    <h2>2. How We Use Cookies</h2>
-                    <p>FlyCompense uses cookies for the following purposes:</p>
-                    <ul>
-                        <li><strong>Essential Cookies:</strong> Required for the website to function properly (e.g., session management, security)</li>
-                        <li><strong>Functional Cookies:</strong> Remember your preferences and settings</li>
-                        <li><strong>Analytics Cookies:</strong> Help us understand how visitors use our website</li>
-                        <li><strong>Marketing Cookies:</strong> Used to deliver relevant advertisements (with your consent)</li>
-                    </ul>
-                </section>
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>2. How We Use Cookies</h2>
+                        <p>
+                            FlyCompense uses cookies for various purposes: to enable certain functions, to provide
+                            analytics, to store your preferences, and to enable advertisements delivery.
+                        </p>
 
-                <section className={styles.section}>
-                    <h2>3. Types of Cookies We Use</h2>
+                        <div className={styles.tableContainer}>
+                            <table className={styles.cookieTable}>
+                                <thead>
+                                    <tr>
+                                        <th>Cookie Type</th>
+                                        <th>Purpose</th>
+                                        <th>Category</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Session</strong></td>
+                                        <td>Necessary for basic site navigation and security.</td>
+                                        <td><span className={`${styles.tag} ${styles.tagEssential}`}>Essential</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Google Analytics</strong></td>
+                                        <td>Helps us understand how visitors interact with our site.</td>
+                                        <td><span className={`${styles.tag} ${styles.tagAnalytics}`}>Analytics</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Facebook Pixel</strong></td>
+                                        <td>Used to measure the impact of our advertising campaigns.</td>
+                                        <td><span className={`${styles.tag} ${styles.tagMarketing}`}>Marketing</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
 
-                    <h3>3.1 Essential Cookies</h3>
-                    <p>These cookies are necessary for the website to function and cannot be disabled.</p>
-                    <ul>
-                        <li>Session cookies for maintaining your login state</li>
-                        <li>Security cookies to prevent fraud</li>
-                        <li>Load balancing cookies</li>
-                    </ul>
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>3. Managing Cookies</h2>
+                        <p>
+                            Most web browsers allow some control of most cookies through the browser settings.
+                            To find out more about cookies, including how to see what cookies have been set,
+                            visit <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>www.aboutcookies.org</a>.
+                        </p>
+                        <p>
+                            Please note that deleting or disabling essential cookies may affect the functionality
+                            of certain parts of our website.
+                        </p>
+                    </section>
 
-                    <h3>3.2 Performance Cookies</h3>
-                    <p>These cookies help us understand how visitors interact with our website.</p>
-                    <ul>
-                        <li>Google Analytics - to analyze website traffic and usage patterns</li>
-                        <li>Hotjar - to understand user behavior through heatmaps</li>
-                    </ul>
-
-                    <h3>3.3 Functional Cookies</h3>
-                    <p>These cookies enable enhanced functionality and personalization.</p>
-                    <ul>
-                        <li>Language preference cookies</li>
-                        <li>User interface customization</li>
-                        <li>Form auto-fill data</li>
-                    </ul>
-
-                    <h3>3.4 Marketing Cookies</h3>
-                    <p>These cookies are used to track visitors across websites for advertising purposes.</p>
-                    <ul>
-                        <li>Facebook Pixel - for targeted advertising</li>
-                        <li>Google Ads - for remarketing campaigns</li>
-                    </ul>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>4. Third-Party Cookies</h2>
-                    <p>
-                        Some cookies on our website are set by third-party services. We have no control over
-                        these cookies. Third parties that may set cookies include:
-                    </p>
-                    <ul>
-                        <li>Google (Analytics, Ads)</li>
-                        <li>Facebook</li>
-                        <li>Payment processors</li>
-                    </ul>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>5. Managing Cookies</h2>
-                    <p>
-                        You can control and manage cookies in several ways:
-                    </p>
-                    <ul>
-                        <li><strong>Browser Settings:</strong> Most browsers allow you to block or delete cookies through settings</li>
-                        <li><strong>Cookie Consent Banner:</strong> Use our cookie consent tool to manage preferences</li>
-                        <li><strong>Opt-Out Links:</strong> Many third-party services provide opt-out mechanisms</li>
-                    </ul>
-                    <p>
-                        Please note that blocking certain cookies may impact website functionality.
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>6. Cookie Retention</h2>
-                    <p>Cookie retention periods vary:</p>
-                    <ul>
-                        <li><strong>Session Cookies:</strong> Deleted when you close your browser</li>
-                        <li><strong>Persistent Cookies:</strong> Remain for a specified period (typically 1-24 months)</li>
-                    </ul>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>7. Updates to This Policy</h2>
-                    <p>
-                        We may update this Cookie Policy from time to time. Any changes will be posted on this page
-                        with an updated revision date.
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>8. Contact Us</h2>
-                    <p>If you have questions about our use of cookies, please contact us:</p>
-                    <ul>
-                        <li>Email: contact@flycompense.com</li>
-                        <li>Website: www.flycompense.com</li>
-                    </ul>
-                </section>
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>4. Contact Us</h2>
+                        <p>
+                            If you have any questions about our Cookie Policy, please contact us at:
+                            <a href="mailto:privacy@flycompense.com" style={{ color: '#2563eb', fontWeight: 600, marginLeft: '0.5rem' }}>
+                                privacy@flycompense.com
+                            </a>
+                        </p>
+                    </section>
+                </div>
             </div>
-        </div>
+        </main>
     );
 }

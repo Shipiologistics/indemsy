@@ -140,7 +140,7 @@ export default function Page() {
                                         <span className={styles.inlineChip}>{t('inlineCta.chip3')}</span>
                                     </div>
                                 </div>
-                                <a className={styles.inlineCtaButton} href="#">{t('inlineCta.btn')}</a>
+                                <a className={styles.inlineCtaButton} href="/claim">{t('inlineCta.btn')}</a>
                             </div>
                         </section>
 
@@ -238,7 +238,7 @@ export default function Page() {
                                         <span className={styles.inlineChip}>{t('inlineCta.chip3')}</span>
                                     </div>
                                 </div>
-                                <a className={styles.inlineCtaButton} href="#">{t('inlineCta.btn')}</a>
+                                <a className={styles.inlineCtaButton} href="/claim">{t('inlineCta.btn')}</a>
                             </div>
                         </section>
 
@@ -325,7 +325,7 @@ export default function Page() {
                                         <span className={styles.inlineChip}>{t('inlineCta.chip3')}</span>
                                     </div>
                                 </div>
-                                <a className={styles.inlineCtaButton} href="#">{t('inlineCta.btn')}</a>
+                                <a className={styles.inlineCtaButton} href="/claim">{t('inlineCta.btn')}</a>
                             </div>
                         </section>
 
@@ -363,7 +363,7 @@ export default function Page() {
                             <span className={styles.bottomChip}>{t('inlineCta.chip2')}</span>
                             <span className={styles.bottomChip}>{t('inlineCta.chip3')}</span>
                         </div>
-                        <a className={styles.bottomCtaButton} href="#">{t('inlineCta.btn')}</a>
+                        <a className={styles.bottomCtaButton} href="/claim">{t('inlineCta.btn')}</a>
                     </div>
                 </section>
             </div>

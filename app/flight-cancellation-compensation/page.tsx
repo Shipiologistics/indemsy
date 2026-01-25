@@ -212,7 +212,7 @@ export default function Page() {
                             title="Flight cancelled? Check what you're owed"
                             subtitle="Takes just 2 minutes"
                             buttonText={tHeroMain('checkCompensation')}
-                            buttonHref="#pastel-hero"
+                            buttonHref="/claim"
                             chips={[tSticky('allAirlines'), tSticky('allCountries'), tSticky('noWinNoFee')]}
                             variant="gradient"
                         />
@@ -450,7 +450,7 @@ export default function Page() {
                         <CtaBanner
                             title="Ready to claim your compensation?"
                             buttonText={tHeroMain('checkCompensation')}
-                            buttonHref="#pastel-hero"
+                            buttonHref="/claim"
                             chips={[tSticky('noWinNoFee')]}
                             variant="glass"
                         />

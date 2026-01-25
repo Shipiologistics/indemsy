@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import styles from './StickyCTA.module.css';
 
 export default function StickyCTA() {
@@ -60,9 +61,9 @@ export default function StickyCTA() {
                             </div>
                         </div>
                     </div>
-                    <a href="#check" className={styles.ctaButton}>
+                    <Link href="/claim" className={styles.ctaButton}>
                         {t('checkCompensation')}
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
-import styles from '../privacy-policy/page.module.css';
+
+import styles from './page.module.css';
 
 export const metadata = {
     title: 'Imprint - Legal Notice | FlyCompense',
@@ -7,113 +8,134 @@ export const metadata = {
 
 export default function Imprint() {
     return (
-        <div className={styles.main}>
+        <main className={styles.main}>
+            {/* Hero Section */}
+            <section className={styles.hero}>
+                <div className={styles.heroPattern} />
+                <div className={styles.container}>
+                    <h1 className={styles.heroTitle}>Imprint & Legal Notice</h1>
+                    <p className={styles.heroSubtitle}>
+                        Transparency and legal compliance are fundamental to our mission of protecting air passenger rights.
+                    </p>
+                </div>
+            </section>
+
             <div className={styles.container}>
-                <h1 className={styles.title}>Imprint / Legal Notice</h1>
-                <p className={styles.lastUpdated}>Company Information</p>
+                <div className={styles.card}>
+                    {/* Company Details */}
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>Company Information</h2>
+                        <div className={styles.grid}>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>Company Name</span>
+                                <div className={styles.infoValue}><strong>FlyCompense S.A.</strong></div>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>Legal Form</span>
+                                <div className={styles.infoValue}>Société Anonyme</div>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>Registered Office</span>
+                                <div className={styles.infoValue}>
+                                    123 Aviation Boulevard<br />
+                                    L-1234 Luxembourg<br />
+                                    Grand Duchy of Luxembourg
+                                </div>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>Registration</span>
+                                <div className={styles.infoValue}>
+                                    RCS Luxembourg: B123456<br />
+                                    VAT ID: LU 98765432
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-                <section className={styles.section}>
-                    <h2>Company Details</h2>
-                    <p>
-                        <strong>FlyCompense</strong><br />
-                        Flight Compensation Services<br />
-                        [Company Registration Number]<br />
-                    </p>
-                    <p>
-                        <strong>Registered Address:</strong><br />
-                        [Street Address]<br />
-                        [City, Postal Code]<br />
-                        [Country]
-                    </p>
-                </section>
+                    {/* Contact & Management */}
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>Contact & Management</h2>
+                        <div className={styles.grid}>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>Communication</span>
+                                <div className={styles.infoValue}>
+                                    Email: <a href="mailto:contact@flycompense.com" className={styles.link}>contact@flycompense.com</a><br />
+                                    Phone: <a href="tel:0035227864487" className={styles.link}>+352 27 86 44 87</a><br />
+                                    Web: <a href="https://www.flycompense.com" className={styles.link}>www.flycompense.com</a>
+                                </div>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>Represented By</span>
+                                <div className={styles.infoValue}>
+                                    <strong>Managing Directors:</strong><br />
+                                    Jean Dupont, CEO<br />
+                                    Sarah Meyer, COO
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-                <section className={styles.section}>
-                    <h2>Contact Information</h2>
-                    <ul>
-                        <li><strong>Email:</strong> contact@flycompense.com</li>
-                        <li><strong>Phone:</strong> 0035227864487</li>
-                        <li><strong>Website:</strong> www.flycompense.com</li>
-                    </ul>
-                </section>
+                    {/* Regulatory & Insurance */}
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>Regulatory Details</h2>
+                        <div className={styles.grid}>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>EU Compliance</span>
+                                <div className={styles.infoValue}>
+                                    FlyCompense operates as a professional claim service provider specialized in air passenger rights according to Regulation (EC) No 261/2004.
+                                </div>
+                            </div>
+                            <div className={styles.infoItem}>
+                                <span className={styles.infoLabel}>Professional Liability</span>
+                                <div className={styles.infoValue}>
+                                    Insurer: EuroProtect Insurance S.A.<br />
+                                    Policy No: EP-99887766<br />
+                                    Scope: European Union & EEA
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-                <section className={styles.section}>
-                    <h2>Management</h2>
-                    <p>
-                        <strong>Managing Directors:</strong><br />
-                        [Director Name(s)]
-                    </p>
-                </section>
+                    {/* Dispute Resolution */}
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>Dispute Resolution</h2>
+                        <div className={styles.infoValue}>
+                            <p>
+                                The European Commission provides a platform for online dispute resolution (ODR), which you can find here:
+                                <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className={styles.link}> https://ec.europa.eu/consumers/odr</a>.
+                            </p>
+                            <p>
+                                We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.
+                                We always strive to resolve any differences with our customers directly and amicably.
+                            </p>
+                        </div>
+                    </section>
 
-                <section className={styles.section}>
-                    <h2>Registration</h2>
-                    <ul>
-                        <li><strong>Commercial Register:</strong> [Register Court], [Registration Number]</li>
-                        <li><strong>VAT Identification Number:</strong> [VAT ID]</li>
-                    </ul>
-                </section>
+                    {/* Content & Copyright */}
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>Legal Notices</h2>
+                        <div className={styles.infoItem}>
+                            <span className={styles.infoLabel}>Editorially Responsible</span>
+                            <div className={styles.infoValue}>
+                                <strong>Marco Weber</strong><br />
+                                Head of Communications<br />
+                                123 Aviation Boulevard, L-1234 Luxembourg
+                            </div>
+                        </div>
+                        <div className={styles.disclaimerBox}>
+                            <p className={styles.disclaimerText}>
+                                <strong>Disclaimer:</strong> Despite careful control of the content, we assume no liability for the content of external links.
+                                For the content of the linked pages, the operators are exclusively responsible.
+                                The information provided on this website does not constitute legal advice.
+                            </p>
+                        </div>
+                    </section>
+                </div>
 
-                <section className={styles.section}>
-                    <h2>Regulatory Information</h2>
-                    <p>
-                        FlyCompense operates as a flight compensation claim service in accordance with EU Regulation
-                        261/2004 and applicable national laws. We are committed to helping air passengers exercise
-                        their rights to compensation for flight disruptions.
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>Professional Liability Insurance</h2>
-                    <p>
-                        <strong>Insurance Provider:</strong> [Insurance Company Name]<br />
-                        <strong>Policy Number:</strong> [Policy Number]<br />
-                        <strong>Geographic Scope:</strong> European Union and EEA
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>Dispute Resolution</h2>
-                    <p>
-                        The European Commission provides an Online Dispute Resolution (ODR) platform for consumers.
-                        You can access it at: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
-                            https://ec.europa.eu/consumers/odr</a>
-                    </p>
-                    <p>
-                        We are committed to resolving any disputes amicably. Please contact us directly before
-                        initiating any formal dispute resolution procedures.
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>Content Responsibility</h2>
-                    <p>
-                        <strong>Responsible for content according to § 55 Abs. 2 RStV:</strong><br />
-                        [Responsible Person Name]<br />
-                        [Address]
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>Disclaimer</h2>
-                    <p>
-                        While we strive to keep the information on this website accurate and up-to-date, FlyCompense
-                        makes no warranties or representations regarding the completeness, accuracy, or reliability
-                        of any information provided. The content is for general information purposes only and does
-                        not constitute legal advice.
-                    </p>
-                    <p>
-                        We are not responsible for the content of external websites linked from our site.
-                    </p>
-                </section>
-
-                <section className={styles.section}>
-                    <h2>Copyright Notice</h2>
-                    <p>
-                        © {new Date().getFullYear()} FlyCompense. All rights reserved. The content, design, and layout
-                        of this website are protected by copyright and other intellectual property laws. Unauthorized
-                        reproduction or distribution is prohibited.
-                    </p>
-                </section>
+                <div className={styles.footerNote}>
+                    <p>© {new Date().getFullYear()} FlyCompense S.A. All rights reserved.</p>
+                </div>
             </div>
-        </div>
+        </main>
     );
 }

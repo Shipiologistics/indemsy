@@ -30,7 +30,7 @@ export default function FAQ() {
 
                 <div className={styles.cta}>
                     <p className={styles.ctaText}>{t('moreQuestions')}</p>
-                    <a href="#" className={styles.ctaLink}>
+                    <a href="/contact-us" className={styles.ctaLink}>
                         {t('visitHelp')} →
                     </a>
                 </div>

@@ -65,7 +65,7 @@ function CTABanner({ title, buttonText }: { title: string; buttonText: string })
         <div className={styles.ctaBanner}>
             <div className={styles.ctaBannerContent}>
                 <h3 className={styles.ctaBannerTitle}>{title}</h3>
-                <button className={styles.ctaButton}>{buttonText}</button>
+                <Link href="/claim"><button className={styles.ctaButton}>{buttonText}</button></Link>
             </div>
             <div className={styles.ctaBannerChips}>
                 <div className={styles.ctaChip}>
@@ -320,7 +320,7 @@ export default function Page() {
                                 </svg>
                             </div>
                             <p>{t('infoBannerText')}</p>
-                            <button className={styles.infoBannerBtn}>{t('infoBannerCTA')}</button>
+                            <Link href="/claim"><button className={styles.infoBannerBtn}>{t('infoBannerCTA')}</button></Link>
                         </div>
 
                         {/* Country/Region Cards */}
@@ -389,7 +389,7 @@ export default function Page() {
                         <div className={styles.guidePromo}>
                             <div className={styles.guidePromoContent}>
                                 <h3>{t('guidePromo.title')}</h3>
-                                <button className={styles.guidePromoBtn}>{t('guidePromo.btn')}</button>
+                                <Link href="/claim"><button className={styles.guidePromoBtn}>{t('guidePromo.btn')}</button></Link>
                             </div>
                             <div className={styles.guidePromoVisual}>
                                 <div className={styles.guidePromoShape}></div>

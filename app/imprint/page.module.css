@@ -1,0 +1,162 @@
+.main {
+    min-height: 100vh;
+    background-color: #f8fbff;
+    padding-top: 120px;
+    /* Offset for fixed header */
+}
+
+.hero {
+    background: linear-gradient(135deg, #0E1F3B 0%, #1E3A5F 100%);
+    padding: 5rem 1.5rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 4rem;
+}
+
+.heroPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.heroTitle {
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+}
+
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2f6;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    color: #0E1F3B;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sectionTitle::before {
+    content: '';
+    width: 4px;
+    height: 1.5rem;
+    background: #2563eb;
+    border-radius: 2px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.infoItem {
+    margin-bottom: 1.5rem;
+}
+
+.infoLabel {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.infoValue {
+    font-size: 1.05rem;
+    color: #1F2937;
+    line-height: 1.6;
+}
+
+.infoValue strong {
+    color: #0E1F3B;
+}
+
+.link {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.disclaimerBox {
+    background: #f1f5f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #cbd5e1;
+    margin-top: 1rem;
+}
+
+.disclaimerText {
+    font-size: 0.9375rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footerNote {
+    text-align: center;
+    margin-top: 4rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding-top: 100px;
+    }
+
+    .hero {
+        padding: 4rem 1.5rem;
+    }
+
+    .card {
+        padding: 2rem 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

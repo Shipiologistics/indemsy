@@ -243,9 +243,9 @@ function FlightsContent() {
                                     {flight.aircraft.model && (
                                         <span className={styles.aircraft}>{flight.aircraft.model}</span>
                                     )}
-                                    <button className={styles.checkBtn}>
+                                    <a href="/claim" className={styles.checkBtn}>
                                         Check Compensation →
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         ))

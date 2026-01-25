@@ -75,7 +75,7 @@ export default function PreFooter() {
                         <div className={styles.rightsContent}>
                             <p className={styles.rightsBadge}>{tRights('title')}</p>
                             <h3 className={styles.rightsTitle}>{tRights('subtitle')}</h3>
-                            <a href="#" className={styles.rightsLink}>
+                            <a href="/air-passenger-rights" className={styles.rightsLink}>
                                 {tRights('readMore')}
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                     <path fillRule="evenodd" d="M13.132 11.632 9.31 7.81a1.061 1.061 0 0 1 1.5-1.5l4.615 4.614a1 1 0 0 1 0 1.413l-4.615 4.615a1.061 1.061 0 0 1-1.5-1.5z" clipRule="evenodd" />
