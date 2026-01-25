@@ -1,6 +1,5 @@
 .main {
     min-height: 100vh;
     overflow-x: hidden;
-    padding-bottom: 80px;
-    /* Space for sticky CTA */
+    padding-bottom: 0;
 }
