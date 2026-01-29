@@ -18,11 +18,39 @@ export default function ContactUs() {
         e.preventDefault();
         setStatus('sending');
 
-        // Mock submission
-        setTimeout(() => {
-            setStatus('success');
-            setFormData({ name: '', email: '', subject: '', message: '' });
-        }, 1500);
+        const formDataObj = new FormData();
+        formDataObj.append('name', formData.name);
+        formDataObj.append('email', formData.email);
+        formDataObj.append('subject', formData.subject);
+        formDataObj.append('message', formData.message);
+
+        try {
+            // Import dynamically or assume it's imported at top (better to import at top but let's do dynamic for minimal diff if possible, 
+            // actually better to add import to top, but here I can only replace block. 
+            // Wait, I can't easily add import to top with replace_file_content unless I replace top of file.
+            // I'll assume I can use a relative import or I'll add the import in a separate call if needed, 
+            // or just use `import('@/app/actions/submit-contact')` dynamic import if supported well for actions.
+            // Actually, server actions must be imported. I should add the import line at the top first, or...
+            // better yet, I will replace the whole file content or a large chunk to include imports?
+            // "replace_file_content" is local.
+            // I'll replace the top of the file to add import, then replace handleSubmit.
+            // Let's assume I do two edits.)
+
+            const { submitContactForm } = await import('@/app/actions/submit-contact');
+            const result = await submitContactForm(formDataObj);
+
+            if (result.success) {
+                setStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '' });
+            } else {
+                console.error(result.error);
+                setStatus('error'); // Need to handle error state in UI or just alert
+                alert('Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus('error');
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

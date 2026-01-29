@@ -291,17 +291,34 @@ export default function PlusPage() {
 
                     {/* Main CTA */}
                     <div style={{ textAlign: 'center' }}>
-                        <Link href="/checkout?plan=premium" className={styles.bannerBtn} style={{
-                            display: 'inline-block',
-                            fontSize: '1.25rem',
-                            padding: '1.5rem 3rem',
-                            margin: 0,
-                            background: '#0045C8',
-                            color: 'white',
-                            height: 'auto'
-                        }}>
+                        <button
+                            onClick={async () => {
+                                try {
+                                    const res = await fetch('/api/checkout', {
+                                        method: 'POST',
+                                        body: JSON.stringify({ plan: 'premium' }),
+                                    });
+                                    const data = await res.json();
+                                    if (data.url) window.location.href = data.url;
+                                } catch (error) {
+                                    console.error('Checkout error:', error);
+                                }
+                            }}
+                            className={styles.bannerBtn}
+                            style={{
+                                display: 'inline-block',
+                                fontSize: '1.25rem',
+                                padding: '1.5rem 3rem',
+                                margin: 0,
+                                background: '#0045C8',
+                                color: 'white',
+                                height: 'auto',
+                                border: 'none',
+                                cursor: 'pointer'
+                            }}
+                        >
                             👉 {t('pricing.cta')}
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -316,9 +333,24 @@ export default function PlusPage() {
                         <div className={styles.bannerFeature}>✓ {t('banner.lounge')}</div>
                     </div>
                 </div>
-                <Link href="/checkout?plan=premium" className={styles.bannerBtn}>
+                <button
+                    onClick={async () => {
+                        try {
+                            const res = await fetch('/api/checkout', {
+                                method: 'POST',
+                                body: JSON.stringify({ plan: 'premium' }),
+                            });
+                            const data = await res.json();
+                            if (data.url) window.location.href = data.url;
+                        } catch (error) {
+                            console.error('Checkout error:', error);
+                        }
+                    }}
+                    className={styles.bannerBtn}
+                    style={{ border: 'none', cursor: 'pointer' }}
+                >
                     {t('banner.button')}
-                </Link>
+                </button>
             </div>
         </div>
     );
