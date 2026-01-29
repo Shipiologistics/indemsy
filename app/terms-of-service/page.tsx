@@ -10,6 +10,171 @@ export const metadata = {
     description: 'Read the terms and conditions for using FlyCompense flight compensation services.',
 };
 
+type Locale = 'en' | 'fr';
+
+const fallbackContent = {
+    en: {
+        heroTitle: 'Terms of Service',
+        heroSubtitle: 'Clear and transparent terms for our partnership in protecting your air passenger rights.',
+        lastUpdated: 'Last updated: January 2026',
+        sections: [
+            {
+                title: '1. Introduction',
+                paragraphs: [
+                    'These Terms of Service ("Terms") govern your use of the FlyCompense website and services. By using our services, you agree to be bound by these Terms.',
+                    'FlyCompense provides flight compensation claim services, helping passengers claim compensation for flight disruptions under EU Regulation 261/2004 and other applicable regulations.',
+                ],
+            },
+            {
+                title: '2. Definitions',
+                bullets: [
+                    '"FlyCompense," "we," "us," "our" refers to FlyCompense and its affiliates.',
+                    '"Customer," "you," "your" refers to the person using our services.',
+                    '"Services" refers to our flight compensation claim services.',
+                    '"Claim" refers to a compensation claim for a flight disruption.',
+                    '"Compensation" refers to the monetary amount recovered from an airline.',
+                ],
+            },
+            {
+                title: '3. Our Services',
+                paragraphs: ['FlyCompense provides the following services:'],
+                bullets: [
+                    'Assessment of flight compensation eligibility',
+                    'Preparation and submission of compensation claims to airlines',
+                    'Communication and negotiation with airlines on your behalf',
+                    'Legal action when necessary to recover compensation',
+                    'Processing and transfer of compensation payments',
+                ],
+                paragraphsAfterList: [
+                    'We operate on a "No Win, No Fee" basis. You only pay our service fee if we successfully recover compensation on your behalf.',
+                ],
+            },
+            {
+                title: '4. Service Fee',
+                paragraphs: [
+                    'Our service fee is 35% (including applicable VAT) of the compensation amount successfully recovered. This fee is deducted from the compensation before payment is transferred to you.',
+                    'If legal action is required to recover your compensation, an additional legal action fee of up to 15% may apply. If we are unsuccessful in recovering compensation, you owe us nothing.',
+                ],
+            },
+            {
+                title: '5. Assignment of Claim',
+                paragraphs: [
+                    'By submitting a claim through FlyCompense, you authorize us to act on your behalf and assign the compensation claim to us. This assignment allows us to:',
+                ],
+                bullets: [
+                    'Communicate with the airline in your name',
+                    'Accept or reject settlement offers',
+                    'Initiate legal proceedings if necessary',
+                    'Receive compensation payments on your behalf',
+                ],
+            },
+            {
+                title: '6. Your Obligations',
+                paragraphs: ['When using our services, you agree to:'],
+                bullets: [
+                    'Provide accurate and complete information',
+                    'Not pursue the same claim independently while we handle it',
+                    'Inform us of any direct communication from the airline',
+                    'Provide necessary documents (booking confirmation, ID, etc.)',
+                ],
+            },
+            {
+                title: '7. Payment Terms',
+                paragraphs: [
+                    'Upon successful recovery of compensation, we will transfer the net amount (compensation minus our fees) to your designated bank account within 5 business days.',
+                ],
+            },
+            {
+                title: '8. Governing Law',
+                paragraphs: [
+                    'These Terms are governed by and construed in accordance with the laws of Luxembourg. Any disputes shall be submitted to the exclusive jurisdiction of the courts in Luxembourg.',
+                ],
+            },
+        ],
+    },
+    fr: {
+        heroTitle: 'Conditions d’utilisation',
+        heroSubtitle: 'Des conditions claires et transparentes pour protéger vos droits de passager.',
+        lastUpdated: 'Dernière mise à jour : janvier 2026',
+        sections: [
+            {
+                title: '1. Introduction',
+                paragraphs: [
+                    'Les présentes Conditions d’utilisation (« Conditions ») régissent l’usage du site et des services FlyCompense. En utilisant nos services, vous acceptez d’être lié par ces Conditions.',
+                    'FlyCompense accompagne les passagers pour réclamer des indemnités en cas de perturbation de vol conformément au règlement (CE) n°261/2004 et aux autres lois applicables.',
+                ],
+            },
+            {
+                title: '2. Définitions',
+                bullets: [
+                    '« FlyCompense », « nous » désigne FlyCompense et ses sociétés affiliées.',
+                    '« Client », « vous » désigne la personne qui utilise nos services.',
+                    '« Services » désigne nos prestations d’accompagnement à l’indemnisation aérienne.',
+                    '« Réclamation » désigne la procédure d’indemnisation liée à un vol perturbé.',
+                    '« Indemnité » désigne le montant financier récupéré auprès d’une compagnie aérienne.',
+                ],
+            },
+            {
+                title: '3. Nos services',
+                paragraphs: ['FlyCompense fournit notamment :'],
+                bullets: [
+                    'Analyse de l’éligibilité à une indemnisation',
+                    'Préparation et dépôt des dossiers auprès des compagnies',
+                    'Communication et négociation au nom du client',
+                    'Action juridique si nécessaire pour obtenir l’indemnité',
+                    'Traitement et versement des paiements',
+                ],
+                paragraphsAfterList: ['Nous fonctionnons sur la base « Pas de gain, pas de frais ». Des frais sont dus uniquement en cas de réussite.'],
+            },
+            {
+                title: '4. Frais de service',
+                paragraphs: [
+                    'Nos frais de service s’élèvent à 35 % (TVA incluse) de l’indemnité obtenue et sont prélevés avant le versement.',
+                    'Si une action en justice est nécessaire, un complément pouvant aller jusqu’à 15 % s’applique. En cas d’échec, aucun frais n’est facturé.',
+                ],
+            },
+            {
+                title: '5. Cession de créance',
+                paragraphs: ['En soumettant une réclamation, vous nous autorisez à agir en votre nom et à :'],
+                bullets: [
+                    'Communiquer avec la compagnie aérienne',
+                    'Accepter ou refuser les propositions de règlement',
+                    'Engager des actions en justice si nécessaire',
+                    'Recevoir les paiements d’indemnisation en votre nom',
+                ],
+            },
+            {
+                title: '6. Vos obligations',
+                paragraphs: ['Vous vous engagez à :'],
+                bullets: [
+                    'Fournir des informations exactes et complètes',
+                    'Ne pas mener de démarche parallèle durant notre intervention',
+                    'Nous informer de toute communication directe de la compagnie',
+                    'Transmettre les documents requis (confirmation de réservation, pièce d’identité, etc.)',
+                ],
+            },
+            {
+                title: '7. Modalités de paiement',
+                paragraphs: ['Après réussite, nous versons le montant net (indemnité moins nos frais) sur votre compte sous cinq jours ouvrés.'],
+            },
+            {
+                title: '8. Droit applicable',
+                paragraphs: ['Les présentes Conditions sont régies par le droit luxembourgeois. Tout litige relève des tribunaux de Luxembourg.'],
+            },
+        ],
+    },
+} satisfies Record<Locale, {
+    heroTitle: string;
+    heroSubtitle: string;
+    lastUpdated: string;
+    sections: {
+        title: string;
+        paragraphs?: string[];
+        bullets?: string[];
+        paragraphsAfterList?: string[];
+    }[];
+}>;
+
 export default async function TermsOfService() {
     const locale = await getLocale();
     const pageResult = await db
@@ -62,114 +227,41 @@ export default async function TermsOfService() {
         );
     }
 
+    const fallbackLocale = (locale === 'fr' ? 'fr' : 'en') as Locale;
+    const copy = fallbackContent[fallbackLocale];
+
     return (
         <main className={styles.main}>
-            {/* Hero Section */}
             <section className={styles.hero}>
                 <div className={styles.heroPattern} />
                 <div className={styles.container}>
-                    <h1 className={styles.heroTitle}>Terms of Service</h1>
-                    <p className={styles.heroSubtitle}>
-                        Clear and transparent terms for our partnership in protecting your air passenger rights.
-                    </p>
+                    <h1 className={styles.heroTitle}>{copy.heroTitle}</h1>
+                    <p className={styles.heroSubtitle}>{copy.heroSubtitle}</p>
                 </div>
             </section>
 
             <div className={styles.container}>
                 <div className={styles.card}>
-                    <span className={styles.lastUpdated}>Last updated: January 2026</span>
+                    <span className={styles.lastUpdated}>{copy.lastUpdated}</span>
 
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>1. Introduction</h2>
-                        <p>
-                            These Terms of Service ("Terms") govern your use of the FlyCompense website and services.
-                            By using our services, you agree to be bound by these Terms.
-                        </p>
-                        <p>
-                            FlyCompense provides flight compensation claim services, helping passengers claim compensation
-                            for flight disruptions under EU Regulation 261/2004 and other applicable regulations.
-                        </p>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>2. Definitions</h2>
-                        <ul>
-                            <li><strong>"FlyCompense," "we," "us," "our"</strong> refers to FlyCompense and its affiliates.</li>
-                            <li><strong>"Customer," "you," "your"</strong> refers to the person using our services.</li>
-                            <li><strong>"Services"</strong> refers to our flight compensation claim services.</li>
-                            <li><strong>"Claim"</strong> refers to a compensation claim for a flight disruption.</li>
-                            <li><strong>"Compensation"</strong> refers to the monetary amount recovered from an airline.</li>
-                        </ul>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>3. Our Services</h2>
-                        <p>FlyCompense provides the following services:</p>
-                        <ul>
-                            <li>Assessment of flight compensation eligibility</li>
-                            <li>Preparation and submission of compensation claims to airlines</li>
-                            <li>Communication and negotiation with airlines on your behalf</li>
-                            <li>Legal action when necessary to recover compensation</li>
-                            <li>Processing and transfer of compensation payments</li>
-                        </ul>
-                        <p>
-                            We operate on a "No Win, No Fee" basis. You only pay our service fee if we successfully
-                            recover compensation on your behalf.
-                        </p>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>4. Service Fee</h2>
-                        <p>
-                            Our service fee is <strong>25% (plus applicable VAT)</strong> of the compensation amount successfully recovered.
-                            This fee is deducted from the compensation before payment is transferred to you.
-                        </p>
-                        <p>
-                            If legal action is required to recover your compensation, an additional legal action fee of
-                            up to 25% may apply. If we are unsuccessful in recovering compensation, you owe us nothing.
-                        </p>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>5. Assignment of Claim</h2>
-                        <p>
-                            By submitting a claim through FlyCompense, you authorize us to act on your behalf and assign
-                            the compensation claim to us. This assignment allows us to:
-                        </p>
-                        <ul>
-                            <li>Communicate with the airline in your name</li>
-                            <li>Accept or reject settlement offers</li>
-                            <li>Initiate legal proceedings if necessary</li>
-                            <li>Receive compensation payments on your behalf</li>
-                        </ul>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>6. Your Obligations</h2>
-                        <p>When using our services, you agree to:</p>
-                        <ul>
-                            <li>Provide accurate and complete information</li>
-                            <li>Not pursue the same claim independently while we handle it</li>
-                            <li>Inform us of any direct communication from the airline</li>
-                            <li>Provide necessary documents (booking confirmation, ID, etc.)</li>
-                        </ul>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>7. Payment Terms</h2>
-                        <p>
-                            Upon successful recovery of compensation, we will transfer the net amount (compensation minus
-                            our fees) to your designated bank account within 5 business days.
-                        </p>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>8. Governing Law</h2>
-                        <p>
-                            These Terms are governed by and construed in accordance with the laws of the European Union.
-                            Any disputes shall be submitted to the exclusive jurisdiction of the courts in Luxembourg.
-                        </p>
-                    </section>
+                    {copy.sections.map((section) => (
+                        <section key={section.title} className={styles.section}>
+                            <h2 className={styles.sectionTitle}>{section.title}</h2>
+                            {section.paragraphs?.map((paragraph, idx) => (
+                                <p key={idx}>{paragraph}</p>
+                            ))}
+                            {section.bullets && (
+                                <ul>
+                                    {section.bullets.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            )}
+                            {section.paragraphsAfterList?.map((paragraph, idx) => (
+                                <p key={`after-${idx}`}>{paragraph}</p>
+                            ))}
+                        </section>
+                    ))}
                 </div>
             </div>
         </main>

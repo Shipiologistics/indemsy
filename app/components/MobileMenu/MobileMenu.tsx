@@ -13,6 +13,7 @@ export default function MobileMenu() {
     { href: '/check-compensation', label: t('getCompensation') },
     { href: '/plus', label: t('flycompensePlus') },
     { href: '/about-us', label: t('aboutUs') },
+    { href: '/for-airlines', label: t('forAirlines') },
   ];
 
   const rightLinks = [

@@ -9,7 +9,7 @@ const localizedContent = {
         heroEyebrow: 'Excellent · Trustpilot Proof',
         heroTitle: 'Transparent fees designed to stay fair',
         heroCopy:
-            'No Win, No Fee means we deduct a fee only when you win. Prefer zero deductions? Choose our annual AirHelp+ membership and keep 100% of the compensation we recover.',
+            'No Win, No Fee means we deduct a fee only when you win. Prefer zero deductions? Choose our annual FlyCompense+ membership and keep 100% of the compensation we recover.',
         stats: [
             { label: 'Reviews on Trustpilot', value: '230,628', note: 'Excellent rating' },
             { label: 'Claim confidence', value: '98%', note: 'Success-focused process' },
@@ -36,7 +36,7 @@ const localizedContent = {
                 cta: { label: 'Check Compensation', href: '/claim', variant: 'primary' as const },
             },
             {
-                title: 'AirHelp+',
+                title: 'FlyCompense+',
                 subtitle: 'You receive: 100%',
                 receiveLabel: '100%',
                 receiveCopy: 'You receive',
@@ -68,8 +68,8 @@ const localizedContent = {
                 feeHighlight: 'Our fee',
             },
             {
-                title: 'AirHelp+ – In all cases',
-                description: 'With AirHelp+, nothing is deducted from the same €600 payout.',
+                title: 'FlyCompense+ – In all cases',
+                description: 'With FlyCompense+, nothing is deducted from the same €600 payout.',
                 receive: '€600',
                 fee: '€0',
                 highlight: 'You receive',
@@ -80,7 +80,7 @@ const localizedContent = {
         standardQuestion: "What's included in the standard fee?",
         standardBody: [
             'Our Standard Fee covers everything involved with getting your compensation in a standard claim and includes VAT so that there are no surprises later.',
-            'Our team of 400+ AirHelpers is available to handle every element of your claim, from validating your documents and confirming details against weather and flight reports, to putting together a case and negotiating with the airlines.',
+            'Our team of 400+ FlyCompense specialists is available to handle every element of your claim, from validating your documents and confirming details against weather and flight reports, to putting together a case and negotiating with the airlines.',
         ],
         standardFooter: {
             text: "We'll keep you updated every step of the way. And we're available 24/7 in case you have any questions.",
@@ -150,8 +150,8 @@ const localizedContent = {
                 body: 'When we secure goodwill compensation we charge US$29.99, waived when the payout is below US$30 or under 3,000 fidelity points.',
             },
             {
-                title: '5. AIRHELP+ MEMBERSHIP FEES',
-                body: 'AirHelp+ customers (Lite €29.99, Smart €39.99, Pro €99.99 per year; Comfort $179.99 / Pro $249.99 in the USA) do not pay Service or Legal Action Fees. Plans purchased via third parties follow the partner’s agreed pricing.',
+                title: '5. FLYCOMPENSE+ MEMBERSHIP FEES',
+                body: 'FlyCompense+ customers (Lite €29.99, Smart €39.99, Pro €99.99 per year; Comfort $179.99 / Pro $249.99 in the USA) do not pay Service or Legal Action Fees. Plans purchased via third parties follow the partner’s agreed pricing.',
             },
             {
                 title: '6. SPECIAL FEES',
@@ -179,7 +179,7 @@ const localizedContent = {
         heroEyebrow: 'Excellent · Certifié Trustpilot',
         heroTitle: 'Des frais transparents pensés pour rester justes',
         heroCopy:
-            'Le modèle « Pas de gain, pas de frais » signifie que nous ne déduisons un pourcentage que si vous gagnez. Vous voulez conserver 100 % de votre indemnité ? Choisissez notre abonnement annuel AirHelp+ et aucun montant ne sera retenu.',
+            'Le modèle « Pas de gain, pas de frais » signifie que nous ne déduisons un pourcentage que si vous gagnez. Vous voulez conserver 100 % de votre indemnité ? Choisissez notre abonnement annuel FlyCompense+ et aucun montant ne sera retenu.',
         stats: [
             { label: 'Avis sur Trustpilot', value: '230 628', note: 'Note Excellent' },
             { label: 'Taux de confiance', value: '98%', note: 'Processus orienté réussite' },
@@ -206,7 +206,7 @@ const localizedContent = {
                 cta: { label: 'Vérifier mon indemnité', href: '/claim', variant: 'primary' as const },
             },
             {
-                title: 'AirHelp+',
+                title: 'FlyCompense+',
                 subtitle: 'Vous recevez : 100 %',
                 receiveLabel: '100%',
                 receiveCopy: 'Montant pour vous',
@@ -238,8 +238,8 @@ const localizedContent = {
                 feeHighlight: 'Nos frais',
             },
             {
-                title: 'AirHelp+ – Dans tous les cas',
-                description: 'Avec AirHelp+, rien n’est déduit sur les mêmes 600 €.',
+                title: 'FlyCompense+ – Dans tous les cas',
+                description: 'Avec FlyCompense+, rien n’est déduit sur les mêmes 600 €.',
                 receive: '600 €',
                 fee: '0 €',
                 highlight: 'Montant pour vous',
@@ -250,7 +250,7 @@ const localizedContent = {
         standardQuestion: 'Que comprend le tarif standard ? ',
         standardBody: [
             'Notre tarif standard couvre toutes les démarches nécessaires pour obtenir votre indemnisation dans un dossier classique et inclut la TVA afin d’éviter toute mauvaise surprise.',
-            'Notre équipe de plus de 400 AirHelpers gère chaque étape : vérification des documents, comparaison avec les rapports météo et de vol, constitution du dossier et négociation avec les compagnies.',
+            'Notre équipe de plus de 400 spécialistes FlyCompense gère chaque étape : vérification des documents, comparaison avec les rapports météo et de vol, constitution du dossier et négociation avec les compagnies.',
         ],
         standardFooter: {
             text: 'Nous vous tenons informé à chaque étape et restons disponibles 24h/24 pour répondre à vos questions.',
@@ -320,8 +320,8 @@ const localizedContent = {
                 body: 'Pour une compensation commerciale, nous facturons 29,99 $ US, supprimés si le montant est inférieur à 30 $ ou 3 000 points.',
             },
             {
-                title: '5. ABONNEMENT AIRHELP+',
-                body: 'AirHelp+ (Lite 29,99 €, Smart 39,99 €, Pro 99,99 € par an ; Comfort 179,99 $ / Pro 249,99 $ aux USA) supprime les frais de service et d’action. Les offres vendues via des partenaires suivent leurs tarifs.',
+                title: '5. ABONNEMENT FLYCOMPENSE+',
+                body: 'FlyCompense+ (Lite 29,99 €, Smart 39,99 €, Pro 99,99 € par an ; Comfort 179,99 $ / Pro 249,99 $ aux USA) supprime les frais de service et d’action. Les offres vendues via des partenaires suivent leurs tarifs.',
             },
             {
                 title: '6. TARIFS SPÉCIAUX',

@@ -1,0 +1,365 @@
+.main {
+    min-height: 100vh;
+    padding-top: 110px;
+    background: #ffffff;
+}
+
+.hero {
+    padding: 4rem 1.5rem;
+}
+
+.heroInner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.heroMedia {
+    position: relative;
+}
+
+.heroImage {
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.18);
+    background: #0b1220;
+}
+
+.heroImage img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    opacity: 0.95;
+}
+
+.reviewCard {
+    position: absolute;
+    right: -18px;
+    bottom: 36px;
+    width: min(320px, 90%);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 18px;
+    padding: 1.25rem 1.25rem 1.1rem;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+}
+
+.reviewStars {
+    font-weight: 800;
+    color: #16a34a;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+}
+
+.reviewQuote {
+    margin: 0.75rem 0 0;
+    color: #0f172a;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.reviewAuthor {
+    margin: 0.65rem 0 0;
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.reviewCaption {
+    margin: 0.9rem 0 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.heroCopy {
+    max-width: 520px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #2563eb;
+    margin: 0 0 0.75rem;
+}
+
+.heroTitle {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.heroText {
+    margin: 1.1rem 0 0;
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.heroCtas {
+    margin-top: 1.75rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.primaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.4rem;
+    border-radius: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.32);
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.containerWide {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.helpSection {
+    padding: 3.75rem 0 2.25rem;
+    background: #f8fafc;
+}
+
+.helpHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.sectionEyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #2563eb;
+    margin: 0 0 0.4rem;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-weight: 900;
+    color: #0f172a;
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+}
+
+.textLink {
+    color: #2563eb;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.textLink:hover {
+    text-decoration: underline;
+}
+
+.helpGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.helpCard {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 16px;
+    padding: 1.35rem 1.25rem 1.25rem;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.helpCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.09);
+}
+
+.helpIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: rgba(37, 99, 235, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.helpCardTitle {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.25;
+}
+
+.helpCardBody {
+    margin: 0.65rem 0 0;
+    color: #475569;
+    line-height: 1.65;
+    font-size: 0.95rem;
+}
+
+.featureRow {
+    padding: 3.75rem 0;
+    background: #ffffff;
+}
+
+.featureGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.25rem;
+}
+
+.featureCard {
+    padding: 0.25rem 0;
+}
+
+.featureTitle {
+    margin: 0;
+    color: #0f172a;
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.featureBody {
+    margin: 0.75rem 0 0;
+    color: #475569;
+    line-height: 1.75;
+    font-size: 1rem;
+}
+
+.banner {
+    padding: 1.75rem 1.5rem 3.5rem;
+    background: #ffffff;
+}
+
+.bannerInner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.75rem;
+    border-radius: 20px;
+    padding: 1.4rem 1.6rem;
+    background: radial-gradient(100% 140% at 0% 0%, rgba(37, 99, 235, 0.9) 0%, rgba(30, 64, 175, 0.95) 40%, rgba(15, 23, 42, 0.95) 100%);
+    color: white;
+    box-shadow: 0 22px 60px rgba(15, 23, 42, 0.22);
+}
+
+.bannerTitle {
+    margin: 0;
+    font-weight: 900;
+    font-size: 1.15rem;
+}
+
+.bannerBadges {
+    margin-top: 0.55rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.bannerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.bannerBadge::before {
+    content: '✓';
+    font-weight: 900;
+}
+
+.bannerButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 900;
+    padding: 0.9rem 1.2rem;
+    border-radius: 14px;
+    color: #1e40af;
+    background: #ffffff;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+    transition: transform 0.18s ease;
+    white-space: nowrap;
+}
+
+.bannerButton:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .heroInner {
+        grid-template-columns: 1fr;
+    }
+
+    .reviewCard {
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .helpGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .featureGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .bannerInner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 560px) {
+    .reviewCard {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .heroImage img {
+        height: 320px;
+    }
+
+    .helpGrid {
+        grid-template-columns: 1fr;
+    }
+}
