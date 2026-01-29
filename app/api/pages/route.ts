@@ -31,7 +31,6 @@ export async function POST(request: NextRequest) {
             metaDescriptionFr,
             heroImage,
             isPublished,
-            isPublished,
         } = body;
 
         // Auto-translation logic
@@ -64,7 +63,6 @@ export async function POST(request: NextRequest) {
         const newPage = await db
             .insert(pageContent)
             .values({
-            .values({
                 pageSlug,
                 title: finalTitle,
                 titleFr: finalTitleFr,
@@ -75,14 +73,14 @@ export async function POST(request: NextRequest) {
                 heroImage,
                 isPublished: isPublished ?? true,
             })
-                    .returning();
+            .returning();
 
-                return NextResponse.json(newPage[0], { status: 201 });
-            } catch (error: any) {
-                console.error('Error creating page:', error);
-                if (error.code === '23505') {
-                    return NextResponse.json({ error: 'A page with this slug already exists' }, { status: 400 });
-                }
-                return NextResponse.json({ error: 'Failed to create page' }, { status: 500 });
-            }
+        return NextResponse.json(newPage[0], { status: 201 });
+    } catch (error: any) {
+        console.error('Error creating page:', error);
+        if (error.code === '23505') {
+            return NextResponse.json({ error: 'A page with this slug already exists' }, { status: 400 });
+        }
+        return NextResponse.json({ error: 'Failed to create page' }, { status: 500 });
     }
+}

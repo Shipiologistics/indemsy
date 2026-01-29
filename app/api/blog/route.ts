@@ -37,7 +37,6 @@ export async function POST(request: NextRequest) {
             readTime,
             isPublished,
             isFeatured,
-            isFeatured,
         } = body;
 
         // Auto-translation logic
