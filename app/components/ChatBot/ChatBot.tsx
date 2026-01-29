@@ -148,7 +148,7 @@ export default function ChatBot() {
             <div className={styles.container}>
                 <div className={styles.window}>
                     <div className={styles.header}>
-                        <div className={styles.headerTitle}>FlyCompense AI</div>
+                        <div className={styles.headerTitle}>FlyCompense AI Assistant</div>
                         <button onClick={toggleChat} className={styles.closeBtn}>×</button>
                     </div>
                     <div className={styles.languageSelection}>
@@ -177,7 +177,7 @@ export default function ChatBot() {
             {isOpen && (
                 <div className={styles.window}>
                     <div className={styles.header}>
-                        <div className={styles.headerTitle}>FlyCompense AI {language === 'fr' ? '(FR)' : '(EN)'}</div>
+                        <div className={styles.headerTitle}>FlyCompense AI Assistant {language === 'fr' ? '(FR)' : '(EN)'}</div>
                         <button onClick={toggleChat} className={styles.closeBtn}>×</button>
                     </div>
 

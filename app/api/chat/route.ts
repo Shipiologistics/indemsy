@@ -74,7 +74,7 @@ export async function POST(req: Request) {
         const lastUserContent = lastUserMessage ? extractContent(lastUserMessage.content) : '';
         const context = lastUserContent ? await getContext(lastUserContent) : '';
 
-        const systemPrompt = `You are FlyCompenseAI, a helpful assistant for the FlyCompense website that helps users with flight compensation claims.
+        const systemPrompt = `You are FlyCompense AI Assistant, a helpful assistant for the FlyCompense website that helps users with flight compensation claims.
 User Language: ${language === 'fr' ? 'French' : 'English'}
 
 Context from website:

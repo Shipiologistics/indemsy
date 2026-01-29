@@ -16,6 +16,9 @@ interface PageContent {
 // Predefined pages for the website
 const predefinedPages = [
     { slug: 'about-us', name: 'About Us', icon: '👥' },
+    { slug: 'terms', name: 'Terms', icon: '📄' },
+    { slug: 'terms-of-service', name: 'Terms of Service', icon: '📋' },
+    { slug: 'privacy-policy', name: 'Privacy Policy', icon: '🔒' },
     { slug: 'planting-trees', name: 'Planting Trees', icon: '🌳' },
     { slug: 'affiliate-program', name: 'Affiliate Program', icon: '🤝' },
     { slug: 'employee-benefit', name: 'Employee Benefit', icon: '💼' },

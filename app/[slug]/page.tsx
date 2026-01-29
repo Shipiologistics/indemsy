@@ -54,7 +54,8 @@ export default async function GenericPage({ params }: PageProps) {
         const validSlugs = [
             'about-us', 'planting-trees', 'affiliate-program', 'employee-benefit',
             'become-a-partner', 'for-airlines', 'mobile-app', 'book-trip',
-            'referral', 'score', 'fees', 'legal-partners', 'careers', 'press', 'our-experts'
+            'referral', 'score', 'fees', 'legal-partners', 'careers', 'press', 'our-experts',
+            'terms'
         ];
 
         // If it's a known slug, show "Coming Soon". Else 404.

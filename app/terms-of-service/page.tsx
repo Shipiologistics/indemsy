@@ -1,4 +1,8 @@
 
+import { db } from '@/lib/db';
+import { pageContent } from '@/lib/schema';
+import { eq } from 'drizzle-orm';
+import { getLocale } from 'next-intl/server';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -6,7 +10,58 @@ export const metadata = {
     description: 'Read the terms and conditions for using FlyCompense flight compensation services.',
 };
 
-export default function TermsOfService() {
+export default async function TermsOfService() {
+    const locale = await getLocale();
+    const pageResult = await db
+        .select()
+        .from(pageContent)
+        .where(eq(pageContent.pageSlug, 'terms-of-service'))
+        .limit(1);
+
+    if (pageResult.length > 0) {
+        const page = pageResult[0];
+        const title = locale === 'fr' && page.titleFr ? page.titleFr : page.title;
+        const content = locale === 'fr' && page.contentFr ? page.contentFr : page.content;
+        const metaDescription =
+            locale === 'fr' && page.metaDescriptionFr ? page.metaDescriptionFr : page.metaDescription;
+
+        const updatedAt = page.updatedAt ? new Date(page.updatedAt) : null;
+
+        return (
+            <main className={styles.main}>
+                {/* Hero Section */}
+                <section className={styles.hero}>
+                    <div className={styles.heroPattern} />
+                    <div className={styles.container}>
+                        <h1 className={styles.heroTitle}>{title}</h1>
+                        {metaDescription && (
+                            <p className={styles.heroSubtitle}>{metaDescription}</p>
+                        )}
+                    </div>
+                </section>
+
+                <div className={styles.container}>
+                    <div className={styles.card}>
+                        <span className={styles.lastUpdated}>
+                            Last updated:{' '}
+                            {updatedAt
+                                ? updatedAt.toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                })
+                                : '—'}
+                        </span>
+
+                        <div
+                            className={styles.dynamicContent}
+                            dangerouslySetInnerHTML={{ __html: content }}
+                        />
+                    </div>
+                </div>
+            </main>
+        );
+    }
+
     return (
         <main className={styles.main}>
             {/* Hero Section */}

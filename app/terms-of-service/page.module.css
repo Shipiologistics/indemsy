@@ -139,6 +139,68 @@
     border-bottom-color: #1d4ed8;
 }
 
+.dynamicContent {
+    color: #4B5563;
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+.dynamicContent h2 {
+    font-size: 1.75rem;
+    color: #0E1F3B;
+    margin: 3rem 0 1.5rem;
+    font-weight: 800;
+}
+
+.dynamicContent h3 {
+    font-size: 1.35rem;
+    color: #0E1F3B;
+    margin: 2.25rem 0 1rem;
+    font-weight: 800;
+}
+
+.dynamicContent p {
+    margin-bottom: 1.5rem;
+}
+
+.dynamicContent ul,
+.dynamicContent ol {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.dynamicContent li {
+    margin-bottom: 0.75rem;
+}
+
+.dynamicContent a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+    transition: all 0.2s ease;
+}
+
+.dynamicContent a:hover {
+    color: #1d4ed8;
+    border-bottom-color: #1d4ed8;
+}
+
+.dynamicContent blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid #2563eb;
+    background: #f8fafc;
+    border-radius: 0 12px 12px 0;
+    color: #475569;
+}
+
+.dynamicContent img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
 @media (max-width: 768px) {
     .main {
         padding-top: 100px;

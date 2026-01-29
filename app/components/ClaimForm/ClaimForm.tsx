@@ -63,6 +63,7 @@ interface FormData {
     lastName: string;
     email: string;
     phone: string;
+    acceptTerms: boolean;
     acceptAgreementPower: boolean;
     acceptAgreementService: boolean;
 
@@ -122,6 +123,7 @@ const initialFormData: FormData = {
     lastName: '',
     email: '',
     phone: '',
+    acceptTerms: false,
     isGroupTravel: null,
     groupPassengers: [],
     address: '',

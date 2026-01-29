@@ -5,8 +5,25 @@ import { claims } from '@/lib/schema';
 
 export async function submitClaim(formData: any) {
     try {
+        const normalizeTime = (value: any): string | null => {
+            if (!value || typeof value !== 'string') return null;
+            const match = value.match(/(\d{1,2}):(\d{2})/);
+            if (match) {
+                const hh = match[1].padStart(2, '0');
+                const mm = match[2];
+                return `${hh}:${mm}`;
+            }
+            const d = new Date(value);
+            if (!Number.isNaN(d.getTime())) {
+                return d.toISOString().slice(11, 16);
+            }
+            return value.length <= 10 ? value : value.slice(0, 10);
+        };
+
         // Log what we're receiving for debugging
         console.log('Submitting claim with data:', JSON.stringify(formData, null, 2));
+
+        const normalizedManualDepartureTime = normalizeTime(formData.manualDepartureTime);
 
         const result = await db.insert(claims).values({
             // Flight info - may be null in fast-track mode
@@ -18,7 +35,7 @@ export async function submitClaim(formData: any) {
             selectedFlight: formData.selectedFlight || null,
             manualFlightNumber: formData.manualFlightNumber || null,
             manualAirline: formData.manualAirline || null,
-            manualDepartureTime: formData.manualDepartureTime || null,
+            manualDepartureTime: normalizedManualDepartureTime,
 
             // Problem info
             problemType: formData.problemType || null,
