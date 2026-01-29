@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
                             name: 'FlyCompense Premium Subscription',
                             description: 'Unlimited claims, priority support, and insurance.',
                         },
-                        unit_amount: 1999, // Amount in cents (e.g., 19.99 EUR)
+                        unit_amount: 5999, // Amount in cents (e.g., 59.99 EUR)
                         recurring: {
                             interval: 'year' // or 'month'
                         }
