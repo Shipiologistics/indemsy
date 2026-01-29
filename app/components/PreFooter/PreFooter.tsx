@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useTranslations } from 'next-intl';
 import styles from './PreFooter.module.css';
 
@@ -29,10 +28,9 @@ export default function PreFooter() {
                 <div className={styles.grid}>
                     {/* Newsletter Card */}
                     <div className={styles.newsletterCard}>
-                        <DotLottieReact
-                            src="https://lottie.host/2ca4aab1-94f0-4112-af0e-879fece3e1ff/ayVfprWKUW.lottie"
-                            loop
-                            autoplay
+                        <img
+                            src="/best-airlines-us.jpg"
+                            alt="Newsletter Background"
                             className={styles.videoBackground}
                         />
                         <div className={styles.newsletterOverlay}></div>
@@ -116,7 +114,7 @@ export default function PreFooter() {
                         {tFeatured('title')}
                     </p>
                     <div className={styles.pressLogos}>
-                        <img src="/media/lessentiel.svg" alt="L'essentiel" />
+                        <img src="/media/lessentiel.svg" alt="L'essentiel" className={styles.blueLogo} />
                         <img src="/media/virgule.svg" alt="Virgule" />
                         <img src="/media/lequotidien.svg" alt="Le Quotidien" />
                         <img src="/media/paperjam.svg" alt="Paperjam" />

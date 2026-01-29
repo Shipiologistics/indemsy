@@ -32,7 +32,7 @@ export default function TrustBadges() {
                             <img
                                 src={media.logo}
                                 alt={`${media.name} logo`}
-                                className={styles.logo}
+                                className={`${styles.logo} ${media.name === "L'essentiel" ? styles.blueLogo : ''}`}
                                 onError={(e) => {
                                     e.currentTarget.style.display = 'none';
                                     e.currentTarget.parentElement!.innerText = media.name;

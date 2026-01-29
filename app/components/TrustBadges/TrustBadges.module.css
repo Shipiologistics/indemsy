@@ -58,6 +58,11 @@
     filter: grayscale(0%);
 }
 
+.badge:hover .logo.blueLogo {
+    filter: invert(48%) sepia(35%) saturate(3062%) hue-rotate(198deg) brightness(97%) contrast(96%) !important;
+    opacity: 1 !important;
+}
+
 @media (max-width: 1200px) {
     .section {
         margin: 2rem 4rem;

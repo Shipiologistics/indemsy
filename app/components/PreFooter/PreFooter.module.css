@@ -41,6 +41,7 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
+    background: linear-gradient(135deg, #3B82F6 0%, #1e40af 100%);
 }
 
 .newsletterOverlay {
@@ -269,15 +270,17 @@
 /* Press Section */
 .pressSection {
     text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
 }
 
 .pressTitle {
     color: var(--slogan-gray);
-    font-size: 0.6875rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 3rem;
     font-family: monospace;
 }
 
@@ -285,16 +288,21 @@
     color: #3B82F6;
 }
 
+.blueLogo {
+    filter: invert(48%) sepia(35%) saturate(3062%) hue-rotate(198deg) brightness(97%) contrast(96%);
+    opacity: 1 !important;
+}
+
 .pressLogos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 5rem;
     flex-wrap: wrap;
 }
 
 .pressLogos img {
-    height: 28px;
+    height: 48px;
     width: auto;
     opacity: 0.8;
 }

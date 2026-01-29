@@ -446,13 +446,15 @@ export default function Page() {
                                 <p>{t('sectionCountries.p1')}</p>
                             </div>
 
-                            {/* World Map Lottie Animation */}
-                            <DotLottieReact
-                                src="https://lottie.host/2ca4aab1-94f0-4112-af0e-879fece3e1ff/ayVfprWKUW.lottie"
-                                loop
-                                autoplay
-                                className={styles.worldMapLottie}
-                            />
+                            {/* World Map Representation */}
+                            <div className={styles.worldMapContainer}>
+                                <img
+                                    src="/globe.svg"
+                                    alt="World Map"
+                                    className={styles.worldMapIcon}
+                                    style={{ width: '120px', height: '120px', opacity: 0.2, margin: '2rem auto', display: 'block' }}
+                                />
+                            </div>
 
                             <div className={styles.sectionContent}>
                                 <h3>{t('sectionCountries.h3')}</h3>

@@ -16,6 +16,11 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    icons: {
+      icon: '/favicon-logo.png',
+      shortcut: '/favicon-logo.png',
+      apple: '/favicon-logo.png',
+    },
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),

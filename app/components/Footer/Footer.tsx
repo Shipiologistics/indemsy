@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import FooterAnimation from './FooterAnimation';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -56,54 +57,54 @@ export default function Footer() {
 
     const footerLinks = {
         rights: {
-            title: 'Know Your Rights',
+            title: 'knowRights',
             links: [
-                { label: 'Air passenger rights', href: '/air-passenger-rights' },
-                { label: 'Flight delay compensation', href: '/flight-delay-compensation' },
-                { label: 'Flight cancellation compensation', href: '/flight-cancellation-compensation' },
-                { label: 'Missed connection compensation', href: '/missed-connection-compensation' },
-                { label: 'Overbooking compensation', href: '/overbooking-compensation' },
-                { label: 'Denied boarding compensation', href: '/denied-boarding-compensation' },
-                { label: 'Delayed baggage compensation', href: '/delayed-baggage-compensation' },
-                { label: 'Airline strike compensation', href: '/airline-strike-compensation' },
-                { label: 'Airlines', href: '/airlines' },
-                { label: 'Airports', href: '/airports' },
-                { label: 'Flight refund', href: '/flight-refund' },
-                { label: 'Flight cancellation and delay news', href: '/blog' },
+                { label: 'airPassengerRights', href: '/air-passenger-rights' },
+                { label: 'delayCompensation', href: '/flight-delay-compensation' },
+                { label: 'cancellationCompensation', href: '/flight-cancellation-compensation' },
+                { label: 'missedConnection', href: '/missed-connection-compensation' },
+                { label: 'overbookingCompensation', href: '/overbooking-compensation' },
+                { label: 'deniedBoarding', href: '/denied-boarding-compensation' },
+                { label: 'delayedBaggage', href: '/delayed-baggage-compensation' },
+                { label: 'airlineStrike', href: '/airline-strike-compensation' },
+                { label: 'airlines', href: '/airlines' },
+                { label: 'airports', href: '/airports' },
+                { label: 'flightRefund', href: '/flight-refund' },
+                { label: 'news', href: '/blog' },
             ],
         },
         company: {
-            title: 'Our Company',
+            title: 'company',
             links: [
-                { label: 'About us', href: '/about-us' },
-                { label: 'Blog', href: '/blog' },
-                { label: 'Our experts', href: '/our-experts' },
-                { label: 'Planting trees', href: '/planting-trees' },
-                { label: 'Press', href: '/press' },
-                { label: 'Careers', href: '/careers' },
-                { label: 'Affiliate program', href: '/affiliate-program' },
-                { label: 'Employee Benefit', href: '/employee-benefit' },
-                { label: 'Legal partners', href: '/legal-partners' },
-                { label: 'Become a partner', href: '/become-a-partner' },
-                { label: 'For airlines', href: '/for-airlines' },
+                { label: 'aboutUs', href: '/about-us' },
+                { label: 'blog', href: '/blog' },
+                { label: 'experts', href: '/our-experts' },
+                { label: 'plantingTrees', href: '/planting-trees' },
+                { label: 'press', href: '/press' },
+                { label: 'careers', href: '/careers' },
+                { label: 'affiliate', href: '/affiliate-program' },
+                { label: 'employeeBenefit', href: '/employee-benefit' },
+                { label: 'legalPartners', href: '/legal-partners' },
+                { label: 'becomePartner', href: '/become-a-partner' },
+                { label: 'forAirlines', href: '/for-airlines' },
             ],
         },
         products: {
-            title: 'Our Products',
+            title: 'products',
             links: [
-                { label: 'Check your compensation', href: '/claim' },
-                { label: 'FlyCompense+ flight protection', href: '/plus' },
-                { label: 'Reviews', href: '/reviews' },
+                { label: 'checkCompensation', href: '/claim' },
+                { label: 'plus', href: '/plus' },
+                { label: 'reviews', href: '/reviews' },
             ],
         },
         support: {
-            title: 'Support',
+            title: 'support',
             links: [
-                { label: 'Help Center', href: '/contact-us' },
-                { label: 'Our fees', href: '/fees' },
-                { label: 'contact@flycompense.com', href: 'mailto:contact@flycompense.com' },
-                { label: 'support@flycompense.com', href: 'mailto:support@flycompense.com' },
-                { label: '+352 27 86 44 87', href: 'tel:0035227864487' },
+                { label: 'helpCenter', href: '/contact-us' },
+                { label: 'fees', href: '/fees' },
+                { label: 'contactEmail', href: 'mailto:contact@flycompense.com' },
+                { label: 'supportEmail', href: 'mailto:support@flycompense.com' },
+                { label: 'phoneNumber', href: 'tel:0035227864487' },
             ],
         },
     };
@@ -115,12 +116,12 @@ export default function Footer() {
                     <div className={styles.links}>
                         {Object.values(footerLinks).map((section, index) => (
                             <div key={index} className={styles.linkColumn}>
-                                <h4 className={styles.linkTitle}>{section.title}</h4>
+                                <h4 className={styles.linkTitle}>{t(section.title)}</h4>
                                 <ul className={styles.linkList}>
                                     {section.links.map((link, linkIndex) => (
                                         <li key={linkIndex}>
                                             <Link href={link.href} className={styles.link}>
-                                                {link.label}
+                                                {t(link.label)}
                                             </Link>
                                         </li>
                                     ))}
@@ -128,12 +129,7 @@ export default function Footer() {
                             </div>
                         ))}
                         <div className={styles.lottieColumn}>
-                            <DotLottieReact
-                                src="https://lottie.host/29a366c1-195b-4e64-95f5-aedae98dcda0/3TOngtXoDz.lottie"
-                                loop
-                                autoplay
-                                className={styles.footerLottie}
-                            />
+                            <FooterAnimation />
                         </div>
                     </div>
                 </div>

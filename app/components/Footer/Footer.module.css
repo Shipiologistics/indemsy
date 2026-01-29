@@ -239,8 +239,7 @@
     }
 
     .lottieColumn {
-        grid-column: span 2;
-        padding-top: 0;
+        display: none;
     }
 
     .link:hover {
