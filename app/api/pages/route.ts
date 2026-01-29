@@ -31,11 +31,32 @@ export async function POST(request: NextRequest) {
             metaDescriptionFr,
             heroImage,
             isPublished,
+            isPublished,
         } = body;
 
-        if (!pageSlug || !title || !content) {
+        // Auto-translation logic
+        const { translateContent } = await import('@/lib/ai');
+
+        let finalTitle = title;
+        let finalTitleFr = titleFr;
+        let finalContent = content;
+        let finalContentFr = contentFr;
+        let finalMeta = metaDescription;
+        let finalMetaFr = metaDescriptionFr;
+
+        // English to French
+        if (title && !titleFr) finalTitleFr = await translateContent(title, 'fr');
+        if (content && !contentFr) finalContentFr = await translateContent(content, 'fr');
+        if (metaDescription && !metaDescriptionFr) finalMetaFr = await translateContent(metaDescription, 'fr');
+
+        // French to English
+        if (!title && titleFr) finalTitle = await translateContent(titleFr, 'en');
+        if (!content && contentFr) finalContent = await translateContent(contentFr, 'en');
+        if (!metaDescription && metaDescriptionFr) finalMeta = await translateContent(metaDescriptionFr, 'en');
+
+        if (!pageSlug || (!finalTitle && !finalTitleFr) || (!finalContent && !finalContentFr)) {
             return NextResponse.json(
-                { error: 'Page slug, title, and content are required' },
+                { error: 'Page slug, title, and content are required in at least one language' },
                 { status: 400 }
             );
         }
@@ -43,24 +64,25 @@ export async function POST(request: NextRequest) {
         const newPage = await db
             .insert(pageContent)
             .values({
+            .values({
                 pageSlug,
-                title,
-                titleFr,
-                content,
-                contentFr,
-                metaDescription,
-                metaDescriptionFr,
+                title: finalTitle,
+                titleFr: finalTitleFr,
+                content: finalContent,
+                contentFr: finalContentFr,
+                metaDescription: finalMeta,
+                metaDescriptionFr: finalMetaFr,
                 heroImage,
                 isPublished: isPublished ?? true,
             })
-            .returning();
+                    .returning();
 
-        return NextResponse.json(newPage[0], { status: 201 });
-    } catch (error: any) {
-        console.error('Error creating page:', error);
-        if (error.code === '23505') {
-            return NextResponse.json({ error: 'A page with this slug already exists' }, { status: 400 });
-        }
-        return NextResponse.json({ error: 'Failed to create page' }, { status: 500 });
+                return NextResponse.json(newPage[0], { status: 201 });
+            } catch (error: any) {
+                console.error('Error creating page:', error);
+                if (error.code === '23505') {
+                    return NextResponse.json({ error: 'A page with this slug already exists' }, { status: 400 });
+                }
+                return NextResponse.json({ error: 'Failed to create page' }, { status: 500 });
+            }
     }
-}

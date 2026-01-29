@@ -37,11 +37,44 @@ export async function POST(request: NextRequest) {
             readTime,
             isPublished,
             isFeatured,
+            isFeatured,
         } = body;
 
-        if (!slug || !title || !content) {
+        // Auto-translation logic
+        const { translateContent } = await import('@/lib/ai');
+
+        let finalTitle = title;
+        let finalTitleFr = titleFr;
+        let finalContent = content;
+        let finalContentFr = contentFr;
+        let finalExcerpt = excerpt;
+        let finalExcerptFr = excerptFr;
+
+        // English to French
+        if (title && !titleFr) {
+            finalTitleFr = await translateContent(title, 'fr');
+        }
+        if (content && !contentFr) {
+            finalContentFr = await translateContent(content, 'fr');
+        }
+        if (excerpt && !excerptFr) {
+            finalExcerptFr = await translateContent(excerpt, 'fr');
+        }
+
+        // French to English (if user entered only French)
+        if (!title && titleFr) {
+            finalTitle = await translateContent(titleFr, 'en');
+        }
+        if (!content && contentFr) {
+            finalContent = await translateContent(contentFr, 'en');
+        }
+        if (!excerpt && excerptFr) {
+            finalExcerpt = await translateContent(excerptFr, 'en');
+        }
+
+        if ((!finalTitle && !finalTitleFr) || (!finalContent && !finalContentFr)) {
             return NextResponse.json(
-                { error: 'Slug, title, and content are required' },
+                { error: 'Title and content are required in at least one language' },
                 { status: 400 }
             );
         }
@@ -50,12 +83,12 @@ export async function POST(request: NextRequest) {
             .insert(blogPosts)
             .values({
                 slug,
-                title,
-                titleFr,
-                excerpt,
-                excerptFr,
-                content,
-                contentFr,
+                title: finalTitle,
+                titleFr: finalTitleFr,
+                excerpt: finalExcerpt,
+                excerptFr: finalExcerptFr,
+                content: finalContent,
+                contentFr: finalContentFr,
                 featuredImage,
                 category,
                 tags,

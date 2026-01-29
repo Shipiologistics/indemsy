@@ -86,16 +86,19 @@ export default async function GenericPage({ params }: PageProps) {
     const page = pageResult[0];
 
     return (
-        <div className={styles.page}>
+        <div className={styles.mainContainer}>
             {/* Hero */}
-            <section className={styles.hero} style={
+            <section className={styles.heroSection} style={
                 page.heroImage ? {
-                    backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url(${page.heroImage})`,
+                    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url(${page.heroImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 } : {}
             }>
-                <div className={styles.wrapper}>
+                <div className={`${styles.blob} ${styles.blob1}`}></div>
+                <div className={`${styles.blob} ${styles.blob2}`}></div>
+
+                <div className={styles.heroContent}>
                     <h1 className={styles.heroTitle}>{page.title}</h1>
                     {page.metaDescription && (
                         <p className={styles.heroSubtitle}>{page.metaDescription}</p>
@@ -104,12 +107,14 @@ export default async function GenericPage({ params }: PageProps) {
             </section>
 
             {/* Content */}
-            <main className={styles.content}>
-                <div
-                    className={styles.htmlContent}
-                    dangerouslySetInnerHTML={{ __html: page.content }}
-                />
-            </main>
+            <div className={styles.sectionContainer}>
+                <div className={styles.contentCard}>
+                    <main
+                        className={styles.htmlContent}
+                        dangerouslySetInnerHTML={{ __html: page.content }}
+                    />
+                </div>
+            </div>
         </div>
     );
 }

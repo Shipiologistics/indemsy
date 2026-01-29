@@ -1,0 +1,35 @@
+"aboutUsPage": {
+    "title": "About FlyCompense",
+    "description": "At FlyCompense, we are the experts in flight compensation in Europe. Our mission is simple: to enforce your air passenger rights and help you get the compensation you deserve when a flight is delayed, canceled, or overbooked.",
+    "regulations": "European rules (notably Regulation (EC) No 261/2004) provide that passengers may be entitled to compensation of up to €600 depending on the flight distance and the nature of the incident. However, many travelers do not receive what is rightfully theirs, often due to complex procedures or unjustified refusals from airlines.",
+    "whoWeAre": {
+        "title": "🌍 Who are we?",
+        "description": "We are a team of specialists dedicated to passenger rights — a bridge between you and the airlines to recover your compensation without stress.",
+        "points": [
+            "We have in-depth knowledge of European air passenger rights legislation.",
+            "We handle every case with rigor, transparency, and speed.",
+            "We use a no win, no fee approach: no success, no fee for you.",
+            "We help thousands of passengers get their compensation every year."
+        ]
+    },
+    "howWeHelp": {
+        "title": "🚀 How we help you",
+        "description": "Thanks to our intuitive platform and legal expertise:",
+        "steps": [
+            "You send us your flight details.",
+            "We analyze your eligibility according to European rules.",
+            "We handle the entire claim process with the airline.",
+            "You receive your compensation directly into your account."
+        ],
+        "footer": "Most cases are handled quickly, and if an airline refuses, we continue to defend your case until the end."
+    },
+    "commitment": {
+        "title": "🤝 Our commitment",
+        "intro": "At FlyCompense, your peace of mind is our priority. We are committed to:",
+        "points": [
+            "providing you with a clear estimate of your rights,",
+            "respecting your privacy and the security of your data,",
+            "maximizing your chances of obtaining your compensation."
+        ]
+    }
+},

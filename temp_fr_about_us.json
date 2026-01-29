@@ -1,0 +1,35 @@
+"aboutUsPage": {
+    "title": "À propos de FlyCompense",
+    "description": "Chez FlyCompense, nous sommes les experts en indemnisation de vols en Europe. Notre mission est simple : faire valoir vos droits de passager aérien et vous aider à obtenir la compensation que vous méritez lorsqu’un vol est retardé, annulé ou surbooké.",
+    "regulations": "Les règles européennes (notamment le Règlement (CE) n° 261/2004) prévoient que les passagers peuvent avoir droit à une indemnisation pouvant aller jusqu’à 600 € selon la distance du vol et la nature de l’incident. Pourtant, beaucoup de voyageurs ne reçoivent pas ce qui leur revient de droit, souvent à cause de démarches complexes ou de refus injustifiés des compagnies aériennes.",
+    "whoWeAre": {
+        "title": "🌍 Qui sommes-nous ?",
+        "description": "Nous sommes une équipe de spécialistes dédiés aux droits des passagers — un pont entre vous et les compagnies aériennes pour récupérer vos indemnités sans stress.",
+        "points": [
+            "Nous connaissons en profondeur la législation européenne sur les droits des passagers aériens.",
+            "Nous traitons chaque dossier avec rigueur, transparence et rapidité.",
+            "Nous utilisons une approche no win, no fee : pas de succès, pas de frais pour vous.",
+            "Nous aidons des milliers de passagers à obtenir leur compensation chaque année."
+        ]
+    },
+    "howWeHelp": {
+        "title": "🚀 Comment nous vous aidons",
+        "description": "Grâce à notre plateforme intuitive et à notre expertise juridique :",
+        "steps": [
+            "Vous nous envoyez les informations de votre vol.",
+            "Nous analysons votre éligibilité selon les règles européennes.",
+            "Nous prenons en charge toute la procédure de réclamation avec la compagnie aérienne.",
+            "Vous recevez votre indemnisation directement sur votre compte."
+        ],
+        "footer": "La plupart des dossiers sont traités rapidement, et si une compagnie refuse, nous continuons à défendre votre dossier jusqu’au bout."
+    },
+    "commitment": {
+        "title": "🤝 Notre engagement",
+        "intro": "Chez FlyCompense, votre tranquillité d’esprit est notre priorité. Nous nous engageons à :",
+        "points": [
+            "vous fournir une estimation claire de vos droits,",
+            "respecter votre confidentialité et la sécurité de vos données,",
+            "maximiser vos chances d’obtenir votre compensation."
+        ]
+    }
+},
