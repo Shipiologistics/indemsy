@@ -40,10 +40,14 @@ export default function Sidebar() {
             width: '280px',
             minWidth: '280px',
             height: '100vh',
+            position: 'sticky',
+            top: 0,
+            alignSelf: 'flex-start',
             background: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)',
             display: 'flex',
             flexDirection: 'column',
             borderRight: '1px solid rgba(255,255,255,0.05)',
+            zIndex: 5,
         }}>
             {/* Logo */}
             <div style={{

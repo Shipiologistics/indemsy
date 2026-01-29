@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
                         </p>
                         <ul>
                             <li><strong>Email:</strong> contact@flycompense.com</li>
-                            <li><strong>Address:</strong> 123 Aviation Boulevard, L-1234 Luxembourg</li>
+                            <li><strong>Address:</strong> 26 Boulevard Royal, L-2449 Luxembourg, Luxembourg</li>
                         </ul>
                     </section>
 

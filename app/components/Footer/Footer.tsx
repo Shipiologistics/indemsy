@@ -79,7 +79,6 @@ export default function Footer() {
                 { label: 'aboutUs', href: '/about-us' },
                 { label: 'blog', href: '/blog' },
                 { label: 'experts', href: '/our-experts' },
-                { label: 'plantingTrees', href: '/planting-trees' },
                 { label: 'press', href: '/press' },
                 { label: 'careers', href: '/careers' },
                 { label: 'affiliate', href: '/affiliate-program' },

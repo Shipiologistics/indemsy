@@ -94,9 +94,9 @@ export default function ClaimPage() {
 
                 <footer className={styles.footer}>
                     <div className={styles.footerLinks}>
-                        <Link href="#">{t('footer.help')}</Link>
-                        <Link href="#">{t('footer.terms')}</Link>
-                        <Link href="#">{t('footer.privacy')}</Link>
+                        <Link href="/contact-us">{t('footer.help')}</Link>
+                        <Link href="/terms">{t('footer.terms')}</Link>
+                        <Link href="/privacy-policy">{t('footer.privacy')}</Link>
                     </div>
                     <div className={styles.footerTrust}>
 

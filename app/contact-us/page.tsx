@@ -1,17 +1,106 @@
-
 'use client';
 
 import { useState } from 'react';
+import { useLocale } from 'next-intl';
 import styles from './page.module.css';
 
+type Locale = 'en' | 'fr';
+
+const localizedCopy = {
+    en: {
+        heroTitle: 'Get in Touch',
+        heroSubtitle: 'Have questions about your claim or need legal assistance? Our team of experts is here to help you every step of the way.',
+        emailCard: {
+            title: 'Email Us',
+            generalLabel: 'General Inquiries:',
+            supportLabel: 'Support:',
+        },
+        callCard: {
+            title: 'Call Us',
+            hours: 'Mon - Fri, 9am - 6pm CET',
+        },
+        visitCard: {
+            title: 'Visit Us',
+            line1: 'FlyCompense headquarters',
+            line2: '26 Boulevard Royal',
+            line3: 'Luxembourg, Luxembourg, 2449',
+        },
+        formTitle: 'Send a Message',
+        formSubtitle: "Fill out the form below and we'll get back to you within 24 hours.",
+        formLabels: {
+            name: 'Full Name',
+            namePlaceholder: 'Jane Doe',
+            email: 'Email Address',
+            emailPlaceholder: 'jane@example.com',
+            subject: 'Subject',
+            subjectPlaceholder: 'Claim status update',
+            message: 'Message',
+            messagePlaceholder: 'How can we help you?',
+        },
+        buttonDefault: 'Send Message',
+        buttonSending: 'Sending...',
+        buttonSuccess: 'Message Sent! ✓',
+        errorAlert: 'Something went wrong. Please try again.',
+        features: [
+            { icon: '⚡', title: 'Fast Response', description: 'Our average response time for support queries is less than 24 business hours.' },
+            { icon: '⚖️', title: 'Legal Support', description: 'Direct access to our legal team handles complex airline negotiations for you.' },
+            { icon: '🛡️', title: 'Secure Communication', description: 'All your data and communications are encrypted and 100% GDPR compliant.' },
+        ],
+        heroEyebrow: 'We reply fast',
+    },
+    fr: {
+        heroTitle: 'Contactez-nous',
+        heroSubtitle: 'Vous avez des questions sur votre dossier ou besoin d’assistance juridique ? Nos experts vous accompagnent à chaque étape.',
+        emailCard: {
+            title: 'Écrivez-nous',
+            generalLabel: 'Questions générales :',
+            supportLabel: 'Support :',
+        },
+        callCard: {
+            title: 'Appelez-nous',
+            hours: 'Lun - Ven, 9h - 18h (CET)',
+        },
+        visitCard: {
+            title: 'Rendez-nous visite',
+            line1: 'Siège FlyCompense',
+            line2: '26 Boulevard Royal',
+            line3: 'Luxembourg, Luxembourg, 2449',
+        },
+        formTitle: 'Envoyer un message',
+        formSubtitle: 'Remplissez le formulaire et nous vous répondrons sous 24 heures.',
+        formLabels: {
+            name: 'Nom complet',
+            namePlaceholder: 'Jeanne Dupont',
+            email: 'Adresse e-mail',
+            emailPlaceholder: 'jeanne@example.com',
+            subject: 'Objet',
+            subjectPlaceholder: 'Suivi de réclamation',
+            message: 'Message',
+            messagePlaceholder: 'Comment pouvons-nous vous aider ?',
+        },
+        buttonDefault: 'Envoyer',
+        buttonSending: 'Envoi en cours...',
+        buttonSuccess: 'Message envoyé ! ✓',
+        errorAlert: 'Une erreur est survenue. Veuillez réessayer.',
+        features: [
+            { icon: '⚡', title: 'Réponse rapide', description: 'Nous répondons à la plupart des demandes en moins de 24 h ouvrées.' },
+            { icon: '⚖️', title: 'Soutien juridique', description: 'Accès direct à notre équipe juridique pour les négociations complexes.' },
+            { icon: '🛡️', title: 'Communication sécurisée', description: 'Vos données sont chiffrées et 100 % conformes au RGPD.' },
+        ],
+        heroEyebrow: 'Réponse rapide assurée',
+    },
+} satisfies Record<Locale, any>;
+
 export default function ContactUs() {
+    const locale = useLocale() as Locale;
+    const copy = localizedCopy[locale] ?? localizedCopy.en;
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         subject: '',
         message: ''
     });
-
     const [status, setStatus] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -44,8 +133,8 @@ export default function ContactUs() {
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
                 console.error(result.error);
-                setStatus('error'); // Need to handle error state in UI or just alert
-                alert('Something went wrong. Please try again.');
+                setStatus('error');
+                alert(copy.errorAlert);
             }
         } catch (error) {
             console.error(error);
@@ -64,11 +153,9 @@ export default function ContactUs() {
             <section className={styles.hero}>
                 <div className={styles.heroPattern} />
                 <div className={styles.container}>
-                    <h1 className={styles.heroTitle}>Get in Touch</h1>
-                    <p className={styles.heroSubtitle}>
-                        Have questions about your claim or need legal assistance?
-                        Our team of experts is here to help you every step of the way.
-                    </p>
+                    <span className={styles.heroEyebrow}>{copy.heroEyebrow}</span>
+                    <h1 className={styles.heroTitle}>{copy.heroTitle}</h1>
+                    <p className={styles.heroSubtitle}>{copy.heroSubtitle}</p>
                 </div>
             </section>
 
@@ -83,10 +170,10 @@ export default function ContactUs() {
                                 </svg>
                             </div>
                             <div className={styles.infoContent}>
-                                <h3>Email Us</h3>
-                                <p>General Inquiries:</p>
+                                <h3>{copy.emailCard.title}</h3>
+                                <p>{copy.emailCard.generalLabel}</p>
                                 <a href="mailto:contact@flycompense.com">contact@flycompense.com</a>
-                                <p style={{ marginTop: '0.5rem' }}>Support:</p>
+                                <p style={{ marginTop: '0.5rem' }}>{copy.emailCard.supportLabel}</p>
                                 <a href="mailto:support@flycompense.com">support@flycompense.com</a>
                             </div>
                         </div>
@@ -98,8 +185,8 @@ export default function ContactUs() {
                                 </svg>
                             </div>
                             <div className={styles.infoContent}>
-                                <h3>Call Us</h3>
-                                <p>Mon - Fri, 9am - 6pm CET</p>
+                                <h3>{copy.callCard.title}</h3>
+                                <p>{copy.callCard.hours}</p>
                                 <a href="tel:0035227864487">+352 27 86 44 87</a>
                             </div>
                         </div>
@@ -111,11 +198,11 @@ export default function ContactUs() {
                                 </svg>
                             </div>
                             <div className={styles.infoContent}>
-                                <h3>Visit Us</h3>
+                                <h3>{copy.visitCard.title}</h3>
                                 <p>
-                                    FlyCompense headquarters<br />
-                                    26 Boulevard Royal<br />
-                                    Luxembourg, Luxembourg, 2449
+                                    {copy.visitCard.line1}<br />
+                                    {copy.visitCard.line2}<br />
+                                    {copy.visitCard.line3}
                                 </p>
                             </div>
                         </div>
@@ -123,56 +210,56 @@ export default function ContactUs() {
 
                     {/* Right Column: Form */}
                     <div className={styles.formCard}>
-                        <h2 className={styles.formTitle}>Send a Message</h2>
-                        <p className={styles.formSubtitle}>Fill out the form below and we'll get back to you within 24 hours.</p>
+                        <h2 className={styles.formTitle}>{copy.formTitle}</h2>
+                        <p className={styles.formSubtitle}>{copy.formSubtitle}</p>
 
                         <form onSubmit={handleSubmit}>
                             <div className={styles.formGroup}>
-                                <label htmlFor="name">Full Name</label>
+                                <label htmlFor="name">{copy.formLabels.name}</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
                                     className={styles.inputField}
-                                    placeholder="Jane Doe"
+                                    placeholder={copy.formLabels.namePlaceholder}
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
                                 />
                             </div>
                             <div className={styles.formGroup}>
-                                <label htmlFor="email">Email Address</label>
+                                <label htmlFor="email">{copy.formLabels.email}</label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
                                     className={styles.inputField}
-                                    placeholder="jane@example.com"
+                                    placeholder={copy.formLabels.emailPlaceholder}
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
                                 />
                             </div>
                             <div className={styles.formGroup}>
-                                <label htmlFor="subject">Subject</label>
+                                <label htmlFor="subject">{copy.formLabels.subject}</label>
                                 <input
                                     type="text"
                                     id="subject"
                                     name="subject"
                                     className={styles.inputField}
-                                    placeholder="Claim status update"
+                                    placeholder={copy.formLabels.subjectPlaceholder}
                                     value={formData.subject}
                                     onChange={handleChange}
                                     required
                                 />
                             </div>
                             <div className={styles.formGroup}>
-                                <label htmlFor="message">Message</label>
+                                <label htmlFor="message">{copy.formLabels.message}</label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     className={styles.textareaField}
-                                    placeholder="How can we help you?"
+                                    placeholder={copy.formLabels.messagePlaceholder}
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
@@ -181,12 +268,12 @@ export default function ContactUs() {
 
                             <button type="submit" className={styles.submitButton} disabled={status === 'sending'}>
                                 {status === 'sending' ? (
-                                    'Sending...'
+                                    copy.buttonSending
                                 ) : status === 'success' ? (
-                                    'Message Sent! ✓'
+                                    copy.buttonSuccess
                                 ) : (
                                     <>
-                                        Send Message
+                                        {copy.buttonDefault}
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
                                         </svg>
@@ -199,21 +286,13 @@ export default function ContactUs() {
 
                 {/* Additional Features Section */}
                 <div className={styles.bottomSection}>
-                    <div className={styles.featureBox}>
-                        <span className={styles.featureIcon}>⚡</span>
-                        <h4>Fast Response</h4>
-                        <p>Our average response time for support queries is less than 24 business hours.</p>
-                    </div>
-                    <div className={styles.featureBox}>
-                        <span className={styles.featureIcon}>⚖️</span>
-                        <h4>Legal Support</h4>
-                        <p>Direct access to our legal team handles complex airline negotiations for you.</p>
-                    </div>
-                    <div className={styles.featureBox}>
-                        <span className={styles.featureIcon}>🛡️</span>
-                        <h4>Secure Communication</h4>
-                        <p>All your data and communications are encrypted and 100% GDPR compliant.</p>
-                    </div>
+                    {copy.features.map((feature) => (
+                        <div key={feature.title} className={styles.featureBox}>
+                            <span className={styles.featureIcon}>{feature.icon}</span>
+                            <h4>{feature.title}</h4>
+                            <p>{feature.description}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </main>

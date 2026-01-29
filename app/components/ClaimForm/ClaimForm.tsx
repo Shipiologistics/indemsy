@@ -743,91 +743,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 4: Flight Details (Auto Search + Manual Fallback)
+            // Step 4: Manual Flight Details (Schedule finder skipped)
             case 4:
-                // Loading State
-                if (isLoadingFlights) {
-                    return (
-                        <div className={styles.stepContent}>
-                            <div className={styles.stepIcon}>🔎</div>
-                            <h2 className={styles.stepTitle}>Searching for your flight...</h2>
-                            <div className={styles.loadingSpinner}></div>
-                        </div>
-                    );
-                }
-
-                // List View
-                if (step4View === 'list' && availableFlights.length > 0) {
-                    return (
-                        <div className={styles.stepContent}>
-                            <div className={styles.stepIcon}>✈️</div>
-                            <h2 className={styles.stepTitle}>Select your flight</h2>
-                            <p className={styles.stepSubtitle}>We found these flights for your route.</p>
-
-                            <div className={styles.flightList}>
-                                {availableFlights.map((flight, index) => (
-                                    <button
-                                        key={index}
-                                        type="button"
-                                        className={styles.flightCard}
-                                        onClick={() => {
-                                            updateFormData('selectedFlight', flight);
-                                            updateFormData('manualFlightNumber', flight.flightNumber);
-                                            updateFormData('manualAirline', flight.airline.name);
-                                            updateFormData('manualDepartureTime', flight.departure.scheduledTime);
-                                            nextStep();
-                                        }}
-                                    >
-                                        <div className={styles.flightInfo}>
-                                            <div className={styles.flightMain}>
-                                                <span className={styles.flightNumber}>{flight.flightNumber}</span>
-                                                <span className={styles.flightAirline}>{flight.airline.name}</span>
-                                            </div>
-                                            <div className={styles.flightRoute}>
-                                                <span>{flight.departure.scheduledTime?.slice(11, 16)} {flight.departure.airport.iata}</span>
-                                                <span className={styles.arrow}>→</span>
-                                                <span>{flight.arrival.scheduledTime?.slice(11, 16)} {flight.arrival.airport.iata}</span>
-                                            </div>
-                                        </div>
-                                        <div className={styles.flightStatus}>
-                                            <span className={`${styles.statusBadge} ${styles[flight.status.toLowerCase()] || ''}`}>
-                                                {flight.status}
-                                            </span>
-                                        </div>
-                                    </button>
-                                ))}
-                            </div>
-
-                            <button
-                                className={styles.linkButton}
-                                onClick={() => setStep4View('manual')}
-                                style={{ marginTop: '1rem', color: '#6b7280', textDecoration: 'underline', border: 'none', background: 'none', cursor: 'pointer' }}
-                            >
-                                I can't find my flight
-                            </button>
-                        </div>
-                    );
-                }
-
-                // List View - No Results Found
-                if (step4View === 'list' && availableFlights.length === 0) {
-                    return (
-                        <div className={styles.stepContent}>
-                            <div className={styles.stepIcon}>🔎</div>
-                            <h2 className={styles.stepTitle}>No flights found</h2>
-                            <p className={styles.stepSubtitle}>We couldn't find any flights for this date.</p>
-
-                            <div className={styles.noFlightsFound}>
-                                <p><strong>Don't worry!</strong> You can still claim by entering your flight details manually.</p>
-                                <button className={styles.manualEntryBtn} onClick={() => setStep4View('manual')}>
-                                    Enter Flight Details Manually
-                                </button>
-                            </div>
-                        </div>
-                    );
-                }
-
-                // Manual Entry View (Fallback)
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>🔎</div>
@@ -947,7 +864,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
 
                         <div className={styles.delayOptions}>
                             {[
-                                { val: '< 2h', label: t('delayLessThan2') },
                                 { val: '2-3 hours', label: t('delay2to3') },
                                 { val: '3-4 hours', label: t('delay3to4') },
                                 { val: '> 4h', label: t('delayMoreThan4') }
@@ -962,15 +878,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                 </button>
                             ))}
                         </div>
-
-                        {
-                            formData.delayDuration && formData.delayDuration.includes('< 2') && (
-                                <div className={styles.warningBox}>
-                                    <span className={styles.warningIcon}>ℹ️</span>
-                                    <p>{t('delayShortWarning')}</p>
-                                </div>
-                            )
-                        }
                     </div >
                 );
 

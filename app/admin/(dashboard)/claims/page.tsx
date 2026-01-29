@@ -65,7 +65,7 @@ export default async function ClaimsPage() {
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                            {['Claim', 'Passenger', 'Journey', 'Status', 'Documents', 'Date'].map((header) => (
+                            {['Claim', 'Passenger', 'Journey', 'Status', 'Documents', 'Date', 'Action'].map((header) => (
                                 <th
                                     key={header}
                                     style={{
@@ -88,14 +88,9 @@ export default async function ClaimsPage() {
                         {allClaims.map((claim, idx) => (
                             <tr
                                 key={claim.id}
-                                onClick={() => window.location.href = `/admin/claims/${claim.id}`}
                                 style={{
                                     borderBottom: idx < allClaims.length - 1 ? '1px solid #f8fafc' : 'none',
-                                    cursor: 'pointer',
-                                    transition: 'background 0.2s ease',
                                 }}
-                                onMouseEnter={(e) => e.currentTarget.style.background = '#f8fafc'}
-                                onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                             >
                                 <td style={{ padding: '16px 20px' }}>
                                     <span style={{
@@ -206,6 +201,26 @@ export default async function ClaimsPage() {
                                 </td>
                                 <td style={{ padding: '16px 20px', fontSize: '13px', color: '#64748b' }}>
                                     {claim.createdAt ? new Date(claim.createdAt).toLocaleDateString() : 'N/A'}
+                                </td>
+                                <td style={{ padding: '16px 20px' }}>
+                                    <Link
+                                        href={`/admin/claims/${claim.id}`}
+                                        style={{
+                                            display: 'inline-flex',
+                                            alignItems: 'center',
+                                            gap: '6px',
+                                            padding: '8px 14px',
+                                            borderRadius: '999px',
+                                            background: '#eff6ff',
+                                            color: '#2563eb',
+                                            fontSize: '13px',
+                                            fontWeight: '600',
+                                            textDecoration: 'none',
+                                        }}
+                                    >
+                                        View
+                                        <span aria-hidden="true">→</span>
+                                    </Link>
                                 </td>
                             </tr>
                         ))}
