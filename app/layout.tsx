@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getLocale, getTranslations } from 'next-intl/server';
 import { getSocialLinks } from './actions/socials';
@@ -39,6 +39,13 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   };
 }
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export default async function RootLayout({
   children,

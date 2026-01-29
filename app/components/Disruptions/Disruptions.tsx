@@ -28,7 +28,7 @@ export default function Disruptions() {
             ),
             title: t('cancellationsTitle'),
             description: t('cancellationsDesc'),
-            image: 'https://img.airhelp.com/i/revamp/cancel-illustration-us.png',
+            image: 'https://img.airhelp.com/i/revamp/cancel-illustration.svg',
             stat: t('cancellationsStat'),
         },
         {
@@ -50,7 +50,7 @@ export default function Disruptions() {
             ),
             title: t('otherTitle'),
             description: t('otherDesc'),
-            image: 'https://img.airhelp.com/i/revamp/other-disruption-illustration-us.png',
+            image: 'https://img.airhelp.com/i/revamp/other-disruption-illustration.svg?updatedAt=1750921231627',
             stat: t('otherStat'),
         },
     ];

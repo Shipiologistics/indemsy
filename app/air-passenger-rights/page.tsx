@@ -138,10 +138,10 @@ export default function Page() {
 
     // Compensation amounts data
     const compensationAmounts = [
-        { icon: '💶', amount: 'Up to €600', regulation: t('sectionCompensation.item1') },
-        { icon: '💵', amount: 'Up to €1,550', regulation: t('sectionCompensation.item2') },
-        { icon: '💴', amount: 'Up to €600 in Lira', regulation: t('sectionCompensation.item3') },
-        { icon: '💰', amount: '200% of ticket price', regulation: t('sectionCompensation.item4') },
+        { icon: '💶', amount: t('sectionCompensation.amount1'), regulation: t('sectionCompensation.regulation1') },
+        { icon: '💵', amount: t('sectionCompensation.amount2'), regulation: t('sectionCompensation.regulation2') },
+        { icon: '💴', amount: t('sectionCompensation.amount3'), regulation: t('sectionCompensation.regulation3') },
+        { icon: '💰', amount: t('sectionCompensation.amount4'), regulation: t('sectionCompensation.regulation4') },
     ];
 
     // Accordion data for compensation section

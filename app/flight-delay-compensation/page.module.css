@@ -2,6 +2,7 @@
     padding-top: 96px;
     min-height: 100vh;
     background: #f8fafc;
+    overflow-x: hidden;
 }
 
 /* Small Hero (form) */
@@ -299,6 +300,10 @@
     padding: 1rem;
     background: rgba(255, 255, 255, 0.7);
     box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .tipGrid {
@@ -532,11 +537,13 @@
     grid-template-columns: 280px 1fr;
     gap: 2.5rem;
     align-items: start;
+    min-width: 0;
 }
 
 .sidebar {
     position: sticky;
     top: 110px;
+    min-width: 0;
 }
 
 .sidebarInner {
@@ -604,6 +611,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-width: 0;
 }
 
 .introText {
@@ -695,6 +703,7 @@
 /* Tables */
 .table {
     width: 100%;
+    min-width: 600px;
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 12px;

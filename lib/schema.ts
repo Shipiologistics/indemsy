@@ -31,6 +31,8 @@ export const claims = pgTable('claims', {
     email: varchar('email', { length: 255 }),
     phone: varchar('phone', { length: 50 }),
     acceptTerms: boolean('accept_terms').default(false),
+    acceptAgreementPower: boolean('accept_agreement_power').default(false),
+    acceptAgreementService: boolean('accept_agreement_service').default(false),
 
     // Step 7: Group Travel
     isGroupTravel: boolean('is_group_travel'),

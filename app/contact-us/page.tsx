@@ -114,8 +114,8 @@ export default function ContactUs() {
                                 <h3>Visit Us</h3>
                                 <p>
                                     FlyCompense headquarters<br />
-                                    123 Aviation Boulevard<br />
-                                    L-1234 Luxembourg
+                                    26 Boulevard Royal<br />
+                                    Luxembourg, Luxembourg, 2449
                                 </p>
                             </div>
                         </div>

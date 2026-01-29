@@ -130,6 +130,9 @@
     margin-bottom: 1.5rem;
     max-width: 592px;
     letter-spacing: -0.02em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Form Card */
@@ -269,7 +272,9 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    white-space: nowrap;
+    flex-wrap: wrap;
+    /* Allow wrapping if text is very long */
+    max-width: 100%;
 }
 
 .checkmarkIcon {

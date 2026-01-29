@@ -161,12 +161,14 @@
     grid-template-columns: 280px 1fr;
     gap: 2.5rem;
     align-items: start;
+    min-width: 0;
 }
 
 /* Enhanced Sidebar */
 .sidebar {
     position: sticky;
     top: 110px;
+    min-width: 0;
 }
 
 .sidebarInner {
@@ -237,6 +239,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    min-width: 0;
 }
 
 .introText {

@@ -31,6 +31,8 @@ export async function submitClaim(formData: any) {
             email: formData.email || null,
             phone: formData.phone || null,
             acceptTerms: formData.acceptTerms ?? false,
+            acceptAgreementPower: formData.acceptAgreementPower ?? false,
+            acceptAgreementService: formData.acceptAgreementService ?? false,
 
             // Group travel
             isGroupTravel: formData.isGroupTravel ?? null,

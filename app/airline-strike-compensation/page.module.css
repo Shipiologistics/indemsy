@@ -154,6 +154,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2.5rem 1.5rem 4rem;
+    min-width: 0;
 }
 
 .pageGrid {
@@ -161,12 +162,14 @@
     grid-template-columns: 280px 1fr;
     gap: 2.5rem;
     align-items: start;
+    min-width: 0;
 }
 
 /* Enhanced Sidebar */
 .sidebar {
     position: sticky;
     top: 110px;
+    min-width: 0;
 }
 
 .sidebarInner {
@@ -237,6 +240,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    min-width: 0;
 }
 
 .introText {
@@ -384,6 +388,10 @@
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
     background: white;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table th {

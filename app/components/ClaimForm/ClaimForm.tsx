@@ -7,6 +7,8 @@ import styles from './ClaimForm.module.css';
 import AirportSearch from '../AirportSearch/AirportSearch';
 import { submitClaim } from '@/app/actions/submit-claim';
 import { uploadToCloudinary } from '@/lib/cloudinary';
+import { countries } from '@/app/data/countries';
+import CountrySelect from './CountrySelect';
 
 // Types
 export interface Airport {
@@ -61,7 +63,10 @@ interface FormData {
     lastName: string;
     email: string;
     phone: string;
-    acceptTerms: boolean;
+    email: string;
+    phone: string;
+    acceptAgreementPower: boolean;
+    acceptAgreementService: boolean;
 
     // Step 8 (Old Step 7): Group Travel
     isGroupTravel: boolean | null;
@@ -97,7 +102,7 @@ interface FormData {
     referralSource: string;
 }
 
-const TOTAL_STEPS = 16;
+const TOTAL_STEPS = 18;
 
 const initialFormData: FormData = {
     isDirect: null,
@@ -135,6 +140,8 @@ const initialFormData: FormData = {
     preferredLanguage: '',
     ticketPurchaseSource: '',
     referralSource: '',
+    acceptAgreementPower: false,
+    acceptAgreementService: false,
 };
 
 interface ClaimFormProps {
@@ -150,7 +157,10 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
         ...initialFormData,
     }));
     const [isSubmitting, setIsSubmitting] = useState(false);
+
     const [fastTrackMode, setFastTrackMode] = useState(false);
+
+    const [selectedCountryIso, setSelectedCountryIso] = useState('US');
 
     // Flight Search State
     const [availableFlights, setAvailableFlights] = useState<Flight[]>([]);
@@ -350,7 +360,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
             case 4: return !!(formData.manualFlightNumber && formData.manualAirline && formData.manualDepartureTime);
             case 5: return !!formData.problemType;
             case 6: return formData.problemType !== 'delayed' || !!formData.delayDuration;
-            case 7: return !!(formData.firstName && formData.lastName && formData.email && formData.acceptTerms);
+            case 7: return !!(formData.firstName && formData.lastName && formData.email);
             case 8: return formData.isGroupTravel !== null;
             case 9: return !!(formData.address && formData.city && formData.postalCode && formData.country);
             case 10: return !!formData.bookingNumber;
@@ -359,6 +369,9 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
             case 13: return !!formData.idDocument;
             case 14: return formData.contactedAirline !== null;
             case 15: return true;
+            case 15: return true;
+            case 16: return !!formData.acceptAgreementPower;
+            case 17: return !!formData.acceptAgreementService;
             default: return true;
         }
     };
@@ -390,18 +403,30 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
             // Create a copy of formData excluding File objects which can't be passed directly in JSON
             const { boardingPass, idDocument, ...dataToSubmit } = finalFormData;
 
-            const result = await submitClaim(dataToSubmit);
-
-            if (result.success) {
-                console.log('Claim submitted successfully, ID:', result.claimId);
-                nextStep();
-            } else {
-                console.error('Submission failed:', result.error);
-                // Optionally handle error UI here
+            // Combine country code and phone number if phone is provided
+            if (dataToSubmit.phone) {
+                const country = countries.find(c => c.code === selectedCountryIso);
+                const dialCode = country ? country.dial_code : '+1';
+                dataToSubmit.phone = `${dialCode} ${dataToSubmit.phone}`;
             }
-        } catch (error) {
-            console.error('Error submitting claim:', error);
-        } finally {
+
+            try {
+                const result = await submitClaim(dataToSubmit);
+
+                if (result.success) {
+                    console.log('Claim submitted successfully, ID:', result.claimId);
+                    nextStep();
+                } else {
+                    console.error('Submission failed:', result.error);
+                    // Optionally handle error UI here
+                }
+            } catch (error) {
+                console.error('Error submitting claim:', error);
+            } finally {
+                setIsSubmitting(false);
+            }
+        } catch (e) {
+            console.error('Unexpected error:', e);
             setIsSubmitting(false);
         }
     };
@@ -1002,27 +1027,22 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
 
                         <div className={styles.formGroup}>
                             <label className={styles.label}>Phone</label>
-                            <input
-                                type="tel"
-                                className={styles.input}
-                                placeholder="+1 234 567 8900"
-                                value={formData.phone}
-                                onChange={(e) => updateFormData('phone', e.target.value)}
-                            />
+                            <div className={styles.phoneInputGroup}>
+                                <CountrySelect
+                                    value={selectedCountryIso}
+                                    onChange={setSelectedCountryIso}
+                                />
+                                <input
+                                    type="tel"
+                                    className={styles.input}
+                                    placeholder="123 456 7890"
+                                    value={formData.phone}
+                                    onChange={(e) => updateFormData('phone', e.target.value)}
+                                />
+                            </div>
                             <span className={styles.hint}>{t('phoneHint')}</span>
                         </div>
 
-                        <div className={styles.checkboxGroup}>
-                            <label className={styles.checkbox}>
-                                <input
-                                    type="checkbox"
-                                    checked={formData.acceptTerms}
-                                    onChange={(e) => updateFormData('acceptTerms', e.target.checked)}
-                                />
-                                <span className={styles.checkmark}></span>
-                                <span>{t('acceptTerms')}</span>
-                            </label>
-                        </div>
                     </div>
                 );
 
@@ -1460,8 +1480,84 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 16: Success
+            // Step 16: Agreement 1 - Power of Attorney
             case 16:
+                return (
+                    <div className={styles.stepContent}>
+                        <div className={styles.stepIcon}>⚖️</div>
+                        <h2 className={styles.stepTitle}>{t('agreementPowerTitle')}</h2>
+                        <p className={styles.stepSubtitle}>{t('agreementPowerSubtitle')}</p>
+
+                        <div style={{
+                            background: '#ffffff',
+                            padding: '24px',
+                            borderRadius: '8px',
+                            border: '2px solid #cbd5e1',
+                            marginBottom: '1.5rem',
+                            maxHeight: '400px',
+                            overflowY: 'auto',
+                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                        }}>
+                            <div className="prose prose-base text-gray-900 leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t.raw('agreementPowerContent') }}
+                            />
+                        </div>
+
+                        <div className={styles.checkboxGroup}>
+                            <label className={styles.checkbox} style={{ alignItems: 'flex-start' }}>
+                                <input
+                                    type="checkbox"
+                                    checked={!!formData.acceptAgreementPower}
+                                    onChange={(e) => updateFormData('acceptAgreementPower', e.target.checked)}
+                                    style={{ marginTop: '3px' }}
+                                />
+                                <span className={styles.checkmark} style={{ marginTop: '3px' }}></span>
+                                <span style={{ fontWeight: '500' }}>{t('agreementAcceptPower')}</span>
+                            </label>
+                        </div>
+                    </div>
+                );
+
+            // Step 17: Agreement 2 - Service Agreement
+            case 17:
+                return (
+                    <div className={styles.stepContent}>
+                        <div className={styles.stepIcon}>📝</div>
+                        <h2 className={styles.stepTitle}>{t('agreementServiceTitle')}</h2>
+                        <p className={styles.stepSubtitle}>{t('agreementServiceSubtitle')}</p>
+
+                        <div style={{
+                            background: '#ffffff',
+                            padding: '24px',
+                            borderRadius: '8px',
+                            border: '2px solid #cbd5e1',
+                            marginBottom: '1.5rem',
+                            maxHeight: '400px',
+                            overflowY: 'auto',
+                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                        }}>
+                            <div className="prose prose-base text-gray-900 leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t.raw('agreementServiceContent') }}
+                            />
+                        </div>
+
+                        <div className={styles.checkboxGroup}>
+                            <label className={styles.checkbox} style={{ alignItems: 'flex-start' }}>
+                                <input
+                                    type="checkbox"
+                                    checked={!!formData.acceptAgreementService}
+                                    onChange={(e) => updateFormData('acceptAgreementService', e.target.checked)}
+                                    style={{ marginTop: '3px' }}
+                                />
+                                <span className={styles.checkmark} style={{ marginTop: '3px' }}></span>
+                                <span style={{ fontWeight: '500' }}>{t('agreementAcceptService')}</span>
+                            </label>
+                        </div>
+                    </div>
+                );
+
+            // Step 18: Success
+            case 18:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.successIcon}>🎉</div>
@@ -1546,7 +1642,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         </button>
                     )}
 
-                    {currentStep < 15 ? (
+                    {currentStep < 17 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}
@@ -1555,12 +1651,12 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         >
                             {t('continue')} →
                         </button>
-                    ) : currentStep === 15 ? (
+                    ) : currentStep === 17 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}
                             onClick={handleSubmit}
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || !formData.acceptAgreementService}
                         >
                             {isSubmitting ? t('processing') : t('submit') + ' →'}
                         </button>

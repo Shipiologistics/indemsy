@@ -204,12 +204,14 @@
     grid-template-columns: 280px 1fr;
     gap: 2.5rem;
     align-items: start;
+    min-width: 0;
 }
 
 /* Enhanced Sidebar */
 .sidebar {
     position: sticky;
     top: 110px;
+    min-width: 0;
 }
 
 .sidebarInner {
@@ -280,6 +282,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    min-width: 0;
 }
 
 .introText {
@@ -326,98 +329,6 @@
     line-height: 1.8;
 }
 
-/* Enhanced Lists - Unordered lists with checkmarks */
-.section ul {
-    padding: 0;
-    margin: 0.5rem 0;
-    list-style: none;
-}
-
-.section ul li {
-    color: #334155;
-    font-size: 1rem;
-    line-height: 1.7;
-    padding: 0.75rem 1rem 0.75rem 3rem;
-    margin-bottom: 0.5rem;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    position: relative;
-    transition: all 0.2s ease;
-}
-
-.section ul li:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-    transform: translateX(4px);
-}
-
-.section ul li::before {
-    content: '✓';
-    position: absolute;
-    left: 1rem;
-    top: 0.85rem;
-    width: 24px;
-    height: 24px;
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 700;
-}
-
-/* Ordered lists with numbers - each ol gets its own counter */
-.section ol {
-    padding: 0;
-    margin: 0.5rem 0;
-    list-style: none;
-    counter-reset: step-counter;
-}
-
-.section ol li {
-    color: #334155;
-    font-size: 1rem;
-    line-height: 1.7;
-    padding: 0.75rem 1rem 0.75rem 3rem;
-    margin-bottom: 0.5rem;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    position: relative;
-    transition: all 0.2s ease;
-    counter-increment: step-counter;
-}
-
-.section ol li:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-    transform: translateX(4px);
-}
-
-.section ol li::before {
-    content: counter(step-counter);
-    position: absolute;
-    left: 1rem;
-    top: 0.85rem;
-    width: 24px;
-    height: 24px;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-}
-
-.section li strong {
-    color: #0f172a;
-}
-
 /* Enhanced Tables */
 .table {
     width: 100%;
@@ -427,6 +338,10 @@
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
     background: white;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table th {
