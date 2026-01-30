@@ -189,6 +189,14 @@ export default function Page() {
                                     </div>
                                 ))}
                             </div>
+
+                            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                                <img
+                                    src="/Que%20faire%20lorsque%20votre%20vol%20est%20annul%C3%A9%20ou%20retard%C3%A9%20_.jpg"
+                                    alt="Que faire lorsque votre vol est annulé ou retardé"
+                                    style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                                />
+                            </div>
                         </section>
 
                         <section id="eligibility" className={styles.section}>

@@ -516,34 +516,113 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
             case 1:
                 return (
                     <div className={styles.stepContent}>
-                        <div className={styles.stepIcon}>✈️</div>
-                        <h2 className={styles.stepTitle}>{t('whereDidYouFly')}</h2>
+                        {/* 1. Route Section Card */}
+                        <div className={styles.questionCard}>
+                            <h2 className={styles.cardTitle}>{t('whereDidYouFly')}</h2>
+                            <div className={styles.rowInputs}>
+                                <div className={styles.formGroup}>
+                                    <label className={styles.label}>{t('departureAirport')}</label>
+                                    <AirportSearch
+                                        id="departure"
+                                        placeholder="Departure airport"
+                                        icon="🛫"
+                                        value={formData.departureAirport}
+                                        onChange={(a) => updateFormData('departureAirport', a)}
+                                    />
+                                </div>
+                                <div className={styles.formGroup}>
+                                    <label className={styles.label}>{t('arrivalAirport')}</label>
+                                    <AirportSearch
+                                        id="arrival"
+                                        placeholder="Arrival airport"
+                                        icon="🛬"
+                                        value={formData.arrivalAirport}
+                                        onChange={(a) => updateFormData('arrivalAirport', a)}
+                                    />
+                                </div>
+                            </div>
+                        </div>
 
-                        {/* Express Checkout Section */}
-                        <div className={styles.expressCheckout} style={{
-                            background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
-                            border: '1px solid #bfdbfe',
-                            borderRadius: '16px',
-                            padding: '20px',
-                            marginBottom: '32px',
-                            textAlign: 'center'
-                        }}>
-                            <div style={{ fontSize: '24px', marginBottom: '8px' }}>🚀</div>
-                            <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '8px' }}>{t('expressCheckout')}</h3>
-                            <p style={{ color: '#3b82f6', marginBottom: '16px', fontSize: '14px' }}>
+                        {/* 2. Direct Flight Section Card */}
+                        <div className={styles.questionCard}>
+                            <h2 className={styles.cardTitle}>{t('step1Title')}</h2>
+                            {t.has('step1Subtitle') && <p className={styles.cardSubtitle}>{t('step1Subtitle')}</p>}
+
+                            <div className={styles.optionCards}>
+                                <button
+                                    type="button"
+                                    className={`${styles.optionCard} ${formData.isDirect === true ? styles.selected : ''}`}
+                                    onClick={() => updateFormData('isDirect', true)}
+                                >
+                                    <div className={styles.optionIcon}>🛫</div>
+                                    <div className={styles.optionContent}>
+                                        <h3>{t('yes')}</h3>
+                                        <p>{t('directFlight')}</p>
+                                    </div>
+                                    <div className={styles.optionCheck}>
+                                        {formData.isDirect === true && <span>✓</span>}
+                                    </div>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className={`${styles.optionCard} ${formData.isDirect === false ? styles.selected : ''}`}
+                                    onClick={() => updateFormData('isDirect', false)}
+                                >
+                                    <div className={styles.optionIcon}>🔄</div>
+                                    <div className={styles.optionContent}>
+                                        <h3>{t('no')}</h3>
+                                        <p>{t('connectingFlight')}</p>
+                                    </div>
+                                    <div className={styles.optionCheck}>
+                                        {formData.isDirect === false && <span>✓</span>}
+                                    </div>
+                                </button>
+                            </div>
+
+                            {formData.isDirect === false && (
+                                <div className={styles.connectionSection}>
+                                    <h4>{t('addConnectionAirports')}</h4>
+                                    {formData.connectionAirports.map((airport, index) => (
+                                        <div key={index} className={styles.connectionRow}>
+                                            <span className={styles.connectionLabel}>{t('stop')} {index + 1}</span>
+                                            <AirportSearch
+                                                id={`connection-${index}`}
+                                                placeholder="Connection airport"
+                                                icon="🔄"
+                                                value={airport.iata ? airport : null}
+                                                onChange={(a) => updateConnectionAirport(index, a)}
+                                            />
+                                            <button
+                                                type="button"
+                                                className={styles.removeBtn}
+                                                onClick={() => updateConnectionAirport(index, null)}
+                                            >
+                                                ✕
+                                            </button>
+                                        </div>
+                                    ))}
+                                    {formData.connectionAirports.length < 3 && (
+                                        <button
+                                            type="button"
+                                            className={styles.addConnectionBtn}
+                                            onClick={addConnectionAirport}
+                                        >
+                                            {t('addConnectionAirportBtn')}
+                                        </button>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Express Checkout - Moved directly below cards for visibility but clean */}
+                        <div className={styles.expressCheckout}>
+                            <div className={styles.expressIcon}>🚀</div>
+                            <h3 className={styles.expressTitle}>{t('expressCheckout')}</h3>
+                            <p className={styles.expressDesc}>
                                 {t('expressCheckoutDesc')}
                             </p>
-                            <label style={{
-                                display: 'inline-block',
-                                background: '#2563eb',
-                                color: 'white',
-                                padding: '10px 24px',
-                                borderRadius: '8px',
-                                cursor: 'pointer',
-                                fontWeight: '600',
-                                transition: 'all 0.2s',
-                                boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)'
-                            }}>
+                            <label className={styles.uploadBtn}>
                                 {t('uploadBoardingPassBtn')}
                                 <input
                                     type="file"
@@ -553,103 +632,6 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                 />
                             </label>
                         </div>
-
-                        <div className={styles.separator}>
-                            <span>{t('or')}</span>
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>{t('departureAirport')}</label>
-                            <AirportSearch
-                                id="departure"
-                                placeholder="Departure airport"
-                                icon="🛫"
-                                value={formData.departureAirport}
-                                onChange={(a) => updateFormData('departureAirport', a)}
-                            />
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>{t('arrivalAirport')}</label>
-                            <AirportSearch
-                                id="arrival"
-                                placeholder="Arrival airport"
-                                icon="🛬"
-                                value={formData.arrivalAirport}
-                                onChange={(a) => updateFormData('arrivalAirport', a)}
-                            />
-                        </div>
-
-                        <div className={styles.separator}></div>
-
-                        <h2 className={styles.stepTitle} style={{ marginTop: '2rem' }}>{t('step1Title')}</h2>
-                        <p className={styles.stepSubtitle}>{t('step1Subtitle')}</p>
-
-                        <div className={styles.optionCards}>
-                            <button
-                                type="button"
-                                className={`${styles.optionCard} ${formData.isDirect === true ? styles.selected : ''}`}
-                                onClick={() => updateFormData('isDirect', true)}
-                            >
-                                <div className={styles.optionIcon}>🛫</div>
-                                <div className={styles.optionContent}>
-                                    <h3>{t('yes')}</h3>
-                                    <p>{t('directFlight')}</p>
-                                </div>
-                                <div className={styles.optionCheck}>
-                                    {formData.isDirect === true && <span>✓</span>}
-                                </div>
-                            </button>
-
-                            <button
-                                type="button"
-                                className={`${styles.optionCard} ${formData.isDirect === false ? styles.selected : ''}`}
-                                onClick={() => updateFormData('isDirect', false)}
-                            >
-                                <div className={styles.optionIcon}>🔄</div>
-                                <div className={styles.optionContent}>
-                                    <h3>{t('no')}</h3>
-                                    <p>{t('connectingFlight')}</p>
-                                </div>
-                                <div className={styles.optionCheck}>
-                                    {formData.isDirect === false && <span>✓</span>}
-                                </div>
-                            </button>
-                        </div>
-
-                        {formData.isDirect === false && (
-                            <div className={styles.connectionSection}>
-                                <h4>{t('addConnectionAirports')}</h4>
-                                {formData.connectionAirports.map((airport, index) => (
-                                    <div key={index} className={styles.connectionRow}>
-                                        <span className={styles.connectionLabel}>{t('stop')} {index + 1}</span>
-                                        <AirportSearch
-                                            id={`connection-${index}`}
-                                            placeholder="Connection airport"
-                                            icon="🔄"
-                                            value={airport.iata ? airport : null}
-                                            onChange={(a) => updateConnectionAirport(index, a)}
-                                        />
-                                        <button
-                                            type="button"
-                                            className={styles.removeBtn}
-                                            onClick={() => updateConnectionAirport(index, null)}
-                                        >
-                                            ✕
-                                        </button>
-                                    </div>
-                                ))}
-                                {formData.connectionAirports.length < 3 && (
-                                    <button
-                                        type="button"
-                                        className={styles.addConnectionBtn}
-                                        onClick={addConnectionAirport}
-                                    >
-                                        {t('addConnectionAirportBtn')}
-                                    </button>
-                                )}
-                            </div>
-                        )}
                     </div>
                 );
 

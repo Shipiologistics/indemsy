@@ -15,14 +15,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
-    align-items: flex-start;
+    align-items: center;
 }
 
 /* Left Column */
-.leftColumn {
-    position: sticky;
-    top: 120px;
-}
+/* .leftColumn {
+} */
 
 .badge {
     display: inline-flex;
@@ -172,7 +170,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .grid {
         grid-template-columns: 1fr;
         gap: 3rem;

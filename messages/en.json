@@ -95,6 +95,12 @@
         "step3Desc": "The airline pays us and we make a transfer straight to your account.",
         "step": "Step"
     },
+    "feeSection": {
+        "eyebrow": "OUR FEE",
+        "title": "We’re fair and transparent",
+        "description": "We believe in earning our share by delivering results. Our standard 35% fee includes VAT and comes directly from the compensation we secure for you, and never out of your pocket.",
+        "link": "More on our fee"
+    },
     "testimonials": {
         "sectionLabel": "TESTIMONIALS",
         "title": "Our customers love us",

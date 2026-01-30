@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import styles from './LanguageSelector.module.css';
 
 const languages = [
-    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'en', name: 'English', flag: 'EN' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
 ];
 

@@ -77,6 +77,38 @@ export default function AboutUs() {
             </div>
 
             <div className={styles.sectionContainer}>
+                {/* Trust/Press Section */}
+                <section className={styles.trustSection}>
+                    <div className={styles.trustGrid}>
+                        <div className={styles.trustCard}>
+                            <div className={styles.trustCardContent}>
+                                <img
+                                    src="/Stiftung%20Warentest%20aktuell_%20Die%20wichtigsten%20Testergebnisse%20des%20Monats.jpg"
+                                    alt="Stiftung Warentest: Die wichtigsten Testergebnisse"
+                                    className={styles.trustImage}
+                                />
+                                <div className={styles.trustOverlay}>
+                                    <span className={styles.trustTag}>Test Winner</span>
+                                    <h3>Excellent Rating</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.trustCard}>
+                            <div className={styles.trustCardContent}>
+                                <img
+                                    src="/%E2%80%9EFluggastrechte_%20Kein%20Entsch%C3%A4digungsanspruch%20bei%20p%C3%BCnktlicher%20Ankunft%20nach%20Ersatzflug%E2%80%9C.jpg"
+                                    alt="Legal Success: Fluggastrechte"
+                                    className={styles.trustImage}
+                                />
+                                <div className={styles.trustOverlay}>
+                                    <span className={styles.trustTag}>Legal Precedence</span>
+                                    <h3>Successful Claims</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Section: Who We Are */}
                 <section className={styles.section}>
                     <h2 className={styles.sectionTitle}>{t('whoWeAre.title')}</h2>

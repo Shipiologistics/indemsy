@@ -95,6 +95,12 @@
         "step3Desc": "La compagnie aérienne nous paie et nous effectuons un virement directement sur votre compte.",
         "step": "Étape"
     },
+    "feeSection": {
+        "eyebrow": "NOS FRAIS",
+        "title": "Nous sommes justes et transparents",
+        "description": "Nous croyons qu'il faut mériter notre part en obtenant des résultats. Nos frais standard de 35% incluent la TVA et sont prélevés directement sur l'indemnisation que nous obtenons pour vous, jamais de votre poche.",
+        "link": "Plus sur nos frais"
+    },
     "testimonials": {
         "sectionLabel": "TÉMOIGNAGES",
         "title": "Nos clients nous adorent",

@@ -116,6 +116,13 @@ export default function HowItWorks() {
                         <p className={styles.subtitle}>
                             {t('description')}
                         </p>
+                        <div style={{ marginTop: '2rem' }}>
+                            <img
+                                src="/WhatsApp%20Image%202026-01-30%20at%201.17.24%20PM.jpeg"
+                                alt="WhatsApp Support"
+                                style={{ maxWidth: '100%', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                            />
+                        </div>
                     </div>
 
                     {/* Right Column - Steps */}

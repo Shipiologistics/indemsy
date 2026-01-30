@@ -1,0 +1,221 @@
+.section {
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background-color: rgb(22, 34, 43);
+    /* Fallback */
+    height: 628px;
+    /* Default desktop height per snippet */
+}
+
+.bgContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    /* Default full width */
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bgImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.picture {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* Gradients to create the fade effect */
+.gradientOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            rgb(22, 34, 43) 0%,
+            rgb(22, 34, 43) 20%,
+            rgba(22, 34, 43, 0.95) 40%,
+            rgba(22, 34, 43, 0.7) 45%,
+            rgba(22, 34, 43, 0) 80%);
+}
+
+.contentContainer {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    /* Standard page width */
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center vertically on desktop */
+    padding: 3rem 1.5rem;
+}
+
+.contentWrapper {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #90cdf4;
+    /* Chakra primary 300 equivalent roughly */
+    margin-bottom: 1rem;
+}
+
+.eyebrow svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: currentColor;
+}
+
+.title {
+    font-size: 2.25rem;
+    /* Mobile */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #f7fafc;
+    /* Greyscale 100 */
+}
+
+.description {
+    font-size: 1rem;
+    color: #e2e8f0;
+    /* Greyscale 200 */
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.link {
+    color: #63b3ed;
+    /* Primary 300/400 */
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #90cdf4;
+}
+
+/* Response adjustments mimicking the Tailwind classes provided */
+@media (min-width: 1024px) {
+    .section {
+        height: auto;
+        /* Allow content to dictate height on large screens if needed, or stick to fixed */
+        min-height: 600px;
+        /* Ensure sufficient height */
+        padding: 8rem 0;
+    }
+
+    .bgContainer {
+        width: 65%;
+        /* xl:w-[90%] 2xl:w-[65%] right-0 */
+    }
+
+    .gradientOverlay {
+        width: 60%;
+        /* lg:w-[60%] */
+        background: linear-gradient(90deg,
+                rgb(22, 34, 43) 0%,
+                rgb(22, 34, 43) 40%,
+                rgba(22, 34, 43, 0.95) 55%,
+                rgba(22, 34, 43, 0.7) 65%,
+                rgba(22, 34, 43, 0) 100%);
+    }
+
+    .title {
+        font-size: 4.5rem;
+        /* lg:text-7xl ~ 4.5rem */
+    }
+
+    .description {
+        font-size: 1.125rem;
+        /* lg:text-lg */
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 1023px) {
+
+    /* Mobile/Tablet specific adjustments */
+    .section {
+        height: auto;
+        padding-bottom: 0;
+    }
+
+    .bgContainer {
+        position: relative;
+        height: 300px;
+        /* Provide visual space for image on mobile stacked */
+        width: 100%;
+        order: -1;
+        /* If using flex column */
+    }
+
+    .bgImage {
+        width: 100%;
+    }
+
+    .gradientOverlay {
+        display: none;
+        /* Hide complex gradient on mobile, standard stack usually acts better, or overlay bottom-up */
+    }
+
+    /* Mimic the snippet: on mobile it seems they just stack or use background differently. 
+       The snippet has "h-[628px] lg:h-auto" for the container. 
+       And "max-w-page relative z-[2] mx-auto flex h-full items-end" -> flex-end alignment on mobile?
+       Let's stick to the snippet's mobile look: Image full background ? 
+    */
+
+    .section {
+        height: 628px;
+    }
+
+    .bgContainer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gradientOverlay {
+        display: block;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(22, 34, 43, 0) 0%, rgba(22, 34, 43, 0.6) 40%, rgb(22, 34, 43) 70%);
+        /* Bottom up gradient for mobile text readability */
+    }
+
+    .contentContainer {
+        justify-content: flex-end;
+        /* Align content to bottom on mobile per snippet "items-end" */
+        padding-bottom: 3rem;
+    }
+
+    .contentWrapper {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+    }
+}

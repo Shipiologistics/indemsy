@@ -3,6 +3,7 @@ import TrustBadges from './components/TrustBadges/TrustBadges';
 import CompensationSlider from './components/CompensationSlider/CompensationSlider';
 import Disruptions from './components/Disruptions/Disruptions';
 import HowItWorks from './components/HowItWorks/HowItWorks';
+import FeeSection from './components/FeeSection/FeeSection';
 import Testimonials from './components/Testimonials/Testimonials';
 import FAQ from './components/FAQ/FAQ';
 import PreFooter from './components/PreFooter/PreFooter';
@@ -17,6 +18,7 @@ export default function Home() {
       <CompensationSlider />
       <Disruptions />
       <HowItWorks />
+      <FeeSection />
       <Testimonials />
       <FAQ />
       <PreFooter />

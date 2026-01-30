@@ -26,6 +26,7 @@
     margin-bottom: 1.5rem;
     background: linear-gradient(135deg, #0E1F3B 0%, #2563EB 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
 }
@@ -103,6 +104,94 @@
     max-width: 700px;
     margin: -1rem auto 3rem;
     font-size: 1.1rem;
+}
+
+/* --- Trust Section --- */
+.trustSection {
+    margin-bottom: 6rem;
+}
+
+.trustGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.trustCard {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.trustCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+
+.trustCardContent {
+    position: relative;
+    height: 240px;
+    width: 100%;
+}
+
+.trustImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.trustCard:hover .trustImage {
+    transform: scale(1.05);
+}
+
+.trustOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(14, 31, 59, 0.9) 0%, rgba(14, 31, 59, 0) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.trustTag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #3B82F6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.trustOverlay h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .trustGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .trustCardContent {
+        height: 200px;
+    }
 }
 
 /* --- Cards Grid (Who We Are) --- */
