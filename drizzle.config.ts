@@ -12,6 +12,6 @@ export default defineConfig({
     schema: './lib/schema.ts',
     dialect: 'postgresql',
     dbCredentials: {
-        url: process.env.DATABASE_URL,
+        url: (process.env.DATABASE_URL || '').replace('sslmode=require', 'sslmode=verify-full'),
     },
 });
