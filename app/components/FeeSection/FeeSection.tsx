@@ -11,10 +11,10 @@ export default function FeeSection() {
                 <picture className={styles.picture}>
                     <source
                         media="(min-width: 992px)"
-                        srcSet="https://img.airhelp.com/i/revamp/fee-section-bg.png?tr=f-auto"
+                        srcSet="https://static.vecteezy.com/system/resources/previews/047/377/537/non_2x/handsome-young-asian-businessman-or-male-executive-manager-reading-a-book-during-the-flight-for-his-business-trip-airplane-or-private-jet-concept-free-photo.jpg"
                     />
                     <img
-                        src="https://img.airhelp.com/i/revamp/mobile-fee-section-bg.png?tr=f-auto"
+                        src="https://static.vecteezy.com/system/resources/previews/047/377/537/non_2x/handsome-young-asian-businessman-or-male-executive-manager-reading-a-book-during-the-flight-for-his-business-trip-airplane-or-private-jet-concept-free-photo.jpg"
                         alt="Our fee background"
                         className={styles.bgImage}
                         loading="lazy"
@@ -44,7 +44,7 @@ export default function FeeSection() {
                     </p>
 
                     <p>
-                        <Link href="/our-fees" className={styles.link}>
+                        <Link href="/fees" className={styles.link}>
                             {t('link')} &rarr;
                         </Link>
                     </p>

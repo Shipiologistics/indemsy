@@ -2534,6 +2534,12 @@
         "title": "About FlyCompense",
         "description": "At FlyCompense, we are the experts in flight compensation in Europe. Our mission is simple: to enforce your air passenger rights and help you get the compensation you deserve when a flight is delayed, canceled, or overbooked.",
         "regulations": "European rules (notably Regulation (EC) No 261/2004) provide that passengers may be entitled to compensation of up to €600 depending on the flight distance and the nature of the incident. However, many travelers do not receive what is rightfully theirs, often due to complex procedures or unjustified refusals from airlines.",
+        "trust": {
+            "testWinner": "Test Winner",
+            "excellentRating": "Excellent Rating",
+            "legalPrecedence": "Legal Precedence",
+            "successfulClaims": "Successful Claims"
+        },
         "whoWeAre": {
             "title": "🌍 Who are we?",
             "description": "We are a team of specialists dedicated to passenger rights — a bridge between you and the airlines to recover your compensation without stress.",

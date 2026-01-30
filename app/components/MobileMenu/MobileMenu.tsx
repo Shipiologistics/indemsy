@@ -10,7 +10,7 @@ export default function MobileMenu() {
   const t = useTranslations('header');
 
   const primaryLinks = [
-    { href: '/check-compensation', label: t('getCompensation') },
+    { href: '/claim', label: t('getCompensation') },
     { href: '/plus', label: t('flycompensePlus') },
     { href: '/about-us', label: t('aboutUs') },
     { href: '/for-airlines', label: t('forAirlines') },

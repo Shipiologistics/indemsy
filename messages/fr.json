@@ -2407,6 +2407,12 @@
         "title": "À propos de FlyCompense",
         "description": "Chez FlyCompense, nous sommes les experts en indemnisation de vols en Europe. Notre mission est simple : faire valoir vos droits de passager aérien et vous aider à obtenir la compensation que vous méritez lorsqu’un vol est retardé, annulé ou surbooké.",
         "regulations": "Les règles européennes (notamment le Règlement (CE) n° 261/2004) prévoient que les passagers peuvent avoir droit à une indemnisation pouvant aller jusqu’à 600 € selon la distance du vol et la nature de l’incident. Pourtant, beaucoup de voyageurs ne reçoivent pas ce qui leur revient de droit, souvent à cause de démarches complexes ou de refus injustifiés des compagnies aériennes.",
+        "trust": {
+            "testWinner": "Vainqueur du test",
+            "excellentRating": "Excellente note",
+            "legalPrecedence": "Précédent juridique",
+            "successfulClaims": "Réclamations réussies"
+        },
         "whoWeAre": {
             "title": "🌍 Qui sommes-nous ?",
             "description": "Nous sommes une équipe de spécialistes dédiés aux droits des passagers — un pont entre vous et les compagnies aériennes pour récupérer vos indemnités sans stress.",

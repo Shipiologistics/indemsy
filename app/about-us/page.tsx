@@ -88,8 +88,8 @@ export default function AboutUs() {
                                     className={styles.trustImage}
                                 />
                                 <div className={styles.trustOverlay}>
-                                    <span className={styles.trustTag}>Test Winner</span>
-                                    <h3>Excellent Rating</h3>
+                                    <span className={styles.trustTag}>{t('trust.testWinner')}</span>
+                                    <h3>{t('trust.excellentRating')}</h3>
                                 </div>
                             </div>
                         </div>
@@ -101,8 +101,8 @@ export default function AboutUs() {
                                     className={styles.trustImage}
                                 />
                                 <div className={styles.trustOverlay}>
-                                    <span className={styles.trustTag}>Legal Precedence</span>
-                                    <h3>Successful Claims</h3>
+                                    <span className={styles.trustTag}>{t('trust.legalPrecedence')}</span>
+                                    <h3>{t('trust.successfulClaims')}</h3>
                                 </div>
                             </div>
                         </div>
