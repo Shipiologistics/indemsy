@@ -77,9 +77,9 @@
 }
 
 .stepIcon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .stepTitle {
@@ -94,22 +94,22 @@
     color: var(--slogan-gray);
     text-align: center;
     font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
 }
 
 /* Option Cards */
 .optionCards {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
 }
 
 .optionCard {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.25rem;
     background: var(--white);
     border: 2px solid var(--border-color);
     border-radius: 16px;
@@ -1783,9 +1783,16 @@
     background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     border: 1px solid #bfdbfe;
     border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 32px;
-    text-align: center;
+    padding: 16px;
+    /* Reduced specific padding */
+    margin-bottom: 24px;
+    /* Reduced margin */
+    display: flex;
+    /* Flex row layout */
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    /* Left align text */
     transition: all 0.3s ease;
 }
 
@@ -1796,20 +1803,30 @@
 
 .expressIcon {
     font-size: 24px;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    /* No margin needed */
+}
+
+.expressTextContent {
+    flex: 1;
+    /* Take simplified available space */
 }
 
 .expressTitle {
-    font-size: 18px;
+    font-size: 16px;
+    /* Slightly smaller */
     font-weight: 700;
     color: #1e3a8a;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .expressDesc {
     color: #3b82f6;
-    margin-bottom: 16px;
-    font-size: 14px;
+    margin-bottom: 0;
+    /* No margin bottom */
+    font-size: 13px;
+    /* Slightly smaller */
+    line-height: 1.4;
 }
 
 .uploadBtn {
@@ -1831,6 +1848,18 @@
 }
 
 @media (max-width: 600px) {
+    .expressCheckout {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .uploadBtn {
+        width: 100%;
+        text-align: center;
+        margin-top: 12px;
+    }
+
     .heroImages {
         grid-template-columns: 1fr;
     }
@@ -1838,4 +1867,106 @@
     .heroImage {
         height: 200px;
     }
+}
+
+/* New Flight Search Styles */
+.flightResults {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.flightList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.flightCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background: var(--white);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.flightCard:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.flightInfo {
+    flex: 1;
+}
+
+.flightMain {
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.flightRoute {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--slogan-gray);
+    font-size: 0.9rem;
+}
+
+.flightCommonDuration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+}
+
+.selectArrow {
+    color: #2563eb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.loadingState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    color: var(--slogan-gray);
+}
+
+.airportCode {
+    font-weight: 600;
+    color: var(--primary-night-blue);
+    margin-left: 5px;
+}
+
+.routeSummary {
+    margin-bottom: 1.5rem;
+    padding: 12px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.segmentOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }

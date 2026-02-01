@@ -23,8 +23,8 @@ export interface Airport {
 interface Flight {
     flightNumber: string;
     airline: { name: string; code: string };
-    departure: { airport: { iata: string; name: string }; scheduledTime: string };
-    arrival: { airport: { iata: string; name: string }; scheduledTime: string };
+    departure: { airport: { iata: string; name: string }; scheduledTime: string; terminal?: string; gate?: string };
+    arrival: { airport: { iata: string; name: string }; scheduledTime: string; terminal?: string };
     status: string;
 }
 
@@ -101,7 +101,7 @@ interface FormData {
     referralSource: string;
 }
 
-const TOTAL_STEPS = 18;
+const TOTAL_STEPS = 19;
 
 const initialFormData: FormData = {
     isDirect: null,
@@ -169,7 +169,10 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
     // Fast-track steps to skip (1-3 for flight info, 11 for boarding pass)
     // Note: With new step 2, indices might shift if logic isn't careful.
     // Assuming fast track skips the whole flight selection flow.
-    const fastTrackSkipSteps = [1, 2, 3, 4, 12]; // Adjusted roughly, but fast track logic is complex with inserted steps.
+    // Fast-track steps to skip (1-3 for flight info, new 5 for search, 13 for boarding pass)
+    // New indices: 1, 2, 3, 4, 5 are flight connection/search flows
+    // Step 13 is new index for old Step 12 (Boarding Pass)
+    const fastTrackSkipSteps = [1, 2, 3, 4, 5, 13];
 
     // Initialize from URL params and check for fast-track mode
     useEffect(() => {
@@ -234,9 +237,9 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
         }
     }, [searchParams]);
 
-    // Search flights when entering Step 4
+    // Search flights when entering Step 5 (was Step 4)
     useEffect(() => {
-        if (currentStep === 4 && step4View === 'list') {
+        if (currentStep === 5 && step4View === 'list') {
             const searchFlights = async () => {
                 setIsLoadingFlights(true);
                 setAvailableFlights([]);
@@ -283,9 +286,9 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
         }
     }, [currentStep, step4View, formData.departureAirport, formData.arrivalAirport, formData.travelDate, formData.isDirect, formData.disruptedSegment]);
 
-    // Reset step 4 view when changing steps
+    // Reset step 5 view when changing steps
     useEffect(() => {
-        if (currentStep !== 4) setStep4View('list');
+        if (currentStep !== 5) setStep4View('list');
     }, [currentStep]);
 
     const updateFormData = <K extends keyof FormData>(key: K, value: FormData[K]) => {
@@ -298,17 +301,17 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
 
             // Save full journey on Step 1 completion
             if (currentStep === 1) {
-                if (!formData.fullJourneyDeparture && formData.departureAirport) {
+                if (formData.departureAirport) {
                     updateFormData('fullJourneyDeparture', formData.departureAirport);
                 }
-                if (!formData.fullJourneyArrival && formData.arrivalAirport) {
+                if (formData.arrivalAirport) {
                     updateFormData('fullJourneyArrival', formData.arrivalAirport);
                 }
             }
 
-            // Skip Step 2 (Segment Selection) if direct flight
+            // Skip Step 2 (Connections) and Step 3 (Segment Selection) if direct flight
             if (next === 2 && formData.isDirect) {
-                next = 3;
+                next = 4;
             }
 
             // Skip fast-track steps when in fast mode
@@ -324,8 +327,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
         if (currentStep > 1) {
             let prev = currentStep - 1;
 
-            // Skip Step 2 if direct flight
-            if (prev === 2 && formData.isDirect) {
+            // Skip Step 2 and 3 if direct flight (Coming back from Step 4)
+            if (prev === 3 && formData.isDirect) {
                 prev = 1;
             }
 
@@ -340,6 +343,12 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
 
             // If going back to Step 1 from Step 2, restore full journey to departure/arrival
             if (prev === 1 && currentStep === 2) {
+                // Actually if we are at Step 2 (Connections), going back to 1 is fine.
+                // The Segment reset logic was relevant when Step 2 was Segment Selection.
+                // Now Step 3 is Segment Selection.
+            }
+            if (prev === 1 && currentStep === 3) {
+                // Creating restore logic if needed, but segments are derived from connections now.
                 if (formData.fullJourneyDeparture) updateFormData('departureAirport', formData.fullJourneyDeparture);
                 if (formData.fullJourneyArrival) updateFormData('arrivalAirport', formData.fullJourneyArrival);
             }
@@ -354,23 +363,23 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
     const canProceed = (): boolean => {
         switch (currentStep) {
             case 1: return formData.isDirect !== null && !!formData.departureAirport && !!formData.arrivalAirport;
-            case 2: return formData.isDirect ? true : !!formData.disruptedSegment;
-            case 3: return !!formData.travelDate; // Airports enforced in Step 1
-            case 4: return !!(formData.manualFlightNumber && formData.manualAirline && formData.manualDepartureTime);
-            case 5: return !!formData.problemType;
-            case 6: return formData.problemType !== 'delayed' || !!formData.delayDuration;
-            case 7: return !!(formData.firstName && formData.lastName && formData.email);
-            case 8: return formData.isGroupTravel !== null;
-            case 9: return !!(formData.address && formData.city && formData.postalCode && formData.country);
-            case 10: return !!formData.bookingNumber;
-            case 11: return !!formData.signature;
-            case 12: return true;
-            case 13: return !!formData.idDocument;
-            case 14: return formData.contactedAirline !== null;
-            case 15: return true;
-            case 15: return true;
-            case 16: return !!formData.acceptAgreementPower;
-            case 17: return !!formData.acceptAgreementService;
+            case 2: return formData.isDirect ? true : formData.connectionAirports.length > 0;
+            case 3: return formData.isDirect ? true : !!formData.disruptedSegment;
+            case 4: return !!formData.travelDate;
+            case 5: return !!formData.selectedFlight || (!!formData.manualFlightNumber && !!formData.manualAirline && !!formData.manualDepartureTime);
+            case 6: return !!formData.problemType;
+            case 7: return formData.problemType !== 'delayed' || !!formData.delayDuration;
+            case 8: return !!(formData.firstName && formData.lastName && formData.email);
+            case 9: return formData.isGroupTravel !== null;
+            case 10: return !!(formData.address && formData.city && formData.postalCode && formData.country);
+            case 11: return !!formData.bookingNumber;
+            case 12: return !!formData.signature;
+            case 13: return true;
+            case 14: return !!formData.idDocument;
+            case 15: return formData.contactedAirline !== null;
+            case 16: return true;
+            case 17: return !!formData.acceptAgreementPower;
+            case 18: return !!formData.acceptAgreementService;
             default: return true;
         }
     };
@@ -510,6 +519,15 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
         }
     };
 
+    const handleSelectFlight = (flight: Flight) => {
+        updateFormData('selectedFlight', flight);
+        // Pre-fill manual fields for consistency
+        updateFormData('manualFlightNumber', flight.flightNumber);
+        updateFormData('manualAirline', flight.airline.name);
+        updateFormData('manualDepartureTime', flight.departure.scheduledTime);
+        nextStep();
+    };
+
     const renderStep = () => {
         switch (currentStep) {
             // Step 1: Flight Details (Route + Direct Question)
@@ -580,63 +598,64 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                 </button>
                             </div>
 
-                            {formData.isDirect === false && (
-                                <div className={styles.connectionSection}>
-                                    <h4>{t('addConnectionAirports')}</h4>
-                                    {formData.connectionAirports.map((airport, index) => (
-                                        <div key={index} className={styles.connectionRow}>
-                                            <span className={styles.connectionLabel}>{t('stop')} {index + 1}</span>
-                                            <AirportSearch
-                                                id={`connection-${index}`}
-                                                placeholder="Connection airport"
-                                                icon="🔄"
-                                                value={airport.iata ? airport : null}
-                                                onChange={(a) => updateConnectionAirport(index, a)}
-                                            />
-                                            <button
-                                                type="button"
-                                                className={styles.removeBtn}
-                                                onClick={() => updateConnectionAirport(index, null)}
-                                            >
-                                                ✕
-                                            </button>
-                                        </div>
-                                    ))}
-                                    {formData.connectionAirports.length < 3 && (
-                                        <button
-                                            type="button"
-                                            className={styles.addConnectionBtn}
-                                            onClick={addConnectionAirport}
-                                        >
-                                            {t('addConnectionAirportBtn')}
-                                        </button>
-                                    )}
-                                </div>
-                            )}
-                        </div>
 
-                        {/* Express Checkout - Moved directly below cards for visibility but clean */}
-                        <div className={styles.expressCheckout}>
-                            <div className={styles.expressIcon}>🚀</div>
-                            <h3 className={styles.expressTitle}>{t('expressCheckout')}</h3>
-                            <p className={styles.expressDesc}>
-                                {t('expressCheckoutDesc')}
-                            </p>
-                            <label className={styles.uploadBtn}>
-                                {t('uploadBoardingPassBtn')}
-                                <input
-                                    type="file"
-                                    accept="image/*,.pdf"
-                                    onChange={handleExpressUpload}
-                                    style={{ display: 'none' }}
-                                />
-                            </label>
                         </div>
                     </div>
                 );
 
-            // Step 2: Segment Selection (New)
+            // Step 2: Connection Details
             case 2:
+                if (formData.isDirect) return null;
+                return (
+                    <div className={styles.stepContent}>
+                        <div className={styles.stepIcon}>🔄</div>
+                        <h2 className={styles.stepTitle}>{t('step2Title')}</h2>
+                        <p className={styles.stepSubtitle}>{t('addConnectionAirports')}</p>
+
+                        <div className={styles.questionCard}>
+                            <div className={styles.routeSummary} style={{ marginBottom: '1.5rem', padding: '12px', background: '#f1f5f9', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                                <span style={{ fontWeight: 600 }}>{formData.fullJourneyDeparture?.iata || formData.departureAirport?.iata || 'Dep'}</span>
+                                <span style={{ color: '#64748b' }}>✈</span>
+                                <span style={{ fontWeight: 600 }}>{formData.fullJourneyArrival?.iata || formData.arrivalAirport?.iata || 'Arr'}</span>
+                            </div>
+
+                            <div className={styles.connectionSection} style={{ marginTop: 0, padding: 0, border: 'none', background: 'transparent' }}>
+                                <h4>{t('addConnectionAirports')}</h4>
+                                {formData.connectionAirports.map((airport, index) => (
+                                    <div key={index} className={styles.connectionRow}>
+                                        <span className={styles.connectionLabel}>{t('stop')} {index + 1}</span>
+                                        <AirportSearch
+                                            id={`connection-${index}`}
+                                            placeholder="Connection airport"
+                                            icon="🔄"
+                                            value={airport.iata ? airport : null}
+                                            onChange={(a) => updateConnectionAirport(index, a)}
+                                        />
+                                        <button
+                                            type="button"
+                                            className={styles.removeBtn}
+                                            onClick={() => updateConnectionAirport(index, null)}
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+                                ))}
+                                {formData.connectionAirports.length < 3 && (
+                                    <button
+                                        type="button"
+                                        className={styles.addConnectionBtn}
+                                        onClick={addConnectionAirport}
+                                    >
+                                        {t('addConnectionAirportBtn')}
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                );
+
+            // Step 3: Segment Selection (New)
+            case 3:
                 if (formData.isDirect) return null;
 
                 // Construct segments
@@ -704,8 +723,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 3: Date
-            case 3:
+            // Step 4: Date
+            case 4:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📅</div>
@@ -725,52 +744,124 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 4: Manual Flight Details (Schedule finder skipped)
-            case 4:
+            // Step 5: Flight Selection (Search Results or Manual)
+            case 5:
+                const isSearching = isLoadingFlights;
+                const showList = !isSearching && step4View === 'list';
+                const showManual = !isSearching && step4View === 'manual';
+
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>🔎</div>
                         <h2 className={styles.stepTitle}>{t('step3Title')}</h2>
-                        <p className={styles.stepSubtitle}>{t('provideFlightDetails')}</p>
+                        <p className={styles.stepSubtitle}>{t('step3Subtitle')}</p>
 
-                        <div className={styles.manualEntryForm}>
-                            <div className={styles.formGroup}>
-                                <label className={styles.label}>{t('flightNumberLabel')}</label>
-                                <input
-                                    type="text"
-                                    className={styles.input}
-                                    placeholder={t('flightNumberPlaceholder')}
-                                    value={formData.manualFlightNumber}
-                                    onChange={(e) => updateFormData('manualFlightNumber', e.target.value.toUpperCase())}
-                                />
+                        {isSearching && (
+                            <div className={styles.loadingState}>
+                                <div className={styles.spinner}></div>
+                                <p>{t('searchingFlights')}</p>
                             </div>
+                        )}
 
-                            <div className={styles.formGroup}>
-                                <label className={styles.label}>{t('airlineLabel')}</label>
-                                <input
-                                    type="text"
-                                    className={styles.input}
-                                    placeholder={t('airlinePlaceholder')}
-                                    value={formData.manualAirline}
-                                    onChange={(e) => updateFormData('manualAirline', e.target.value)}
-                                />
-                            </div>
+                        {showList && (
+                            <div className={styles.flightResults}>
+                                {availableFlights.length > 0 ? (
+                                    <div className={styles.flightList}>
+                                        {availableFlights.map((flight) => (
+                                            <button
+                                                key={`${flight.flightNumber}-${flight.departure.scheduledTime}`}
+                                                className={styles.flightCard}
+                                                onClick={() => handleSelectFlight(flight)}
+                                                type="button"
+                                            >
+                                                <div className={styles.flightInfo}>
+                                                    <div className={styles.flightMain}>
+                                                        <span className={styles.flightNumber}>{flight.flightNumber}</span>
+                                                        <span className={styles.flightAirline}>{flight.airline.name}</span>
+                                                    </div>
+                                                    <div className={styles.flightRoute}>
+                                                        <div className={styles.flightTime}>
+                                                            <span className={styles.time}>{formatTime(flight.departure.scheduledTime)}</span>
+                                                            <span className={styles.airportCode}>{flight.departure.airport.iata}</span>
+                                                        </div>
+                                                        <div className={styles.flightCommonDuration}>
+                                                            <span className={styles.arrow}>➝</span>
+                                                        </div>
+                                                        <div className={styles.flightTime}>
+                                                            <span className={styles.time}>{formatTime(flight.arrival.scheduledTime)}</span>
+                                                            <span className={styles.airportCode}>{flight.arrival.airport.iata}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className={styles.selectArrow}>›</div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className={styles.noFlights}>
+                                        <p>{t('noFlightsFound')}</p>
+                                    </div>
+                                )}
 
-                            <div className={styles.formGroup}>
-                                <label className={styles.label}>{t('scheduledDepartureTime')}</label>
-                                <input
-                                    type="time"
-                                    className={styles.input}
-                                    value={formData.manualDepartureTime}
-                                    onChange={(e) => updateFormData('manualDepartureTime', e.target.value)}
-                                />
+                                <button
+                                    className={styles.manualEntryBtn}
+                                    onClick={() => setStep4View('manual')}
+                                    type="button"
+                                >
+                                    {t('enterManually')}
+                                </button>
                             </div>
-                        </div>
+                        )}
+
+                        {showManual && (
+                            <div className={styles.manualEntryForm}>
+                                <div className={styles.formGroup}>
+                                    <label className={styles.label}>{t('flightNumberLabel')}</label>
+                                    <input
+                                        type="text"
+                                        className={styles.input}
+                                        placeholder={t('flightNumberPlaceholder')}
+                                        value={formData.manualFlightNumber}
+                                        onChange={(e) => updateFormData('manualFlightNumber', e.target.value.toUpperCase())}
+                                    />
+                                </div>
+
+                                <div className={styles.formGroup}>
+                                    <label className={styles.label}>{t('airlineLabel')}</label>
+                                    <input
+                                        type="text"
+                                        className={styles.input}
+                                        placeholder={t('airlinePlaceholder')}
+                                        value={formData.manualAirline}
+                                        onChange={(e) => updateFormData('manualAirline', e.target.value)}
+                                    />
+                                </div>
+
+                                <div className={styles.formGroup}>
+                                    <label className={styles.label}>{t('scheduledDepartureTime')}</label>
+                                    <input
+                                        type="time"
+                                        className={styles.input}
+                                        value={formData.manualDepartureTime}
+                                        onChange={(e) => updateFormData('manualDepartureTime', e.target.value)}
+                                    />
+                                </div>
+
+                                <button
+                                    type="button"
+                                    className={styles.textLink}
+                                    onClick={() => setStep4View('list')}
+                                    style={{ marginTop: '1rem', background: 'none', border: 'none', color: '#3b82f6', cursor: 'pointer', padding: 0 }}
+                                >
+                                    ← {t('back')}
+                                </button>
+                            </div>
+                        )}
                     </div>
                 );
 
-            // Step 5: Problem Type
-            case 5:
+            // Step 6: Problem Type
+            case 6:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>⚠️</div>
@@ -832,8 +923,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 6: Delay Duration
-            case 6:
+            // Step 7: Delay Duration
+            case 7:
                 if (formData.problemType !== 'delayed') {
                     // This render might happen during transition, safe to return null or previous
                     return null;
@@ -863,8 +954,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div >
                 );
 
-            // Step 7: Passenger Information
-            case 7:
+            // Step 8: Passenger Information
+            case 8:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>👤</div>
@@ -934,8 +1025,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 8: Group Travel
-            case 8:
+            // Step 9: Group Travel
+            case 9:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>👥</div>
@@ -1037,8 +1128,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 9: Address
-            case 9:
+            // Step 10: Address
+            case 10:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📍</div>
@@ -1109,8 +1200,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 10: Booking Number
-            case 10:
+            // Step 11: Booking Number
+            case 11:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>🎫</div>
@@ -1140,8 +1231,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 11: Signature
-            case 11:
+            // Step 12: Signature
+            case 12:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>✍️</div>
@@ -1183,8 +1274,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 12: Boarding Pass
-            case 12:
+            // Step 13: Boarding Pass
+            case 13:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>🎟️</div>
@@ -1218,8 +1309,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 13: ID Upload
-            case 13:
+            // Step 14: ID Upload
+            case 14:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>🆔</div>
@@ -1253,8 +1344,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 14: Airline Contact
-            case 14:
+            // Step 15: Airline Contact
+            case 15:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📝</div>
@@ -1306,8 +1397,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 15: Additional Info
-            case 15:
+            // Step 16: Additional Info
+            case 16:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📝</div>
@@ -1368,8 +1459,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 16: Agreement 1 - Power of Attorney
-            case 16:
+            // Step 17: Agreement 1 - Power of Attorney
+            case 17:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>⚖️</div>
@@ -1406,8 +1497,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 17: Agreement 2 - Service Agreement
-            case 17:
+            // Step 18: Agreement 2 - Service Agreement
+            case 18:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.stepIcon}>📝</div>
@@ -1444,8 +1535,8 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                     </div>
                 );
 
-            // Step 18: Success
-            case 18:
+            // Step 19: Success
+            case 19:
                 return (
                     <div className={styles.stepContent}>
                         <div className={styles.successIcon}>🎉</div>
@@ -1549,6 +1640,28 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                             {isSubmitting ? t('processing') : t('submit') + ' →'}
                         </button>
                     ) : null}
+                </div>
+            )}
+
+            {/* Express Checkout - Moved below navigation for Step 1 */}
+            {currentStep === 1 && (
+                <div className={styles.expressCheckout} style={{ marginTop: '0', marginBottom: '20px' }}>
+                    <div className={styles.expressIcon}>🚀</div>
+                    <div className={styles.expressTextContent}>
+                        <h3 className={styles.expressTitle}>{t('expressCheckout')}</h3>
+                        <p className={styles.expressDesc}>
+                            {t('expressCheckoutDesc')}
+                        </p>
+                    </div>
+                    <label className={styles.uploadBtn}>
+                        {t('uploadBoardingPassBtn')}
+                        <input
+                            type="file"
+                            accept="image/*,.pdf"
+                            onChange={handleExpressUpload}
+                            style={{ display: 'none' }}
+                        />
+                    </label>
                 </div>
             )}
         </div>
