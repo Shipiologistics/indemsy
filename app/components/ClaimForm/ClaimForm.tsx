@@ -1621,7 +1621,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         </button>
                     )}
 
-                    {currentStep < 17 ? (
+                    {currentStep < 18 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}
@@ -1630,7 +1630,7 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                         >
                             {t('continue')} →
                         </button>
-                    ) : currentStep === 17 ? (
+                    ) : currentStep === 18 ? (
                         <button
                             type="button"
                             className={styles.continueBtn}
