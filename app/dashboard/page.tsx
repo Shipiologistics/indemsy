@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import styles from './page.module.css';
 
 interface Claim {
     id: number;
@@ -122,101 +123,29 @@ export default function UserDashboard() {
 
     if (!isLoggedIn) {
         return (
-            <div style={{
-                minHeight: '100vh',
-                background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '20px',
-                fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-            }}>
+            <div className={styles.loginContainer}>
                 {/* Background decorations */}
-                <div style={{
-                    position: 'absolute',
-                    top: '10%',
-                    left: '10%',
-                    width: '400px',
-                    height: '400px',
-                    background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)',
-                    borderRadius: '50%',
-                    filter: 'blur(60px)',
-                }} />
-                <div style={{
-                    position: 'absolute',
-                    bottom: '10%',
-                    right: '10%',
-                    width: '300px',
-                    height: '300px',
-                    background: 'radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)',
-                    borderRadius: '50%',
-                    filter: 'blur(60px)',
-                }} />
+                <div className={styles.blob1} />
+                <div className={styles.blob2} />
 
-                <div style={{
-                    background: 'rgba(255,255,255,0.03)',
-                    backdropFilter: 'blur(20px)',
-                    borderRadius: '24px',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    padding: '48px',
-                    width: '100%',
-                    maxWidth: '440px',
-                    boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
-                }}>
-                    <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                        <div style={{
-                            width: '64px',
-                            height: '64px',
-                            borderRadius: '16px',
-                            background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            margin: '0 auto 20px',
-                            boxShadow: '0 8px 32px rgba(59,130,246,0.4)',
-                        }}>
-                            <span style={{ fontSize: '28px', fontWeight: '700', color: 'white' }}>I</span>
+                <div className={styles.loginCard}>
+                    <div className={styles.loginHeader}>
+                        <div className={styles.logoBox}>
+                            <span className={styles.logoText}>I</span>
                         </div>
-                        <h1 style={{
-                            fontSize: '28px',
-                            fontWeight: '700',
-                            color: 'white',
-                            margin: '0 0 8px 0',
-                            letterSpacing: '-0.5px',
-                        }}>{t('login.title')}</h1>
-                        <p style={{
-                            fontSize: '15px',
-                            color: '#94a3b8',
-                            margin: 0,
-                        }}>{t('login.subtitle')}</p>
+                        <h1 className={styles.loginTitle}>{t('login.title')}</h1>
+                        <p className={styles.loginSubtitle}>{t('login.subtitle')}</p>
                     </div>
 
                     <form onSubmit={handleLogin}>
-                        <div style={{ marginBottom: '20px' }}>
-                            <label style={{
-                                fontSize: '13px',
-                                fontWeight: '500',
-                                color: '#94a3b8',
-                                display: 'block',
-                                marginBottom: '8px',
-                            }}>{t('login.emailLabel')}</label>
+                        <div className={styles.inputGroup}>
+                            <label className={styles.inputLabel}>{t('login.emailLabel')}</label>
                             <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder={t('login.emailPlaceholder')}
-                                style={{
-                                    width: '100%',
-                                    padding: '14px 18px',
-                                    borderRadius: '12px',
-                                    border: '1px solid rgba(255,255,255,0.1)',
-                                    background: 'rgba(255,255,255,0.05)',
-                                    color: 'white',
-                                    fontSize: '15px',
-                                    outline: 'none',
-                                    transition: 'all 0.2s ease',
-                                    boxSizing: 'border-box',
-                                }}
+                                className={styles.inputField}
                             />
                         </div>
 
@@ -237,34 +166,14 @@ export default function UserDashboard() {
                         <button
                             type="submit"
                             disabled={loading}
-                            style={{
-                                width: '100%',
-                                padding: '14px',
-                                borderRadius: '12px',
-                                border: 'none',
-                                background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                                color: 'white',
-                                fontSize: '15px',
-                                fontWeight: '600',
-                                cursor: loading ? 'not-allowed' : 'pointer',
-                                opacity: loading ? 0.7 : 1,
-                                transition: 'all 0.2s ease',
-                                boxShadow: '0 4px 16px rgba(59,130,246,0.4)',
-                            }}
+                            className={styles.submitBtn}
                         >
                             {loading ? t('login.loading') : t('login.submitButton')}
                         </button>
                     </form>
 
-                    <div style={{
-                        marginTop: '24px',
-                        textAlign: 'center',
-                    }}>
-                        <Link href="/claim" style={{
-                            color: '#3b82f6',
-                            fontSize: '14px',
-                            textDecoration: 'none',
-                        }}>
+                    <div style={{ marginTop: '24px', textAlign: 'center' }}>
+                        <Link href="/claim" style={{ color: '#3b82f6', fontSize: '14px', textDecoration: 'none' }}>
                             {t('login.submitNew')}
                         </Link>
                     </div>
@@ -274,97 +183,40 @@ export default function UserDashboard() {
     }
 
     return (
-        <div style={{
-            minHeight: '100vh',
-            background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
-            fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-        }}>
+        <div className={styles.dashboardContainer}>
             {/* Header */}
-            <header style={{
-                background: 'white',
-                borderBottom: '1px solid #e2e8f0',
-                padding: '16px 32px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                position: 'sticky',
-                top: 0,
-                zIndex: 100,
-            }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{
-                        width: '40px',
-                        height: '40px',
-                        borderRadius: '12px',
-                        background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 4px 12px rgba(59,130,246,0.3)',
-                    }}>
+            <header className={styles.header}>
+                <div className={styles.headerLeft}>
+                    <div className={styles.headerLogo}>
                         <span style={{ fontSize: '18px', fontWeight: '700', color: 'white' }}>I</span>
                     </div>
                     <div>
-                        <h1 style={{ fontSize: '18px', fontWeight: '700', color: '#0f172a', margin: 0 }}>{t('header.title')}</h1>
-                        <p style={{ fontSize: '12px', color: '#64748b', margin: 0 }}>{t('header.subtitle')}</p>
+                        <h1 className={styles.headerTitle}>{t('header.title')}</h1>
+                        <p className={styles.headerSubtitle}>{t('header.subtitle')}</p>
                     </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <span style={{ fontSize: '14px', color: '#64748b' }}>{email}</span>
-                    <button
-                        onClick={handleLogout}
-                        style={{
-                            padding: '8px 16px',
-                            borderRadius: '8px',
-                            border: '1px solid #e2e8f0',
-                            background: 'white',
-                            color: '#64748b',
-                            fontSize: '14px',
-                            cursor: 'pointer',
-                        }}
-                    >
+                <div className={styles.headerRight}>
+                    <span className={styles.userEmail}>{email}</span>
+                    <button onClick={handleLogout} className={styles.logoutBtn}>
                         {t('header.logout')}
                     </button>
                 </div>
             </header>
 
-            <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '32px' }}>
+            <main className={styles.main}>
                 {/* Stats */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '20px',
-                    marginBottom: '32px',
-                }}>
-                    <div style={{
-                        background: 'white',
-                        borderRadius: '16px',
-                        padding: '24px',
-                        boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-                        border: '1px solid #e2e8f0',
-                    }}>
+                <div className={styles.statsGrid}>
+                    <div className={styles.statCard}>
                         <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>{t('stats.total')}</p>
                         <p style={{ fontSize: '32px', fontWeight: '700', color: '#0f172a', margin: 0 }}>{claims.length}</p>
                     </div>
-                    <div style={{
-                        background: 'white',
-                        borderRadius: '16px',
-                        padding: '24px',
-                        boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-                        border: '1px solid #e2e8f0',
-                    }}>
+                    <div className={styles.statCard}>
                         <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>{t('stats.inProgress')}</p>
                         <p style={{ fontSize: '32px', fontWeight: '700', color: '#3b82f6', margin: 0 }}>
                             {claims.filter(c => c.status === 'processing' || c.status === 'submitted').length}
                         </p>
                     </div>
-                    <div style={{
-                        background: 'white',
-                        borderRadius: '16px',
-                        padding: '24px',
-                        boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-                        border: '1px solid #e2e8f0',
-                    }}>
+                    <div className={styles.statCard}>
                         <p style={{ fontSize: '13px', color: '#64748b', margin: '0 0 8px 0' }}>{t('stats.approved')}</p>
                         <p style={{ fontSize: '32px', fontWeight: '700', color: '#059669', margin: 0 }}>
                             {claims.filter(c => c.status === 'approved').length}
@@ -372,19 +224,10 @@ export default function UserDashboard() {
                     </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: selectedClaim ? '1fr 400px' : '1fr', gap: '24px' }}>
+                <div className={`${styles.claimsContainer} ${selectedClaim ? styles.hasSelection : ''}`}>
                     {/* Claims List */}
-                    <div style={{
-                        background: 'white',
-                        borderRadius: '16px',
-                        boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-                        border: '1px solid #e2e8f0',
-                        overflow: 'hidden',
-                    }}>
-                        <div style={{
-                            padding: '20px 24px',
-                            borderBottom: '1px solid #e2e8f0',
-                        }}>
+                    <div className={styles.claimsList}>
+                        <div className={styles.claimsListHeader}>
                             <h2 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a', margin: 0 }}>{t('list.title')}</h2>
                             <p style={{ fontSize: '13px', color: '#64748b', margin: '4px 0 0 0' }}>
                                 {t('list.subtitle')}
@@ -426,13 +269,7 @@ export default function UserDashboard() {
                                         <div
                                             key={claim.id}
                                             onClick={() => handleClaimClick(claim)}
-                                            style={{
-                                                padding: '20px 24px',
-                                                borderBottom: idx < claims.length - 1 ? '1px solid #f1f5f9' : 'none',
-                                                cursor: 'pointer',
-                                                background: isSelected ? '#f8fafc' : 'white',
-                                                transition: 'background 0.2s ease',
-                                            }}
+                                            className={`${styles.claimItem} ${isSelected ? styles.selected : ''}`}
                                         >
                                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
                                                 <div style={{
@@ -473,7 +310,7 @@ export default function UserDashboard() {
                                                         {(claim.selectedFlight as any)?.flightNumber || claim.manualFlightNumber || 'N/A'} • {claim.travelDate ? new Date(claim.travelDate).toLocaleDateString() : 'N/A'}
                                                     </p>
                                                 </div>
-                                                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                                                <div style={{ textAlign: 'right', flexShrink: 0 }} className={styles.claimItemDate}>
                                                     <p style={{ fontSize: '12px', color: '#94a3b8', margin: 0 }}>
                                                         {claim.createdAt ? new Date(claim.createdAt).toLocaleDateString() : ''}
                                                     </p>
@@ -488,22 +325,9 @@ export default function UserDashboard() {
 
                     {/* Claim Details & Comments */}
                     {selectedClaim && (
-                        <div style={{
-                            background: 'white',
-                            borderRadius: '16px',
-                            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-                            border: '1px solid #e2e8f0',
-                            overflow: 'hidden',
-                            height: 'fit-content',
-                            position: 'sticky',
-                            top: '100px',
-                        }}>
+                        <div className={styles.detailPanel}>
                             {/* Header */}
-                            <div style={{
-                                padding: '20px 24px',
-                                borderBottom: '1px solid #e2e8f0',
-                                background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
-                            }}>
+                            <div className={styles.detailHeader}>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a', margin: 0 }}>
                                         {t('detail.subtitle')} #{selectedClaim.id}
@@ -514,8 +338,10 @@ export default function UserDashboard() {
                                             background: 'transparent',
                                             border: 'none',
                                             cursor: 'pointer',
-                                            fontSize: '20px',
+                                            fontSize: '24px',
+                                            lineHeight: 1,
                                             color: '#94a3b8',
+                                            padding: '4px',
                                         }}
                                     >
                                         ×

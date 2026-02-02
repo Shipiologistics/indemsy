@@ -875,8 +875,10 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                 onClick={() => updateFormData('problemType', 'delayed')}
                             >
                                 <span className={styles.problemIcon}>⏱️</span>
-                                <h3>{t('delayed')}</h3>
-                                <p>{t('delayedDesc')}</p>
+                                <div style={{ flex: 1 }}>
+                                    <h3>{t('delayed')}</h3>
+                                    <p>{t('delayedDesc')}</p>
+                                </div>
                             </button>
 
                             <button
@@ -885,8 +887,10 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                 onClick={() => updateFormData('problemType', 'cancelled')}
                             >
                                 <span className={styles.problemIcon}>❌</span>
-                                <h3>{t('cancelled')}</h3>
-                                <p>{t('cancelledDesc')}</p>
+                                <div style={{ flex: 1 }}>
+                                    <h3>{t('cancelled')}</h3>
+                                    <p>{t('cancelledDesc')}</p>
+                                </div>
                             </button>
 
                             <button
@@ -895,8 +899,10 @@ export default function ClaimForm({ onClose }: ClaimFormProps) {
                                 onClick={() => updateFormData('problemType', 'refused')}
                             >
                                 <span className={styles.problemIcon}>🚫</span>
-                                <h3>{t('denied')}</h3>
-                                <p>{t('deniedDesc')}</p>
+                                <div style={{ flex: 1 }}>
+                                    <h3>{t('denied')}</h3>
+                                    <p>{t('deniedDesc')}</p>
+                                </div>
                             </button>
                         </div>
 

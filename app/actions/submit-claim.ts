@@ -106,7 +106,7 @@ export async function submitClaim(formData: any) {
 
                         <p>We will keep you updated via email on every significant step.</p>
                         
-                        <a href="https://flycompense.com/dashboard/claim/${result[0].id}" style="display: inline-block; background: #FF8A00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px;">Track Claim Status</a>
+                        <a href="https://www.flycompense.com/dashboard" style="display: inline-block; background: #FF8A00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px;">Track Claim Status</a>
                         
                         <p style="margin-top: 30px; font-size: 12px; color: #888;">
                             If you have additional documents, you can upload them in your dashboard.
