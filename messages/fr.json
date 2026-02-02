@@ -605,8 +605,6 @@
             "a4": "Cela varie selon les pays (par ex. 3 ans en Allemagne, 6 au Royaume-Uni, 5 en France/Espagne).",
             "q5": "Quel montant d'indemnisation puis-je réclamer pour un vol annulé ?",
             "a5": "Jusqu'à 600 €, selon la distance du vol et le délai de préavis donné.",
-            "q6": "Comment réclamer une indemnisation pour un vol annulé ?",
-            "a6": "Vous pouvez contacter la compagnie directement, engager un avocat ou utiliser un service spécialisé comme FlyCompense.",
             "q7": "Mon vol a été annulé et la compagnie m'a proposé un nouveau billet. Puis-je refuser le billet ?",
             "a7": "Oui. Vous pouvez refuser le réacheminement et choisir un remboursement complet à la place si vous décidez de ne pas voyager.",
             "q8": "Que faire si la compagnie annule mon vol et ne me répond pas, ou ne me propose qu'un avoir ?",
@@ -739,11 +737,17 @@
         "faq": {
             "title": "Questions courantes sur l'indemnisation pour correspondance manquée",
             "q1": "Que se passe-t-il si un vol est retardé et que vous manquez votre correspondance ?",
+            "a1": "Si acheté comme un billet unique, la compagnie aérienne doit vous réacheminer. Si le retard à votre destination finale dépasse 3 heures, vous pouvez réclamer jusqu'à 600 €.",
             "q2": "Comment puis-je éviter de manquer un vol de correspondance ?",
+            "a2": "Réservez des vols sur un seul itinéraire (billet unique) et assurez-vous d'avoir suffisamment de temps de correspondance (au moins 60-90 minutes).",
             "q3": "Si je manque ma correspondance, dois-je réserver mon propre vol de remplacement ?",
+            "a3": "Non. La compagnie aérienne doit vous réacheminer gratuitement. Si vous réservez votre propre billet sans leur consentement, ils pourraient ne pas vous rembourser.",
             "q4": "Que se passe-t-il si vous choisissez de manquer volontairement un vol de correspondance ?",
+            "a4": "Les compagnies aériennes annuleront probablement le reste de votre itinéraire (y compris les vols retour). Vous n'aurez pas droit à une indemnisation.",
             "q5": "Quel est le délai pour faire une demande d'indemnisation pour correspondance manquée ?",
-            "q6": "J'ai un vol de correspondance—tout le voyage est-il éligible à l'indemnisation ?"
+            "a5": "Cela dépend des lois du pays (souvent 2 à 6 ans). Il est préférable de réclamer le plus tôt possible.",
+            "q6": "J'ai un vol de correspondance—tout le voyage est-il éligible à l'indemnisation ?",
+            "a6": "Oui, si tous les vols sont sur une seule réservation. Le retard est calculé en fonction de l'arrivée à votre destination finale."
         }
     },
     "deniedBoarding": {
