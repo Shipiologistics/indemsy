@@ -3,6 +3,9 @@ import { pressReleases } from '@/lib/schema';
 import { eq, desc } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Cache for 10 minutes - press releases change infrequently
+export const revalidate = 600;
+
 // GET all press releases
 export async function GET() {
     try {
@@ -10,7 +13,16 @@ export async function GET() {
             .select()
             .from(pressReleases)
             .orderBy(desc(pressReleases.publishedDate));
-        return NextResponse.json(releases);
+
+        // Add cache headers
+        return NextResponse.json(
+            releases,
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=3600',
+                },
+            }
+        );
     } catch (error) {
         console.error('Error fetching press releases:', error);
         return NextResponse.json({ error: 'Failed to fetch press releases' }, { status: 500 });

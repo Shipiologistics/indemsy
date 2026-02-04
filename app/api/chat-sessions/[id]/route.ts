@@ -1,12 +1,6 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
+import { db } from '@/lib/db';
 import * as schema from '@/lib/schema';
 import { eq, desc } from 'drizzle-orm';
-
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-});
-const db = drizzle(pool, { schema });
 
 // GET - Fetch messages for a specific session
 export async function GET(

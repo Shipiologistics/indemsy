@@ -1,14 +1,7 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
+import { db } from '@/lib/db';
 import * as schema from '@/lib/schema';
 import { sql } from 'drizzle-orm';
 import { HfInference } from '@huggingface/inference';
-
-// Setup Database Connection
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-});
-const db = drizzle(pool, { schema });
 
 // Setup HuggingFace for Embeddings
 const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);

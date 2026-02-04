@@ -3,6 +3,9 @@ import { blogPosts } from '@/lib/schema';
 import { eq, desc } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Cache for 5 minutes - blog posts change infrequently
+export const revalidate = 300;
+
 // GET all blog posts
 export async function GET() {
     try {
@@ -10,7 +13,16 @@ export async function GET() {
             .select()
             .from(blogPosts)
             .orderBy(desc(blogPosts.createdAt));
-        return NextResponse.json(posts);
+
+        // Add cache headers
+        return NextResponse.json(
+            posts,
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600',
+                },
+            }
+        );
     } catch (error) {
         console.error('Error fetching blog posts:', error);
         return NextResponse.json({ error: 'Failed to fetch blog posts' }, { status: 500 });

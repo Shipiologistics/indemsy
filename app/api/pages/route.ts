@@ -3,6 +3,9 @@ import { pageContent } from '@/lib/schema';
 import { eq, desc } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Cache for 10 minutes - CMS pages change infrequently
+export const revalidate = 600;
+
 // GET all page content
 export async function GET() {
     try {
@@ -10,7 +13,16 @@ export async function GET() {
             .select()
             .from(pageContent)
             .orderBy(desc(pageContent.createdAt));
-        return NextResponse.json(pages);
+
+        // Add cache headers
+        return NextResponse.json(
+            pages,
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=3600',
+                },
+            }
+        );
     } catch (error) {
         console.error('Error fetching pages:', error);
         return NextResponse.json({ error: 'Failed to fetch pages' }, { status: 500 });

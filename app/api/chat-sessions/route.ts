@@ -1,14 +1,10 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
+import { db } from '@/lib/db';
 import * as schema from '@/lib/schema';
 import { desc } from 'drizzle-orm';
 
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-});
-const db = drizzle(pool, { schema });
+// GET - Fetch all chat sessions (admin only - cached briefly)
+export const revalidate = 60;
 
-// GET - Fetch all chat sessions
 export async function GET() {
     try {
         const sessions = await db
@@ -18,7 +14,10 @@ export async function GET() {
 
         return new Response(JSON.stringify(sessions), {
             status: 200,
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'private, s-maxage=60, stale-while-revalidate=300',
+            },
         });
     } catch (error: any) {
         console.error('Error fetching chat sessions:', error);

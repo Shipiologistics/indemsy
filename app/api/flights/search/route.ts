@@ -3,6 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || '67ff990603mshc60e0e9b87900b6p1c8578jsn1717dcbee687';
 const RAPIDAPI_HOST = 'aerodatabox.p.rapidapi.com';
 
+// Run on Edge Runtime - no Node.js-specific features needed
+export const runtime = 'edge';
+
 // Allow up to 60 seconds for execution (Vercel Pro/Enterprise). Hobby is capped at 10s usually.
 export const maxDuration = 60;
 export const dynamic = 'force-dynamic';

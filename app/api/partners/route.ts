@@ -3,6 +3,9 @@ import { partners } from '@/lib/schema';
 import { eq, asc } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Cache for 5 minutes - partner data changes infrequently
+export const revalidate = 300;
+
 // GET all partners
 export async function GET(request: NextRequest) {
     try {
@@ -17,7 +20,15 @@ export async function GET(request: NextRequest) {
             ? allPartners.filter(p => p.type === type)
             : allPartners;
 
-        return NextResponse.json(filteredPartners);
+        // Add cache headers
+        return NextResponse.json(
+            filteredPartners,
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600',
+                },
+            }
+        );
     } catch (error) {
         console.error('Error fetching partners:', error);
         return NextResponse.json({ error: 'Failed to fetch partners' }, { status: 500 });

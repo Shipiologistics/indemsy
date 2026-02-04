@@ -3,6 +3,9 @@ import { db } from '@/lib/db';
 import { airports } from '@/lib/schema';
 import { ilike, or, sql } from 'drizzle-orm';
 
+// Cache for 1 hour - airport data rarely changes
+export const revalidate = 3600;
+
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const query = searchParams.get('q');
@@ -28,25 +31,19 @@ export async function GET(request: NextRequest) {
                     WHEN ${airports.iata} ILIKE ${query} || '%' THEN 2 
                     ELSE 3 
                 END, ${airports.iata} ASC`)
-            .limit(50); // Increased limit and added relevance sorting
+            .limit(50);
 
-        // Sort results in memory to improve relevance (e.g. IATA exact match first)
         const sortedItems = items.sort((a, b) => {
             const q = query.toUpperCase();
-            // Exact IATA match gets top priority
             if (a.iata === q && b.iata !== q) return -1;
             if (b.iata === q && a.iata !== q) return 1;
-
-            // Starts with IATA -> second priority
             const aIataStart = a.iata?.startsWith(q);
             const bIataStart = b.iata?.startsWith(q);
             if (aIataStart && !bIataStart) return -1;
             if (bIataStart && !aIataStart) return 1;
-
             return 0;
         });
 
-        // Transform to expected frontend format
         const formattedItems = sortedItems.map(airport => ({
             iata: airport.iata || '',
             icao: airport.icao || '',
@@ -60,7 +57,15 @@ export async function GET(request: NextRequest) {
             label: `${airport.name} (${airport.iata || airport.icao})`
         }));
 
-        return NextResponse.json({ items: formattedItems });
+        // Add cache headers
+        return NextResponse.json(
+            { items: formattedItems },
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+                },
+            }
+        );
     } catch (error) {
         console.error('Error fetching airports:', error);
         return NextResponse.json({ items: [], error: 'Internal Server Error' }, { status: 500 });

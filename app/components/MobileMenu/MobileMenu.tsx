@@ -58,7 +58,7 @@ export default function MobileMenu() {
             <nav className={styles.sidebarNav}>
               <div className={styles.section}>
                 {primaryLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className={styles.navItem} onClick={closeMenu}>
+                  <Link key={link.href} href={link.href} className={styles.navItem} onClick={closeMenu} prefetch={false}>
                     {link.label}
                   </Link>
                 ))}
@@ -66,7 +66,7 @@ export default function MobileMenu() {
 
               <div className={styles.sectionSecondary}>
                 {rightLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className={styles.secondaryItem} onClick={closeMenu}>
+                  <Link key={link.href} href={link.href} className={styles.secondaryItem} onClick={closeMenu} prefetch={false}>
                     {link.label}
                   </Link>
                 ))}

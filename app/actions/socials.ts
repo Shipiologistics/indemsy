@@ -1,11 +1,13 @@
 'use server';
 
+import { cache } from 'react';
 import { db } from '@/lib/db';
 import { socialLinks } from '@/lib/schema';
 import { eq, desc } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
 
-export async function getSocialLinks() {
+// Cached version - deduplicates requests within the same render
+export const getSocialLinks = cache(async () => {
     try {
         const links = await db.select().from(socialLinks).orderBy(desc(socialLinks.displayOrder));
         return { success: true, links };
@@ -13,7 +15,7 @@ export async function getSocialLinks() {
         console.error('Failed to fetch social links:', error);
         return { success: false, error: 'Failed to fetch social links' };
     }
-}
+});
 
 export async function addSocialLink(data: { platform: string; url: string; icon?: string; displayOrder?: number }) {
     try {

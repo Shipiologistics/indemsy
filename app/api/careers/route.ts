@@ -3,6 +3,9 @@ import { jobPostings } from '@/lib/schema';
 import { eq, desc } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Cache for 5 minutes - job postings change infrequently
+export const revalidate = 300;
+
 // GET all job postings
 export async function GET() {
     try {
@@ -10,7 +13,16 @@ export async function GET() {
             .select()
             .from(jobPostings)
             .orderBy(desc(jobPostings.createdAt));
-        return NextResponse.json(jobs);
+
+        // Add cache headers
+        return NextResponse.json(
+            jobs,
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600',
+                },
+            }
+        );
     } catch (error) {
         console.error('Error fetching jobs:', error);
         return NextResponse.json({ error: 'Failed to fetch job postings' }, { status: 500 });

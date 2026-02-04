@@ -119,7 +119,7 @@ export default function Footer() {
                                 <ul className={styles.linkList}>
                                     {section.links.map((link, linkIndex) => (
                                         <li key={linkIndex}>
-                                            <Link href={link.href} className={styles.link}>
+                                            <Link href={link.href} className={styles.link} prefetch={false}>
                                                 {t(link.label)}
                                             </Link>
                                         </li>
@@ -135,7 +135,7 @@ export default function Footer() {
 
                 <div className={styles.brandSection}>
                     <div className={styles.brand}>
-                        <Link href="/" className={styles.logo}>
+                        <Link href="/" className={styles.logo} prefetch={false}>
                             <span className={styles.logoIcon}>✈</span>
                             <span className={styles.logoText}>FlyCompense</span>
                         </Link>
@@ -188,10 +188,10 @@ export default function Footer() {
                         © {new Date().getFullYear()} FlyCompense. {t('allRights')}
                     </p>
                     <div className={styles.bottomLinks}>
-                        <Link href="/privacy-policy">{t('privacyPolicy')}</Link>
-                        <Link href="/terms-of-service">{t('termsOfService')}</Link>
-                        <Link href="/cookie-policy">{t('cookiePolicy')}</Link>
-                        <Link href="/imprint">{t('imprint')}</Link>
+                        <Link href="/privacy-policy" prefetch={false}>{t('privacyPolicy')}</Link>
+                        <Link href="/terms-of-service" prefetch={false}>{t('termsOfService')}</Link>
+                        <Link href="/cookie-policy" prefetch={false}>{t('cookiePolicy')}</Link>
+                        <Link href="/imprint" prefetch={false}>{t('imprint')}</Link>
                     </div>
                 </div>
             </div>
