@@ -615,6 +615,11 @@
             "a10": "Les lois américaines n'imposent pas d'indemnisation pour les annulations, seulement pour le refus d'embarquement. Cependant, vous avez droit à un remboursement si vous choisissez de ne pas voyager.",
             "q11": "Puis-je encore obtenir une indemnisation pour les vols au Royaume-Uni après le Brexit ?",
             "a11": "Oui. Le Royaume-Uni a intégré le CE 261 dans la loi britannique (UK 261). Vos droits sont en grande partie les mêmes."
+        },
+        "stats": {
+            "maxComp": "Indemnisation max",
+            "claimWindow": "Délai de réclamation",
+            "successRate": "Taux de succès"
         }
     },
     "missedConnection": {
@@ -1169,62 +1174,6 @@
             "a3": "Vérifiez votre éligibilité et soumettez une réclamation.",
             "q4": "Quel est le délai ?",
             "a4": "Vous avez généralement 3 ans pour réclamer."
-        }
-    },
-    "flightRefund": {
-        "heroTitle": "Remboursement de vol : comment obtenir votre argent",
-        "nav": {
-            "overview": "Aperçu",
-            "eligibility": "Éligibilité",
-            "amount": "Montants",
-            "howToClaim": "Comment réclamer",
-            "faq": "FAQ"
-        },
-        "summary": {
-            "p1": "Si votre vol est annulé, vous avez droit à un remboursement complet du billet, en plus d'une éventuelle indemnisation.",
-            "note": "Vol annulé ? Vous pourriez avoir droit à un remboursement ET une indemnisation."
-        },
-        "eligibility": {
-            "title": "Quand puis-je obtenir un remboursement ?",
-            "li1": "Votre vol a été annulé.",
-            "li2": "Vous n'avez pas accepté de vol de remplacement.",
-            "li3": "Vous n'avez pas volé.",
-            "li4": "Vous avez annulé votre réservation remboursable."
-        },
-        "amount": {
-            "title": "Combien puis-je récupérer ?",
-            "p1": "Le remboursement couvre le prix total du billet, y compris les taxes.",
-            "p2": "En plus, vous pourriez avoir droit à une indemnisation allant jusqu'à 600 €."
-        },
-        "howToClaim": {
-            "title": "Comment obtenir mon remboursement ?",
-            "li1": "Contactez la compagnie aérienne directement.",
-            "li2": "Demandez un remboursement, pas un avoir.",
-            "li3": "Gardez une trace de toutes les communications.",
-            "li4": "Si la compagnie refuse, déposez une plainte."
-        },
-        "faq": {
-            "title": "Questions fréquentes",
-            "q1": "Remboursement ou indemnisation ?",
-            "a1": "Vous pouvez avoir droit aux deux.",
-            "q2": "Combien de temps pour le remboursement ?",
-            "a2": "La compagnie doit rembourser sous 7 jours (UE).",
-            "q3": "Et si j'ai un avoir ?",
-            "a3": "Vous pouvez demander un remboursement à la place.",
-            "q4": "Puis-je réclamer via mon assurance ?",
-            "a4": "Demandez d'abord à la compagnie, puis à l'assurance.",
-            "q5": "Et les frais de l'agence de voyage ?",
-            "a5": "La compagnie rembourse le billet, l'agence ses frais.",
-            "q6": "Et si la compagnie refuse ?",
-            "a6": "Déposez une plainte ou faites appel à FlyCompense."
-        },
-        "why": {
-            "title": "Pourquoi FlyCompense ?",
-            "p1": "Nous gérons tout le processus de réclamation pour vous.",
-            "p2": "Pas de succès, pas de frais."
-        },
-        "bottomCta": {
-            "title": "Vous vous demandez si votre vol est éligible ?"
         }
     },
     "airPassengerRights": {
@@ -2446,6 +2395,141 @@
                 "respecter votre confidentialité et la sécurité de vos données,",
                 "maximiser vos chances d’obtenir votre compensation."
             ]
+        }
+    },
+    "flightRefund": {
+        "heroTitle": "Remboursement de vol : Récupérez votre argent pour les vols annulés ou retardés",
+        "nav": {
+            "summary": "Aperçu",
+            "when": "Quand obtenir un remboursement",
+            "cancellation": "Annulation",
+            "delay": "Retard",
+            "changes": "Changements d'horaire",
+            "faq": "FAQ",
+            "why": "Pourquoi nous choisir"
+        },
+        "summary": {
+            "title": "Les règles de remboursement expliquées",
+            "p1": "Si votre vol a été annulé ou considérablement retardé, vous pouvez avoir droit au remboursement complet du billet en plus de l'indemnisation.",
+            "p2": "Les compagnies essaient souvent d'offrir des bons, mais en vertu du Règlement CE 261/2004, vous avez droit à un remboursement en espèces."
+        },
+        "entitled": {
+            "title": "Quand avez-vous droit à un remboursement de vol ?",
+            "h3Refund": "Remboursement du billet",
+            "noteRefund": "Vous avez droit à un remboursement complet si :",
+            "li1": "Votre vol a été annulé et vous avez choisi de ne pas prendre le vol alternatif.",
+            "li2": "Votre vol a été retardé de plus de 5 heures et vous avez choisi de ne pas voyager.",
+            "li3": "On vous a refusé l'embarquement et vous avez choisi de ne pas être réacheminé.",
+            "p1": "Le remboursement doit être payé en espèces ou par virement bancaire dans les 7 jours.",
+            "p2": "Les bons d'achat ne peuvent être utilisés que si vous les acceptez explicitement.",
+            "h3Comp": "Indemnisation de vol",
+            "noteComp": "En plus d'un remboursement, vous pourriez obtenir jusqu'à 600 € d'indemnisation si :",
+            "compLi1": "Le vol a été annulé moins de 14 jours avant le départ.",
+            "compLi2": "Le retard à l'arrivée était de plus de 3 heures.",
+            "compLi3": "C'était une situation de surbooking.",
+            "compLi4": "Ce n'était pas une « circonstance extraordinaire » (ex. mauvais temps).",
+            "compLi5": "Le vol partait d'un aéroport de l'UE.",
+            "compLi6": "Ou arrivait dans un aéroport de l'UE avec une compagnie de l'UE.",
+            "compLi7": "Vous vous êtes enregistré à l'heure."
+        },
+        "inlineCta": {
+            "title1": "Vérifiez votre éligibilité au remboursement",
+            "chip1": "Vérification gratuite",
+            "chip2": "Pas de succès, pas de frais",
+            "chip3": "Jusqu'à 600 €",
+            "btn": "Vérifier l'indemnisation",
+            "title2": "N'acceptez pas de bons si vous voulez de l'argent",
+            "title3": "Retards de plus de 5 heures = Droit au remboursement"
+        },
+        "cancellation": {
+            "title": "Remboursement pour annulation de vol",
+            "h3Can": "Puis-je obtenir un remboursement pour un vol annulé ?",
+            "p1": "Oui. Si votre vol est annulé, vous avez toujours le choix entre :",
+            "li1": "Un remboursement complet de votre billet.",
+            "li2": "Un réacheminement vers votre destination finale dans les meilleurs délais.",
+            "li3": "Un réacheminement à une date ultérieure à votre convenance.",
+            "p2": "Si vous choisissez le remboursement, vous ne prenez pas le vol alternatif.",
+            "p3": "Vous êtes éligible quelle que soit la raison de l'annulation.",
+            "p4": "De plus, vous pouvez obtenir une indemnisation si notifié tardivement :",
+            "li4": "Moins de 14 jours de préavis.",
+            "li5": "Ce n'étaient pas des circonstances extraordinaires.",
+            "li6": "Le vol alternatif arrive beaucoup plus tard.",
+            "h3Add": "Frais supplémentaires",
+            "addP1": "Si vous êtes coincé à l'aéroport en attendant un réacheminement, la compagnie doit fournir une assistance (repas, boissons, hôtel).",
+            "addP2": "Si vous avez dû payer pour cela vous-même, gardez les reçus pour remboursement.",
+            "h3HowMuch": "Combien d'indemnisation pour annulation ?",
+            "noteHowMuch": "Montants d'indemnisation basés sur la distance :",
+            "thDist": "Distance",
+            "thLess2": "< 2h de retard",
+            "th23": "2 – 3 heures",
+            "th34": "3 – 4 heures",
+            "thMore4": "Plus de 4 heures",
+            "thNever": "Jamais arrivé",
+            "dist1": "Vols ≤ 1 500 km",
+            "dist2": "Intra-UE > 1 500 km",
+            "dist3": "Non-UE 1 500 - 3 500 km",
+            "dist4": "Non-UE > 3 500 km",
+            "h3NotEntitled": "Quand n'avez-vous PAS droit à l'indemnisation ?",
+            "notEntP1": "Tous les vols ne donnent pas droit à une indemnisation. Si vous avez été informé de l'annulation ou du retard au moins 14 jours avant votre départ, votre vol n'est pas éligible.",
+            "notEntP2": "Selon le CE 261, si la perturbation est causée par des « circonstances extraordinaires » (événements hors du contrôle de la compagnie), aucune indemnisation n'est due. Cela inclut :",
+            "extraTitle": "Circonstances extraordinaires",
+            "extraLi1": "Mauvaises conditions météorologiques",
+            "extraLi2": "Grèves du contrôle aérien",
+            "extraLi3": "Instabilité politique",
+            "extraLi4": "Risques de sécurité",
+            "notEntNote": "Cependant, vous obtenez toujours le remboursement du prix du billet même dans ces cas si vous ne volez pas."
+        },
+        "delay": {
+            "title": "Remboursement pour retard de vol",
+            "h3Can": "Puis-je obtenir un remboursement pour un vol retardé ?",
+            "p1": "Oui, mais seulement pour les longs retards.",
+            "p2": "Si votre vol a un retard de 5 heures ou plus au départ, vous pouvez renoncer à votre voyage et obtenir un remboursement complet.",
+            "p3": "Si vous êtes retardé de moins de 5 heures, vous ne pouvez pas obtenir de remboursement si vous décidez simplement de ne pas partir, sauf si votre type de billet le permet.",
+            "p4": "Cependant, pour les retards > 3 heures à l'arrivée, vous obtenez une indemnisation.",
+            "h3Add": "Prise en charge et assistance",
+            "addP1": "Pour les retards > 2 heures, vous obtenez repas et boissons.",
+            "addP2": "Retard d'une nuit = Hôtel.",
+            "h3HowMuch": "Indemnisation pour retard (>3h)",
+            "noteHowMuch": "Montants basés sur le retard à l'arrivée :",
+            "thDelay": "Retard à l'arrivée",
+            "thUnder3": "< 3h",
+            "valNone": "Aucun",
+            "h3NotEntitled": "Exceptions",
+            "notEntP1": "Pas d'indemnisation pour circonstances extraordinaires.",
+            "notEntP2": "Mais la prise en charge (repas/hôtel) est toujours due."
+        },
+        "changes": {
+            "title": "Changements d'horaire",
+            "p1": "Si la compagnie modifie votre heure de vol de manière significative, cela peut être considéré comme une annulation.",
+            "h3Free": "Annulation gratuite ?",
+            "freeP1": "Si le nouvel horaire ne vous convient pas (ex. > 1h de différence), vous pouvez souvent demander un remboursement.",
+            "freeP2": "Vérifiez la politique spécifique de la compagnie, mais les règles de l'UE favorisent le passager pour les changements importants.",
+            "h3Flex": "Billets flexibles",
+            "flexP1": "Si vous avez acheté un billet flexible, vous pouvez vous faire rembourser pour n'importe quelle raison.",
+            "flexP2": "Les billets non remboursables ne sont remboursés que si la compagnie est en faute."
+        },
+        "faq": {
+            "title": "Questions fréquentes",
+            "q1": "Puis-je obtenir un remboursement si j'annule mon vol ?",
+            "a1": "Seulement si vous avez un billet flexible ou si vous annulez dans les 24h (pour certains vols US). Sinon, généralement juste les taxes.",
+            "q2": "Combien de temps prend un remboursement ?",
+            "a2": "Idéalement 7 jours, mais cela peut prendre des semaines. Si vous réclamez avec nous, nous les relançons.",
+            "q3": "Bon d'achat ou argent ?",
+            "a3": "Demandez toujours de l'argent. Les bons ont des dates d'expiration.",
+            "q4": "Puis-je obtenir une indemnisation ET un remboursement ?",
+            "a4": "Oui, si le vol est annulé/retardé > 5h ET que vous choisissez de ne pas être réacheminé.",
+            "q5": "Qu'en est-il des billets non remboursables ?",
+            "a5": "Si la compagnie annule, même les billets non remboursables doivent être remboursés.",
+            "q6": "Cela s'applique-t-il aux compagnies américaines ?",
+            "a6": "Pour les vols partant de l'UE, oui. Pour les vols vers l'UE sur des compagnies non-UE, non (mais les règles US peuvent donner droit au remboursement pour annulation)."
+        },
+        "why": {
+            "title": "Pourquoi utiliser FlyCompense ?",
+            "p1": "Nous connaissons la loi et les excuses des compagnies aériennes.",
+            "p2": "Nous ne sommes payés que si vous êtes payé."
+        },
+        "bottomCta": {
+            "title": "Ne laissez pas la compagnie garder votre argent."
         }
     }
 }

@@ -449,14 +449,6 @@
         "twitterTitle": "FlyCompense - #1 Flight Compensation Experts",
         "twitterDescription": "Delayed or canceled flight? Get up to €650 in compensation!"
     },
-    "commonHero": {
-        "subtitle": "We help you enforce your passenger rights",
-        "chips": {
-            "years": "Flights from last 3 years",
-            "global": "Covers global and EU routes",
-            "negotiations": "We handle negotiations"
-        }
-    },
     "flightCancellation": {
         "heroTitle": "Flight Cancellation Compensation in USA & EU",
         "nav": {
@@ -615,6 +607,11 @@
             "a10": "US laws don't mandate compensation for cancellations, only for denied boarding. However, you are entitled to a refund if you choose not to travel.",
             "q11": "Can I still get compensation for UK flights after Brexit?",
             "a11": "Yes. The UK has incorporated EC 261 into UK law (UK 261). Your rights are largely the same."
+        },
+        "stats": {
+            "maxComp": "Max compensation",
+            "claimWindow": "Claim window",
+            "successRate": "Success rate"
         }
     },
     "missedConnection": {
@@ -1213,139 +1210,138 @@
         }
     },
     "flightRefund": {
-        "heroTitle": "Flight Refund EU: Your Passenger Rights",
-        "heroSubtitle": "We help you understand European flight refund laws and check if you are entitled to compensation.",
+        "heroTitle": "Flight Refund: Get your money back for cancelled or delayed flights",
         "nav": {
-            "summary": "Summary",
-            "when": "When am I entitled?",
-            "cancellation": "Cancellation refund",
-            "delay": "Delay refund",
-            "changes": "Changes & refunds",
+            "summary": "Overview",
+            "when": "When to get a refund",
+            "cancellation": "Cancellation",
+            "delay": "Delay",
+            "changes": "Schedule Changes",
             "faq": "FAQ",
-            "why": "Why FlyCompense?"
+            "why": "Why choose us"
         },
         "summary": {
-            "title": "Flight Cancellation Refund - Your Rights",
-            "p1": "When you take an EU flight and it’s disrupted, you’re often entitled to money back from the airline. But if you’re confused about whether to ask for a flight refund under EC 261, or whether to demand compensation, we have good news for you. In some cases, you might be entitled to both.",
-            "p2": "Here’s the difference: If you can no longer take the flight, EU law says you have the right to a full flight refund. But, depending on the reason for the disruption, you might also be entitled to compensation, to make up for the inconvenience."
+            "title": "Flight Refund Rules Explained",
+            "p1": "If your flight was cancelled or significantly delayed, you may be entitled to a full ticket refund in addition to compensation.",
+            "p2": "Airlines often try to offer vouchers, but under EU Regulation 261/2004, you have the right to a cash refund."
         },
         "entitled": {
-            "title": "When are you entitled for a flight refund or flight compensation?",
-            "h3Refund": "When can you get a refund on plane tickets?",
-            "noteRefund": "You are entitled to a flight refund if:",
-            "li1": "If your flight was delayed by more than 5 hours, and you no longer want to take the flight.",
-            "li2": "OR If your flight was canceled less than 14 days before departure, and the alternative flight offered doesn't serve your original travel plans.",
-            "li3": "OR If you have been denied boarding but you don't want to take the alternative flight offered.",
-            "p1": "According to EC 261, you have the right to a flight cancellation refund if your flight has been canceled. You will be offered an alternative flight, and you can request a different alternative if you prefer. But if none of the available flights suit your travel plans, you can request a full refund.",
-            "p2": "The same goes for a flight delay refund – if your flight was delayed by more than 5 hours, you have the right to decide not to take your flight, and ask for a refund. This is because a five-hour delay is just as inconvenient as a total cancellation.",
-            "h3Comp": "When can you get a compensation?",
-            "noteComp": "Regardless of the refund, you are entitled to flight compensation if:",
-            "compLi1": "Your flight was delayed for 3 hours or more.",
-            "compLi2": "OR Your flight was canceled less than 14 days before it was due to depart.",
-            "compLi3": "OR You were denied boarding due to overbooking.",
-            "compLi4": "AND Your flight was set to depart from the EU or was on an EU airline arriving in the EU.",
-            "compLi5": "AND You had a confirmed flight reservation.",
-            "compLi6": "AND Your flight disruption occurred in the last 3 years.",
-            "compLi7": "AND The reason for the flight disruption was within the airline's control."
+            "title": "When are you entitled to a flight refund?",
+            "h3Refund": "Ticket Refund",
+            "noteRefund": "You are entitled to a full refund if:",
+            "li1": "Your flight was cancelled and you chose not to take the alternative flight.",
+            "li2": "Your flight was delayed by more than 5 hours and you chose not to travel.",
+            "li3": "You were denied boarding and chose not to take the re-routing.",
+            "p1": "The refund must be paid in cash or bank transfer within 7 days.",
+            "p2": "Vouchers can only be used if you explicitly agree to them.",
+            "h3Comp": "Flight Compensation",
+            "noteComp": "In addition to a refund, you might get up to €600 compensation if:",
+            "compLi1": "The flight was cancelled less than 14 days before departure.",
+            "compLi2": "The delay at arrival was more than 3 hours.",
+            "compLi3": "It was an overbooking situation.",
+            "compLi4": "It was not a 'extraordinary circumstance' (e.g. bad weather).",
+            "compLi5": "The flight departed from an EU airport.",
+            "compLi6": "Or arrived at an EU airport with an EU airline.",
+            "compLi7": "You checked in on time."
         },
         "inlineCta": {
-            "title1": "Find out if your flight qualifies today!",
-            "title2": "Canceled flight? Find out what you're owed",
-            "title3": "Find out if your flight delay qualifies for compensation",
-            "chip1": "All airlines",
-            "chip2": "All countries",
-            "chip3": "No win, no fee",
-            "btn": "Check now"
+            "title1": "Check your flight refund eligibility",
+            "chip1": "Free check",
+            "chip2": "No win, no fee",
+            "chip3": "Up to €600",
+            "btn": "Check Compensation",
+            "title2": "Don't accept vouchers if you want cash",
+            "title3": "Delays over 5 hours = Refund right"
         },
         "cancellation": {
-            "title": "Flight Cancellation Refund - Your Rights",
-            "h3Can": "Can I get a flight cancellation refund?",
-            "p1": "A flight cancellation refund is just one of the options available to you in the event that your flight was canceled less than 14 days before your departure. According to EC 261, all canceled flights are entitled to either a:",
-            "li1": "Full or partial refund of your ticket, with a return flight to your original departure point if needed.",
-            "li2": "Earliest possible alternative transport to your final destination.",
-            "li3": "A new ticket to your final destination at a later date of your choosing.",
-            "p2": "If you choose to get your flight refunded, the airline must send reimbursement within 7 days. It must be paid in cash, by means of electronic bank transfer, bank orders, or bank checks.",
-            "p3": "Alternatively, airlines can also offer compensation by means of travel vouchers or other services, but only by signed agreement of the passenger. If you want to receive your refund in cash, always check what documents you are signing before accepting any vouchers!",
-            "p4": "If you have not yet departed, you will be refunded the full cost of your ticket. However, if you have already departed, it gets a bit more complex.",
-            "li4": "Generally, you can get a partial refund for the unused portion of your ticket.",
-            "li5": "If the alternative flight offered to you no longer serves your original travel plan, you can demand a full refund (including the used portion).",
-            "li6": "If needed, the airline must also provide you with a return flight to the first point of departure.",
-            "h3Add": "What are additional compensation for canceled flights?",
-            "addP1": "Passengers can receive both a refund of an airline ticket and compensation for the cancellation, provided that their flight qualifies for compensation.",
-            "addP2": "To qualify, the airline must have let you know about the flight cancellation less than 14 days before it was due to depart. There are some other factors to take into account – whether they are able to offer you a very similar replacement for example.",
-            "h3HowMuch": "How much is the compensation for canceled flights?",
-            "noteHowMuch": "The amount of compensation depends on the length of your flight, and when the alternative flight would have arrived compared to your original flight:",
+            "title": "Flight Cancellation Refund",
+            "h3Can": "Can I get a refund for a cancelled flight?",
+            "p1": "Yes. If your flight is cancelled, you always have the choice between:",
+            "li1": "A full refund of your ticket.",
+            "li2": "A re-routing to your final destination at the earliest opportunity.",
+            "li3": "A re-routing at a later date of your convenience.",
+            "p2": "If you choose the refund, you do not take the alternative flight.",
+            "p3": "You are eligible regardless of the reason for cancellation.",
+            "p4": "Additionally, you may get compensation if notified late:",
+            "li4": "Less than 14 days notice.",
+            "li5": "It wasn't extraordinary circumstances.",
+            "li6": "The alternative flight arrives much later.",
+            "h3Add": "Additional Expenses",
+            "addP1": "If you are stuck at the airport waiting for a rerouting, the airline must provide care (food, drink, hotel).",
+            "addP2": "If you had to pay for these yourself, keep receipts for reimbursement.",
+            "h3HowMuch": "How much compensation for cancellation?",
+            "noteHowMuch": "Compensation amounts based on distance:",
             "thDist": "Distance",
-            "thLess2": "Less than 2 hours",
-            "th23": "2 - 3 hours",
-            "th34": "3 - 4 hours",
+            "thLess2": "< 2h delay",
+            "th23": "2 – 3 hours",
+            "th34": "3 – 4 hours",
             "thMore4": "More than 4 hours",
             "thNever": "Never arrived",
-            "dist1": "All flights 1,500 km or less",
-            "dist2": "Internal EU flights over 1,500 km",
-            "dist3": "Non-internal EU flights 1,500 km - 3,500 km",
-            "dist4": "Non-internal EU flights over 3,500 km",
-            "h3NotEntitled": "Which situations are not entitled to compensation?",
+            "dist1": "Flights ≤ 1,500 km",
+            "dist2": "Intra-EU > 1,500 km",
+            "dist3": "Non-EU 1,500 - 3,500 km",
+            "dist4": "Non-EU > 3,500 km",
+            "h3NotEntitled": "When are you NOT entitled to compensation?",
             "notEntP1": "Not all flights qualify for compensation. If you were informed about the cancellation or delay at least 14 days or more before your departure, your flight does not qualify for compensation.",
             "notEntP2": "According to EC 261, if the disruption is caused by ‘extraordinary circumstances’, the airlines are not obligated to pay. Extraordinary circumstances are events that are beyond the airline’s control. This includes:",
             "extraTitle": "Extraordinary Circumstances",
-            "extraLi1": "Strikes initiated by airport employees or air traffic control",
-            "extraLi2": "Political unrest",
-            "extraLi3": "Weather issues",
+            "extraLi1": "Bad weather conditions",
+            "extraLi2": "Air traffic control strikes",
+            "extraLi3": "Political instability",
             "extraLi4": "Security risks",
-            "notEntNote": "Remember: even if the airline is not responsible for the disruption, you still have the right to a flight refund and to receive care."
+            "notEntNote": "However, you still get the refund of the ticket price even in these cases if you don't fly."
         },
         "delay": {
-            "title": "Flight Delay Refunds - Your Rights",
+            "title": "Flight Delay Refund",
             "h3Can": "Can I get a refund for a delayed flight?",
-            "p1": "An extensively delayed flight inconveniences a customer just as much as a canceled flight. You have the right to get a refund if your flight was delayed by more than 5 hours.",
-            "p2": "After you have been waiting that long, you can choose to abandon your flight rather than continue to wait. At that point you are entitled to a full refund if you have yet to travel, or a partial refund if you have already flown part of the route.",
-            "p3": "If you can show that because of the delay, the flight no longer works for the purpose that you booked it for – for example you will be too late to attend a business meeting – you can ask for a full refund, including parts of the ticket you have flown. You can also ask for a ticket back to your original departure point if needed.",
-            "p4": "As with a canceled flight, your refund must be paid in cash within 7 days by means of electronic bank transfer, bank orders, or bank checks.",
-            "h3Add": "When am I entitled to additional compensation for delayed flights?",
-            "addP1": "As with cancellations, passengers can receive both a refund and compensation for a flight delay, provided that their flight qualifies.",
-            "addP2": "The threshold for compensation for delayed flights is 3 hours, so lower than the 5 hour-delay threshold for flight refunds.",
-            "h3HowMuch": "How much compensation for delayed flights can I get?",
-            "noteHowMuch": "The amount of compensation depends on the length of your delay:",
-            "thDelay": "Length of delay",
-            "thUnder3": "Under 3 hours",
-            "valNone": "€-",
-            "h3NotEntitled": "Which situations am I not entitled to flight delay compensation?",
-            "notEntP1": "You are not entitled to compensation if the reason for the delay is an extraordinary circumstance. These are situations that are beyond the airline’s control, such as:",
-            "notEntP2": "However, regardless of whether the delay falls under the airline’s responsibility, you still have the right to care, which includes meals, drinks, and where applicable, accommodation and transport."
+            "p1": "Yes, but only for long delays.",
+            "p2": "If your flight has a delay of 5 hours or more at departure, you can abandon your journey and get a full refund.",
+            "p3": "If you are delayed less than 5 hours, you cannot get a refund if you simply decide not to go, unless your ticket type allows it.",
+            "p4": "However, for delays > 3 hours at arrival, you get compensation.",
+            "h3Add": "Care and Assistance",
+            "addP1": "For delays > 2 hours, you get food and drink.",
+            "addP2": "Overnight delay = Hotel.",
+            "h3HowMuch": "Compensation for delay (>3h)",
+            "noteHowMuch": "Amounts based on arrival delay:",
+            "thDelay": "Delay at arrival",
+            "thUnder3": "< 3h",
+            "valNone": "None",
+            "h3NotEntitled": "Exceptions",
+            "notEntP1": "No compensation for extraordinary circumstances.",
+            "notEntP2": "But care (food/hotel) is always due."
         },
         "changes": {
-            "title": "Flight Changes and Refunds",
-            "p1": "There are times when you need to make a change to your flight, or perhaps you can’t travel at all and need a refund. Airlines will usually charge a fee if you try to change your flight, but there are some exceptions and some ways around the fees.",
-            "h3Free": "Free changes and refunds within 24 hours of booking",
-            "freeP1": "For flights that are within the United States, you can change your flight or receive a refund if you cancel your flight within 24 hours of booking, but only if your flight is at least 7 days away.",
-            "freeP2": "However, be sure to check with your airline carrier, as some airlines have more generous cancellation and rebooking policies.",
-            "h3Flex": "Flexible tickets",
-            "flexP1": "Air passengers have also the option of purchasing flexible flight tickets, also known as re-bookable flights.",
-            "flexP2": "These tickets often allow at least one free date change to your booking, which is ideal for business travelers or travelers who would like some additional flexibility when they fly."
+            "title": "Schedule Changes",
+            "p1": "If the airline changes your flight time significantly, it may be considered a cancellation.",
+            "h3Free": "Free Cancellation?",
+            "freeP1": "If the new time doesn't suit you (e.g. > 1h difference), you can often request a refund.",
+            "freeP2": "Check the airline's specific policy, but EU rules favor the passenger for significant changes.",
+            "h3Flex": "Flexible Tickets",
+            "flexP1": "If you bought a flexible ticket, you can refund for any reason.",
+            "flexP2": "Non-refundable tickets only get refunded if the airline is at fault."
         },
         "faq": {
-            "title": "Commonly asked questions",
-            "q1": "If my inbound or outbound flight was cancelled, can I get a refund?",
-            "a1": "Yes. If one leg is cancelled, you can get a refund for that part. If the cancellation makes the whole trip pointless, you can get a full refund for all parts.",
-            "q2": "If I have travel insurance, can I get a refund?",
-            "a2": "You should always claim a refund from the airline first. Insurance covers losses the airline won't pay for.",
-            "q3": "If I purchased a flight through a travel agency, can I get my tickets refunded?",
-            "a3": "Yes. The airline is responsible for the refund, though you may need to request it through your agent. Under EU law, the obligation is on the operating carrier.",
-            "q4": "If I paid with a credit card, is it possible to get a refund for my flight?",
-            "a4": "Yes, refunds are typically returned to the original payment method. If the airline goes bankrupt or refuses, you may be able to claim a 'chargeback' from your card provider.",
-            "q5": "Can I get a refund for a flight ticket that I bought with my air miles?",
-            "a5": "Yes, your miles/points should be credited back to your account. Any taxes or fees paid in cash should be refunded in cash.",
-            "q6": "What can I do if I haven't got the refund that the airline or travel agency promised me?",
-            "a6": "If they delay payment, you can file a complaint with the national enforcement body or seek legal help. FlyCompense can also check if you are owed compensation on top of the refund."
+            "title": "Common Questions",
+            "q1": "Can I get a refund if I cancel my flight?",
+            "a1": "Only if you have a flexible ticket or if you cancel within 24h (for some US flights). Otherwise, usually just taxes.",
+            "q2": "How long does a refund take?",
+            "a2": "Ideally 7 days, but can take weeks. If you claim with us, we chase them.",
+            "q3": "Voucher or Cash?",
+            "a3": "Always ask for cash. Vouchers have expiry dates.",
+            "q4": "Can I get compensation AND a refund?",
+            "a4": "Yes, if the flight is cancelled/delayed > 5h AND you choose not to be rebooked.",
+            "q5": "What about non-refundable tickets?",
+            "a5": "If the airline cancels, even non-refundable tickets must be refunded.",
+            "q6": "Does this apply to US airlines?",
+            "a6": "For flights departing from EU, yes. For flights to EU on non-EU airlines, no (but US rules might give refund for cancellation)."
         },
         "why": {
-            "title": "Why FlyCompense?",
-            "p1": "FlyCompense is the world’s most successful flight compensation company, with lawyers in more than 30 countries. We pursue each claim using state-of-the-art technology, allowing us to process each claim efficiently.",
-            "p2": "We take the stress out of the claim process and handle all the heavy lifting for you. Plus we operate on a no win, no fee basis, which means that submitting a claim with us is always risk-free."
+            "title": "Why use FlyCompense?",
+            "p1": "We know the law and airline excuses.",
+            "p2": "We only get paid if you get paid."
         },
         "bottomCta": {
-            "title": "Wondering if your flight qualifies for compensation?"
+            "title": "Don't let the airline keep your money."
         }
     },
     "airPassengerRights": {
@@ -2567,6 +2563,13 @@
                 "respecting your privacy and the security of your data,",
                 "maximizing your chances of obtaining your compensation."
             ]
+        }
+    },
+    "commonHero": {
+        "chips": {
+            "years": "Flights from last 3 years",
+            "global": "Global & EU coverage",
+            "negotiations": "We handle negotiations"
         }
     }
 }

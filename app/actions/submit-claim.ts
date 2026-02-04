@@ -83,36 +83,62 @@ export async function submitClaim(formData: any) {
 
         // Send confirmation email
         if (formData.email) {
+            const preferredLanguage = (formData.preferredLanguage || '').toLowerCase();
+            const isFrench = preferredLanguage.startsWith('fr');
+            const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.flycompense.com';
+            const dashboardUrl = `${siteUrl}/dashboard`;
+            const logoUrl = `${siteUrl}/favicon-logo.png`;
+            const fullName = [formData.firstName, formData.lastName].filter(Boolean).join(' ').trim();
+            const fallbackName = isFrench ? 'Cher client' : 'Dear customer';
+            const greetingName = fullName || fallbackName;
+
+            const subject = isFrench
+                ? 'Confirmation de réception de votre dossier'
+                : 'Confirmation of your claim submission';
+
+            const html = isFrench
+                ? `
+                    <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 640px; margin: 0 auto; padding: 32px; color: #0E1F3B; background: #F9FBFF; border-radius: 12px;">
+                        <h1 style="font-size: 22px; margin-bottom: 16px;">Bonjour ${greetingName},</h1>
+                        <p style="margin: 0 0 16px;">Merci d’avoir soumis votre dossier de réclamation via FlyCompense.</p>
+                        <p style="margin: 0 0 16px;">Nous vous confirmons que votre dossier a bien été déposé (réf. <strong>#${result[0].id}</strong>) et enregistré dans notre système.</p>
+                        <h2 style="font-size: 18px; margin: 24px 0 8px;">🔍 Prochaine étape</h2>
+                        <p style="margin: 0 0 16px;">Notre équipe va analyser votre dossier afin de vérifier son éligibilité conformément à la réglementation européenne en vigueur. Vous serez informé·e par email de l’évolution de votre demande.</p>
+                        <p style="margin: 0 0 16px;">👉 Vous pouvez consulter ou compléter votre dossier à tout moment depuis votre espace personnel :</p>
+                        <p style="margin: 0 0 24px;">
+                            <a href="${dashboardUrl}" style="display: inline-block; background: #FF8A00; color: #FFF; padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none;">Accéder à mon espace</a>
+                        </p>
+                        <p style="margin: 0 0 16px;">📌 Important : merci de vérifier que toutes les informations et documents transmis sont exacts et complets afin d’éviter tout retard de traitement.</p>
+                        <p style="margin: 0 0 16px;">Si vous avez des questions, notre équipe reste à votre disposition : <a href="mailto:support@flycompense.com" style="color: #0284C7;">support@flycompense.com</a></p>
+                        <p style="margin: 0 0 4px;">Merci de votre confiance,</p>
+                        <p style="margin: 0 0 24px;">L’équipe FlyCompense ✈️</p>
+                        <img src="${logoUrl}" alt="FlyCompense" style="height: 48px; display: block; margin-top: 24px;" />
+                    </div>
+                `
+                : `
+                    <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 640px; margin: 0 auto; padding: 32px; color: #0E1F3B; background: #F9FBFF; border-radius: 12px;">
+                        <h1 style="font-size: 22px; margin-bottom: 16px;">Hello ${greetingName},</h1>
+                        <p style="margin: 0 0 16px;">Thank you for submitting your flight compensation claim through FlyCompense.</p>
+                        <p style="margin: 0 0 16px;">We confirm that your claim has been successfully submitted (Ref. <strong>#${result[0].id}</strong>) and securely registered in our system.</p>
+                        <h2 style="font-size: 18px; margin: 24px 0 8px;">🔍 Next steps</h2>
+                        <p style="margin: 0 0 16px;">Our team will review your claim to determine its eligibility under applicable European regulations. You will be notified by email as your case progresses.</p>
+                        <p style="margin: 0 0 16px;">👉 You can view or update your claim at any time via your personal dashboard:</p>
+                        <p style="margin: 0 0 24px;">
+                            <a href="${dashboardUrl}" style="display: inline-block; background: #FF8A00; color: #FFF; padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none;">Go to my dashboard</a>
+                        </p>
+                        <p style="margin: 0 0 16px;">📌 Important: please make sure that all information and documents provided are accurate and complete to ensure smooth processing.</p>
+                        <p style="margin: 0 0 16px;">If you have any questions, our team is here to help: <a href="mailto:support@flycompense.com" style="color: #0284C7;">support@flycompense.com</a></p>
+                        <p style="margin: 0 0 4px;">Thank you for trusting us,</p>
+                        <p style="margin: 0 0 24px;">The FlyCompense Team ✈️</p>
+                        <img src="${logoUrl}" alt="FlyCompense" style="height: 48px; display: block; margin-top: 24px;" />
+                    </div>
+                `;
+
             const { sendEmail } = await import('@/lib/mail');
             await sendEmail({
                 to: formData.email,
-                subject: 'Claim Received - FlyCompense',
-                html: `
-                    <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-                        <img src="https://flycompense.com/public/logo.png" alt="FlyCompense" style="height: 40px; margin-bottom: 20px;" />
-                        <h1 style="color: #0E1F3B; font-size: 24px;">Claim Received Successfully</h1>
-                        <p>Hello ${formData.firstName || 'Traveler'},</p>
-                        <p>We have successfully received your compensation claim (Ref: <strong>#${result[0].id}</strong>).</p>
-                        <p>Our legal experts will now review your case to determine your eligibility for compensation.</p>
-                        
-                        <div style="background: #F0F9FF; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                            <h3 style="margin-top: 0; color: #0284C7;">Next Steps</h3>
-                            <ul style="padding-left: 20px; margin-bottom: 0;">
-                                <li>Case analysis (24-48h)</li>
-                                <li>Communication with airline</li>
-                                <li>Legal processing</li>
-                            </ul>
-                        </div>
-
-                        <p>We will keep you updated via email on every significant step.</p>
-                        
-                        <a href="https://www.flycompense.com/dashboard" style="display: inline-block; background: #FF8A00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px;">Track Claim Status</a>
-                        
-                        <p style="margin-top: 30px; font-size: 12px; color: #888;">
-                            If you have additional documents, you can upload them in your dashboard.
-                        </p>
-                    </div>
-                `,
+                subject,
+                html,
             });
         }
 

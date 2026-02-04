@@ -51,9 +51,9 @@ export default function Page() {
 
     // Stats data
     const statsData = [
-        { value: '€600', label: 'Max compensation', icon: '💶' },
-        { value: '3 yrs', label: 'Claim window', icon: '📅' },
-        { value: '98%', label: 'Success rate', icon: '✅' },
+        { value: '€600', label: t('stats.maxComp'), icon: '💶' },
+        { value: '3 yrs', label: t('stats.claimWindow'), icon: '📅' },
+        { value: '98%', label: t('stats.successRate'), icon: '✅' },
     ];
 
     // Compensation amounts for cards
