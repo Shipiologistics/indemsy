@@ -193,7 +193,7 @@
         "allRights": "All rights reserved."
     },
     "stickyCta": {
-        "title": "Claim up to €650 for your delayed or canceled flight.",
+        "title": "Claim up to €600 for your delayed or canceled flight.",
         "allAirlines": "All airlines",
         "allCountries": "All countries",
         "noWinNoFee": "No Win, No Fee",
@@ -441,13 +441,13 @@
         "required": "Required"
     },
     "metadata": {
-        "title": "FlyCompense - #1 Flight Compensation Experts | Get Up To €650",
-        "description": "Delayed or canceled flight? Get up to €650 in compensation! FlyCompense handles your claim so you get paid. Free check, no win no fee guarantee.",
+        "title": "FlyCompense - #1 Flight Compensation Experts | Get Up To €600",
+        "description": "Delayed or canceled flight? Get up to €600 in compensation! FlyCompense handles your claim so you get paid. Free check, no win no fee guarantee.",
         "keywords": "flight compensation, delayed flight, canceled flight, airline compensation, missed connection, EU261, flight delay claim, airline claim, Luxembourg",
         "ogTitle": "FlyCompense - #1 Flight Compensation Experts",
-        "ogDescription": "Delayed or canceled flight? Get up to €650 in compensation! Free check, no win no fee guarantee.",
+        "ogDescription": "Delayed or canceled flight? Get up to €600 in compensation! Free check, no win no fee guarantee.",
         "twitterTitle": "FlyCompense - #1 Flight Compensation Experts",
-        "twitterDescription": "Delayed or canceled flight? Get up to €650 in compensation!"
+        "twitterDescription": "Delayed or canceled flight? Get up to €600 in compensation!"
     },
     "flightCancellation": {
         "heroTitle": "Flight Cancellation Compensation in USA & EU",

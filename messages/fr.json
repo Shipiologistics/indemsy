@@ -193,7 +193,7 @@
         "allRights": "Tous droits réservés."
     },
     "stickyCta": {
-        "title": "Réclamez jusqu'à 650€ pour votre vol retardé ou annulé.",
+        "title": "Réclamez jusqu'à €600 pour votre vol retardé ou annulé.",
         "allAirlines": "Toutes les compagnies",
         "allCountries": "Tous les pays",
         "noWinNoFee": "Pas de gain, pas de frais",
@@ -441,13 +441,13 @@
         "required": "Obligatoire"
     },
     "metadata": {
-        "title": "FlyCompense - Experts n°1 en indemnisation de vol | Obtenez jusqu'à 650€",
-        "description": "Vol retardé ou annulé ? Obtenez jusqu'à 650€ d'indemnisation ! FlyCompense gère votre réclamation pour que vous soyez payé. Vérification gratuite, pas de gain pas de frais.",
+        "title": "FlyCompense - Experts n°1 en indemnisation de vol | Obtenez jusqu'à €600",
+        "description": "Vol retardé ou annulé ? Obtenez jusqu'à €600 d'indemnisation ! FlyCompense gère votre réclamation pour que vous soyez payé. Vérification gratuite, pas de gain pas de frais.",
         "keywords": "indemnisation vol, vol retardé, vol annulé, indemnisation compagnie aérienne, correspondance manquée, EU261, réclamation retard vol, réclamation compagnie aérienne, Luxembourg",
         "ogTitle": "FlyCompense - Experts n°1 en indemnisation de vol",
-        "ogDescription": "Vol retardé ou annulé ? Obtenez jusqu'à 650€ d'indemnisation ! Vérification gratuite, pas de gain pas de frais.",
+        "ogDescription": "Vol retardé ou annulé ? Obtenez jusqu'à €600 d'indemnisation ! Vérification gratuite, pas de gain pas de frais.",
         "twitterTitle": "FlyCompense - Experts n°1 en indemnisation de vol",
-        "twitterDescription": "Vol retardé ou annulé ? Obtenez jusqu'à 650€ d'indemnisation !"
+        "twitterDescription": "Vol retardé ou annulé ? Obtenez jusqu'à €600 d'indemnisation !"
     },
     "commonHero": {
         "subtitle": "Nous vous aidons à faire respecter vos droits de passager",
